@@ -40,8 +40,7 @@ book:
     - part: "Logistic Regression"
     - part: "Inference"
     - part: "Appendix"
-      chapters:
-      - activities/99-appendix.qmd
+
 
 format:
   html:
