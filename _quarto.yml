@@ -1,0 +1,12 @@
+project: 
+  type: book
+
+date-format: iso
+
+execute:
+  warning: false
+  cache: false
+  freeze: false
+
+profile:
+  default: book

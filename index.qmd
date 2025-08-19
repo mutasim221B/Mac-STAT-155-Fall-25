@@ -1,0 +1,50 @@
+---
+toc: false
+---
+
+# About {.unnumbered}
+
+```{r setup, echo = FALSE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      fig.height = 2.75, 
+                      fig.width = 4.25,
+                      fig.env='figure',
+                      fig.pos = 'h',
+                      fig.align = 'center')
+# Load packages
+library(tidyverse)
+library(tint)
+library(mosaic)
+library(conflicted)
+conflict_prefer("rename", winner = "dplyr")
+conflict_prefer("filter", winner = "dplyr")
+conflict_prefer("smiths", winner = "tidyr")
+conflict_prefer("melt", winner = "reshape2")
+conflict_prefer("count", winner = "dplyr")
+conflict_prefer("group_by", winner = "dplyr")
+conflicts_prefer(ggthemes::theme_map)
+conflicts_prefer(base::sum)
+conflicts_prefer(base::min)
+conflicts_prefer(base::max)
+conflicts_prefer(base::mean)
+
+```
+
+```{r echo = FALSE, eval = FALSE}
+# making the logo
+set.seed(155)
+data.frame(x = rnorm(100)) %>% 
+  mutate(y = 2*x + 10 + rnorm(100, sd = 2)) %>% 
+  ggplot(aes(x = x, y = y)) + 
+    geom_point(color = "#D44420", size = 4) + 
+    theme_void() + 
+    theme(plot.background = element_rect(fill = '#01426A'))
+```
+
+The in-class activities in this manual were developed by the Statistics faculty in the [MSCS Department](https://macalester.edu/mscs) at [Macalester College](https://macalester.edu). Contributions include: Kelsey Grinde, Brianna Heggeseth, Alicia Johnson, Leslie Myint, Taylor Okonek, and Jedidiah Carlson. If you happen upon this manual and want to adapt the material to your own course, please properly attribute this work.
+
+<br> <br> <br>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
