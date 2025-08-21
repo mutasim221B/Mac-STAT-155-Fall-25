@@ -3,43 +3,43 @@ title: "&#32;"
 sidebar: false
 ---
 
-# STAT 155: Intro to Statistical Modeling
+# STAT 155: Introduction to Statistical Modeling
 
-Macalester College, Spring 2025
+Macalester College, Fall 2025
 
--   **Section 02**: Tu/Th 9:40-11:10am, THTR 202
--   **Section 03**: Tu/Th 1:20-2:50pm, THTR 202
--   **Section 04**: Tu/Th 3:00-4:30pm, THTR 202
+-   **Section 03**: M/W/F 09:40-10:40am, THTR 002
+-   **Section 04**: M/W/F 12:00-01:00pm, THTR 202
 
 ## Your instructor
 
-<img src="https://www.macalester.edu/mscs/wp-content/uploads/sites/591/2024/08/Carlson_headshot-scaled-150x0-c-default.jpg" width="200" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
+<img src="images/mutasim_headshot.jpg"
+width="200" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
 
-**Jedidiah (Jed) Carlson, PhD**
+**Md Mutasim Billah, PhD**
 
 **Pronouns**: he/him
 
-**Pronunciation**: [listen here](https://namedrop.io/jedidiahcarlson)
+**Pronunciation**: [listen here](https://namedrop.io/mdmutasimbillah)
 
-**Office**: Olin-Rice 235
+**Office**: Olin-Rice 234
 
-**Website**: <https://jedidiahcarlson.com>
 
-**Email**: [jcarls13\@macalester.edu](mailto:jcarls13@macalester.edu){.email}
+**Email**: [mbillah\@macalester.edu](mailto:mbillah@macalester.edu){.email}
 
-::: {.callout-note title="Call me \"Jed\""}
-You may call me (in order of my personal preference), *Jed*, *Professor Carlson*, or *Dr. Carlson*--but please use whichever of these options you are most comfortable with!
+::: {.callout-note title="Call me \"Bill\""}
+You may call me (in order of my personal preference), *Bill*, *Professor Billah*, or *Dr. Billah*--but please use whichever of these options you are most comfortable with!
 :::
 
 **Drop-in (office) hours**:
 
--   **location**: My office (OLRI 235)
--   **times**: See [this calendar](https://calendar.google.com/calendar/u/5?cid=Y19iZmU1MWU2MGYyY2U0MzQxZTY1MGE3YjUyNzI0NWUyNjRmMzg0MmQxNDVkNTY4NWMxNTEyMGVlNjM2MmQ5ZGEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20).
--   **1:1 appointments**: I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. You can schedule a time to meet with me using [this link](https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0pNmQwIYzKQcogC3cRSjfg9gDZvzT8Bk_LqXnsmO8NYA0vRJBoz_wGl4IXfk3vxIreKIqA2vbW).
+-   **Location**: My office (OLRI 234)
+-   **Times**: M/W: 01:30-02:30pm.
+-   **1:1 appointments**: I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. Shoot me an email and we can arrange it either in-person or over zoom [zoom](https://macalester.zoom.us/j/99762878654?pwd=gt7VvSNT0ubKsV2icMV3z8J0GyHKMy.1), password: 123456.
 
 ## Overview
 
-This course provides an introduction to statistical modeling. In other words, you will develop the basic skills to **analyze data**, **test research hypotheses**, and **make predictions** about the world.
+**Welcome to STAT 155!** Whether in life or research, we’re often interested in relationships between 2+ variables. For example, how is one’s commute time to class related to their distance from campus and mode of transportation? Or, 
+how is voter participation related to a person’s age and political affiliation? **Statistical modeling** is the art and science of turning data into information about such relationships of interest.
 
 Being able to **summarize**, **interpret**, and **communicate** about data are crucial for navigating today's information landscape, and these are precisely the skills that we'll build in this class. Throughout the semester, we'll study the fundamental methods that statisticians use to extract knowledge from data, emphasizing statistical literacy & intuition, real data applications, and modern computing over memorizing facts and formulas.
 
@@ -47,19 +47,21 @@ Being able to **summarize**, **interpret**, and **communicate** about data are c
 
 By actively participating in this course, you will develop and/or strengthen your abilities to:
 
--   **Visualize**: explore, understand, and describe patterns in data with plots and graphics
+-  Build, use, and interpret **graphical and numerical summaries** of data.
 
--   **Model**: build, interpret, and evaluate statistical models to identify trends in data
+-  Given a research question: **identify** an appropriate model, use sample data to **fit** the model in RStudio (free!), **evaluate** the model’s quality, and **quantify** our uncertainty in the model’s coefficients and predictions.
 
--   **Infer**: extend observations from sample data to draw conclusions and make predictions
+-  Use a sample model to make **predictions & inferences** about a population, using **prediction/confidence intervals & hypothesis tests**.
 
--   **Compute**: use the (free!) statistical software R to analyze real data and create reproducible reports
+-  **Interpret & communicate** an analysis in context & using appropriate notation, argumentation, & evidence.
 
--   **Contextualize**: interpret results in context, by considering the methods of data collection, the scientific and social contexts, and ethical dimensions
+-   Describe potential **advantages, limitations, and ethical considerations** of a data set and statistical analysis.
 
--   **Communicate**: accurately describe methods and results in a way that is scientifically sound and widely accessible
+-  Identify **common pitfalls** in statistical analyses (e.g., spurious correlation vs. causal relationships, extrapolation, multicollinearity, multiple testing, practical vs. statistical significance).
 
--   **Collaborate**: work productively and effectively in a group setting
+-   Accurately **describe methods and results** in a way that is scientifically sound and widely accessible.
+
+-   Work **productively and effectively** in a group setting.
 
 ### Required resources
 
