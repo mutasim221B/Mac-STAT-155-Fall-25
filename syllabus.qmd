@@ -13,7 +13,7 @@ Macalester College, Fall 2025
 ## Your instructor
 
 <img src="https://raw.githubusercontent.com/mutasim221B/Mac-STAT-155-Fall-25/main/images/Mutasim_Pic.jpg"
-width="200" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
+width="180" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
 
 **Md Mutasim Billah, PhD**
 
