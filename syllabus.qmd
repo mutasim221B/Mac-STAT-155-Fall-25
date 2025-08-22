@@ -76,13 +76,15 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 #| message: false
 #| warning: false
 
+# No kableExtra needed; we'll emit a plain pipe table
 library(dplyr)
-library(kableExtra)
 
-lb <- function(...) kableExtra::linebreak(c(...), align = "l")
+# helper: HTML line breaks that also work in PDF via pandoc
+lb <- function(...) paste(c(...), collapse = "<br>")
 
 df <- tibble::tribble(
   ~UNIT, ~GOAL, ~TOPIC, ~`~WEEKS`,
+
   # ---- Simple linear regression ----
   "Simple linear regression",
   "Model the relationship of a quantitative response (y) with one predictor/explanatory variable (x).",
@@ -98,8 +100,8 @@ df <- tibble::tribble(
              "R$^2$",
              "Bias / ethics / fairness"),
   "",
-  "", "", lb("Transformations"), "",
-  "", "", lb("Categorical predictors"), "",
+  "", "", "Transformations", "",
+  "", "", "Categorical predictors", "",
 
   # ---- Multiple linear regression ----
   "Multiple linear regression",
@@ -109,8 +111,8 @@ df <- tibble::tribble(
      "Model coefficients",
      "Predictions & residuals"),
   "4–7",
-  "", "", lb("Confounding & interaction"), "",
-  "", "", lb("Model building"), "",
+  "", "", "Confounding & interaction", "",
+  "", "", "Model building", "",
 
   # ---- Logistic regression ----
   "Logistic regression",
@@ -131,21 +133,20 @@ df <- tibble::tribble(
   # ---- Inference ----
   "Inference",
   "Use regression models built on sample data to make inferences about the broader population from which the data were drawn.",
-  lb("Normal distribution"), "10–14",
-  "", "", lb("Sampling distributions & the CLT"), "",
-  "", "", lb("Confidence intervals"), "",
-  "", "", lb("Hypothesis tests"), ""
+  "Normal distribution", "10–14",
+  "", "", "Sampling distributions & the CLT", "",
+  "", "", "Confidence intervals", "",
+  "", "", "Hypothesis tests", ""
 )
 
-kbl(
+# Emit a plain Markdown (pipe) table:
+knitr::kable(
   df,
-  align = c("l","l","l","c"),
-  booktabs = TRUE,
-  escape = FALSE,
-  caption = "STAT 155 — Units, goals, topics, and approximate weeks"
-) |>
-  kable_classic(full_width = FALSE) |>
-  collapse_rows(columns = 1:2, valign = "top")
+  format = "pipe",                   # plain, lined table
+  align  = c("l","l","l","c"),
+  escape = FALSE,                    # keep R^2 and <br>
+  col.names = c("UNIT","GOAL","TOPIC","~WEEKS")
+)
 ```
 
 # Required resources
