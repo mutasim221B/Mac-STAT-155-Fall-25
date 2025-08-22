@@ -69,23 +69,21 @@ with content questions, assist in the navigation of available resources, advise 
 In hiring preceptors, we prioritize and emphasize kindness and respect. I expect the same of students in their interactions with the preceptors. Please utilize and respect their experience and commitment to supporting you in this course. Please check out some [additional guidelines and expectations](https://docs.google.com/document/d/1USu-3R1NsGDVm0yU0HTzHuTpzCD3onBjNI5n8w9VBik/edit?tab=t.0) on how to interact with preceptors.
 
 ## Course schedule
+## Course schedule
 
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
 
-# install.packages(c("dplyr","kableExtra"))  # run once if needed
 library(dplyr)
 library(kableExtra)
 
-# helper for bullet-style line breaks that work in HTML & PDF
 lb <- function(...) kableExtra::linebreak(c(...), align = "l")
 
 df <- tibble::tribble(
   ~UNIT, ~GOAL, ~TOPIC, ~`~WEEKS`,
-
-  # ---------- Simple linear regression ----------
+  # ---- Simple linear regression ----
   "Simple linear regression",
   "Model the relationship of a quantitative response (y) with one predictor/explanatory variable (x).",
   lb("Univariate visual & numerical summaries"),
@@ -103,7 +101,7 @@ df <- tibble::tribble(
   "", "", lb("Transformations"), "",
   "", "", lb("Categorical predictors"), "",
 
-  # ---------- Multiple linear regression ----------
+  # ---- Multiple linear regression ----
   "Multiple linear regression",
   "Model the relationship of a quantitative response (y) with multiple predictors (x₁, x₂, …, xₚ).",
   lb("Multiple linear regression",
@@ -114,7 +112,7 @@ df <- tibble::tribble(
   "", "", lb("Confounding & interaction"), "",
   "", "", lb("Model building"), "",
 
-  # ---------- Logistic regression ----------
+  # ---- Logistic regression ----
   "Logistic regression",
   "Model the relationship of a binary categorical response (y) with one or more predictors (x₁, x₂, …, xₚ).",
   lb("Measuring uncertainty",
@@ -130,7 +128,7 @@ df <- tibble::tribble(
              "Confusion matrices"),
   "",
 
-  # ---------- Inference ----------
+  # ---- Inference ----
   "Inference",
   "Use regression models built on sample data to make inferences about the broader population from which the data were drawn.",
   lb("Normal distribution"), "10–14",
@@ -143,15 +141,11 @@ kbl(
   df,
   align = c("l","l","l","c"),
   booktabs = TRUE,
-  escape = FALSE,                              # allow math like R$^2$
+  escape = FALSE,
   caption = "STAT 155 — Units, goals, topics, and approximate weeks"
 ) |>
   kable_styling(full_width = FALSE, bootstrap_options = c("condensed")) |>
-  collapse_rows(columns = 1:2, valign = "top") |>
-  column_spec(1, width = "4cm") |>
-  column_spec(2, width = "7cm") |>
-  column_spec(3, width = "7cm") |>
-  column_spec(4, width = "2cm")
+  collapse_rows(columns = 1:2, valign = "top")
 ```
 
 ### Required resources
