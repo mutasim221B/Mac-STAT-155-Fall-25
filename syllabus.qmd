@@ -76,11 +76,10 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 #| message: false
 #| warning: false
 
-# No kableExtra needed; we'll emit a plain pipe table
 library(dplyr)
 library(gt)
 
-# helper: HTML line breaks that also work in PDF via pandoc
+# helper: HTML line breaks
 lb <- function(...) paste(c(...), collapse = "<br>")
 
 df <- tibble::tribble(
@@ -144,8 +143,12 @@ gt_tbl <- df |>
   gt() |>
   tab_header(title = md("**STAT 155 — Units, goals, topics, and approximate weeks**")) |>
   cols_align(align = "left") |>
-  tab_options(row_striping_include = FALSE) |>   # <-- no stripes
-  opt_table_lines()                               # draw lines/borders
+  # turn OFF zebra striping (note the dots in the option name)
+  tab_options(row.striping.include = FALSE) |>
+  # render <br> and inline math like R$^2$ in GOAL/TOPIC
+  fmt_markdown(columns = c(GOAL, TOPIC)) |>
+  # draw table lines/borders
+  opt_table_lines()
 
 gt_tbl
 ```
