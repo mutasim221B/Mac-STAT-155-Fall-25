@@ -143,11 +143,11 @@ gt_tbl <- df |>
   gt() |>
   tab_header(title = md("**STAT 155 — Units, goals, topics, and approximate weeks**")) |>
   cols_align(align = "left") |>
-  # turn OFF zebra striping (note the dots in the option name)
-  tab_options(row.striping.include = FALSE) |>
-  # render <br> and inline math like R$^2$ in GOAL/TOPIC
+  tab_options(
+    row.striping.include_table_body = FALSE,
+    row.striping.include_stub = FALSE
+  ) |>
   fmt_markdown(columns = c(GOAL, TOPIC)) |>
-  # draw table lines/borders
   opt_table_lines()
 
 gt_tbl
