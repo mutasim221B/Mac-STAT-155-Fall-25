@@ -12,21 +12,28 @@ Macalester College, Fall 2025
 
 ## Instructor
 
-![](images/Mutasim_Pic.jpg){width=180px fig-align="right"}
+::: {.columns}
+::: {.column width="65%"}
+**Md Mutasim Billah, PhD**  
 
-**Md Mutasim Billah, PhD**
+**Pronouns**: he/him  
 
-**Pronouns**: he/him
+**Pronunciation**: [listen here](https://namedrop.io/mdmutasimbillah)  
 
-**Pronunciation**: [listen here](https://namedrop.io/mdmutasimbillah)
-
-**Office**: Olin-Rice 234
-
+**Office**: Olin-Rice 234  
 
 **Email**: [mbillah\@macalester.edu](mailto:mbillah@macalester.edu){.email}
+:::
+
+::: {.column width="35%"}
+![](images/Mutasim_Pic.jpg){width=100%}
+:::
+:::
+
+
 
 ::: {.callout-note title="About \"me\""}
-Greetings! You can call me *Bill* or *Professor Bill*, or *Professor Billah*. Back when I was an undergrad student, I didn’t have the best experience in Intro Stat—those courses often emphasized formulas over real understanding. That experience has shaped my teaching—over my seven years as a GTI (Graduate Teaching Instructor) at UNCo and MTU, I’ve focused on showing how statistical theories connect and how they can be applied in the real world. I’m excited to teach STAT 155 now in Macalester College and to create a more meaningful experience—one that encourages some students to continue studying Statistics, and helps all students feel confident applying it beyond the classroom. My methodological research lies at the intersection of statistical genetics, biostatistics, and genomics. My current research interests include developing novel statistical methods and computationally efficient bioinformatics tools, leveraging modern machine- and deep-learning approaches analyze high-dimensional next-generation sequencing and multi-omics data to identify genes and regulatory mechanisms underlying complex diseases. Outside of my academic work, I enjoy spending time outdoors with family and friends or cooking variety of foods. If you can’t find me anywhere, I might be busy playing soccer or exploring new worlds on my PS5 Pro!
+Greetings! You can call me *Bill* or *Professor Bill*, or *Professor Billah*. Back when I was an undergrad student, I didn’t have the best experience in Intro Stat—those courses often emphasized formulas over real understanding. That experience has shaped my teaching—I concentrate on illustrating how statistical theories connect and can be applied in the real world. I’m excited to teach STAT 155 and to create a more meaningful experience—one that encourages some students to continue studying Statistics, and helps all students feel confident applying it beyond the classroom. My methodological research lies at the intersection of statistical genetics, biostatistics, and genomics. My current research interests include developing novel statistical methods and computationally efficient bioinformatics tools, leveraging modern machine- and deep-learning approaches analyze high-dimensional next-generation sequencing and multi-omics data to identify genes and regulatory mechanisms underlying complex diseases. Outside of my academic work, I enjoy spending time outdoors with family and friends or cooking variety of foods. If you can’t find me anywhere, I might be busy playing soccer or exploring new worlds on my PS5 Pro!
 :::
 
 **Drop-in (office) hours**:
