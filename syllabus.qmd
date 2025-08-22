@@ -34,9 +34,9 @@ By actively participating in this course, you will develop and/or strengthen you
 
 -   Work **productively and effectively** in a group setting.
 
-## Instructor/Preceptor Team
+# Instructor/Preceptor Team
 
-### About your professor
+## About your professor
 
 <img src="https://raw.githubusercontent.com/mutasim221B/Mac-STAT-155-Fall-25/main/images/Mutasim_Pic.jpg"
 width="150" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
@@ -61,7 +61,7 @@ Outside of my academic work, I enjoy spending time outdoors with family and frie
 -   **24/7 by Appointment**: I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. Shoot me an email and we can arrange it either in-person or over [zoom](https://macalester.zoom.us/j/99762878654?pwd=gt7VvSNT0ubKsV2icMV3z8J0GyHKMy.1), password: 123456.
 
 
-### About your preceptors
+## About your preceptors
 
 We have several wonderful STAT 155 preceptors this semester! Their role is to help students
 with content questions, assist in the navigation of available resources, advise on studying approaches, and assist with concepts, tools, and skills. Students are accountable for their own learning; as such, preceptors are not allowed to share answers to assignments (unless specifically directed by the instructor), they are not expected to immediately know the right approach to an exercise, and they do not provide assistance outside of office hours.
@@ -137,20 +137,17 @@ df <- tibble::tribble(
   "", "", lb("Hypothesis tests"), ""
 )
 
-kbl(
   df,
   align = c("l","l","l","c"),
   booktabs = TRUE,
   escape = FALSE,
   caption = "STAT 155 — Units, goals, topics, and approximate weeks"
 ) |>
-  kable_styling(full_width = FALSE, bootstrap_options = c("condensed")) |>
-  collapse_rows(columns = 1:2, valign = "top") |>
-  row_spec(0, background = "white") |>                # header
-  row_spec(1:nrow(df), background = "white")          # body
+  kable_classic(full_width = FALSE) |>
+  collapse_rows(columns = 1:2, valign = "top")
 ```
 
-### Required resources
+# Required resources
 
 #### Textbook
 
