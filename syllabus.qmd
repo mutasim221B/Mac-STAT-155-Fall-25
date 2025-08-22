@@ -26,7 +26,7 @@ Macalester College, Fall 2025
 :::
 
 ::: {.column width="35%"}
-![](images/Mutasim_Pic.jpg){width=100%}
+![](images/Mutasim_Pic.jpg){width=160px}
 :::
 :::
 
