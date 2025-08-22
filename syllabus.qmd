@@ -70,18 +70,6 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 
 # Course schedule
 
-<style>
-/* kill zebra striping on the schedule table only */
-#schedule-table,
-#schedule-table th,
-#schedule-table td {
-  background-color: transparent !important;
-}
-#schedule-table.table-striped > tbody > tr:nth-of-type(odd) > * {
-  --bs-table-accent-bg: transparent !important;
-  background-color: transparent !important;
-}
-</style>
 
 ```{r}
 #| echo: false
@@ -90,9 +78,7 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 
 # No kableExtra needed; we'll emit a plain pipe table
 library(dplyr)
-
-# helper: HTML line breaks that also work in PDF via pandoc
-lb <- function(...) paste(c(...), collapse = "<br>")
+library(gt)
 
 df <- tibble::tribble(
   ~UNIT, ~GOAL, ~TOPIC, ~`~WEEKS`,
@@ -151,15 +137,14 @@ df <- tibble::tribble(
   "", "", "Hypothesis tests", ""
 )
 
-# Emit a plain Markdown (pipe) table:
-knitr::kable(
-  df,
-  format = "html",                     # use HTML so the id attaches cleanly
-  align  = c("l","l","l","c"),
-  escape = FALSE,
-  col.names = c("UNIT","GOAL","TOPIC","~WEEKS"),
-  table.attr = "id='schedule-table'"
-)
+gt_tbl <- df |>
+  gt() |>
+  tab_header(title = md("**STAT 155 — Units, goals, topics, and approximate weeks**")) |>
+  cols_align(align = "left") |>
+  tab_options(row_striping_include = FALSE) |>   # <-- no stripes
+  opt_table_lines()                               # draw lines/borders
+
+gt_tbl
 ```
 
 # Required resources
