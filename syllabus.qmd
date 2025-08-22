@@ -79,7 +79,6 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 library(dplyr)
 library(gt)
 
-# helper: HTML line breaks
 lb <- function(...) paste(c(...), collapse = "<br>")
 
 df <- tibble::tribble(
@@ -139,16 +138,23 @@ df <- tibble::tribble(
   "", "", "Hypothesis tests", ""
 )
 
+rows_blank_weeks <- which(df$`~WEEKS` == "")
+
 gt_tbl <- df |>
   gt() |>
-  tab_header(title = md("**STAT 155 — Units, goals, topics, and approximate weeks**")) |>
   cols_align(align = "left") |>
-  tab_options(
-    row.striping.include_table_body = FALSE,
-    row.striping.include_stub = FALSE
-  ) |>
+  # 2) remove zebra striping
+  opt_row_striping(row_striping = FALSE) |>
+  tab_options(row.striping.background_color = "transparent") |>
+  # render <br> and R^2
   fmt_markdown(columns = c(GOAL, TOPIC)) |>
-  opt_table_lines()
+  # draw standard table borders/row rules
+  opt_table_lines() |>
+  # 3) hide horizontal rules in ~WEEKS when the cell is empty
+  tab_style(
+    style = cell_borders(sides = c("top","bottom"), color = "transparent"),
+    locations = cells_body(columns = `~WEEKS`, rows = rows_blank_weeks)
+  )
 
 gt_tbl
 ```
