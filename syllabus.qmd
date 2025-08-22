@@ -137,6 +137,7 @@ df <- tibble::tribble(
   "", "", lb("Hypothesis tests"), ""
 )
 
+kbl(
   df,
   align = c("l","l","l","c"),
   booktabs = TRUE,
