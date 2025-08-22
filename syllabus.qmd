@@ -12,24 +12,17 @@ Macalester College, Fall 2025
 
 ## Instructor
 
-::: {.columns layout="l-body-outset"}
-::: {.column width="65%"}
-**Md Mutasim Billah, PhD**  
+<img src="https://raw.githubusercontent.com/mutasim221B/Mac-STAT-155-Fall-25/main/images/Mutasim_Pic.jpg"
+width="180" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
 
-**Pronouns**: he/him  
+**Md Mutasim Billah, PhD**
 
-**Pronunciation**: [listen here](https://namedrop.io/mdmutasimbillah)  
+**Pronouns**: he/him
 
-**Office**: Olin-Rice 234  
+**Pronunciation**: [listen here](https://namedrop.io/mdmutasimbillah)
 
+**Office**: Olin-Rice 234
 **Email**: [mbillah\@macalester.edu](mailto:mbillah@macalester.edu){.email}
-:::
-
-::: {.column width="35%"}
-![](images/Mutasim_Pic.jpg){width=160px}
-:::
-:::
-
 
 
 ::: {.callout-note title="About \"me\""}
