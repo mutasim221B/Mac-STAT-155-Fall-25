@@ -12,7 +12,7 @@ Macalester College, Fall 2025
 
 ## Instructor
 
-::: {.columns}
+::: {.columns layout="l-body-outset"}
 ::: {.column width="65%"}
 **Md Mutasim Billah, PhD**  
 
