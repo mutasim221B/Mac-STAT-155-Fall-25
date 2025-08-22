@@ -154,10 +154,11 @@ df <- tibble::tribble(
 # Emit a plain Markdown (pipe) table:
 knitr::kable(
   df,
-  format = "pipe",                   # plain, lined table
+  format = "html",                     # use HTML so the id attaches cleanly
   align  = c("l","l","l","c"),
-  escape = FALSE,                    # keep R^2 and <br>
-  col.names = c("UNIT","GOAL","TOPIC","~WEEKS")
+  escape = FALSE,
+  col.names = c("UNIT","GOAL","TOPIC","~WEEKS"),
+  table.attr = "id='schedule-table'"
 )
 ```
 
