@@ -7,9 +7,13 @@ sidebar: false
 
 Macalester College, Spring 2025
 
-::: {style="font-size: 20px;"}
-Learn the fundamentals of summarizing, visualizing, and modeling data to answer research questions.
+::: {.callout-note title="📖 A Thought from H. G. Wells"}
+> “Statistical thinking will one day be as necessary for efficient citizenship  
+> as the ability to read and write.”  
+>
+> — H. G. Wells
 :::
+
 
 <br>
 
