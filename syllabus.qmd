@@ -232,9 +232,9 @@ MSCS strives to provide a learning environment that is equitable, inclusive, wel
 
 <br><br><br><br>
 
-# The 6 Core Components
+# The 6 Core Components (EC3PQ!)
 
-## Engagement
+## (1) Engagement
 
 Engagement is important to your own learning & to fostering a supportive learning community.
 
@@ -257,7 +257,7 @@ Engagement is important to your own learning & to fostering a supportive learnin
 **NOTE**: To share clear & consistent information, any deviations from these expectations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
 
 
-## Colloboration
+## (2) Colloboration
 
 Collaboration improves higher-level thinking, confidence, communication, community, & more. You will work in groups in and outside class. These groups will occasionally switch & will sometimes be assigned. 
 
@@ -277,7 +277,7 @@ Collaboration improves higher-level thinking, confidence, communication, communi
 **NOTE**: To share clear & consistent information, any deviations from these expectations during in-class collaborations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
 
 
-## Preparation (Checkpoints) 
+## (3) Preparation (Checkpoints) 
 
 Roughly half of our class sessions will require some prep work. Before class you will watch videos which introduce new concepts, then take a low-stakes checkpoint quiz (CP). This will help us prepare for class, build a common foundation, & maximize our time together – just how readings & reading reflections might be used in another class!
 
@@ -299,7 +299,7 @@ Pass 13+ of the 16 CPs (≈80%); **OR** earn at least 80% of total points across
 
 :::
 
-## Practice
+## (4) Practice
 
 In 8 practice problem sets (PP), you will practice and explore the course material in more depth. The following flexibility is built in to help reduce stress and to facilitate deeper learning. Detailed directions and policies are [here](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.y44zqzjp7zgk).
 
@@ -307,7 +307,7 @@ In 8 practice problem sets (PP), you will practice and explore the course materi
 - **Dropped score**: *IF* you submit and demonstrate clear effort on all 8 PPs, your lowest PP score will be dropped from your final grade.
 - **Extensions**: Limited extensions will be provided. 
 
-## Independence & Application (Course Project)
+## (5) Project (Independence & Application)
 
 More details will be provided later in the semester. Here are some basics:
 
@@ -318,7 +318,7 @@ More details will be provided later in the semester. Here are some basics:
 - Project grades will be based upon a final group written report (no oral presentation), multiple group and individual checkpoints, and individual contributions to the project (thus it’s possible for different group members to earn different grades).
 
 
-## Content Expertise (Quizzes)
+## (6) Quizzes (Content Expertise)
 
 Your course engagement, collaboration, preparation, practice, and application will support your deeper understanding of the course material. This will be assessed through three in-person quizzes. You must schedule all travel and other commitments around them — there will not be any alternative quiz times.  
 
@@ -350,7 +350,54 @@ Your course engagement, collaboration, preparation, practice, and application wi
 
 <br><br><br><br>
 
-# Grading and feedback
+# Calculating Final Grades
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+### Course Percentage
+
+33% Practice Problems +  
+33% Quiz total +  
+33% Project  
+
+| Grade | Course percentage |
+|-------|--------------------|
+| A     | > 90%             |
+| A-    | 87–90%            |
+| B+    | 84–87%            |
+| B     | 81–84%            |
+| B-    | 78–81%            |
+| C+    | 75–78%            |
+| C     | 72–75%            |
+| C-    | 69–72%            |
+| D/NC  | < 69% **or in the case of 7+ absences** |
+
+:::
+
+::: {.column width="50%"}
+
+### Grade Modifiers
+
+Engagement (including attendance) +  
+Collaboration +  
+Preparation (checkpoints)  
+
+| Modifier         | Scenario                                                                 |
+|------------------|--------------------------------------------------------------------------|
+| none (eg: A → A) | Meets expectations in all 3 areas (Engagement, Collaboration, Preparation) |
+| ⅓ lower grade    | Demonstrates strong progress toward expectations (e.g., 4 absences or 70% checkpoint total) |
+| 1 lower grade    | Demonstrates moderate progress (e.g., 5–6 absences or 50% checkpoint total) |
+| >1 lower grade   | Demonstrates little progress toward expectations in all 3 areas           |
+| Drop to D/NC     | Has 7+ absences                                                           |
+
+:::
+
+:::
+
+**Note:** The above table presents general scenarios. Please reach out to the instructor if you want to discuss your progress toward meeting expectations in Engagement, Collaboration, and/or Preparation.
+
 
 ## Course grading system
 
