@@ -47,9 +47,6 @@ The following skills are essential both within and beyond Statistics, and demons
 
 <br><br><br><br>
 
-<br><br><br><br>
-
-
 # Instructor/Preceptor Team
 
 ## About your professor
@@ -84,9 +81,6 @@ with content questions, assist in the navigation of available resources, advise 
 In hiring preceptors, we prioritize and emphasize kindness and respect. I expect the same of students in their interactions with the preceptors. Please utilize and respect their experience and commitment to supporting you in this course. Please check out some [additional guidelines and expectations](https://docs.google.com/document/d/1USu-3R1NsGDVm0yU0HTzHuTpzCD3onBjNI5n8w9VBik/edit?tab=t.0) on how to interact with preceptors.
 
 <br><br><br><br>
-
-<br><br><br><br>
-
 
 # Topics & Tentative Schedule
 
@@ -202,7 +196,6 @@ It’s okay to miss the occasional class. Except in rare extenuating circumstanc
 - you cannot pass the course if you accrue 7+ absences (more than 25% of class sessions)
 
 ::: {.callout-tip title="What to Do If You Miss Class"}
-
 1. 📧 **Send me a quick email.** You do not need to share a reason for your absence, especially if it’s personal. It’s just a simple courtesy & keeps communication lines open.
 
 2. 📅 **Check the Course Schedule** in the online manual for what is happening in class that day.
@@ -210,7 +203,6 @@ It’s okay to miss the occasional class. Except in rare extenuating circumstanc
 3. 📝 **Complete the in-class activity on your own** & check the solutions posted in the online manual.
 
 4. 💬 **Ask any follow-up questions** on the Moodle forum or in office hours (OH).
-
 :::
 
 ## Artificial Intelligence (AI)
@@ -237,7 +229,6 @@ MSCS strives to provide a learning environment that is equitable, inclusive, wel
 - Passing off others’ work as your own. You must be able to defend / explain all work you hand in.
 - Using AI without citation, to generate entire discussions / code blocks, or without being able to defend the results. Policy violations will result in a score of 0 on the work & be reported to the Asst. Dean of Academic Programs & Advising.
 
-
 <br><br><br><br>
 
 # The 6 Core Components (EC3PQ!)
@@ -247,7 +238,6 @@ MSCS strives to provide a learning environment that is equitable, inclusive, wel
 Engagement is important to your own learning & to fostering a supportive learning community.
 
 ::: {.callout-important title="📌 Expectations"}
-
 - **Do not miss more than 3 in-person class sessions.**  (4–6 absences will lower your grade. 7+ absences will result in a D/NC.)
 
 - **When attending class:**
@@ -258,8 +248,8 @@ Engagement is important to your own learning & to fostering a supportive learnin
 
 - **Outside class:**
   - Check your email for announcements (sent via Moodle) and stay updated on the Moodle forum  
-  - When you have questions, or just want to chat, please stop by OH!  
-
+  - When you have questions, or just want to chat, please stop by OH!
+  
 :::
 
 **NOTE**: To share clear & consistent information, any deviations from these expectations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
@@ -270,7 +260,6 @@ Engagement is important to your own learning & to fostering a supportive learnin
 Collaboration improves higher-level thinking, confidence, communication, community, & more. You will work in groups in and outside class. These groups will occasionally switch & will sometimes be assigned. 
 
 ::: {.callout-note title="🤝 Expectations"}
-
 - Follow the [MSCS Community Guidelines](https://docs.google.com/document/u/3/d/e/2PACX-1vSlLLWmyOf8WKGDKJ_qypgA_kQI1dNFGEKH0mtFoqfAUARZN7ypVCgivnmPjccks9jJzW1rgEzt7QMI/pub)
 
 - In group settings, both in and outside class, you:
@@ -278,8 +267,8 @@ Collaboration improves higher-level thinking, confidence, communication, communi
   - Actively contribute to discussions  
   - Actively include all other group members in discussion  
   - Create a space where others feel comfortable making mistakes & sharing their ideas  
-  - Effectively communicate with your group about meeting times, etc.  
-
+  - Effectively communicate with your group about meeting times, etc. 
+  
 :::
 
 **NOTE**: To share clear & consistent information, any deviations from these expectations during in-class collaborations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
@@ -290,13 +279,10 @@ Collaboration improves higher-level thinking, confidence, communication, communi
 Roughly half of our class sessions will require some prep work. Before class you will watch videos which introduce new concepts, then take a low-stakes checkpoint quiz (CP). This will help us prepare for class, build a common foundation, & maximize our time together – just how readings & reading reflections might be used in another class!
 
 ::: {.callout-important title="📊 Expectations"}
-
 Pass 13+ of the 16 CPs (≈80%); **OR** earn at least 80% of total points across all CPs.  
-
 :::
 
 ::: {.callout-note title="📜 Policies"}
-
 - You will make mistakes and that’s ok!  
   - You can reattempt most CP questions with a 33% penalty for each incorrect response.  
     *Exceptions*: open-ended questions or multiple choice questions with only 2 options (TRUE/FALSE). 
@@ -304,7 +290,6 @@ Pass 13+ of the 16 CPs (≈80%); **OR** earn at least 80% of total points across
   - The goal is to pass 13+ CPs. Thus you may miss or not pass 3 CPs without it impacting your grade.  
 
 - CPs are due **10 minutes before class** on the assigned date. **There are no extensions for CPs**, as they are important *preparation* for the relevant class session.  
-
 :::
 
 ## (4) Practice
@@ -339,7 +324,6 @@ Your course engagement, collaboration, preparation, practice, and application wi
 
 
 ::: {.callout-warning title="📜 Quiz Policies"}
-
 - **All quizzes will have the following format:**
   - Taken individually, using pen/pencil & paper  
   - You will not need to write code or use a calculator, but you will need to read & interpret R output  
@@ -352,9 +336,8 @@ Your course engagement, collaboration, preparation, practice, and application wi
    1. Write a reflection of how you prepared for the quiz and where you felt strongest or more uncertain in your understanding before taking the quiz; and  
    2. Submit your quiz corrections along with your reflection to the instructor, no later than one week after quizzes have been handed back.  
    **Note**: Quiz 3 corrections are not allowed due to time constraints at the end of the semester.
-
+   
 :::
-
 
 <br><br><br><br>
 
@@ -366,7 +349,6 @@ The grading system in this course is designed to help you achieve the learning o
 
 
 ::: {.columns}
-
 ::: {.column width="30%"}
 ### Course Percentage
 
@@ -412,13 +394,10 @@ Preparation (checkpoints)
 :::
 
 ::: {.callout-important title="📊 Grading Cavities"}
-
 - The goal of sharing this specific information is to provide transparency around final grades, hence clear goals to work toward. That said, assigning grades is much more nuanced than any grading rubric / framework might suggest (for good reasons).  What’s shared here is a **worst case scenario** – it represents the lowest a grade might be if you meet the corresponding goals.
 
 - <span style="color:red; font-weight:bold;">Moodle does NOT correctly weight your grades</span>, thus should not be used alone to monitor your progress.  
-
 :::
-
 
 <br><br><br><br>
 
@@ -444,9 +423,6 @@ Students may wish to take part in religious observances that occur during the se
 
 In an effort to respect religious diversity, I request that students who plan to observe a religious holiday during scheduled class meetings/class requirements talk to me about reasonable consideration by the end of the second week of the course.
 
-
-<br><br><br><br>
-
 ## Well-being
 
 I want you to succeed. Both here at Macalester and beyond. To help make this happen, I am committed to the following.
@@ -463,33 +439,6 @@ You may also contact Macalester’s Title IX Coordinator directly (phone: 651-69
 
 **General Health and Well-being:** I care that you prioritize your well-being in this semester and beyond. Investing time into taking care of yourself will have profound impacts on all aspects of your life. Remember that beyond being a student, you are a human being carrying your own experiences, thoughts, emotions, and identities. It is important to acknowledge any stressors you may be facing, which can be mental, emotional, physical, cultural, financial, etc., and how they can have an impact on you. I encourage you to remember that you have a body with needs. In the classroom, eat when you are hungry, drink water, use the restroom, and step out if you are upset and need some air. Please do what is necessary so long as it does not impede your or others' ability to be mentally and emotionally present in the course. Outside of the classroom, sleeping well, moving your body, and connecting with others can be strategies can help nourish you. If you are having difficulties maintaining your well-being, please don't hesitate to contact me and/or find support from physical and mental health resources [here](https://docs.google.com/document/d/1lz-ii5yze_OSkQJqz_7pap7fRjG81LJh0_saBniP-zg/edit), [here](https://docs.google.com/document/d/1iC-ykD8QJ-w2BVO1Gb0AobD-00Zq_8mznWR5C2mNiF0/edit?usp=sharing), and [here](https://www.macalester.edu/current-students/).
 
-# Guiding Values / Course Manifesto
-
-## You belong here!
-
-Statistics--like most other areas of science--has a long history of excluding and exploiting people from marginalized communities and identities. Many of the earliest statisticians in the 19th and 20th centuries used and abused statistics to justify [colonialism, ableism, classism, sexism, eugenics, and white supremacy](https://nautil.us/how-eugenics-shaped-statistics-238014/).
-
-On top of this problematic history, cultural norms around academic performance in quantitative disciplines can make courses like this one feel intimidating and exclusionary, rather than collaborative and interdisciplinary.
-
-To counter these barriers, my central goal as an instructor is to **intentionally foster community and connectedness.** I believe that your unique voices and perspectives in this class will enrich our collective learning process and, in turn, your college experience. I encourage you to get to know your classmates ([and me!](#drop-in-office-hours)) beyond a superficial familiarity and connect over our shared interests, identities, and ideas. You can help cultivate that community by being thoughtful about the way you engage with others and stretching your comfort zone to interact with people who are outside of your established social circles.
-
-## Informed skepticism
-
-In virtually all of contemporary Western science, statistical reasoning is foundational to establishing trust in scientific theories. However, it is shockingly common to encounter "statistically justified" conclusions that are 1) not generalizable or cannot be replicated, 2) invalidated by honest coding/modeling mistakes, 3) based on deliberately cherry-picked models, or--in extreme cases--4) data that have been outright fabricated/falsified. Like in all aspects of life, trust in scientific claims must be earned.
-
-In this course and beyond, I encourage you to approach any statistical results you encounter with a healthy skepticism, informed by both your gut intuition and the material you've learned. Know that [you may be wrong](#mistakes-and-uncertainty-are-essential) (counter-intuitive results are abundant!) but you should **always** feel empowered to respectfully and rigorously challenge statistical claims.
-
-## A commitment to ethical deliberation and conduct
-
-Because statistics is a way to make sense of the world around us, it is also a way to influence it. This comes with an inherent responsibility to grapple with the ethical and sociopolitical dimensions of the content in this course. This includes delving into the context of how methods were developed, questioning assumptions, and considering the potential for misuse and misinterpretation. Throughout the course, you will be challenged to consider the broader impact of your work: How might your results and interpretations directly or indirectly affect the environment, specific individuals, or human culture & society? Whose prior scientific contributions are you amplifying or ignoring? How do your assumptions and biases shape your scientific approach and communication?
-
-## Mistakes and uncertainty are essential {#mistakes-and-uncertainty-are-essential}
-
-I expect that you and I will make lots of mistakes along the way in this course. Perhaps paradoxically, this is an important way to gain confidence: as we *make* mistakes, we will develop skills for *recognizing* and correcting them. These skills are **vital** for succeeding in STEM careers (and life in general). This course will provide a low-stakes environment for us to practice accountability, reflection, and troubleshooting when mistakes occur.
-
-## Context before content
-
-Rigorous statistical reasoning demands that we understand the context of our data and our research questions before we run a model and obtain/interpret results. I also aim to be mindful of various other contexts that shape our learning experience: our individual identities/histories, the classroom environment, the campus climate, etc. Throughout the semester, we will create space to address and discuss whatever contexts might impact our ability to engage the material (and how they may even relate to the material!).
 
 # Note
 
