@@ -1,13 +1,11 @@
 ---
-title: "Collecting and Summarizing Data"
-subtitle: "Notes and in-class exercises"
+title: "STAT 155: Introduction to Statistical Modeling  "
+subtitle: "Macalester College, Fall 2025"
 format: 
   html:
     embed-resources: true
     toc: true
 ---
-
-Macalester College, Fall 2025
 
 -   **Section 03**: M/W/F 09:40-10:40am, THTR 002
 -   **Section 04**: M/W/F 12:00-01:00pm, THTR 202
