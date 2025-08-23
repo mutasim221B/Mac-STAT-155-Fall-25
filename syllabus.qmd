@@ -322,13 +322,13 @@ More details will be provided later in the semester. Here are some basics:
 
 Your course engagement, collaboration, preparation, practice, and application will support your deeper understanding of the course material. This will be assessed through three in-person quizzes. You must schedule all travel and other commitments around them — there will not be any alternative quiz times.  
 
-**Quizzes**
-- **Quiz 1:**  in class  
-- **Quiz 2:**  in class  
-- **Quiz 3:** *Finals week*
- - The exam will be written to take ~1.25 hours, but you will have the full 2-hour period to complete it.  
-   - 09:40–10:40 am section:  
-   - 12:00–01:00 pm section:  
+- **Quiz 1:** Date in class  
+- **Quiz 2:** Date in class  
+- **Quiz 3:** *Finals week*  
+  - The exam will be written to take ~1.25 hours, but you will have the full 2-hour period to complete it.  
+    - 09:40–10:40 am section  
+    - 12:00–01:00 pm section  
+
 
 ::: {.callout-warning title="📜 Quiz Policies"}
 
@@ -393,13 +393,21 @@ Preparation (checkpoints)
 | Modifier                          | Scenario                                                                 |
 |:----------------------------------|:-------------------------------------------------------------------------|
 | none <br>(e.g. A → A)            | Meets expectations in all 3 areas (Engagement, Collaboration, Preparation) |
-| ⅓ lower grade <br>(e.g. A → A-)  | Demonstrates strong progress (e.g., 4 absences or 70% checkpoint total)  |
-| 1 lower grade <br>(e.g. A → B)   | Demonstrates moderate progress (e.g., 5–6 absences or 50% checkpoint total) |
+| ⅓ lower grade <br>(e.g. A → A-)  | Demonstrates strong progress (e.g., 4 absences or 70% checkpoint total, or...)  |
+| 1 lower grade <br>(e.g. A → B)   | Demonstrates moderate progress (e.g., 5–6 absences or 50% checkpoint total, or...) |
 | >1 lower grade                   | Demonstrates little progress toward expectations in all 3 areas          |
 | Drop to D/NC                     | Has 7+ absences                                                          |
 
 **NOTE:** The table presents general scenarios. Please reach out if you want to discuss progress in Engagement, Collaboration, and/or Preparation.
 :::
+
+:::
+
+::: {.callout-important title="📊 Grading Cavities"}
+
+- The goal of sharing this specific information is to provide transparency around final grades, hence clear goals to work toward. That said, assigning grades is much more nuanced than any grading rubric / framework might suggest (for good reasons).  What’s shared here is a **worst case scenario** – it represents the lowest a grade might be if you meet the corresponding goals.
+
+- <span style="color:red; font-weight:bold;">Moodle does NOT correctly weight your grades</span>, thus should not be used alone to monitor your progress.  
 
 :::
 
