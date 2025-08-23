@@ -357,9 +357,9 @@ Your course engagement, collaboration, preparation, practice, and application wi
 The grading system in this course is designed to help you achieve the learning objectives while allowing space to make and learn from mistakes along the way. Your final course grade will consist of three, evenly-weighted components (Quizzes, Practice Problems, and the Project), modified by your progress toward the Engagement, Collaboration, and Preparation (Checkpoint) goals:
 
 
-::: {.columns}
+::: {.columns style="gap:24px;"}
 
-::: {.column width="40%" style="padding-right:24px;"}
+::: {.column width="40%"}
 ### Course Percentage
 
 33% Practice Problems +  
@@ -379,7 +379,7 @@ The grading system in this course is designed to help you achieve the learning o
 | D/NC  | < 69% **or 7+ absences** |
 :::
 
-::: {.column width="60%" style="padding-left:24px;"}
+::: {.column width="60%"}
 ### Grade Modifiers
 
 Engagement (including attendance) +  
