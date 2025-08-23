@@ -16,7 +16,9 @@ Being able to **summarize**, **interpret**, and **communicate** about data are c
 
 ## Learning Objectives
 
-By actively participating in this course, you will develop and/or strengthen your abilities to:
+### Important technical concepts
+
+Upon completion of this course, students should be able to:
 
 -  Build, use, and interpret **graphical and numerical summaries** of data.
 
@@ -33,6 +35,16 @@ By actively participating in this course, you will develop and/or strengthen you
 -   Accurately **describe methods and results** in a way that is scientifically sound and widely accessible.
 
 -   Work **productively and effectively** in a group setting.
+
+### Important statistical skills
+
+The following skills are essential both within and beyond Statistics, and demonstrably improve your own learning and the learning of those around you:
+- Move beyond a “homework only” study approach. Develop a deeper understanding of the material through **continued review, reflection, and practice**.
+- Think **creatively, and build confidence**, applying course concepts in open-ended, novel settings.
+- Be comfortable working through **challenges and mistakes**.
+- Contribute to a **welcoming and engaged learning environment**.
+- Work effectively in a **group setting**.
+
 
 # Instructor/Preceptor Team
 
@@ -68,7 +80,7 @@ with content questions, assist in the navigation of available resources, advise 
 
 In hiring preceptors, we prioritize and emphasize kindness and respect. I expect the same of students in their interactions with the preceptors. Please utilize and respect their experience and commitment to supporting you in this course. Please check out some [additional guidelines and expectations](https://docs.google.com/document/d/1USu-3R1NsGDVm0yU0HTzHuTpzCD3onBjNI5n8w9VBik/edit?tab=t.0) on how to interact with preceptors.
 
-# Course schedule
+# Topics & Tentative Schedule
 
 | UNIT                       | GOAL                                                                                                 | TOPICS                                                                                                                                                                                                                                               | ~WEEKS |
 |---------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
@@ -80,13 +92,17 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 
 # Required resources
 
-#### Textbook
+## Textbook & Online Course Manual
 
-There is no required textbook for this course. Throughout the course, readings may be assigned from these notes, or other sources. All links and materials needed will be provided on the [Schedule](schedule.qmd) tab of this website.
+There is no required textbook for this course. Throughout the course, readings may be assigned from these [notes](https://mac-stat.github.io/Stat155Notes/), or other sources. 
 
-The best resources for this course are course content videos, attending and participating in class / assignments, and office hours. I am happy to talk about possible additional materials / strategies for effective learning at any time throughout the semester!
+The online course manual includes all in-class activities (with solutions) and a daily [Schedule](schedule.qmd). All links and materials needed will be provided on the schedule tab of this website.
 
-#### Statistical software
+# Moodle
+[Moodle](https://moodle.macalester.edu/) includes general resources, a broad course calendar, submission links, feedback, and a forum for student questions.
+
+
+## Statistical software
 
 We will use the (completely free and open source) R programming language extensively throughout this course. RStudio (an interface for R) will facilitate our use of R. You may use RStudio in one of two ways:
 
@@ -94,7 +110,11 @@ We will use the (completely free and open source) R programming language extensi
 
 2.  Online: Go to <https://rstudio.macalester.edu>, and log in with your full Mac email address and your usual Mac password to get access. (Note that this is a shared resource across MSCS, and you may experience performance issues due to high traffic, server outages, etc.)
 
-More detailed instructions on downloading, installing, and getting started with R, RStudio, and an important package called Quarto is available on the [Tech Setup](tech_setup.qmd) tab.
+More detailed instructions on downloading, installing, and getting started with R, and RStudio are available on the [Tech Setup](tech_setup.qmd) tab.
+
+# Office hours (OH)
+Across the instructor and preceptors, there are several office hours each week. Names, times, and 
+locations are on the Moodle course calendar. **IMPORTANT**: Always check the calendar before attending OH.
 
 ### What to expect in and out of class
 
@@ -125,13 +145,33 @@ Class time will be a mix of interactive lecture and longer stretches of group wo
 
 # Communication
 
-## Course website
+## Asking questions/communicating
 
-All course materials will be posted on the [course website](https://carjed.github.io/155_spring_2025). The [Schedule tab](schedule.qmd) of this website will contain information about due dates, in-class activities, etc.
+### Office Hours
 
-## Moodle
+OH are a great place to chat about the course, career planning, life,... 
+Please visit us!!
 
-Moodle will be used to submit assignments/checkpoint quizzes, post grades, assignment feedback, announcements, and more. Please check the course Moodle page every day before class!
+- OH times & locations are on the Moodle course calendar.
+- OH are oriented around group discussion. They are not first come, first served appointments.
+- Since it’s not an effective way to deepen your learning, OH are not a place to sit and do assignments with me or preceptors. It’s an opportunity to discuss concepts & specific questions.
+
+### Moodle Forum
+
+This forum is where we’ll communicate outside class. Students can post and answer comments / questions there. This is an informal way to converse, ask questions, share info, & connect. Do not 
+rely on receiving responses outside weekdays between 9am & 5pm.
+
+## What to do when you have a question for me?
+
+- If it’s non-private (e.g. about policies, homework, etc), you must post it on the public Moodle forum.
+- If it’s personal (e.g. about an absence), email me.
+- It’s good, professional practice to check whether your question is already answered in the provided resources. For example:
+  - **Info** (what to do if you miss class): syllabus
+  - **Due dates**: course calendar at the top of Moodle + course schedule in the online manual
+  - **Quiz dates**: syllabus + course calendar at the top of Moodle + course schedule in the online manual
+  - **Homework policies & grading**: [homework policies & grading](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.y44zqzjp7zgk) doc
+  - **Finals week**: syllabus + course calendar at the top of Moodle + course schedule in the online manual
+
 
 ## Email
 
