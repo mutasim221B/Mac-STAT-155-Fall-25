@@ -236,10 +236,116 @@ MSCS strives to provide a learning environment that is equitable, inclusive, wel
 
 ## Engagement
 
+Engagement is important to your own learning & to fostering a supportive learning community.
+
+::: {.callout-important title="📌 Expectations"}
+
+- **Do not miss more than 3 in-person class sessions.**  (4–6 absences will lower your grade. 7+ absences will result in a D/NC.)
+
+- **When attending class:**
+  - Be on time & don’t leave early  
+  - Do not use your phone (phones must be put away when you enter the course, even if class hasn’t started)  
+  - Do not use your laptop for anything other than taking notes (e.g., no videos, no email, no messaging apps, etc.)  
+  - Be actively present (e.g., don’t work alone, don’t work on other courses, etc.)  
+
+- **Outside class:**
+  - Check your email for announcements (sent via Moodle) and stay updated on the Moodle forum  
+  - When you have questions, or just want to chat, please stop by OH!  
+
+:::
+
+**NOTE**: To share clear & consistent information, any deviations from these expectations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
 
 
+## Colloboration
+
+Collaboration improves higher-level thinking, confidence, communication, community, & more. You will work in groups in and outside class. These groups will occasionally switch & will sometimes be assigned. 
+
+::: {.callout-note title="🤝 Expectations"}
+
+- Follow the [MSCS Community Guidelines](https://docs.google.com/document/u/3/d/e/2PACX-1vSlLLWmyOf8WKGDKJ_qypgA_kQI1dNFGEKH0mtFoqfAUARZN7ypVCgivnmPjccks9jJzW1rgEzt7QMI/pub)
+
+- In group settings, both in and outside class, you:
+  - Use your group members’ correct names and pronouns  
+  - Actively contribute to discussions  
+  - Actively include all other group members in discussion  
+  - Create a space where others feel comfortable making mistakes & sharing their ideas  
+  - Effectively communicate with your group about meeting times, etc.  
+
+:::
+
+**NOTE**: To share clear & consistent information, any deviations from these expectations during in-class collaborations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
 
 
+## Preparation (Checkpoints) 
+
+Roughly half of our class sessions will require some prep work. Before class you will watch videos which introduce new concepts, then take a low-stakes checkpoint quiz (CP). This will help us prepare for class, build a common foundation, & maximize our time together – just how readings & reading reflections might be used in another class!
+
+::: {.callout-important title="📊 Expectations"}
+
+Pass 13+ of the 16 CPs (≈80%); **OR** earn at least 80% of total points across all CPs.  
+
+:::
+
+::: {.callout-note title="📜 Policies"}
+
+- You will make mistakes and that’s ok!  
+  - You can reattempt most CP questions with a 33% penalty for each incorrect response.  
+    *Exceptions*: open-ended questions or multiple choice questions with only 2 options (TRUE/FALSE). 
+  - CPs are graded pass/fail. To pass, you must earn at least 80% of the points.  
+  - The goal is to pass 13+ CPs. Thus you may miss or not pass 3 CPs without it impacting your grade.  
+
+- CPs are due **10 minutes before class** on the assigned date. **There are no extensions for CPs**, as they are important *preparation* for the relevant class session.  
+
+:::
+
+## Practice
+
+In 8 practice problem sets (PP), you will practice and explore the course material in more depth. The following flexibility is built in to help reduce stress and to facilitate deeper learning. Detailed directions and policies are [here](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.y44zqzjp7zgk).
+
+- **Grading**: PP grades will be based on Exercises & Presentation. You can make some mistakes without it chipping away at your score (e.g. you will earn 5/5 points on an exercise if it’s at least 90% correct & complete).
+- **Dropped score**: *IF* you submit and demonstrate clear effort on all 8 PPs, your lowest PP score will be dropped from your final grade.
+- **Extensions**: Limited extensions will be provided. 
+
+## Independence & Application (Course Project)
+
+More details will be provided later in the semester. Here are some basics:
+
+- We’ll start working on projects in ~week 6, with the majority of the work happening later in the semester.
+
+- The projects are *collaborative*. You will be working in groups. Though you will work in assigned groups at various points throughout the semester, you will pick your own group for the project. This is something to think about as you meet other students in class and learn about common interests.
+
+- Project grades will be based upon a final group written report (no oral presentation), multiple group and individual checkpoints, and individual contributions to the project (thus it’s possible for different group members to earn different grades).
+
+
+## Content Expertise (Quizzes)
+
+Your course engagement, collaboration, preparation, practice, and application will support your deeper understanding of the course material. This will be assessed through three in-person quizzes. You must schedule all travel and other commitments around them — there will not be any alternative quiz times.  
+
+**Quizzes**
+- **Quiz 1:**  in class  
+- **Quiz 2:**  in class  
+- **Quiz 3:** *Finals week*
+ - The exam will be written to take ~1.25 hours, but you will have the full 2-hour period to complete it.  
+   - 09:40–10:40 am section:  
+   - 12:00–01:00 pm section:  
+
+::: {.callout-warning title="📜 Quiz Policies"}
+
+- **All quizzes will have the following format:**
+  - Taken individually, using pen/pencil & paper  
+  - You will not need to write code or use a calculator, but you will need to read & interpret R output  
+  - Closed notes, but you may use a 3x5 index card with writing on both sides. These can be handwritten or typed, but you may not include screenshots or share note cards. Making your own card is important to the review process.
+
+- **Quizzes 2 & 3 will be cumulative.** This is unavoidable as the material builds upon itself.  
+
+- **Quiz corrections:**  
+  You can earn up to 50% of missed points back on Quizzes 1 & 2 if you:  
+   1. Write a reflection of how you prepared for the quiz and where you felt strongest or more uncertain in your understanding before taking the quiz; and  
+   2. Submit your quiz corrections along with your reflection to the instructor, no later than one week after quizzes have been handed back.  
+   **Note**: Quiz 3 corrections are not allowed due to time constraints at the end of the semester.
+
+:::
 
 
 <br><br><br><br>
