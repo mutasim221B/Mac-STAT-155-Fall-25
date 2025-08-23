@@ -47,7 +47,6 @@ The following skills are essential both within and beyond Statistics, and demons
 
 <br><br><br><br>
 
-
 # Instructor/Preceptor Team
 
 ## About your professor
@@ -84,7 +83,6 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 
 <br><br><br><br>
 
-
 # Topics & Tentative Schedule
 
 | UNIT                       | GOAL                                                                                                 | TOPICS                                                                                                                                                                                                                                               | ~WEEKS |
@@ -95,7 +93,6 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 | Inference                 | Use regression models built on sample data to make inferences about the broader population.          | Normal distribution<br>Sampling distributions & the CLT<br>Confidence intervals<br>Hypothesis tests                                                                                                                                                   | 10–14 |
 
 <br><br><br><br>
-
 
 # Course resources
 
@@ -121,30 +118,8 @@ More detailed instructions on downloading, installing, and getting started with 
 
 ## Office hours (OH)
 Across the instructor and preceptors, there are several office hours each week. Names, times, and 
-locations are on the Moodle course calendar. **IMPORTANT**: Always check the calendar before attending OH.
-
-### What to expect in and out of class
-
-When taking a new course, figuring out the right workflow/cadence of effort throughout the week can be a big adjustment. And most of you are doing this for 4 different courses! Below are some suggestions for what to expect in the course and how to focus your time and attention during and outside of class.
-
-#### Outside of class
-
-**Pre-class videos/readings:** Some class periods will have required videos or reading to get acquainted with new concepts before seeing them again in class. My goal for these videos and readings is for you to get the most out of class time by being able to more easily follow explanations in class and to engage most fully in class activities. When there are required readings or videos, there will be an associated checkpoint to complete on Moodle (due 30 minutes before the start of the next class).
-
-::: {.callout-tip title="Suggestions"}
--   As you take notes on videos/readings, highlight or otherwise mark all the areas where you have questions. Gather up all of these questions in one place, and bring them to class with you.
--   Record any reflections from in-class time about your learning process or interactions with peers while they are still fresh.
--   After learning a new topic in class, it is helpful to attempt the upcoming assignment as soon as possible. Just by getting some rough ideas down quickly, you avoid the difficulty of starting from a blank slate.
--   Come to instructor and preceptor drop-in hours (office hours) to chat about the course or anything else!
-:::
-
-#### During class
-
-Class time will be a mix of interactive lecture and longer stretches of group work. During the lecture portion, I will pause explanation frequently to prompt a short exercise or ask questions that you'll reflect on individually or together.
-
-::: {.callout-tip title="Suggestions"}
--   As we review the material at the start of class and as you work on the class activity, reference your set of questions from the pre-class material. Have you made progress on addressing those questions? Who or what helped with improving your understanding, and how?
-:::
+locations are on the Moodle course calendar. 
+**IMPORTANT**: Always check the calendar before attending OH.
 
 <br><br><br><br>
 
@@ -198,30 +173,74 @@ Actively participate in the class & take ownership of your learning. PLEASE: Don
 
 [^1]: [Macalester Academic Advising – High School Preparation](https://www.macalester.edu/academic-programs/academicadvising/students/highschool/)
 
+<br><br><br><br>
 
-## Email
+# Course Policies
 
-Please send any personal questions or administrative updates (e.g., attendance, accommodations) to me via email. **Please put "STAT 155" in the subject line of all emails** to help ensure that it does not get lost in my inbox!
+## Flexibility
 
-I will generally not respond to emails outside of business hours (9am-5pm M-F). Please **allow 1 business day for a response** (e.g. an email sent on Friday may not get a response until the following Monday).
+I provide transparent accommodations to all students. It helps reduce stress and the “hidden curriculum” (not everybody feels comfortable asking for flexibility).
 
-Any urgent announcements (e.g. unexpected class cancellations, notice of modifications to assignments) will be made over email.
+- **Missed Class**: It’s okay to miss class in the case of an emergency.
+- **Practice problems**: limited extensions and limited mistakes without penalty.
+- **Checkpoints**: your lowest scores are essentially dropped and there are limited mistakes without penalty.
+- **Quizzes**: limited revisions. Additional flexibility will be provided in rare extenuating circumstances, upon discussion. Exceptions must be discussed with me (not assumed) early on (not after the fact). 
+PLEASE REACH OUT WHEN YOU NEED HELP.
 
-## Drop-in (office) hours {#drop-in-office-hours}
+## Absences
+It’s okay to miss the occasional class. Except in rare extenuating circumstances (which must be discussed in advance):
+- 3 or fewer absences will not impact your grade
+- 4-6 absences will impact your grade (see *Calculating Final Grades* section)
+- you cannot pass the course if you accrue 7+ absences (more than 25% of class sessions)
 
-Office hours are an open-ended time for you to go over coursework, clarify concepts, solicit my ~~biased opinions~~ sage wisdom on career planning/graduate school, discuss research/internship opportunities, find resources you need, or chat about life in general. To encourage attendance at office hours, **there may be individual and/or collective incentives along the way and/or at the end of the semester**, depending on how well you utilize office hours (but please be respectful of your peers and do not monopolize this time).
+::: {.callout-tip title="💡 What to Do If You Miss Class"}
 
-::: {.callout-note title="First time office hours user?"}
-If you are nervous about coming to office hours for the first time, I encourage you to **come with a friend!** (they don't even have to be enrolled in STAT 155!). You may also find it useful to come prepared with a specific question or topic you would like to discuss (some examples [here](https://studentlife.uoregon.edu/node/149)--and remember, it does not have to be about STAT 155 material!).
+1. 📧 **Send me a quick email.** You do not need to share a reason for your absence, especially if it’s personal. It’s just a simple courtesy & keeps communication lines open.
+
+2. 📅 **Check the Course Schedule** in the online manual for what is happening in class that day.
+
+3. 📝 **Complete the in-class activity on your own** & check the solutions posted in the online manual.
+
+4. 💬 **Ask any follow-up questions** on the Moodle forum or in office hours (OH).
+
 :::
 
-## Preceptors
+## Artificial Intelligence (AI)
 
-We have many preceptors for STAT 155 this semester! You may attend office hours for any of the STAT 155 preceptors, not just those grading/attending my sections. All MSCS courses will also share a dedicated R preceptor (Kyle Suelflow), who can help with any issues you have with your R code or RStudio configuration. The course Moodle site contains detailed information for preceptor office hour times/locations.
+Using AI tools is an emerging skill. You may use AI (ChatGPT, Gemini, Grok, etc), with some caveats & limitations:
 
-The role of an MSCS preceptor is to help students with content questions, assist in the navigation of available resources, advise on studying approaches for classes, and assist with concepts, tools, and skills needed for problem sets. Students are accountable for their own learning; as such, preceptors are not allowed to share answers to assignments (unless specifically directed by the instructor), are not expected to immediately know the right approach, or provide assistance outside of office hours. Guidelines and expectations on how to interact with preceptors can be found [here](https://docs.google.com/document/d/1USu-3R1NsGDVm0yU0HTzHuTpzCD3onBjNI5n8w9VBik/edit?usp=sharing).
+- AI is often wrong, thus is not a good resource on topics for which you don’t yet have expertise. Relatedly, though AI can be helpful with parts of a statistical analysis (eg: getting unstuck on code, checking grammar), you have to guide that process (eg: what questions are we trying to answer? what’s a reasonable approach?).
 
-In addition, the Macalester Academic Excellence (MAX) Center provides tutoring for STAT 155. Check out their [website](https://www.macalester.edu/max/science-quantitative-support/stats/) for more information and their tutoring schedule.
+- Work on an exercise for at least 30 minutes before even thinking about AI. You will learn very little if you overly rely on AI, hence be unprepared for other interactions with the material (eg: in-class discussions, quizzes, future courses that build upon 155, etc). Learning comes from you doing the puzzling, not from you producing a correct answer.
+
+- Whether or not you use AI, you must be able to defend/explain any code/discussion you hand in. You cannot simply use AI to bypass your own learning.
+
+- You may not use AI to generate entire arguments or discussions. Putting code and discussions into your own words is critical for your own deeper learning, independent thinking, and creativity. (For example, imagine how little you’d learn in a language course if you simply used AI to translate all text for you!!)
+
+- Any use of AI must be cited, just like any other resource.
+
+
+## Community & Academic Integrity
+
+MSCS strives to provide a learning environment that is equitable, inclusive, welcoming, mutually respectful, and free of discrimination. You’re expected to follow the [MSCS Community Guidelines](https://docs.google.com/document/u/3/d/e/2PACX-1vSlLLWmyOf8WKGDKJ_qypgA_kQI1dNFGEKH0mtFoqfAUARZN7ypVCgivnmPjccks9jJzW1rgEzt7QMI/pub). You’re also required to be familiar with & follow the college’s [academic integrity](https://www.macalester.edu/academicprograms/academicpolicies/academicintegrity/) & other [academic policies](https://www.macalester.edu/academic-programs/academicpolicies/). In addition to the examples listed there, academic violations in this course include but are not limited to the following:
+
+- Using **any** materials from **any** past STAT 155 course, at Mac or elsewhere. Relatedly, you should not provide any materials to any future 155 students. 
+- Gaining access to, using, or distributing solution sets.
+- Passing off others’ work as your own. You must be able to defend / explain all work you hand in.
+- Using AI without citation, to generate entire discussions / code blocks, or without being able to defend the results. Policy violations will result in a score of 0 on the work & be reported to the Asst. Dean of Academic Programs & Advising.
+
+
+<br><br><br><br>
+
+# The 6 Core Components
+
+## Engagement
+
+
+
+
+
+
 
 <br><br><br><br>
 
