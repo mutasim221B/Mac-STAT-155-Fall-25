@@ -182,10 +182,13 @@ Actively participate in the class & take ownership of your learning. PLEASE: Don
 I provide transparent accommodations to all students. It helps reduce stress and the “hidden curriculum” (not everybody feels comfortable asking for flexibility).
 
 - **Missed Class**: It’s okay to miss class in the case of an emergency.
-- **Practice problems**: limited extensions and limited mistakes without penalty.
+- **Practice Problems (PP)**: limited extensions and limited mistakes without penalty. Please *carefully* go through all the sections from [STAT 155 PP Policies & Grading](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.b4wcvjckjps) doc.
 - **Checkpoints**: your lowest scores are essentially dropped and there are limited mistakes without penalty.
 - **Quizzes**: limited revisions. Additional flexibility will be provided in rare extenuating circumstances, upon discussion. Exceptions must be discussed with me (not assumed) early on (not after the fact). 
-PLEASE REACH OUT WHEN YOU NEED HELP.
+
+::: {.callout-tip title="🤝 **PLEASE REACH OUT WHEN YOU NEED HELP.**"}
+:::
+
 
 ## Absences
 It’s okay to miss the occasional class. Except in rare extenuating circumstances (which must be discussed in advance):
@@ -193,7 +196,7 @@ It’s okay to miss the occasional class. Except in rare extenuating circumstanc
 - 4-6 absences will impact your grade (see *Calculating Final Grades* section)
 - you cannot pass the course if you accrue 7+ absences (more than 25% of class sessions)
 
-::: {.callout-tip title="💡 What to Do If You Miss Class"}
+::: {.callout-tip title="What to Do If You Miss Class"}
 
 1. 📧 **Send me a quick email.** You do not need to share a reason for your absence, especially if it’s personal. It’s just a simple courtesy & keeps communication lines open.
 
@@ -245,7 +248,7 @@ Engagement is important to your own learning & to fostering a supportive learnin
 - **When attending class:**
   - Be on time & don’t leave early  
   - Do not use your phone (phones must be put away when you enter the course, even if class hasn’t started)  
-  - Do not use your laptop for anything other than taking notes (e.g., no videos, no email, no messaging apps, etc.)  
+  - [Do not use your laptop for anything other than taking notes](https://www.sciencedirect.com/science/article/pii/S0360131512002254) (e.g., no videos, no email, no messaging apps, etc.)  
   - Be actively present (e.g., don’t work alone, don’t work on other courses, etc.)  
 
 - **Outside class:**
@@ -362,9 +365,9 @@ The grading system in this course is designed to help you achieve the learning o
 ::: {.column width="30%"}
 ### Course Percentage
 
-33% Practice Problems +  
-33% Quiz total +  
-33% Project
+$\tfrac{1}{3}$ Practice Problems +  
+$\tfrac{1}{3}$ Quiz total +  
+$\tfrac{1}{3}$ Project
 
 | Grade | Course percentage |
 |------:|:-------------------|
@@ -416,17 +419,15 @@ Preparation (checkpoints)
 
 # Other policies
 
-## Attendance
-
-Attendance is not (directly) a part of your grade—I recognize that some students may learn more effectively when working through the material independently, and mandating attendance can create a barrier to accessibility. However, because this course is designed to be interactive and community-oriented, regular attendance will likely improve your experience and help you get the most out of the course (remember, that encompasses lots of intangible benefits beyond your final grade!).
+## What to Do If You Miss Class
 
 If you do miss class, I expect you to complete any in-class activities on your own. Check the solutions in the online manual and come to office hours with any follow-up questions.
 
-## Late work
+## Late work on Practice Problems (PPs)
 
-Throughout the semester, you may use up to three, three-day extensions. These three extensions can be used on Problem Sets only, not quizzes. The purpose of deadlines (and extensions) are to keep you accountable for your own learning, to keep you on track with the pace of the course (which builds upon itself throughout the semester), and to provide preceptors and myself with the ability to provide you with timely feedback on assignments. Since the Problem Sets are due roughly every two weeks, you must begin working on them early if you want to succeed.
+Throughout the semester, you may use up to three, three-day extensions. These three extensions can be used on **Practice Problems** only, not **quizzes**. The purpose of deadlines (and extensions) are to keep you accountable for your own learning, to keep you on track with the pace of the course (which builds upon itself throughout the semester), and to provide preceptors and myself with the ability to provide you with timely feedback on assignments. Since the Problem Sets are due roughly every two weeks, you must begin working on them early if you want to succeed.
 
-Extensions can be used automatically, without letting me know in advance. The Moodle dropboxes for assignments will close exactly 3 days after the original deadline (i.e. Saturdays at 5pm), and I will not accept work submitted after that point unless there are extenuating circumstances that you have communicated with me about ahead of the original deadline. If you email me a completed assignment after a 3-day extension is up, I may have the preceptors provide you with feedback, but you will not receive credit for the assignment (equivalent to “Needs Improvement” on every question of the relevant assignment).
+Extensions can be used automatically, without letting me know in advance. The Moodle dropboxes for assignments will close exactly 3 days after the original deadline (i.e. Mondays at 11:59pm), and I will not accept work submitted after that point unless there are extenuating circumstances that you have communicated with me about ahead of the original deadline. If you email me a completed assignment after a 3-day extension is up, I may have the preceptors provide you with feedback, but you will not receive credit for the assignment (equivalent to “Needs Improvement” on every question of the relevant assignment).
 
 I expect you to keep track of how many extensions you’ve used. I will do my best to email you a reminder if you have used all three of your extensions and have none remaining.
 
@@ -436,27 +437,7 @@ If you have run out of extensions and/or an extenuating circumstance occurs that
 
 Students may wish to take part in religious observances that occur during the semester. If you have a religious observance/practice that conflicts with your participation in the course, please contact me before the end of the second week of the semester to discuss appropriate accommodations.
 
-## Academic integrity
-
-Academic integrity is the cornerstone of our learning community. Students are expected to be familiar with the [college's standards](http://www.macalester.edu/academicprograms/academicpolicies/academicintegrity/) on academic integrity.
-
-I encourage you to work with your classmates to discuss material and ideas for assignments, but in order for you to receive individualized feedback on your own learning, you must submit your own work. This involves writing your own code and putting explanations into your own words. Always cite any sources you use, including AI (see section below).
-
-## Artificial Intelligence (AI) Use
-
-In this course, I *strongly discourage* the use of generative AI tools (ChatGPT, Google Gemini, Claude, etc.), for three main reasons:
-
-1.  We are learning the essentials of a new language and way of thinking. Learning how to do something the "long" or "hard" way is beneficial not only for developing critical thinking skills, but because that process can be enriching and fulfilling in its own right. Though AI can (sometimes) put access to answers at your fingertips, it cannot replace the *physical, sensory, and emotional* experience of sketching out ideas on a whiteboard with friends, [stopping by your professor's office for a donut](#drop-in-office-hours), or the satisfaction of knowing that you can do something hard from scratch.
-
-2.  I care much more about developing your ability to identify interesting problems, iteratively seek a solution, and convince the world that your solution works than I do about your ability to find answers that are already known (using AI or otherwise). Remember that "generative" AI is only capable of remixing existing information—it cannot *create* new knowledge, situate that knowledge in the context of your lived experience, or apply that knowledge to instigate change.
-
-3.  In this course, I hope to emphasize the importance of **process** over **output**. Consider an analogy of a painting class at Macalester. You're a novice painter, but you have a strong point of view and a solid understanding of context and tradition, so you decide to write an AI prompt to generate the artwork and translate it to physical media. After lots of wordsmithing and iterations on Midjourney, your AI-generated image ready. It's provocative and beautiful...it will look even better on canvas! You get to work, admiring yourself for finishing faster than your classmates because you knew *exactly* what your final product would look like. You step back to admire your masterpiece, and realize it's at best a paint-by-numbers, and at worst, complete garbage because you were so focused on crafting the perfect AI prompt that you didn't really learn how to mix colors or use different brush techniques.
-
-All of that being said, I have neither the time nor interest in policing the use of AI tools. **If you do choose to use AI**, any ideas, language, or code that is produced by AI must be cited, just like any other resource. 
-
-- **How to cite AI:** If you have used AI in any assignment, please include a paragraph at the end explaining what you used the AI for and what prompts you used to get the results. Failure to do so is in violation of the academic integrity policy at Macalester College.
-
-<br><br><br><br>
+In an effort to respect religious diversity, I request that students who plan to observe a religious holiday during scheduled class meetings/class requirements talk to me about reasonable consideration by the end of the second week of the course.
 
 ## Well-being
 
@@ -474,33 +455,7 @@ You may also contact Macalester’s Title IX Coordinator directly (phone: 651-69
 
 **General Health and Well-being:** I care that you prioritize your well-being in this semester and beyond. Investing time into taking care of yourself will have profound impacts on all aspects of your life. Remember that beyond being a student, you are a human being carrying your own experiences, thoughts, emotions, and identities. It is important to acknowledge any stressors you may be facing, which can be mental, emotional, physical, cultural, financial, etc., and how they can have an impact on you. I encourage you to remember that you have a body with needs. In the classroom, eat when you are hungry, drink water, use the restroom, and step out if you are upset and need some air. Please do what is necessary so long as it does not impede your or others' ability to be mentally and emotionally present in the course. Outside of the classroom, sleeping well, moving your body, and connecting with others can be strategies can help nourish you. If you are having difficulties maintaining your well-being, please don't hesitate to contact me and/or find support from physical and mental health resources [here](https://docs.google.com/document/d/1lz-ii5yze_OSkQJqz_7pap7fRjG81LJh0_saBniP-zg/edit), [here](https://docs.google.com/document/d/1iC-ykD8QJ-w2BVO1Gb0AobD-00Zq_8mznWR5C2mNiF0/edit?usp=sharing), and [here](https://www.macalester.edu/current-students/).
 
-# Guiding Values / Course Manifesto
-
-## You belong here!
-
-Statistics--like most other areas of science--has a long history of excluding and exploiting people from marginalized communities and identities. Many of the earliest statisticians in the 19th and 20th centuries used and abused statistics to justify [colonialism, ableism, classism, sexism, eugenics, and white supremacy](https://nautil.us/how-eugenics-shaped-statistics-238014/).
-
-On top of this problematic history, cultural norms around academic performance in quantitative disciplines can make courses like this one feel intimidating and exclusionary, rather than collaborative and interdisciplinary.
-
-To counter these barriers, my central goal as an instructor is to **intentionally foster community and connectedness.** I believe that your unique voices and perspectives in this class will enrich our collective learning process and, in turn, your college experience. I encourage you to get to know your classmates ([and me!](#drop-in-office-hours)) beyond a superficial familiarity and connect over our shared interests, identities, and ideas. You can help cultivate that community by being thoughtful about the way you engage with others and stretching your comfort zone to interact with people who are outside of your established social circles.
-
-## Informed skepticism
-
-In virtually all of contemporary Western science, statistical reasoning is foundational to establishing trust in scientific theories. However, it is shockingly common to encounter "statistically justified" conclusions that are 1) not generalizable or cannot be replicated, 2) invalidated by honest coding/modeling mistakes, 3) based on deliberately cherry-picked models, or--in extreme cases--4) data that have been outright fabricated/falsified. Like in all aspects of life, trust in scientific claims must be earned.
-
-In this course and beyond, I encourage you to approach any statistical results you encounter with a healthy skepticism, informed by both your gut intuition and the material you've learned. Know that [you may be wrong](#mistakes-and-uncertainty-are-essential) (counter-intuitive results are abundant!) but you should **always** feel empowered to respectfully and rigorously challenge statistical claims.
-
-## A commitment to ethical deliberation and conduct
-
-Because statistics is a way to make sense of the world around us, it is also a way to influence it. This comes with an inherent responsibility to grapple with the ethical and sociopolitical dimensions of the content in this course. This includes delving into the context of how methods were developed, questioning assumptions, and considering the potential for misuse and misinterpretation. Throughout the course, you will be challenged to consider the broader impact of your work: How might your results and interpretations directly or indirectly affect the environment, specific individuals, or human culture & society? Whose prior scientific contributions are you amplifying or ignoring? How do your assumptions and biases shape your scientific approach and communication?
-
-## Mistakes and uncertainty are essential {#mistakes-and-uncertainty-are-essential}
-
-I expect that you and I will make lots of mistakes along the way in this course. Perhaps paradoxically, this is an important way to gain confidence: as we *make* mistakes, we will develop skills for *recognizing* and correcting them. These skills are **vital** for succeeding in STEM careers (and life in general). This course will provide a low-stakes environment for us to practice accountability, reflection, and troubleshooting when mistakes occur.
-
-## Context before content
-
-Rigorous statistical reasoning demands that we understand the context of our data and our research questions before we run a model and obtain/interpret results. I also aim to be mindful of various other contexts that shape our learning experience: our individual identities/histories, the classroom environment, the campus climate, etc. Throughout the semester, we will create space to address and discuss whatever contexts might impact our ability to engage the material (and how they may even relate to the material!).
+<br><br><br><br>
 
 # Note
 
