@@ -3,19 +3,19 @@ title: ""
 sidebar: false
 ---
 
-# STAT 155: Introduction to Statistical Modeling
+# STAT 155: Introduction to Statistical Modeling  
+Macalester College, Fall 2025  
 
-Macalester College, Fall 2025
+Statistics is not just about numbers — it’s about making sense of the world.  
 
-Welcome to the world of Statistics!
-
-::: {.callout-note title="📖 A Thought from H. G. Wells"}
+::: {.callout-tip title="📖 A Thought from H. G. Wells"}  
 > “Statistical thinking will one day be as necessary for efficient citizenship  
 > as the ability to read and write.”  
->
-> — H. G. Wells
-:::
+>  
+> — H. G. Wells  
+:::  
 
+Welcome to the world of Statistics! In this course, you’ll learn how to analyze data, test research hypotheses, and make predictions in ways that matter.  
 
 **Instructor:** Md Mutasim Billah <br> **Class meeting times:**
 
@@ -23,8 +23,6 @@ Welcome to the world of Statistics!
 -   **Section 04**: M/W/F 12:00-01:00pm, THTR 20
 
 <br>
-
-**Jed's drop-in hours:**
 
 **Bill's drop-in (office) hours:**
 
