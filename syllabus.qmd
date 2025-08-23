@@ -381,7 +381,7 @@ $\tfrac{1}{3}$ Project
 
 :::
 
-::: {.column width="60%"}
+::: {.column width="70%"}
 
 ### Grade Modifiers
 
