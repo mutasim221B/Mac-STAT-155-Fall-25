@@ -47,9 +47,9 @@ The following skills are essential both within and beyond Statistics, and demons
 
 <br><br><br><br>
 
-# Instructor/Preceptor Team
+## Instructor/Preceptor Team
 
-## About your professor
+### About your professor
 
 <img src="https://raw.githubusercontent.com/mutasim221B/Mac-STAT-155-Fall-25/main/images/Mutasim_Pic.jpg"
 width="150" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
@@ -74,7 +74,7 @@ Outside of my academic work, I enjoy spending time outdoors with family and frie
 -   **24/7 by Appointment**: I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. Shoot me an email and we can arrange it either in-person or over [zoom](https://macalester.zoom.us/j/99762878654?pwd=gt7VvSNT0ubKsV2icMV3z8J0GyHKMy.1), password: 123456.
 
 
-## About your preceptors
+### About your preceptors
 
 We have several wonderful STAT 155 preceptors this semester! Their role is to help students
 with content questions, assist in the navigation of available resources, advise on studying approaches, and assist with concepts, tools, and skills. Students are accountable for their own learning; as such, preceptors are not allowed to share answers to assignments (unless specifically directed by the instructor), they are not expected to immediately know the right approach to an exercise, and they do not provide assistance outside of office hours.
@@ -83,7 +83,7 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 
 <br><br><br><br>
 
-# Topics & Tentative Schedule
+## Topics & Tentative Schedule
 
 | UNIT                       | GOAL                                                                                                 | TOPICS                                                                                                                                                                                                                                               | ~WEEKS |
 |---------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
@@ -94,19 +94,19 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 
 <br><br><br><br>
 
-# Course resources
+## Course resources
 
-## Textbook & Online Course Manual
+### Textbook & Online Course Manual
 
 There is no required textbook for this course. Throughout the course, readings may be assigned from these [notes](https://mac-stat.github.io/Stat155Notes/), or other sources. 
 
 The online course manual includes all in-class activities (with solutions) and a daily [Schedule](schedule.qmd). All links and materials needed will be provided on the schedule tab of this website.
 
-## Moodle
+### Moodle
 [Moodle](https://moodle.macalester.edu/) includes general resources, a broad course calendar, submission links, feedback, and a forum for student questions.
 
 
-## Statistical software
+### Statistical software
 
 We will use the (completely free and open source) R programming language extensively throughout this course. RStudio (an interface for R) will facilitate our use of R. You may use RStudio in one of two ways:
 
@@ -116,18 +116,18 @@ We will use the (completely free and open source) R programming language extensi
 
 More detailed instructions on downloading, installing, and getting started with R, and RStudio are available on the [Tech Setup](tech_setup.qmd) tab.
 
-## Office hours (OH)
+### Office hours (OH)
 Across the instructor and preceptors, there are several office hours each week. Names, times, and 
 locations are on the Moodle course calendar. 
 **IMPORTANT**: Always check the calendar before attending OH.
 
 <br><br><br><br>
 
-# Communication & Thriving
+## Communication & Thriving
 
-## Asking questions/communicating
+### Asking questions/communicating
 
-### Office Hours
+#### Office Hours
 
 OH are a great place to chat about the course, career planning, life,... 
 Please visit us!!
@@ -136,12 +136,12 @@ Please visit us!!
 - OH are oriented around group discussion. They are not first come, first served appointments.
 - Since it’s not an effective way to deepen your learning, OH are not a place to sit and do assignments with me or preceptors. It’s an opportunity to discuss concepts & specific questions.
 
-### Moodle Forum
+#### Moodle Forum
 
 This forum is where we’ll communicate outside class. Students can post and answer comments / questions there. This is an informal way to converse, ask questions, share info, & connect. Do not 
 rely on receiving responses outside weekdays between 9am & 5pm.
 
-## What to do when you have a question for me?
+### What to do when you have a question for me?
 
 - If it’s non-private (e.g. about policies, homework, etc), you must post it on the public Moodle forum.
 - If it’s personal (e.g. about an absence), email me.
@@ -152,7 +152,7 @@ rely on receiving responses outside weekdays between 9am & 5pm.
   - **Homework policies & grading**: [homework policies & grading](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.y44zqzjp7zgk) doc
   - **Finals week**: syllabus + course calendar at the top of Moodle + course schedule in the online manual
 
-## Thriving in STAT 155
+### Thriving in STAT 155
 
 ::: {.callout-note title="🗓️ Plan Ahead"}
 You should plan to spend ~10-12 hours on any 4-credit course, including class time.[^1] Stay 
@@ -175,9 +175,9 @@ Actively participate in the class & take ownership of your learning. PLEASE: Don
 
 <br><br><br><br>
 
-# Course Policies
+## Course Policies
 
-## Flexibility
+### Flexibility
 
 I provide transparent accommodations to all students. It helps reduce stress and the “hidden curriculum” (not everybody feels comfortable asking for flexibility).
 
@@ -190,7 +190,7 @@ I provide transparent accommodations to all students. It helps reduce stress and
 :::
 
 
-## Absences
+### Absences
 It’s okay to miss the occasional class. Except in rare extenuating circumstances (which must be discussed in advance):
 - 3 or fewer absences will not impact your grade
 - 4-6 absences will impact your grade (see *Calculating Final Grades* section)
@@ -208,7 +208,7 @@ It’s okay to miss the occasional class. Except in rare extenuating circumstanc
 
 :::
 
-## Artificial Intelligence (AI)
+### Artificial Intelligence (AI)
 
 Using AI tools is an emerging skill. You may use AI (ChatGPT, Gemini, Grok, etc), with some caveats & limitations:
 
@@ -223,7 +223,7 @@ Using AI tools is an emerging skill. You may use AI (ChatGPT, Gemini, Grok, etc)
 - Any use of AI must be cited, just like any other resource.
 
 
-## Community & Academic Integrity
+### Community & Academic Integrity
 
 MSCS strives to provide a learning environment that is equitable, inclusive, welcoming, mutually respectful, and free of discrimination. You’re expected to follow the [MSCS Community Guidelines](https://docs.google.com/document/u/3/d/e/2PACX-1vSlLLWmyOf8WKGDKJ_qypgA_kQI1dNFGEKH0mtFoqfAUARZN7ypVCgivnmPjccks9jJzW1rgEzt7QMI/pub). You’re also required to be familiar with & follow the college’s [academic integrity](https://www.macalester.edu/academicprograms/academicpolicies/academicintegrity/) & other [academic policies](https://www.macalester.edu/academic-programs/academicpolicies/). In addition to the examples listed there, academic violations in this course include but are not limited to the following:
 
@@ -235,9 +235,9 @@ MSCS strives to provide a learning environment that is equitable, inclusive, wel
 
 <br><br><br><br>
 
-# The 6 Core Components (EC3PQ!)
+## The 6 Core Components (EC3PQ!)
 
-## (1) Engagement
+### (1) Engagement
 
 Engagement is important to your own learning & to fostering a supportive learning community.
 
@@ -260,7 +260,7 @@ Engagement is important to your own learning & to fostering a supportive learnin
 **NOTE**: To share clear & consistent information, any deviations from these expectations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
 
 
-## (2) Colloboration
+### (2) Colloboration
 
 Collaboration improves higher-level thinking, confidence, communication, community, & more. You will work in groups in and outside class. These groups will occasionally switch & will sometimes be assigned. 
 
@@ -280,7 +280,7 @@ Collaboration improves higher-level thinking, confidence, communication, communi
 **NOTE**: To share clear & consistent information, any deviations from these expectations during in-class collaborations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
 
 
-## (3) Preparation (Checkpoints) 
+### (3) Preparation (Checkpoints) 
 
 Roughly half of our class sessions will require some prep work. Before class you will watch videos which introduce new concepts, then take a low-stakes checkpoint quiz (CP). This will help us prepare for class, build a common foundation, & maximize our time together – just how readings & reading reflections might be used in another class!
 
@@ -302,7 +302,7 @@ Pass 13+ of the 16 CPs (≈80%); **OR** earn at least 80% of total points across
 
 :::
 
-## (4) Practice
+### (4) Practice
 
 In 8 practice problem sets (PP), you will practice and explore the course material in more depth. The following flexibility is built in to help reduce stress and to facilitate deeper learning. Detailed directions and policies are [here](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.y44zqzjp7zgk).
 
@@ -310,7 +310,7 @@ In 8 practice problem sets (PP), you will practice and explore the course materi
 - **Dropped score**: *IF* you submit and demonstrate clear effort on all 8 PPs, your lowest PP score will be dropped from your final grade.
 - **Extensions**: Limited extensions will be provided. 
 
-## (5) Project (Independence & Application)
+### (5) Project (Independence & Application)
 
 More details will be provided later in the semester. Here are some basics:
 
@@ -321,7 +321,7 @@ More details will be provided later in the semester. Here are some basics:
 - Project grades will be based upon a final group written report (no oral presentation), multiple group and individual checkpoints, and individual contributions to the project (thus it’s possible for different group members to earn different grades).
 
 
-## (6) Quizzes (Content Expertise)
+### (6) Quizzes (Content Expertise)
 
 Your course engagement, collaboration, preparation, practice, and application will support your deeper understanding of the course material. This will be assessed through three in-person quizzes. You must schedule all travel and other commitments around them — there will not be any alternative quiz times.  
 
@@ -350,12 +350,9 @@ Your course engagement, collaboration, preparation, practice, and application wi
 
 :::
 
-
 <br><br><br><br>
 
-# Calculating Final Grades
-
-## Grading system
+## Calculating Final Grades
 
 The grading system in this course is designed to help you achieve the learning objectives while allowing space to make and learn from mistakes along the way. Your final course grade will consist of three, evenly-weighted components (Quizzes, Practice Problems, and the Project), modified by your progress toward the Engagement, Collaboration, and Preparation (Checkpoint) goals:
 
@@ -417,13 +414,13 @@ Preparation (checkpoints)
 
 <br><br><br><br>
 
-# Other policies
+## Other policies
 
-## What to Do If You Miss Class
+### What to Do If You Miss Class
 
 If you do miss class, I expect you to complete any in-class activities on your own. Check the solutions in the online manual and come to office hours with any follow-up questions.
 
-## Late work on Practice Problems (PPs)
+### Late work on Practice Problems (PPs)
 
 Throughout the semester, you may use up to three, three-day extensions. These three extensions can be used on **Practice Problems** only, not **quizzes**. The purpose of deadlines (and extensions) are to keep you accountable for your own learning, to keep you on track with the pace of the course (which builds upon itself throughout the semester), and to provide preceptors and myself with the ability to provide you with timely feedback on assignments. Since the Problem Sets are due roughly every two weeks, you must begin working on them early if you want to succeed.
 
@@ -433,13 +430,13 @@ I expect you to keep track of how many extensions you’ve used. I will do my be
 
 If you have run out of extensions and/or an extenuating circumstance occurs that impacts your ability to submit assignments on time, please email me to discuss the situation. **I am happy to be flexible as long as you communicate!**
 
-## Religious Observance
+### Religious Observance
 
 Students may wish to take part in religious observances that occur during the semester. If you have a religious observance/practice that conflicts with your participation in the course, please contact me before the end of the second week of the semester to discuss appropriate accommodations.
 
 In an effort to respect religious diversity, I request that students who plan to observe a religious holiday during scheduled class meetings/class requirements talk to me about reasonable consideration by the end of the second week of the course.
 
-## Well-being
+### Well-being
 
 I want you to succeed. Both here at Macalester and beyond. To help make this happen, I am committed to the following.
 
@@ -457,6 +454,6 @@ You may also contact Macalester’s Title IX Coordinator directly (phone: 651-69
 
 <br><br><br><br>
 
-# Note
+## Note
 
 This syllabus is subject to change at any time! Announcements of changes will be made in class or via email.
