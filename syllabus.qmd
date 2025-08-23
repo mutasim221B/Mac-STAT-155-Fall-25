@@ -359,7 +359,7 @@ The grading system in this course is designed to help you achieve the learning o
 
 ::: {.columns}
 
-::: {.column width="40%"}
+::: {.column width="30%"}
 
 ### Course Percentage
 
@@ -381,7 +381,7 @@ $\tfrac{1}{3}$ Project
 
 :::
 
-::: {.column width="54%"}
+::: {.column width="60%"}
 
 ### Grade Modifiers
 
