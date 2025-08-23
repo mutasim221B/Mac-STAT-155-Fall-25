@@ -6,11 +6,10 @@ sidebar: false
 # STAT 155: Introduction to Statistical Modeling  
 Macalester College, Fall 2025  
 
-Statistics is not just about numbers — it’s about making sense of the world.  
+Statistics is not just about theories & numbers — it’s about making sense of the world.  
 
 ::: {.callout-tip title="📖 A Thought from H. G. Wells"}  
-> “Statistical thinking will one day be as necessary for efficient citizenship  
-> as the ability to read and write.”  
+> “Statistical thinking will one day be as necessary for efficient citizenship as the ability to read and write.”  
 >  
 > — H. G. Wells  
 :::  
