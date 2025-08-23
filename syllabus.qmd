@@ -359,7 +359,7 @@ The grading system in this course is designed to help you achieve the learning o
 
 ::: {.columns}
 
-::: {.column width="30%"}
+::: {.column width="30%" style="padding-right:25px;"}
 
 ### Course Percentage
 
@@ -381,7 +381,7 @@ $\tfrac{1}{3}$ Project
 
 :::
 
-::: {.column width="70%"}
+::: {.column width="70%" style="padding-right:25px;"}
 
 ### Grade Modifiers
 
@@ -389,13 +389,13 @@ Engagement (including attendance) +
 Collaboration +  
 Preparation (checkpoints)  
 
-| Modifier         | Scenario                                                                 |
-|------------------|--------------------------------------------------------------------------|
-| none (eg: A → A) | Meets expectations in all 3 areas (Engagement, Collaboration, Preparation) |
-| $\tfrac{1}{3}$ lower grade (eg: A → A-) | Demonstrates strong progress toward expectations (e.g., 4 absences or 70% checkpoint total or ...) |
-| 1 lower grade (eg: A → B) | Demonstrates moderate progress (e.g., 5–6 absences or 50% checkpoint total or ...) |
-| >1 lower grade | Demonstrates little progress toward expectations in all 3 areas           |
-| Drop to D/NC | Has 7+ absences                                                           |
+| Modifier                                | Scenario                                                                 |
+|:----------------------------------------|:-------------------------------------------------------------------------|
+| none (eg: A → A)                        | Meets expectations in all 3 areas (Engagement, Collaboration, Preparation) |
+| $\tfrac{1}{3}$ lower grade (eg: A → A-) | Demonstrates strong progress toward expectations (e.g., 4 absences or 70% checkpoint total) |
+| 1 lower grade (eg: A → B)               | Demonstrates moderate progress (e.g., 5–6 absences or 50% checkpoint total) |
+| >1 lower grade                          | Demonstrates little progress toward expectations in all 3 areas           |
+| Drop to D/NC                            | Has 7+ absences                                                           |
 
 **NOTE:** The above table presents general scenarios. Please reach 
 out to the instructor if you want to discuss your progress toward 
