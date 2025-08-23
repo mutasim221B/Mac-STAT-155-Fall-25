@@ -5,7 +5,9 @@ sidebar: false
 
 # STAT 155: Introduction to Statistical Modeling
 
-Macalester College, Spring 2025
+Macalester College, Fall 2025
+
+Welcome to the world of Statistics!
 
 ::: {.callout-note title="📖 A Thought from H. G. Wells"}
 > “Statistical thinking will one day be as necessary for efficient citizenship  
@@ -14,8 +16,6 @@ Macalester College, Spring 2025
 > — H. G. Wells
 :::
 
-
-<br>
 
 **Instructor:** Md Mutasim Billah <br> **Class meeting times:**
 
