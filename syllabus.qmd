@@ -1,9 +1,13 @@
 ---
-title: "&#32;"
+title: "STAT 155: Introduction to Statistical Modeling (Fall 2025)"
 sidebar: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    toc-expand: true
 ---
-
-# STAT 155: Introduction to Statistical Modeling
 
 Macalester College, Fall 2025
 
@@ -50,9 +54,9 @@ The following skills are essential both within and beyond Statistics, and demons
 <br><br><br><br>
 
 
-# Instructor/Preceptor Team
+## Instructor/Preceptor Team
 
-## About your professor
+### About your professor
 
 <img src="https://raw.githubusercontent.com/mutasim221B/Mac-STAT-155-Fall-25/main/images/Mutasim_Pic.jpg"
 width="150" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
@@ -76,7 +80,7 @@ Outside of my academic work, I enjoy spending time outdoors with family and frie
 -   **Times**: M/W: 01:30-02:30 pm.
 -   **24/7 by Appointment**: I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. Shoot me an email and we can arrange it either in-person or over [zoom](https://macalester.zoom.us/j/99762878654?pwd=gt7VvSNT0ubKsV2icMV3z8J0GyHKMy.1), password: 123456.
 
-## About your preceptors
+### About your preceptors
 
 We have several wonderful STAT 155 preceptors this semester! Their role is to help students
 with content questions, assist in the navigation of available resources, advise on studying approaches, and assist with concepts, tools, and skills. Students are accountable for their own learning; as such, preceptors are not allowed to share answers to assignments (unless specifically directed by the instructor), they are not expected to immediately know the right approach to an exercise, and they do not provide assistance outside of office hours.
@@ -86,3 +90,4 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 <br><br><br><br>
 
 <br><br><br><br>
+
