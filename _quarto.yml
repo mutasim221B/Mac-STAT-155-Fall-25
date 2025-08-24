@@ -50,9 +50,7 @@ website:
 
 format:
   html:
-    theme:
-      light: simplex
-      dark: [simplex, simplex-dark.scss]
+    theme: sandstone
     # css: styles.css
     toc: true      
     code-overflow: wrap
