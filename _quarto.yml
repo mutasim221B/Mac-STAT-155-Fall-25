@@ -15,7 +15,7 @@ project:
 website:
   title: "STAT 155"
   site-url: https://mutasim221B.github.io/Mac-STAT-155-Fall-25/
-  repo-url:  https://github.com/mutasim221B/Mac-STAT-155-Fall-25
+  repo-url:  https://github.com/mutasim221b/Mac-STAT-155-Fall-25
   favicon: favicon-32x32.png
   navbar:
     background: primary
