@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Course Schedule – STAT 155: Intro to Statistical Modeling</title>
+<title>Course Schedule – STAT 155</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,24 +30,27 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./activities/L01-foundations-welcome.html" rel="next">
-<link href="./index.html" rel="prev">
-<link href="./images/logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<link href="./favicon-32x32.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1d99024f023110a0208b747d291fd44b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5c29fcaca81ab890ceeec1d6295fb439.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-a0a7dd2fca7d113d3a785e81020eac16.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5c29fcaca81ab890ceeec1d6295fb439.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -73,102 +76,238 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./schedule.html">Course Schedule</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STAT 155</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-activities" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Activities</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
+        <li>
+    <a class="dropdown-item" href="./activities/01_foundations_welcome.html">
+ <span class="dropdown-text">Collecting and Summarizing Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./assignments.html"> 
+<span class="menu-text">Practice Problems</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./tech_setup.html"> 
+<span class="menu-text">Tech Setup</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">STAT 155</a> 
-        <div class="sidebar-tools-main">
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./schedule.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Course Schedule</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Simple Linear Regression</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./activities/L01-foundations-welcome.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Multiple Linear Regression</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Logistic Regression</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Inference</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Appendix</span></span>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -189,672 +328,634 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>UPDATE: The schedule below is simply an example from Alicia’s Fall 2025 TR sections.</p>
-<p><br>
-<br>
-</p>
+<p>The course schedule below will be filled in throughout the semester. Any urgent announcements will be made over email.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Tuesday</th>
+<th>Thursday</th>
+<th>Announcements</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>14</td>
+<td>4/29: Project work day</td>
+<td>5/1: Last day of class! (Project poster session)</td>
+<td><ul>
+<li>See the <a href="https://carjed.github.io/155_spring_2025/syllabus.html#quizzes">syllabus</a> for final quiz times the week of 5/5</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>4/22: Project work day</td>
+<td><p>4/24: P-value discussion</p>
+<p>Before class:</p>
 <ul>
-<li>Project-related due dates are not yet in the schedule.</li>
-<li>Details are subject to change (with plenty of advance warning).</li>
-<li>Unless specified otherwise:
-<ul>
-<li>Checkpoints (CPs) are due 10 minutes before your STAT 155 section starts.</li>
-<li>Practice problems (PPs) are due by 11:59pm on the due date.</li>
-</ul></li>
+<li>Do <em>your</em> assigned reading for today’s activity (Linked in Moodle Checkpoint)</li>
 </ul>
-<p><br>
-</p>
-<style>
-    .mytable1 {
-        width: 95%;
-        text-align: center;
-    }
-    .mytable1 th {
-        background: lightgrey;
-        word-wrap: break-word;
-        text-align: center;
-    }
-    .mytable2 {
-        width: 95%;
-        text-align: center;
-    }
-    .mytable2 th {
-        background: lightgrey;
-        word-wrap: break-word;
-        text-align: center;
-    }
-    .mytable3 {
-        width: 95%;
-        text-align: center;
-    }
-    .mytable3 th {
-        background: lightgrey;
-        word-wrap: break-word;
-        text-align: center;
-    }
-    .mytable4 {
-        width: 95%;
-        text-align: center;
-    }
-    .mytable4 th {
-        background: lightgrey;
-        word-wrap: break-word;
-        text-align: center;
-    }
-    .mytable1 tr:nth-child(1) { background: #71C5E8; }
-    .mytable1 tr:nth-child(2) { background: #71C5E8; }
-    .mytable2 tr:nth-child(2) { background: #FFB500; }
-    .mytable3 tr:nth-child(4) { background: #FFB500; }
-    .mytable4 tr:nth-child(12) { background: #FFB500; }
-</style>
-
-<title>
-Schedule Table
-</title>
-<style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-      vertical-align: top;
-    }
-    th {
-      background-color: #e0e0e0;
-    }
-    td:empty::after {
-      content: "\00a0"; /* non-breaking space to preserve cell border */
-    }
-  </style>
-
-
-<table>
-<tbody><tr>
-<th>
-Date
-</th>
-<th>
-Topic
-</th>
-<th>
-Due
-</th>
+<!-- -->
+<ul>
+<li>To receive credit for today’s “checkpoint”, you must (1) have read your assigned reading in preparation for class and confirmed this on the Moodle Checkpoint Quiz, and (2) attend class and be an active participant in the discussion!</li>
+</ul></td>
+<td><ul>
+<li><p>PP#8 due at 5pm on Wednesday 4/23 (Last homework</p></li>
+<li><p>Project presentation (<em>very</em> low-stakes) on 5/1 during class</p></li>
+<li><p>Final Draft for project due 5/1 at Midnight!</p></li>
+</ul></td>
 </tr>
-<tr>
-<td colspan="4" style="text-align: center; font-weight: bold; background-color: #f2f2f2;">
-Unit 1: Simple Linear Regression
-</td>
+<tr class="odd">
+<td>12</td>
+<td><p>4/15: Hypothesis Testing Details</p>
+<p>Before class:</p>
+<ul>
+<li>complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><p>4/17: Hypothesis Testing: Nested Models</p>
+<p>Before class:</p>
+<ul>
+<li>complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><ul>
+<li><p>PP#7 due by 5pm on Wednesday, 4/16</p></li>
+<li><p>PP#8 due at 5pm on Wednesday 4/23 (Last homework!)</p></li>
+</ul></td>
 </tr>
-<tr style="background-color: #DBE9F7;">
-<td>
-9/2
-</td>
-<td>
-<a href="./activities/L01-foundations-welcome.html">Welcome</a>
-</td>
-<td>
-</td>
+<tr class="even">
+<td>11</td>
+<td><p>4/8: Confidence Intervals</p>
+<p>Before class:</p>
+<ul>
+<li>complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><p>4/10: Hypothesis Testing Discovery</p>
+<p>Before class:</p>
+<ul>
+<li>no Moodle checkpoint due today!</li>
+</ul></td>
+<td><ul>
+<li><p>PP#6 due by 5pm on Wednesday, 4/9</p></li>
+<li><p>Quiz corrections/reflections due by 11:59pm on Thursday, 4/10</p></li>
+<li><p>Project Checkpoint #2 is due Friday, 4/11</p></li>
+</ul></td>
 </tr>
-<tr style="background-color: #DBE9F7;">
-<td>
-9/4
-</td>
-<td>
-Univariate visual &amp; numerical summaries
-</td>
-<td>
-CP 1
-</td>
+<tr class="odd">
+<td>10</td>
+<td><p>4/1: The Normal model and sampling variation</p>
+<p>Before class:</p>
+<ul>
+<li>complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><p>4/3: Tools for inference</p>
+<p>Before class:</p>
+<ul>
+<li>complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><ul>
+<li><p>Last day to withdraw is Friday, 4/4</p></li>
+<li><p>No due dates this week</p>
+<ul>
+<li><p>PP#6 is due at 5pm on Wednesday, 4/9</p></li>
+<li><p>Project Checkpoint #2 is due Friday, 4/11</p></li>
+</ul></li>
+</ul></td>
 </tr>
-<tr>
-<td>
-9/9
-</td>
-<td>
-Simple linear regression
-</td>
-<td>
-CP 2
-</td>
+<tr class="even">
+<td>9</td>
+<td><p>3/25: Multiple Logistic Regression</p>
+<p>Before class:</p>
+<ul>
+<li>complete today’s Moodle checkpoint</li>
+</ul></td>
+<td>3/27: <strong>Quiz 2</strong> (1 hour in class)</td>
+<td><ul>
+<li>PP#5 due by 5pm on Wednesday, 3/26</li>
+</ul></td>
 </tr>
-<tr>
-<td>
-9/11
-</td>
-<td>
-Model evaluation
-</td>
-<td>
-PP 1, CP 3
-</td>
+<tr class="odd">
+<td></td>
+<td>3/18: NO CLASS (spring break!)</td>
+<td>3/20: NO CLASS (spring break!)</td>
+<td></td>
 </tr>
-<tr>
-<td>
-9/16
-</td>
-<td>
-Transformations
-</td>
-<td>
-CP 4
-</td>
+<tr class="even">
+<td>8</td>
+<td><p>3/11: Intro to Logistic Regression</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoints (two of them!)</li>
+</ul></td>
+<td>3/13: Review + Project Workday</td>
+<td><ul>
+<li>Midterm grades will be posted on Wednesday, 3/12</li>
+</ul></td>
 </tr>
-<tr>
-<td>
-9/18
-</td>
-<td>
-Categorical predictors
-</td>
-<td>
-PP 2, CP 5
-</td>
+<tr class="odd">
+<td>7</td>
+<td><p>3/4: Model Building I</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><p>3/6: Model Building II</p>
+<ul>
+<li>No Moodle checkpoint due today!</li>
+</ul></td>
+<td><ul>
+<li>PP#4 due by 5pm Wednesday, 3/5</li>
+</ul></td>
 </tr>
-<tr>
-<td colspan="4" style="text-align: center; font-weight: bold; background-color: #f2f2f2;">
-Unit 2: Multiple Linear Regression
-</td>
+<tr class="even">
+<td>6</td>
+<td><p>2/25: MLR interactions</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><p>2/27: NO CLASS TODAY</p>
+<ul>
+<li><p>In lieu of class, please attend 2-3 MSCS Capstone Talks taking place today or Friday (view the schedule <a href="https://drive.google.com/file/d/1qMmLsnG8PU88l92jb_lduGE5fudnnYJE/view?usp=sharing">here</a>).</p></li>
+<li><p>Submit a short summary of the talks you attended <a href="https://moodle.macalester.edu/mod/assign/view.php?id=183828">on Moodle</a></p></li>
+</ul></td>
+<td><ul>
+<li><p>PP#3 due by 5pm Wednesday, 2/26</p></li>
+<li><p>Project Checkpoint #1 due Friday, 2/28</p></li>
+</ul></td>
 </tr>
-<tr>
-<td>
-9/23
-</td>
-<td>
-Multiple linear regression discovery day
-</td>
-<td>
-</td>
+<tr class="odd">
+<td>5</td>
+<td><p>2/18: Intro to multiple linear regression</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><p>2/20: MLR confounding + project work day</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><ul>
+<li><p>No homework due this week!</p></li>
+<li><p>Librarians will be in class for project help on Thursday</p></li>
+</ul></td>
 </tr>
-<tr style="background-color: #FFE699;">
-<td>
-9/25
-</td>
-<td>
-Quiz 1
-</td>
-<td>
-</td>
+<tr class="even">
+<td>4</td>
+<td><p>2/11: SLR categorical predictors</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td>2/13: <strong>Quiz 1</strong> (1 hour in class)</td>
+<td><ul>
+<li><p>PP#2 due by 5pm Wednesday, 2/12</p></li>
+<li><p>Group members for the final project are posted on Moodle</p></li>
+</ul></td>
 </tr>
-<tr>
-<td>
-9/30
-</td>
-<td>
-Modeling principles
-</td>
-<td>
-CP 6
-</td>
+<tr class="odd">
+<td>3</td>
+<td><p>2/4: SLR model evaluation</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><p>2/6: SLR variable transformations + library activity</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><ul>
+<li><p>PP#1 due by 5pm Wednesday, 2/5</p></li>
+<li><p>Please complete the project preferences survey by Friday, 2/7</p></li>
+<li><p>See course Google Calendar for updated office hours</p></li>
+</ul></td>
 </tr>
-<tr>
-<td>
-10/2
-</td>
-<td>
-Confounding
-</td>
-<td>
-PP 3, CP 7
-</td>
+<tr class="even">
+<td>2</td>
+<td><p>1/28: Intro to R + univariate visualization &amp; summaries</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><p>1/30: Intro to simple linear regression</p>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s Moodle checkpoint</li>
+</ul></td>
+<td><ul>
+<li><p>Last day to add/drop is Friday, 1/31</p></li>
+<li><p>Preceptor office hours start this week–see the Google calendar for times</p></li>
+<li><p>PP#1 is posted on the <a href="./assignments.html">assignments</a> tab (due Wednesday, 2/5 at 5pm CT)</p></li>
+</ul></td>
 </tr>
-<tr>
-<td>
-10/7
-</td>
-<td>
-Interaction
-</td>
-<td>
-CP 8
-</td>
+<tr class="odd">
+<td>1</td>
+<td>Winter Break</td>
+<td><p>1/23: First day of class!</p>
+<p>Before class:</p>
+<ul>
+<li>Review the <a href="./syllabus.html">course syllabus</a></li>
+<li>Familiarize yourself with Moodle and the course website</li>
+<li>Complete the <a href="https://forms.gle/Wra1dy35ozJUAmNs8">Introductions survey</a></li>
+<li><a href="./tech_setup.html">Download R and RStudio</a></li>
+</ul></td>
+<td>Welcome back to campus!</td>
 </tr>
-<tr>
-<td>
-10/9
-</td>
-<td>
-Review + project time
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-10/14
-</td>
-<td>
-Model building
-</td>
-<td>
-PP 4, CP 9
-</td>
-</tr>
-<tr>
-<td>
-10/16
-</td>
-<td>
-Fall break
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td colspan="4" style="text-align: center; font-weight: bold; background-color: #f2f2f2;">
-Unit 3: Logistic Regression
-</td>
-</tr>
-<tr>
-<td>
-10/21
-</td>
-<td>
-Logistic regression I
-</td>
-<td>
-CP 10
-</td>
-</tr>
-<tr>
-<td>
-10/23
-</td>
-<td>
-Logistic regression II
-</td>
-<td>
-CP 11
-</td>
-</tr>
-<tr>
-<td>
-10/28
-</td>
-<td>
-Review + project time
-</td>
-<td>
-PP 5
-</td>
-</tr>
-<tr style="background-color: #FFE699;">
-<td>
-10/30
-</td>
-<td>
-Quiz 2
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td colspan="4" style="text-align: center; font-weight: bold; background-color: #f2f2f2;">
-Unit 4: Inference
-</td>
-</tr>
-<tr>
-<td>
-11/4
-</td>
-<td>
-Tools for inference
-</td>
-<td>
-CP 12
-</td>
-</tr>
-<tr>
-<td>
-11/6
-</td>
-<td>
-Sampling distributions + CLT
-</td>
-<td>
-CP 13
-</td>
-</tr>
-<tr>
-<td>
-11/11
-</td>
-<td>
-Confidence intervals
-</td>
-<td>
-CP 14
-</td>
-</tr>
-<tr>
-<td>
-11/13
-</td>
-<td>
-Towards hypothesis testing
-</td>
-<td>
-PP 6
-</td>
-</tr>
-<tr>
-<td>
-11/18
-</td>
-<td>
-Hypothesis tests for 1 coefficient
-</td>
-<td>
-CP 15
-</td>
-</tr>
-<tr>
-<td>
-11/20
-</td>
-<td>
-Considerations in hypothesis testing
-</td>
-<td>
-PP 7
-</td>
-</tr>
-<tr>
-<td>
-11/25
-</td>
-<td>
-F tests
-</td>
-<td>
-CP 16
-</td>
-</tr>
-<tr>
-<td>
-11/27
-</td>
-<td>
-Thanksgiving break
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-12/2
-</td>
-<td>
-P-values + project time
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-12/4
-</td>
-<td>
-Project time
-</td>
-<td>
-PP 8
-</td>
-</tr>
-<tr>
-<td>
-12/9
-</td>
-<td>
-Project time
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td colspan="4" style="text-align: left; background-color: #FFE699;">
-Quiz 3<br>3:00-4:30pm section: Saturday, 12/13 from 1:30-3:30pm<br>1:20-2:50pm section: Tuesday, 12/16 from 1:30-3:30pm
-</td>
-</tr>
-</tbody></table>
-
+</tbody>
+</table>
+<!-- ## Course Schedule & Announcements -->
+<!-- ::: {.callout-tip icon=false collapse="false" title="Week 1: 1/23 - 1/31 (Data fundamentals, univariate visualization and summaries, and intro to simple linear regression)"} -->
+<!-- #### Announcements -->
+<!-- Welcome back to campus! -->
+<!-- #### Thursday -->
+<!-- Before class: -->
+<!-- - Review the [course syllabus](syllabus.qmd)  -->
+<!-- - Familiarize yourself with Moodle and the course website -->
+<!-- - Complete the [Introductions survey](https://forms.gle/mXYCQfrz7Qryk1vW8) -->
+<!-- - [Download R and RStudio](tech_setup.qmd) -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 2: 1/27 - 1/31 (Simple linear regression)"} -->
+<!-- #### Announcements -->
+<!-- - Practice Problems #1 will be due on Friday, 9/13 at 5pm! -->
+<!-- - Friday, 9/13 is also the add/drop deadline -->
+<!-- - Preceptor office hours start this week--see the course calendar for times -->
+<!-- #### Tuesday -->
+<!-- Before class: -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - Do either the readings or videos for the Day 3 Activity (see Moodle for links) -->
+<!--   - due 30 minutes before class on 9/10 -->
+<!-- #### Thursday -->
+<!-- Before class: -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - Do either the readings or videos for the Day 4 Activity (see Moodle for links) -->
+<!--   - due 30 minutes before class on 9/12 -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)"} -->
+<!-- #### Announcements -->
+<!-- - Practice Problems #2 will be due Friday, 9/20 at 5pm -->
+<!-- - Reminder that preceptor office hours are held in the Sub-Hub (the glass room in the middle of the *first* floor of OLRI) -->
+<!--   - see Moodle for the preceptor office hours calendar, or add [this calendar](https://calendar.google.com/calendar/u/5?cid=Y181NGJlMTEzOWZmYzE1YmI0ZDBmYTc2OGM2MGJiODFjYmZiM2M2MGFhM2Y1OTFjMTM3YjBlNzBiOTkwYmQ0NjlhQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20) in your Mac Google account -->
+<!-- - Please remember to read your email 🥲 -->
+<!-- #### Tuesday -->
+<!-- Before class: -->
+<!-- - Complete the [Project Preferences survey](https://forms.gle/1zrKb8c7pGwHjWxh7) -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - Do either the readings or videos for the Day 5 Activity (see Moodle for links) -->
+<!--   - due 30 minutes before class on 9/17 -->
+<!-- #### Thursday -->
+<!-- Before class:  -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - Do either the readings or videos for the Day 6 Activity (see Moodle for links) -->
+<!-- - Library data discovery day! -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)"} -->
+<!-- #### Announcements -->
+<!-- #### Tuesday -->
+<!-- Before class: -->
+<!-- - No readings/videos/checkpoints for today! -->
+<!-- #### Thursday -->
+<!-- - Quiz 1 today (1 hour in class) -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 5: 9/30 - 10/4 (Multiple linear regression: principles + confounding)"} -->
+<!-- #### Announcements -->
+<!-- - Grades for Quiz #1 and PP #2 are posted on Moodle -->
+<!-- - Practice Problems #3 will be due Friday, 10/4 at 5pm -->
+<!-- #### Tuesday -->
+<!-- Before class: -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - due 30 minutes before class on 10/1 -->
+<!-- #### Thursday -->
+<!-- Before class: -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - due 30 minutes before class on 10/3 -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 6: 10/7 - 10/11 (Multiple linear regression: interaction)"} -->
+<!-- #### Announcements -->
+<!-- - Practice Problems #4 will be due Friday, 10/11 at 5pm -->
+<!-- - Try to submit Project Checkpoint #1 by Friday, 10/11 at 11pm -->
+<!-- -  -->
+<!-- #### Tuesday -->
+<!-- #### Thursday -->
+<!-- Before class: -->
+<!-- - Complete today’s checkpoints (note that there are two!) on Moodle -->
+<!--   - due ~~30 minutes before class on 10/10~~ 30 minutes before usual class time on Friday, 10/11, since I forgot to open the checkpoints on Moodle at the usual time -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 7: 10/14 - 10/18 (Multiple linear regression: model building) (Fall Break)"} -->
+<!-- #### Announcements -->
+<!-- #### Tuesday -->
+<!-- No Moodle checkpoint today -->
+<!-- #### Thursday -->
+<!-- No class! (Fall Break) -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 8: 10/21 - 10/25 (Logistic regression)"} -->
+<!-- #### Announcements -->
+<!-- #### Tuesday -->
+<!-- #### Thursday -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 9: 10/28 - 11/1 (Tools for statistical inference)"} -->
+<!-- #### Announcements -->
+<!-- #### Tuesday -->
+<!-- #### Thursday -->
+<!-- Quiz #2 -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 10: 11/4 - 11/8 (Confidence intervals)"} -->
+<!-- #### Announcements -->
+<!-- PP#6 due on Friday, 11/8 at 5pm -->
+<!-- #### Tuesday -->
+<!-- Before class: -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - due 30 minutes before class on 11/5 -->
+<!-- #### Thursday -->
+<!-- Before class: -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - due 30 minutes before class on 11/7 -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="false" title="Week 11: 11/11 - 11/15 (Hypothesis testing)"} -->
+<!-- #### Announcements -->
+<!-- PP#7 due on Friday, 11/15 at 5pm -->
+<!-- #### Tuesday -->
+<!-- Before class: -->
+<!-- - Complete today’s checkpoint on Moodle -->
+<!--   - due 30 minutes before class on 11/12 -->
+<!-- #### Thursday -->
+<!-- Before class: -->
+<!-- - No checkpoint due today -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 12: 11/18 - 11/22 (Hypothesis testing)"} -->
+<!-- #### Announcements -->
+<!-- #### Tuesday -->
+<!-- #### Thursday -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 13: 11/25 - 11/29 (Hypothesis testing, p-values) (Thanksgiving Break)"} -->
+<!-- #### Announcements -->
+<!-- #### Tuesday -->
+<!-- #### Thursday -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 14: 12/2 - 12/6 (Project work)"} -->
+<!-- #### Announcements -->
+<!-- #### Tuesday -->
+<!-- #### Thursday -->
+<!-- ::: -->
+<!-- ::: {.callout-tip icon=false collapse="true" title="Week 15: 12/9 - 12/13 (Project work, paper, and presentations)"} -->
+<!-- #### Announcements -->
+<!-- #### Tuesday -->
+<!-- (Last day of class) -->
+<!-- ::: -->
 
 
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mutasim221B\.github\.io\/Mac-STAT-155-Fall-25\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -862,198 +963,175 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="About">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./activities/L01-foundations-welcome.html" class="pagination-link" aria-label="Notes">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notes</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Md Mutasim Billah, 2025<br> All content licensed under <img src="https://static.thenounproject.com/png/70967-200.png" height="20"> (<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 
