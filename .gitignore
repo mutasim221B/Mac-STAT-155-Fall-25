@@ -8,3 +8,4 @@
 # macOS system files
 .DS_Store
 /.quarto/
+.Rproj.user
