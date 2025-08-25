@@ -122,12 +122,10 @@ More detailed instructions on downloading, installing, and getting started with 
 
 
 ## Office hours (OH) and R Support
-Across the instructor and preceptors, there are several office hours each week. Names, times, and 
-locations are on the Moodle course calendar. 
+**OH:** Across the instructor and preceptors, there are several office hours each week. Names, times, and locations are on the Moodle course calendar. 
+*IMPORTANT*: Always check the calendar before attending OH.
 
-**IMPORTANT**: Always check the calendar before attending OH.
-
-Data & R Support: In addition to the course preceptors, there is support on campus for working with data and R / RStudio. This is a great resource for R setup and troubleshooting throughout the semester. See https://www.macalester.edu/mscs/data-support for more information.
+**Data & R Support:** In addition to the course preceptors, there is support on campus for working with data and R / RStudio. This is a great resource for R setup and troubleshooting throughout the semester. See [https://www.macalester.edu/mscs/data-support](https://www.macalester.edu/mscs/data-support) for more information.
 
 <br><br><br><br>
 

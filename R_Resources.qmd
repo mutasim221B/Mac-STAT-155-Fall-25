@@ -1,60 +1,58 @@
 ---
-title: "Tech Setup"
+title: "R and RStudio Resources"
 sidebar: false
 ---
 
-Follow these instructions to set up the software that we'll be using throughout the semester. **Even if you've already downloaded both R and RStudio, you'll want to re-download to make sure that you have the most current versions.**
+## Getting Help
 
-<br><br><br><br>
+- [Crowd-sourced R functions](https://docs.google.com/document/d/1ziidS98vvWUepaV5NypuPvLuko6rxBdm/edit#heading=h.m021w4b7p4ld)
+- Interactive RStudio tutorials: <https://posit.cloud/learn/recipes> (R basics, data viz, and more)
+- Markdown (Quarto) basics: <https://quarto.org/docs/authoring/markdown-basics.html>, and Quarto/RStudio tutorial: <https://quarto.org/docs/get-started/hello/rstudio.html>
+- RStudio cheatsheets: <https://posit.co/resources/cheatsheets/>
+- **Google it!** If you have a question about R, someone else probably asked it. Add **“R tidyverse”** to your search term.  
+  Example: *scatterplot R tidyverse*
+- **Note about ChatGPT for code**: Please avoid using ChatGPT as a first resort for R code. It often suggests overly wordy or unfamiliar approaches. Our goal is for you to understand the code you write; sticking to tools and syntax we use in class will support your learning best.
 
-**Required:** Change the default file download location for your internet browser.
+---
 
-- Generally by default, internet browsers automatically save all files to the `Downloads` folder on your computer. This does not encourage good file organization practices. You need to change this option so that your browser asks you where to save each file before downloading it.
-- This [page](https://www.online-tech-tips.com/computer-tips/change-default-download-folder-location-on-any-web-browser/) has information on how to do this for the most common browsers.
+## Getting Started
 
-<br><br><br><br>
+The videos below introduce R and RStudio and show how to install them on your computer. Start with the overview, then watch the step-by-step video for your operating system.
 
-**Required:** Download R and RStudio.
+**Download links (mentioned in the videos):**
+- R: <http://cran.r-project.org/>
+- RStudio: <https://www.rstudio.com/products/rstudio/download/#download>
 
-- **FIRST:** Download R [here](https://cran.rstudio.com/).
-    - In the top section, you will see three links "Download R for ..."
-    - Choose the link that corresponds to your computer.
-    - As of August 27, 2024, the latest version of R is 4.4.1 ("Race for Your Life").
-- **SECOND:** Download RStudio [here](https://posit.co/download/rstudio-desktop/#download).
-    - Click the button under step 2 to install the version of RStudio recommended for your computer.
-    - As of August 27, 2024, the latest version of RStudio is 2024.04.2+764.
+::: {.callout-warning}
+### Important
+Version numbers in the videos are out-of-date. Please download the *latest* versions of both R and RStudio.  
+*As of August 25, 2025, the latest versions are: R **4.5.1** and RStudio **2025.05.1+513**.*  
+(If you already have R/RStudio from a past course, reinstall to match current versions.)
+:::
 
-<br>
+### Installation / Overview
+- **Installing R and RStudio (Overview)**  
+  <https://macalester.voicethread.com/myvoice/thread/14887343/92882995/114212168> *(Length: 4:30)*
 
-Suggested: Watch this [video](https://www.youtube.com/watch?v=LJiRSPoe8r0) describing key configuration options for RStudio.
+**Pick one of the following:**
+- **Mac** — [Installing R and RStudio Step-by-Step](https://macalester.voicethread.com/myvoice/thread/14888052/92891524/85083698) *(Length: 3:24)*
+- **Windows** — [Installing R and RStudio Step-by-Step](https://macalester.voicethread.com/myvoice/thread/14888016/92890901/100587959) *(Length: 5:43)*
 
-<br><br><br><br>
+If you run into installation issues, contact me right away. If we can’t get RStudio working locally, you can use Macalester’s online RStudio server:  
+Quick [intro video](https://macalester.voicethread.com/myvoice/thread/15290619/95572970)
 
-**Required:** Install required **packages**.
+---
 
-- An R **package** is an extra bit of functionality that will help us in our data analysis efforts in a variety of ways.
-- Open RStudio and click inside the Console pane (by default, the bottom left pane). Copy and paste the following command into the Console. You should see the text below appear to the right of the `> `, which is called the **R prompt**. After you paste, hit Enter.
+## Intro Videos to R (watch in order)
 
-```{r eval=FALSE}
-install.packages(c("tidyverse"))
-```
+1. [Intro to R and RStudio](https://macalester.voicethread.com/myvoice/thread/14926835/93215217/100735614) *(11:31)*
+2. [R Data Types](https://macalester.voicethread.com/myvoice/thread/14892092/92922936) *(8:05)*
+3. [R Error Messages and Troubleshooting](https://macalester.voicethread.com/myvoice/thread/14892352/92925398) *(Optional)* *(7:52)*
+4. [Intro to RMarkdown / Quarto](https://macalester.voicethread.com/myvoice/thread/14926848/93215300) *(9:33)*
+5. **File Structure & Organization** *(Optional)*  
+   - [Mac](https://macalester.voicethread.com/myvoice/thread/14893131/92931979) *(5:13)*
+   - [Windows](https://macalester.voicethread.com/myvoice/thread/14927116/93217825/85339822) *(7:44)*
+6. [Tips on File Naming & Organization](https://djnavarro.net/slides-project-structure/#1) *(Optional)*
+7. [R Packages](https://macalester.voicethread.com/myvoice/thread/14893302/92933584) *(7:30)*
 
-- You will see a lot of text from status messages appearing in the Console as the packages are being installed. Wait until you see the `> ` again.
-- Enter the command `library(tidyverse)` and hit Enter.    
-    If you see an error message, then there was a problem installing the package. Talk to the instructor or a preceptor for help.
-- Quit RStudio. You're done setting up!
-
-<br>
-
-Optional: For a tour of RStudio features, watch this [video](https://www.youtube.com/watch?v=HWnanydsBCs). It also shows you how to customize the layout and color scheme of RStudio.
-
-<br><br><br><br>
-
-**Required:** Set essential RStudio options.
-
-Go to Tools -> Global Options -> General -> Workplace. You'll see 2 options:
-
-- Restore `.RData` into workspace at startup: **Leave this unchecked**
-- Save workspace to `.RData` on exit: **Select "Never"**
-
-Without doing this RStudio will save and reload everything that you've been working on from the start of the semester. Since we'll be working with new data each class, we want to keep our digital environment clean. *Essentially, this is like an artist getting a clean canvas for each new painting rather than trying to paint all paintings on a single canvas.*
+> You can adjust video speed and pause as needed. If anything doesn’t work, please let me know so we can fix it quickly.

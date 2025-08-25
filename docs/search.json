@@ -207,7 +207,7 @@
     "href": "template_qmds/20-bootstrapping-notes.html#exercise-5-resampling",
     "title": "Bootstrapping (Notes)",
     "section": "Exercise 5: Resampling",
-    "text": "Exercise 5: Resampling\nIn practice, we take one sample of size n from the population. To obtain a bootstrapping distribution of some sample estimate \\(\\hat{\\beta}\\), we…\n\ntake many resamples of size n with replacement from the sample\ncalculate \\(\\hat{\\beta}\\) using each resample\n\n\nLet’s wrap our minds around the idea of resampling using a small example of 5 fish:\n\n# Define data\nsmall_sample &lt;- data.frame(\n  id = 1:5,\n  Length = c(44, 43, 54, 52, 40))\n\nsmall_sample\n##   id Length\n## 1  1     44\n## 2  2     43\n## 3  3     54\n## 4  4     52\n## 5  5     40\n\nThis sample has a mean Length of 46.6 cm:\n\nsmall_sample %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.6\n\n\nThe chunk below samples 5 fish without replacement from our small_sample of 5 fish, and calculates their mean length. Run it several times. How do the sample and resulting mean change?\n\n\nsample_1 &lt;- sample_n(small_sample, size = 5, replace = FALSE)\nsample_1\n##   id Length\n## 1  5     40\n## 2  3     54\n## 3  1     44\n## 4  4     52\n## 5  2     43\n\nsample_1 %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.6\n\n\nSampling our sample without replacement merely returns our original sample. Instead, resample 5 fish from our small_sample with replacement. Run it several times. What do you notice about the samples? About their mean lengths?\n\n\nsample_2 &lt;- sample_n(small_sample, size = 5, replace = TRUE)\nsample_2\n##   id Length\n## 1  3     54\n## 2  1     44\n## 3  3     54\n## 4  2     43\n## 5  2     43\n\nsample_2 %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         47.6\n\n\nResampling our sample provides insight into the variability, hence potential error, in our sample estimates. (This works better when we have a sample bigger than 5!) As you observed in part b, each resample might include some fish from the original sample several times and others not at all. Why is this ok?"
+    "text": "Exercise 5: Resampling\nIn practice, we take one sample of size n from the population. To obtain a bootstrapping distribution of some sample estimate \\(\\hat{\\beta}\\), we…\n\ntake many resamples of size n with replacement from the sample\ncalculate \\(\\hat{\\beta}\\) using each resample\n\n\nLet’s wrap our minds around the idea of resampling using a small example of 5 fish:\n\n# Define data\nsmall_sample &lt;- data.frame(\n  id = 1:5,\n  Length = c(44, 43, 54, 52, 40))\n\nsmall_sample\n##   id Length\n## 1  1     44\n## 2  2     43\n## 3  3     54\n## 4  4     52\n## 5  5     40\n\nThis sample has a mean Length of 46.6 cm:\n\nsmall_sample %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.6\n\n\nThe chunk below samples 5 fish without replacement from our small_sample of 5 fish, and calculates their mean length. Run it several times. How do the sample and resulting mean change?\n\n\nsample_1 &lt;- sample_n(small_sample, size = 5, replace = FALSE)\nsample_1\n##   id Length\n## 1  3     54\n## 2  5     40\n## 3  1     44\n## 4  2     43\n## 5  4     52\n\nsample_1 %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.6\n\n\nSampling our sample without replacement merely returns our original sample. Instead, resample 5 fish from our small_sample with replacement. Run it several times. What do you notice about the samples? About their mean lengths?\n\n\nsample_2 &lt;- sample_n(small_sample, size = 5, replace = TRUE)\nsample_2\n##   id Length\n## 1  4     52\n## 2  1     44\n## 3  5     40\n## 4  5     40\n## 5  4     52\n\nsample_2 %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         45.6\n\n\nResampling our sample provides insight into the variability, hence potential error, in our sample estimates. (This works better when we have a sample bigger than 5!) As you observed in part b, each resample might include some fish from the original sample several times and others not at all. Why is this ok?"
   },
   {
     "objectID": "template_qmds/20-bootstrapping-notes.html#exercise-6-bootstrapping",
@@ -291,7 +291,7 @@
     "href": "template_qmds/19-20-sampling-dist-clt-bootstrap-notes.html#exercise-1-500-samples-of-size-10",
     "title": "Sampling distributions, the CLT, and Bootstrapping (Notes)",
     "section": "Exercise 1: 500 samples of size 10",
-    "text": "Exercise 1: 500 samples of size 10\nRecall that we can sample 10 observations from our dataset using sample_n():\n\n# Run this chunk a few times to explore the different samples you get\nfish %&gt;% \n  sample_n(size = 10, replace = TRUE)\n## # A tibble: 10 × 5\n##    River   Station Length Weight Concen\n##    &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n##  1 Lumber        3   50.5   2021   1.2 \n##  2 Lumber        2   31.4    362   1.1 \n##  3 Wacamaw      10   56.5   2451   2.1 \n##  4 Lumber        1   33.5   1146   0.57\n##  5 Lumber        1   45.1   2920   0.34\n##  6 Wacamaw      10   34.8    491   0.57\n##  7 Wacamaw      14   36      724   1.3 \n##  8 Wacamaw      13   28.6    338   1.1 \n##  9 Lumber        3   47     1546   1.2 \n## 10 Wacamaw       8   33      440   0.78\n\nWe can also take a sample and then use the data to estimate the model:\n\n# Run this chunk a few times to explore the different sample models you get\nfish %&gt;% \n  sample_n(size = 10, replace = TRUE) %&gt;% \n  with(lm(Concen ~ Length))\n## \n## Call:\n## lm(formula = Concen ~ Length)\n## \n## Coefficients:\n## (Intercept)       Length  \n##    -1.61608      0.06999\n\nWe can also take multiple unique samples and build a sample model from each.\nThe code below obtains 500 separate samples of 10 fish, and stores the model estimates from each:\n\n# Set the seed so that we all get the same results\nset.seed(155)\n\n# Store the sample models\nsample_models_10 &lt;- mosaic::do(500)*(\n  fish %&gt;% \n    sample_n(size = 10, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n\n# Check it out\nhead(sample_models_10)\n##    Intercept     Length     sigma r.squared          F numdf dendf .row .index\n## 1 -2.7811151 0.09635286 0.5737186 0.7273700  21.343798     1     8    1      1\n## 2 -3.0684939 0.10953496 0.3797853 0.9347767 114.655478     1     8    1      2\n## 3 -1.2880671 0.05933243 0.7457468 0.3776855   4.855237     1     8    1      3\n## 4 -0.9248832 0.05411299 0.6251621 0.4796674   7.374782     1     8    1      4\n## 5 -1.0882523 0.05349699 0.3441272 0.4985134   7.952571     1     8    1      5\n## 6 -0.4558309 0.04074788 0.7785389 0.1719987   1.661820     1     8    1      6\ndim(sample_models_10)\n## [1] 500   9\n\n\nWhat’s the point of the do() function?!? If you’ve taken any COMP classes, what process do you think do() is a shortcut for?\nWhat is stored in the Intercept, Length, and r.squared columns of the results?\nWe’ll obtain a bootstrapping distribution of \\(\\hat{\\beta}_1\\) by taking many (500, in this case) different samples of every fish in our dataset (171 of them) and exploring the degree to which \\(\\hat{\\beta}_1\\) varies from sample to sample.\n\nEdit the code below to obtain a bootstrapping distribution.\n\n# Set the seed so that we all get the same results\nset.seed(155)\n\n# Store the sample models\nsample_models_boot &lt;- mosaic::do(___)*(\n  fish %&gt;% \n    sample_n(size = ___, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n## Error in parse(text = input): &lt;text&gt;:5:35: unexpected input\n## 4: # Store the sample models\n## 5: sample_models_boot &lt;- mosaic::do(__\n##                                      ^"
+    "text": "Exercise 1: 500 samples of size 10\nRecall that we can sample 10 observations from our dataset using sample_n():\n\n# Run this chunk a few times to explore the different samples you get\nfish %&gt;% \n  sample_n(size = 10, replace = TRUE)\n## # A tibble: 10 × 5\n##    River   Station Length Weight Concen\n##    &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n##  1 Wacamaw      12   57.5   2401   1.4 \n##  2 Wacamaw      10   46     1342   2.2 \n##  3 Lumber        3   47     1546   1.2 \n##  4 Lumber        4   41     1042   0.66\n##  5 Lumber        4   30      323   0.51\n##  6 Wacamaw      14   36      724   1.3 \n##  7 Wacamaw       7   25.2    217   0.23\n##  8 Lumber        2   30      336   0.61\n##  9 Wacamaw      14   48     1743   1.9 \n## 10 Wacamaw      12   29.6    329   0.9\n\nWe can also take a sample and then use the data to estimate the model:\n\n# Run this chunk a few times to explore the different sample models you get\nfish %&gt;% \n  sample_n(size = 10, replace = TRUE) %&gt;% \n  with(lm(Concen ~ Length))\n## \n## Call:\n## lm(formula = Concen ~ Length)\n## \n## Coefficients:\n## (Intercept)       Length  \n##     -1.7325       0.0772\n\nWe can also take multiple unique samples and build a sample model from each.\nThe code below obtains 500 separate samples of 10 fish, and stores the model estimates from each:\n\n# Set the seed so that we all get the same results\nset.seed(155)\n\n# Store the sample models\nsample_models_10 &lt;- mosaic::do(500)*(\n  fish %&gt;% \n    sample_n(size = 10, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n\n# Check it out\nhead(sample_models_10)\n##    Intercept     Length     sigma r.squared          F numdf dendf .row .index\n## 1 -2.7811151 0.09635286 0.5737186 0.7273700  21.343798     1     8    1      1\n## 2 -3.0684939 0.10953496 0.3797853 0.9347767 114.655478     1     8    1      2\n## 3 -1.2880671 0.05933243 0.7457468 0.3776855   4.855237     1     8    1      3\n## 4 -0.9248832 0.05411299 0.6251621 0.4796674   7.374782     1     8    1      4\n## 5 -1.0882523 0.05349699 0.3441272 0.4985134   7.952571     1     8    1      5\n## 6 -0.4558309 0.04074788 0.7785389 0.1719987   1.661820     1     8    1      6\ndim(sample_models_10)\n## [1] 500   9\n\n\nWhat’s the point of the do() function?!? If you’ve taken any COMP classes, what process do you think do() is a shortcut for?\nWhat is stored in the Intercept, Length, and r.squared columns of the results?\nWe’ll obtain a bootstrapping distribution of \\(\\hat{\\beta}_1\\) by taking many (500, in this case) different samples of every fish in our dataset (171 of them) and exploring the degree to which \\(\\hat{\\beta}_1\\) varies from sample to sample.\n\nEdit the code below to obtain a bootstrapping distribution.\n\n# Set the seed so that we all get the same results\nset.seed(155)\n\n# Store the sample models\nsample_models_boot &lt;- mosaic::do(___)*(\n  fish %&gt;% \n    sample_n(size = ___, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n## Error in parse(text = input): &lt;text&gt;:5:35: unexpected input\n## 4: # Store the sample models\n## 5: sample_models_boot &lt;- mosaic::do(__\n##                                      ^"
   },
   {
     "objectID": "template_qmds/19-20-sampling-dist-clt-bootstrap-notes.html#exercise-2-why-resampling-replace-true",
@@ -1197,6 +1197,141 @@
     "text": "Done!\n\nRender your notes.\nCheck the solutions in the course website, at the bottom of the corresponding chapter.\nWork on homework!"
   },
   {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "The course schedule below will be filled in throughout the semester. For each day, there will be a link to course slides (if there are any that day) and notes/links on what is due ahead of class time. The “Announcements” column is (hopefully) self-explanatory. Any urgent announcements will be made over email.\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\n\n\n\nMonday\nWednesday\nFriday\nAnnouncements\n\n\n\n\nWinter Break\nWinter Break\n1/24: First day of class! Collecting and Summarizing DataBefore class:- Read the course syllabus.- Familiarize yourself with Moodle and the course website.- Complete Introductions Survey.- Walk through the R Resources tab. Try downloading R and RStudio before coming to class!\nWelcome (back) to campus!\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\n\n\n\nMonday\nWednesday\nFriday\nAnnouncements\n\n\n\n\n1/27: Intro to R + univariate visualization & summariesBefore class: complete today’s Moodle checkpoint\n1/29: More R practice + project introBefore class: complete today’s Moodle checkpoint\n1/31: Simple linear regressionBefore class: complete today’s Moodle checkpoint\n- Last day to add/drop is Friday, 1/31- PP#1 is posted on the assignments tab (due Wed 2/5, 5pm CT)\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMonday\nWednesday\nFriday\nAnnouncements\n\n\n\n\n2/3: SLR model evaluationBefore class: complete today’s Moodle checkpoint\n2/5: SLR variable transformations + library activityBefore class: complete today’s Moodle checkpoint\n2/7: Model building + practice\n- PP#1 due Wed 2/5, 5pm"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 155: Introduction to Statistical Modeling",
+    "section": "",
+    "text": "STAT 155: Introduction to Statistical Modeling\nMacalester College, Fall 2025\nStatistics is not just about theories & numbers — it’s about making sense of the world.\n\n\n\n\n\n\n📖 A Thought from H. G. Wells\n\n\n\n\n“Statistical thinking will one day be as necessary for efficient citizenship as the ability to read and write.”\n— H. G. Wells\n\n\n\nWelcome to the world of Statistics! In this course, you’ll learn how to analyze data, test research hypotheses, and make predictions in ways that matter.\nInstructor: Md Mutasim Billah  Class meeting times:\n\nSection 03: M/W/F 09:40-10:40am, THTR 002\nSection 04: M/W/F 12:00-01:00pm, THTR 202\n\nBill’s drop-in (office) hours:\n\nLocation: My office (OLRI 234)\nTimes: M/W: 01:30-02:30 pm.\n24/7 by Appointment: I’m also happy to meet one-on-one! Shoot me an email and we can arrange it either in-person or over zoom, password: 123456.\n\n\nR/RStudio Preceptor Office Hours: Available on the MSCS Events google calendar (not to be used for questions about course content, only R-related things!)\nSTAT 155 Preceptor Office Hours: There is a link to a Google Calendar containing all preceptor office hours available at the top of the course Moodle page!\n\nThis course website will be updated throughout the semester with new activities, assignments, and announcements, so please bookmark this page if you are enrolled in the course!\nIf you find any typos, bugs, dead links, or have other questions, please email mbillah@macalester.edu"
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html",
+    "href": "activities/01_foundations_welcome.html",
+    "title": "Collecting and Summarizing Data",
+    "section": "",
+    "text": "Download the .qmd file for this activity here. For this and all future activities, you will download the .qmd file, open it in Rstudio, and use it to type your answers/code to the exercises on the in-class activities. A rendered (“printed”) version of the activity will always be available on this course page.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#step-1",
+    "href": "activities/01_foundations_welcome.html#step-1",
+    "title": "Collecting and Summarizing Data",
+    "section": "Step 1",
+    "text": "Step 1\nAt your table, write a 1-2 word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.\n\nHow many hours of sleep did you get last night? How many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your class year? (first year, sophomore, junior, senior)\nHow many stats courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?\nHave you used R/RStudio a lot, a little, or never?",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#step-2",
+    "href": "activities/01_foundations_welcome.html#step-2",
+    "title": "Collecting and Summarizing Data",
+    "section": "Step 2",
+    "text": "Step 2\nDesignate one person from your table to distribute your group’s answers to the questions to the corresponding “station” around the classroom. Each table should have a number on it, corresponding to the “station”/question.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#step-3",
+    "href": "activities/01_foundations_welcome.html#step-3",
+    "title": "Collecting and Summarizing Data",
+    "section": "Step 3",
+    "text": "Step 3\nFill out an electronic version of these questions. We’ll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-1",
+    "href": "activities/01_foundations_welcome.html#exercise-1",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWith your group, in no more than two sentences per question, respond to the questions posed by the 5 W’s + H for the data at your group’s table. If you need a refresher on the 5 W’s + H, check out the related readings posted at the top of this activity!\nWho\n\nResponse: Type your response here.\n\nWhat\n\nResponse: Type your response here.\n\nWhen\n\nResponse: Type your response here.\n\nWhere\n\nResponse: Type your response here.\n\nWhy\n\nResponse: Type your response here.\n\nHow\n\nResponse: Type your response here.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-2",
+    "href": "activities/01_foundations_welcome.html#exercise-2",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nMove the post-it notes around to construct a visualization of the responses at your station.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-3",
+    "href": "activities/01_foundations_welcome.html#exercise-3",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCalculate at least one numerical summary of the post-it note responses at your station, and record your numerical summary in the response text below. Write a complete sentence, not just the numerical summary alone! This is good practice for summarizing data in more formal writing.\n\nResponse: Type your response here.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-4",
+    "href": "activities/01_foundations_welcome.html#exercise-4",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nIn no more than three sentences, describe what you learn about from the visual and numerical summaries. Try to write your description in a way that tells an interesting story about the people in this class.\n\nResponse: Type your response here.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-5",
+    "href": "activities/01_foundations_welcome.html#exercise-5",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nImagine that you took all the post-it notes in this room and organized them into a spreadsheet. What would each row in the underlying data set represent? What would each column of the data set represent? Check out the first related reading, linked at the top of this activity, if you need assistance!\n\nResponse: Type your response here.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#reflection",
+    "href": "activities/01_foundations_welcome.html#reflection",
+    "title": "Collecting and Summarizing Data",
+    "section": "Reflection",
+    "text": "Reflection\nIn three to four sentences, reflect upon today’s activity. Some reflection prompts are found below:\n\nDo you think the context in which the data was collected influenced the results you found?\nWho would the numerical summaries you calculated potentially be represented of? Could you generalize the information you learned to a broader population (all students at Mac, perhaps), or would you have ethical concerns with generalizing your results?\nWhat (if anything) surprised you about the numerical summaries calculated by your group, or other groups?\nDid your data visualization help you better understand, or discover new things about the data that otherwise would have been difficult to distinguish? Why or why not?\n\n\nResponse: Type your response here.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "R_Resources.html",
+    "href": "R_Resources.html",
+    "title": "Tech Setup",
+    "section": "",
+    "text": "Follow these instructions to set up the software that we’ll be using throughout the semester. Even if you’ve already downloaded both R and RStudio, you’ll want to re-download to make sure that you have the most current versions.\n\nRequired: Change the default file download location for your internet browser.\n\nGenerally by default, internet browsers automatically save all files to the Downloads folder on your computer. This does not encourage good file organization practices. You need to change this option so that your browser asks you where to save each file before downloading it.\nThis page has information on how to do this for the most common browsers.\n\n\nRequired: Download R and RStudio.\n\nFIRST: Download R here.\n\nIn the top section, you will see three links “Download R for …”\nChoose the link that corresponds to your computer.\nAs of August 27, 2024, the latest version of R is 4.4.1 (“Race for Your Life”).\n\nSECOND: Download RStudio here.\n\nClick the button under step 2 to install the version of RStudio recommended for your computer.\nAs of August 27, 2024, the latest version of RStudio is 2024.04.2+764.\n\n\n\nSuggested: Watch this video describing key configuration options for RStudio.\n\nRequired: Install required packages.\n\nAn R package is an extra bit of functionality that will help us in our data analysis efforts in a variety of ways.\nOpen RStudio and click inside the Console pane (by default, the bottom left pane). Copy and paste the following command into the Console. You should see the text below appear to the right of the &gt;, which is called the R prompt. After you paste, hit Enter.\n\n\ninstall.packages(c(\"tidyverse\"))\n\n\nYou will see a lot of text from status messages appearing in the Console as the packages are being installed. Wait until you see the &gt; again.\nEnter the command library(tidyverse) and hit Enter.\nIf you see an error message, then there was a problem installing the package. Talk to the instructor or a preceptor for help.\nQuit RStudio. You’re done setting up!\n\n\nOptional: For a tour of RStudio features, watch this video. It also shows you how to customize the layout and color scheme of RStudio.\n\nRequired: Set essential RStudio options.\nGo to Tools -&gt; Global Options -&gt; General -&gt; Workplace. You’ll see 2 options:\n\nRestore .RData into workspace at startup: Leave this unchecked\nSave workspace to .RData on exit: Select “Never”\n\nWithout doing this RStudio will save and reload everything that you’ve been working on from the start of the semester. Since we’ll be working with new data each class, we want to keep our digital environment clean. Essentially, this is like an artist getting a clean canvas for each new painting rather than trying to paint all paintings on a single canvas."
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Practice Problems",
+    "section": "",
+    "text": "…due Friday at 11:59 pm Central on Moodle!"
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project",
+    "section": "",
+    "text": "Coming Soon…"
+  },
+  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "STAT 155: Introduction to Statistical Modeling",
@@ -1250,14 +1385,14 @@
     "href": "syllabus.html#statistical-software",
     "title": "STAT 155: Introduction to Statistical Modeling",
     "section": "Statistical software",
-    "text": "Statistical software\nWe will use the (completely free and open source) R programming language extensively throughout this course. RStudio (an interface for R) will facilitate our use of R. You may use RStudio in one of two ways:\n\nDesktop version: Download for Windows or Mac at https://posit.co/downloads/. Note: You first need to download and install R on your computer in order to use the desktop version of RStudio\nOnline: Go to https://rstudio.macalester.edu, and log in with your full Mac email address and your usual Mac password to get access. (Note that this is a shared resource across MSCS, and you may experience performance issues due to high traffic, server outages, etc.)\n\nMore detailed instructions on downloading, installing, and getting started with R, and RStudio are available on the Tech Setup tab."
+    "text": "Statistical software\nWe will use the (completely free and open source) R programming language extensively throughout this course. RStudio (an interface for R) will facilitate our use of R. You may use RStudio in one of two ways:\n\nDesktop version: Download for Windows or Mac at https://posit.co/downloads/. Note: You first need to download and install R on your computer in order to use the desktop version of RStudio\nOnline: Go to https://rstudio.macalester.edu, and log in with your full Mac email address and your usual Mac password to get access. (Note that this is a shared resource across MSCS, and you may experience performance issues due to high traffic, server outages, etc.)\n\nMore detailed instructions on downloading, installing, and getting started with R, and RStudio are available on the R Resources tab."
   },
   {
-    "objectID": "syllabus.html#office-hours-oh",
-    "href": "syllabus.html#office-hours-oh",
+    "objectID": "syllabus.html#office-hours-oh-and-r-support",
+    "href": "syllabus.html#office-hours-oh-and-r-support",
     "title": "STAT 155: Introduction to Statistical Modeling",
-    "section": "Office hours (OH)",
-    "text": "Office hours (OH)\nAcross the instructor and preceptors, there are several office hours each week. Names, times, and locations are on the Moodle course calendar. IMPORTANT: Always check the calendar before attending OH."
+    "section": "Office hours (OH) and R Support",
+    "text": "Office hours (OH) and R Support\nAcross the instructor and preceptors, there are several office hours each week. Names, times, and locations are on the Moodle course calendar.\nIMPORTANT: Always check the calendar before attending OH.\nData & R Support: In addition to the course preceptors, there is support on campus for working with data and R / RStudio. This is a great resource for R setup and troubleshooting throughout the semester. See https://www.macalester.edu/mscs/data-support for more information."
   },
   {
     "objectID": "syllabus.html#asking-questionscommunicating",
@@ -1391,141 +1526,6 @@
     "title": "STAT 155: Introduction to Statistical Modeling",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nMacalester Academic Advising – High School Preparation↩︎"
-  },
-  {
-    "objectID": "project.html",
-    "href": "project.html",
-    "title": "Project",
-    "section": "",
-    "text": "As noted in the syllabus, a detailed description of the group project can be found here. Important dates and additional information are listed below.\n\nImportant Dates\n\nFriday, February 28: Project Checkpoint 1 Due\nFriday, April 11: Project Checkpoint 2 Due\nLast day of class: Final Draft Due\n\n\n\nGrading\nThe final draft will be graded using the rubric found here. Although the first two checkpoints will not directly contribute to your course grade, the feedback they allow me to provide will ensure the success of your final draft!\n\n\nResources\nLater in the semester, I will post at least one example of a successful final draft, as well as a google doc template for the final draft.\n\n\nProject Groups\nProject groups will ultimately be determined by me, with the assistance of a Project Group Preferences survey. The survey will be sent out early in the semester (exact date TBD) and will allow you to either list people you would like to be in a group with or specify that you would like to be placed in a group randomly by me. I will do my best to ensure that groups are constructed as closely to survey responses as possible. Since one component of the project involves an in-class presentation, you may not work with students in different sections on the project.\nIf for any reason there is an individual (or individuals) with whom you do not feel safe participating in a project group with, there will be a space to note this on the survey. You will not be expected to provide any justification for your response to this question, but note that as I need to place you in groups, the survey will not be anonymous.\nGroup work and collaboration are important components of nearly all statistical analyses and projects. I recognize that individual contributions to a group project are not always consistent between group members. To this end, you will (as a group) be expected to explicitly specify the project tasks completed by each team member along with the final draft of your paper.\nIf there are any concerns with project groups throughout the semester, I am happy to meet with groups or individuals to discuss ways to move forward."
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Practice Problems",
-    "section": "",
-    "text": "…due Wednesdays at 5pm Central on Moodle!\n\nPractice Problems 1, due 2/5\nPractice Problems 2, due 2/12\nPractice Problems 3, due 2/26\nPractice Problems 4, due 3/5\nPractice Problems 5, due 3/26\nPractice Problems 6, due 4/9\nPractice Problems 7, due 4/16\nPractice Problems 8, due 4/23"
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html",
-    "href": "activities/01_foundations_welcome.html",
-    "title": "Collecting and Summarizing Data",
-    "section": "",
-    "text": "Download the .qmd file for this activity here. For this and all future activities, you will download the .qmd file, open it in Rstudio, and use it to type your answers/code to the exercises on the in-class activities. A rendered (“printed”) version of the activity will always be available on this course page.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#step-1",
-    "href": "activities/01_foundations_welcome.html#step-1",
-    "title": "Collecting and Summarizing Data",
-    "section": "Step 1",
-    "text": "Step 1\nAt your table, write a 1-2 word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.\n\nHow many hours of sleep did you get last night? How many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your class year? (first year, sophomore, junior, senior)\nHow many stats courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?\nHave you used R/RStudio a lot, a little, or never?",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#step-2",
-    "href": "activities/01_foundations_welcome.html#step-2",
-    "title": "Collecting and Summarizing Data",
-    "section": "Step 2",
-    "text": "Step 2\nDesignate one person from your table to distribute your group’s answers to the questions to the corresponding “station” around the classroom. Each table should have a number on it, corresponding to the “station”/question.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#step-3",
-    "href": "activities/01_foundations_welcome.html#step-3",
-    "title": "Collecting and Summarizing Data",
-    "section": "Step 3",
-    "text": "Step 3\nFill out an electronic version of these questions. We’ll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-1",
-    "href": "activities/01_foundations_welcome.html#exercise-1",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nWith your group, in no more than two sentences per question, respond to the questions posed by the 5 W’s + H for the data at your group’s table. If you need a refresher on the 5 W’s + H, check out the related readings posted at the top of this activity!\nWho\n\nResponse: Type your response here.\n\nWhat\n\nResponse: Type your response here.\n\nWhen\n\nResponse: Type your response here.\n\nWhere\n\nResponse: Type your response here.\n\nWhy\n\nResponse: Type your response here.\n\nHow\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-2",
-    "href": "activities/01_foundations_welcome.html#exercise-2",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nMove the post-it notes around to construct a visualization of the responses at your station.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-3",
-    "href": "activities/01_foundations_welcome.html#exercise-3",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nCalculate at least one numerical summary of the post-it note responses at your station, and record your numerical summary in the response text below. Write a complete sentence, not just the numerical summary alone! This is good practice for summarizing data in more formal writing.\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-4",
-    "href": "activities/01_foundations_welcome.html#exercise-4",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nIn no more than three sentences, describe what you learn about from the visual and numerical summaries. Try to write your description in a way that tells an interesting story about the people in this class.\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-5",
-    "href": "activities/01_foundations_welcome.html#exercise-5",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nImagine that you took all the post-it notes in this room and organized them into a spreadsheet. What would each row in the underlying data set represent? What would each column of the data set represent? Check out the first related reading, linked at the top of this activity, if you need assistance!\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#reflection",
-    "href": "activities/01_foundations_welcome.html#reflection",
-    "title": "Collecting and Summarizing Data",
-    "section": "Reflection",
-    "text": "Reflection\nIn three to four sentences, reflect upon today’s activity. Some reflection prompts are found below:\n\nDo you think the context in which the data was collected influenced the results you found?\nWho would the numerical summaries you calculated potentially be represented of? Could you generalize the information you learned to a broader population (all students at Mac, perhaps), or would you have ethical concerns with generalizing your results?\nWhat (if anything) surprised you about the numerical summaries calculated by your group, or other groups?\nDid your data visualization help you better understand, or discover new things about the data that otherwise would have been difficult to distinguish? Why or why not?\n\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 155: Introduction to Statistical Modeling",
-    "section": "",
-    "text": "STAT 155: Introduction to Statistical Modeling\nMacalester College, Fall 2025\nStatistics is not just about theories & numbers — it’s about making sense of the world.\n\n\n\n\n\n\n📖 A Thought from H. G. Wells\n\n\n\n\n“Statistical thinking will one day be as necessary for efficient citizenship as the ability to read and write.”\n— H. G. Wells\n\n\n\nWelcome to the world of Statistics! In this course, you’ll learn how to analyze data, test research hypotheses, and make predictions in ways that matter.\nInstructor: Md Mutasim Billah  Class meeting times:\n\nSection 03: M/W/F 09:40-10:40am, THTR 002\nSection 04: M/W/F 12:00-01:00pm, THTR 202\n\nBill’s drop-in (office) hours:\n\nLocation: My office (OLRI 234)\nTimes: M/W: 01:30-02:30 pm.\n24/7 by Appointment: I’m also happy to meet one-on-one! Shoot me an email and we can arrange it either in-person or over zoom, password: 123456.\n\n\nR/RStudio Preceptor Office Hours: Available on the MSCS Events google calendar (not to be used for questions about course content, only R-related things!)\nSTAT 155 Preceptor Office Hours: There is a link to a Google Calendar containing all preceptor office hours available at the top of the course Moodle page!\n\nThis course website will be updated throughout the semester with new activities, assignments, and announcements, so please bookmark this page if you are enrolled in the course!\nIf you find any typos, bugs, dead links, or have other questions, please email mbillah@macalester.edu"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Course Schedule",
-    "section": "",
-    "text": "The course schedule below will be filled in throughout the semester. For each day, there will be a link to course slides (if there are any that day) and notes/links on what is due ahead of class time. The “Announcements” column is (hopefully) self-explanatory. Any urgent announcements will be made over email.\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\n\n\n\nMonday\nWednesday\nFriday\nAnnouncements\n\n\n\n\nWinter Break\nWinter Break\n1/24: First day of class! Collecting and Summarizing DataBefore class:- Read the course syllabus.- Familiarize yourself with Moodle and the course website.- Complete Introductions Survey.- Walk through the R Resources tab. Try downloading R and RStudio before coming to class!\nWelcome (back) to campus!\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\n\n\n\nMonday\nWednesday\nFriday\nAnnouncements\n\n\n\n\n1/27: Intro to R + univariate visualization & summariesBefore class: complete today’s Moodle checkpoint\n1/29: More R practice + project introBefore class: complete today’s Moodle checkpoint\n1/31: Simple linear regressionBefore class: complete today’s Moodle checkpoint\n- Last day to add/drop is Friday, 1/31- PP#1 is posted on the assignments tab (due Wed 2/5, 5pm CT)\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMonday\nWednesday\nFriday\nAnnouncements\n\n\n\n\n2/3: SLR model evaluationBefore class: complete today’s Moodle checkpoint\n2/5: SLR variable transformations + library activityBefore class: complete today’s Moodle checkpoint\n2/7: Model building + practice\n- PP#1 due Wed 2/5, 5pm"
-  },
-  {
-    "objectID": "tech_setup.html",
-    "href": "tech_setup.html",
-    "title": "Tech Setup",
-    "section": "",
-    "text": "Follow these instructions to set up the software that we’ll be using throughout the semester. Even if you’ve already downloaded both R and RStudio, you’ll want to re-download to make sure that you have the most current versions.\n\nRequired: Change the default file download location for your internet browser.\n\nGenerally by default, internet browsers automatically save all files to the Downloads folder on your computer. This does not encourage good file organization practices. You need to change this option so that your browser asks you where to save each file before downloading it.\nThis page has information on how to do this for the most common browsers.\n\n\nRequired: Download R and RStudio.\n\nFIRST: Download R here.\n\nIn the top section, you will see three links “Download R for …”\nChoose the link that corresponds to your computer.\nAs of August 27, 2024, the latest version of R is 4.4.1 (“Race for Your Life”).\n\nSECOND: Download RStudio here.\n\nClick the button under step 2 to install the version of RStudio recommended for your computer.\nAs of August 27, 2024, the latest version of RStudio is 2024.04.2+764.\n\n\n\nSuggested: Watch this video describing key configuration options for RStudio.\n\nRequired: Install required packages.\n\nAn R package is an extra bit of functionality that will help us in our data analysis efforts in a variety of ways.\nOpen RStudio and click inside the Console pane (by default, the bottom left pane). Copy and paste the following command into the Console. You should see the text below appear to the right of the &gt;, which is called the R prompt. After you paste, hit Enter.\n\n\ninstall.packages(c(\"tidyverse\"))\n\n\nYou will see a lot of text from status messages appearing in the Console as the packages are being installed. Wait until you see the &gt; again.\nEnter the command library(tidyverse) and hit Enter.\nIf you see an error message, then there was a problem installing the package. Talk to the instructor or a preceptor for help.\nQuit RStudio. You’re done setting up!\n\n\nOptional: For a tour of RStudio features, watch this video. It also shows you how to customize the layout and color scheme of RStudio.\n\nRequired: Set essential RStudio options.\nGo to Tools -&gt; Global Options -&gt; General -&gt; Workplace. You’ll see 2 options:\n\nRestore .RData into workspace at startup: Leave this unchecked\nSave workspace to .RData on exit: Select “Never”\n\nWithout doing this RStudio will save and reload everything that you’ve been working on from the start of the semester. Since we’ll be working with new data each class, we want to keep our digital environment clean. Essentially, this is like an artist getting a clean canvas for each new painting rather than trying to paint all paintings on a single canvas."
   },
   {
     "objectID": "template_qmds/02-foundations-univariate-notes.html",
