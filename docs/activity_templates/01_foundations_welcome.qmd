@@ -7,7 +7,7 @@ format:
     toc: true
 ---
 
-Download the .qmd file for this activity [here](../activities/01_foundations_welcome.qmd). For this and all future activities, you will download the .qmd file, open it in Rstudio, and use it to type your answers/code to the exercises on the in-class activities. A rendered ("printed") version of the activity will always be available on this course page.
+Download the .qmd file for this activity [here](../docs/activities/01_foundations_welcome.qmd). For this and all future activities, you will download the .qmd file, open it in Rstudio, and use it to type your answers/code to the exercises on the in-class activities. A rendered ("printed") version of the activity will always be available on this course page.
 
 # Notes
 

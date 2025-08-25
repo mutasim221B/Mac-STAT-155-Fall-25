@@ -32,8 +32,8 @@ website:
         text: "Practice Problems"
       - file: project.qmd
         text: "Project"
-      - file: tech_setup.qmd
-        text: "Tech Setup"
+      - file: R_Resources.qmd
+        text: "R Resources"
 
   sidebar:
     - id: activities

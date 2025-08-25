@@ -118,12 +118,16 @@ We will use the (completely free and open source) R programming language extensi
 
 2.  Online: Go to <https://rstudio.macalester.edu>, and log in with your full Mac email address and your usual Mac password to get access. (Note that this is a shared resource across MSCS, and you may experience performance issues due to high traffic, server outages, etc.)
 
-More detailed instructions on downloading, installing, and getting started with R, and RStudio are available on the [Tech Setup](tech_setup.qmd) tab.
+More detailed instructions on downloading, installing, and getting started with R, and RStudio are available on the [R Resources](R_Resources.qmd) tab.
 
-## Office hours (OH)
+
+## Office hours (OH) and R Support
 Across the instructor and preceptors, there are several office hours each week. Names, times, and 
 locations are on the Moodle course calendar. 
+
 **IMPORTANT**: Always check the calendar before attending OH.
+
+Data & R Support: In addition to the course preceptors, there is support on campus for working with data and R / RStudio. This is a great resource for R setup and troubleshooting throughout the semester. See https://www.macalester.edu/mscs/data-support for more information.
 
 <br><br><br><br>
 
@@ -443,6 +447,57 @@ I want you to succeed. Both here at Macalester and beyond. To help make this hap
 You may also contact Macalester’s Title IX Coordinator directly (phone: 651-696-6258; e-mail: titleixcordinator\@macalester.edu); they will provide you with supportive measures, resources, and referrals. Additional information about how to file a report (including anonymously) is available on the [Title IX website](https://www.macalester.edu/titleix/).
 
 **General Health and Well-being:** I care that you prioritize your well-being in this semester and beyond. Investing time into taking care of yourself will have profound impacts on all aspects of your life. Remember that beyond being a student, you are a human being carrying your own experiences, thoughts, emotions, and identities. It is important to acknowledge any stressors you may be facing, which can be mental, emotional, physical, cultural, financial, etc., and how they can have an impact on you. I encourage you to remember that you have a body with needs. In the classroom, eat when you are hungry, drink water, use the restroom, and step out if you are upset and need some air. Please do what is necessary so long as it does not impede your or others' ability to be mentally and emotionally present in the course. Outside of the classroom, sleeping well, moving your body, and connecting with others can be strategies can help nourish you. If you are having difficulties maintaining your well-being, please don't hesitate to contact me and/or find support from physical and mental health resources [here](https://docs.google.com/document/d/1lz-ii5yze_OSkQJqz_7pap7fRjG81LJh0_saBniP-zg/edit), [here](https://docs.google.com/document/d/1iC-ykD8QJ-w2BVO1Gb0AobD-00Zq_8mznWR5C2mNiF0/edit?usp=sharing), and [here](https://www.macalester.edu/current-students/).
+
+# Advice for Success in STAT 155
+
+::: {.callout-tip title="❓ Ask Questions"}
+When you have questions, please stop me during class, ask your neighbor, post on Slack, and come to office hours. Saying *"I don't understand"* is an important part of learning and it helps others around you.
+:::
+
+::: {.callout-note title="🤝 Come to Office Hours"}
+Office hours are a great time to talk about course material and assignments, study strategies, selecting courses, declaring a major, grad school and/or career planning, or life in general. You don’t need to have a specific question in order to attend: it can also be a space to review concepts, talk through examples, or just chat!
+:::
+
+::: {.callout-important title="⏳ Make Time"}
+Performing a thoughtful statistical analysis requires time: to plan, to implement, to interpret, and to revise.  
+
+- Start your assignments early. It is very hard to be creative or to debug R code when you are in a rush.  
+- In addition to the 3 hours we spend together during class, expect to spend about **7 hours per week** on this class.  
+- If you’re spending much more (or less!) time than that, please let me know.
+:::
+
+::: {.callout-note title="🏫 Attend Class"}
+Active participation in this class will be key to your learning. We’ll use class time to ask and answer questions, review material, and practice concepts in a collaborative environment.  
+
+To ensure the best learning experience for you and your classmates:  
+- Come prepared  
+- Engage in class  
+- Make full use of the entire class period  
+
+If you can’t attend:  
+- Check Moodle and Course Website to see what you missed  
+- Review the material  
+- Complete the in-class activity on your own  
+- Get notes from classmates  
+- (After doing all of the above) come to office hours with specific questions.
+:::
+
+::: {.callout-tip title="💚 Prioritize Your Well-Being"}
+Investing time into taking care of yourself will help you engage more fully in your academic experience. Remember: beyond being a student, you are a human being carrying your own experiences, thoughts, emotions, and identities with you.  If you are having difficulties maintaining your well-being, please contact me and/or check out available campus resources (mentioned in the 'Other Policies' part of the syllabus. As part of prioritizing your well-being (and others’), **please stay home if you are feeling sick.** Follow the recommendations above (*Attend Class*) and below (*Communicate*) if you miss class or need extra time on an assignment.
+:::
+
+::: {.callout-note title="📢 Communicate"}
+I will do my best to clearly communicate changes to expectations, deadlines, office hours, or class meetings due to instructor illness or unexpected life issues.  
+
+Please check Moodle and Slack regularly so you don’t miss announcements.  
+
+I also ask that you check in with me as soon as possible if:  
+- You need to miss multiple classes in a row  
+- You have a conflict (e.g., athletic competition, religious observance) with a scheduled quiz  
+- You need accommodation(s)  
+- You are worried about meeting a deadline  
+- Something about the class is not working for you
+:::
 
 
 # Note
