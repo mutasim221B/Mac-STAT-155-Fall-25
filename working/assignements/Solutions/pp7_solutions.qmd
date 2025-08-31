@@ -1,0 +1,255 @@
+---
+title: "Practice Problems 7"
+author: "SOLUTIONS"
+date: now
+date-format: "YYYY-MM-DDTHH:mm:ssZ"
+format:
+  html:
+    toc: true
+    embed-resources: true
+    code-tools: true
+---
+
+# Purpose
+
+The purpose of this assignment is to practice the following skills:
+
+- Translating research questions into statistical models
+- Constructing and interpreting confidence intervals for linear and logistic regression model coefficients
+- Using confidence intervals to test statistical hypotheses
+- Interpreting test statistics and p-values and using them to test statistical hypotheses
+
+
+# Directions
+
+1. Create a code chunk in which you load the `ggplot2`, `dplyr`, `broom`, and `readr` packages.
+
+2. Continue with the exercises below. You will need to create new code chunks to construct visualizations and models and write interpretations beneath. Put text responses in blockquotes as shown below:
+
+> Response here. (The > at the start of the line starts a blockquote and makes the text larger and easier to read.)
+
+3. Render your work for submission:
+    - Click the "Render" button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.
+    - Scroll through and inspect the document to check that your work translated to the HTML format correctly.
+    - Close the browser tab.
+    - Go to the "Background Jobs" pane in RStudio and click the Stop button to end the rendering process.
+    - Locate the rendered HTML file in the folder where this file is saved. Open the HTML to ensure that your work looks as it should (code appears, output displays, interpretations appear). Upload this HTML file to Moodle.
+
+
+
+
+
+# Exercises
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(broom)
+library(readr)
+```
+
+
+## Exercise 1
+
+> **Research question:** What is the causal effect of adolescent marijuana smoking on adulthood cigarette smoking?
+
+To investigate this question, we will use data from the [Add Health Study](https://addhealth.cpc.unc.edu/). Read in the data below, and take a look at [this codebook](https://mac-stat.github.io/data/addhealth_codebook.html).
+
+```{r}
+addhealth <- read_csv("https://mac-stat.github.io/data/addhealth.csv")
+
+# Data cleaning
+addhealth <- addhealth %>% 
+    mutate(across(c(mathG, readG, parentED), factor))
+```
+
+### Part a
+
+Analysts have determined `white`, `mathG`, `readG`, `parentED` and `housesmoke` to be potential confounders of the relationship between adolescent marijuana smoking (`exposure`) on adulthood cigarette smoking (`smoke`).
+
+- Fit a logistic regression model that addresses our research question.
+- Interpret only the coefficient of interest on the odds (not log odds) scale.
+
+```{r}
+mod_addhealth <- glm(smoke ~ exposure + white + mathG + readG + parentED + housesmoke, data = addhealth, family = "binomial")
+
+tidy(mod_addhealth) %>% 
+    mutate(exp_estimate = exp(estimate)) %>% 
+    select(term, estimate, exp_estimate, everything())
+```
+
+> Coefficient of interest: `exposure`:
+> 
+> Among adolescents of the same binary race (white/black), math and reading scores, level of parental education, and household smoking situation, those who smoke marijuana during adolescence have 2.21 times the odds of adulthood cigarette smoking than those who do not smoke marijuana during adolescence.
+
+
+
+### Part b
+
+- Construct an approximate 95% confidence interval (CI) for the coefficient of interest on the odds scale by using the Central Limit Theorem and the 68-95-99.7 rule.
+- Compare your approximate 95% CI to an exact interval using `confint()`.
+
+> To construct a manual approximate 95% CI, we first use the estimate +/- 2 SE formula on the log scale. Then we exponentiate the endpoints to get a CI for the odds ratio. **Approximate 95% CI: (1.486, 3.285)**
+> 
+> For the exact interval, we use `confint()` to get the log odds scale CI. Then we exponentiate the endpoints to get a CI for the odds ratio. **Exact 95% CI: (1.497, 3.263)**
+> 
+> We get close to the same results from both procedures.
+
+```{r}
+# Log scale
+c(0.7927449 - 2*0.1982652, 0.7927449 + 2*0.1982652)
+# Odds scale
+c(0.7927449 - 2*0.1982652, 0.7927449 + 2*0.1982652) %>% exp()
+
+confint(mod_addhealth, level = 0.95) %>% exp()
+```
+
+
+### Part c
+
+- Interpret the exact CI from Part b in context.
+- What is the null value in this context? Based on the CI, do we have evidence for a true causal relationship between adolescent marijuana smoking and adulthood cigarette smoking in the broader population? (Assuming that the confounders we have adjusted for represent all confounders of the relationship.)
+
+> **Exact 95% CI: (1.497, 3.263)**
+> 
+> Among adolescents of the same binary race, math and reading scores, level of parental education, and household smoking situation, it is plausible that the true odds ratio comparing those who do and don't smoke marijuana during adolescence is anywhere from 1.497 to 3.263.
+> 
+> For brevity, we will refer to the interpretation above as an **adjusted odds ratio** (adjusted for binary race, math and reading scores, parental education, and household smoking).
+> 
+> The null value in this context is 1. Because the 95% CI is entirely above 1, 1 is not a plausible value for the true population adjusted odds ratio. Assuming that the confounders we have adjusted for represent all confounders of the relationship, we do have evidence for a true causal relationship between adolescent marijuana smoking and adulthood cigarette smoking in the broader population.
+
+### Part d
+
+Now let's consider hypothesis testing using test statistics and p-values.
+
+- State the null and alternative hypotheses for the coefficient of interest in context.
+- How do the null and alternative hypotheses differ for the exponentiated coefficient?
+
+> Let's say that the coefficient for `exposure` in the logistic regression model is $\beta_1$. For brevity, we will refer to the interpretation of $\beta_1$ as the **adjusted log odds ratio** (adjusted for binary race, math and reading scores, parental education, and household smoking).
+> 
+> Null hypothesis: $\beta_1 = 0$
+> 
+> Alternative hypothesis: $\beta_1 \neq 0$
+> 
+> In context, the null hypothesis is saying that adjusted log odds ratio is 0---in other words, there is no relationship between the odds of adulthood cigarette smoking and adolescent marijuna smoking after holding constant binary race, math and reading scores, parental education, and household smoking.
+> 
+> The alternative hypothesis is saying that there is a relationship.
+
+> For the exponentiated coefficient:
+> 
+> Null hypothesis: $e^\beta_1 = 1$
+> 
+> Alternative hypothesis: $e^\beta_1 \neq 1$
+> 
+> Whether on the log odds or the odds scale, the null hypothesis is saying that there is no causal relationship between adulthood cigarette smoking and adolescent marijuna smoking. The odds scale is more interpretable: an odds ratio equalling 1 indicates that the odds of adulthood cigarette smoking is identical in adolsecent marijuana smokers and non-smokers.
+
+### Part e
+
+Report and interpret the test statistic for the coefficient of interest.
+
+> Test statistic: 3.9984076
+> 
+> Interpretation: The coefficient of interest (on `exposure`) is 3.998 standard errors away from (above) the null value of 0.
+
+### Part f
+
+- Report and interpret the p-value for the coefficient of interest.
+- Based on this p-value and a significance level of 0.05, do we have evidence for a true causal relationship between adolescent marijuana smoking and adulthood cigarette smoking in the broader population?
+- Do your results here and from the CI in Part c agree?
+
+> p-value: 6.377007e-05
+> 
+> Interpretation: If the null hypothesis of no causal relationship were true, the probability of seeing a test statistic as or more extreme than 3.9984076 is 6.377007e-05. In other words, we are unlikely to see such an extreme test statistic if in fact there were no causal relationship.
+> 
+> Because the p-value is below our significance level of 0.05, we *do* have evidence for a true causal relationship between adolescent marijuana smoking and adulthood cigarette smoking in the broader population. This agrees with our conclusions from the 95% CI in Part c (where the CI for the odds ratio excluded 1).
+
+
+## Exercise 2
+
+> **Research question:** Does smoking decrease lung function in children?
+
+To investigate this question, we will use data from a pediatric clinic. Read in the data below, and look at [this codebook](https://mac-stat.github.io/data/fev_codebook.html).
+
+```{r}
+fev <- read_csv("https://mac-stat.github.io/data/fev.csv")
+```
+
+### Part a
+
+Analysts have determined `age`, `height`, and `sex` to be potential confounders of the relationship between smoking (`smoke`) and lung function as measured by forced expiratory volume (`fev`).
+
+- Fit a regression model that addresses our research question.
+- Interpret only the coefficient of interest.
+
+```{r}
+mod_fev <- lm(fev ~ smoke + age + height + sex, data = fev)
+summary(mod_fev)
+```
+
+> Coefficient of interest: `smokesmoker`
+> 
+> Among children of the same age, height, and binary sex, smokers have an average FEV that is 0.087 liters/second lower than non-smokers.
+
+
+### Part b
+
+- Construct an approximate 95% confidence interval (CI) for the coefficient of interest on the odds scale by using the Central Limit Theorem and the 68-95-99.7 rule.
+- Compare your approximate 95% CI to an exact interval using `confint()`.
+
+```{r}
+c(-0.087246 - 2*0.059254, -0.087246 + 2*0.059254)
+
+confint(mod_fev, level = 0.95)
+```
+
+> **Approximate 95% CI: (-0.206, 0.031)**
+> 
+> **Exact 95% CI: (-0.204, 0.029)**
+> 
+> The 2 methods produce nearly the same intervals.
+
+
+### Part c
+
+- Interpret the exact CI from Part b in context.
+- What is the null value in this context? Based on the CI, do we have evidence for a true causal relationship between smoking and lung function in the broader population of children? (Assuming that the confounders we have adjusted for represent all confounders of the relationship.)
+
+> **Exact 95% CI: (-0.204, 0.029)**
+> 
+> Among children of the same age, height, and binary sex, it is plausible that smokers have an average FEV that is anywhere from 0.204 liters/second lower to 0.029 liters/second higher than non-smokers.
+> 
+> The null value in this context is 0. Because the 95% CI contains 0, 0 *is a plausible value* for the true population adjusted difference between smokers and non-smokers. Assuming that the confounders we have adjusted for represent all confounders of the relationship, we *do not* have evidence for a true causal relationship between smoking and lung function in children.
+
+### Part d
+
+Now let's consider hypothesis testing using test statistics and p-values.
+
+State the null and alternative hypotheses for the coefficient of interest in context.
+
+> Let's say that the coefficient for `smoke` in the linear regression model is $\beta_1$.
+> 
+> Null hypothesis: $\beta_1 = 0$
+> 
+> Alternative hypothesis: $\beta_1 \neq 0$
+> 
+> In context, the null hypothesis is saying that adjusted difference in average FEV is 0---in other words, there is no relationship between smoking and lung function after holding constant age, height, and binary sex.
+
+### Part e
+
+Report and interpret the test statistic for the coefficient of interest.
+
+> Test statistic: -1.472
+> 
+> Interpretation: The coefficient of interest (on `smoke`) is 1.472 standard errors away from (lower than) the null value of 0.
+
+### Part f
+
+- Report and interpret the p-value for the coefficient of interest.
+- Based on this p-value and a significance level of 0.05, do we have evidence for a true causal relationship between smoking and lung function in the broader population of children?
+- Do your results here and from the CI in Part c agree?
+
+> p-value: 0.141
+> 
+> Interpretation: If the null hypothesis of no causal relationship between smoking and lung function were true, the probability of seeing a test statistic as or more extreme than -1.472 is 0.141.
+> 
+> Because the p-value is above our significance level of 0.05, we *do not* have evidence for a true causal relationship between smoking and lung function in the broader population of children. This agrees with our conclusions from the 95% CI in Part c (where the CI for the adjusted difference included 0).

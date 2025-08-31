@@ -68,7 +68,7 @@ width="150" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
 **Email:** [mbillah\@macalester.edu](mailto:mbillah@macalester.edu){.email}
 
 ::: {.callout-note title="Notes from \"your professor\""}
-Greetings! You can call me *Bill* or *Professor Billah* & I use he/him pronouns. Back when I was an undergrad student, I didn’t have the best experience in Intro Stat—those courses often emphasized formulas over real understanding. That experience has shaped my teaching—I concentrate on illustrating how statistical theories connect and can be applied in the real world. I’m excited to teach STAT 155 and to create a more meaningful experience—one that helps all students feel confident applying it beyond the classroom. My methodological research lies at the intersection of statistical genetics, biostatistics, and genomics. My current research interests include developing novel statistical methods and computationally efficient bioinformatics tools, leveraging modern machine- and deep-learning approaches analyze high-dimensional next-generation sequencing and multi-omics data to identify genes and regulatory mechanisms underlying complex diseases. 
+Greetings! You can call me *Mutasim*, *Bill* or *Professor Billah* & I use he/him pronouns. Back when I was an undergrad student, I didn’t have the best experience in Intro Stat—those courses often emphasized formulas over real understanding. That experience has shaped my teaching—I concentrate on illustrating how statistical theories connect and can be applied in the real world. I’m excited to teach STAT 155 and to create a more meaningful experience—one that helps all students feel confident applying it beyond the classroom. My methodological research lies at the intersection of statistical genetics, biostatistics, and genomics. My current research interests include developing novel statistical methods and computationally efficient bioinformatics tools, leveraging modern machine- and deep-learning approaches analyze high-dimensional next-generation sequencing and multi-omics data to identify genes and regulatory mechanisms underlying complex diseases. 
 Outside of my academic work, I enjoy spending time outdoors with family and friends or cooking variety of foods. If you can’t find me anywhere, I might be busy playing soccer or exploring new worlds on my PS5 Pro!
 :::
 
@@ -76,7 +76,8 @@ Outside of my academic work, I enjoy spending time outdoors with family and frie
 
 -   **Location:** My office (OLRI 234)
 -   **Times:** M/W: 01:30-02:30 pm.
--   **24/7 by Appointment:** I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. Shoot me an email and we can arrange it either in-person or over [zoom](https://macalester.zoom.us/j/99762878654?pwd=gt7VvSNT0ubKsV2icMV3z8J0GyHKMy.1), password: 123456.
+-   **By Appointment:** I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. Shoot me an email and we can arrange it either in-person or over [zoom](https://macalester.zoom.us/j/99762878654?pwd=gt7VvSNT0ubKsV2icMV3z8J0GyHKMy.1), password: 123456.
+-   **Email Response Time:** I do my best to reply to emails promptly during weekdays. Please note that messages sent after 4:00 pm or on weekends may take longer to receive a response.
 
 ## About your preceptors
 
@@ -104,7 +105,7 @@ In hiring preceptors, we prioritize and emphasize kindness and respect. I expect
 
 There is no required textbook for this course. Throughout the course, readings may be assigned from these [notes](https://mac-stat.github.io/Stat155Notes/), or other sources. 
 
-The online course manual includes all in-class activities (with solutions) and a daily [Schedule](schedule.qmd). All links and materials needed will be provided on the schedule tab of this website.
+The [online course manual](https://mutasim221b.github.io/Mac-STAT-155-Fall-25/) includes all in-class activities (with solutions) and a daily [Schedule](schedule.qmd). All links and materials needed will be provided on the schedule tab of this website.
 
 ## Moodle
 [Moodle](https://moodle.macalester.edu/) includes general resources, a broad course calendar, submission links, feedback, and a forum for student questions.
@@ -187,10 +188,10 @@ Actively participate in the class & take ownership of your learning. PLEASE: Don
 
 I provide transparent accommodations to all students. It helps reduce stress and the “hidden curriculum” (not everybody feels comfortable asking for flexibility).
 
-- **Missed Class**: It’s okay to miss class in the case of an emergency.
-- **Practice Problems (PP)**: limited extensions and limited mistakes without penalty. Please *carefully* go through all the sections from [STAT 155 PP Policies & Grading](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.b4wcvjckjps) doc.
-- **Checkpoints**: your lowest scores are essentially dropped and there are limited mistakes without penalty.
-- **Quizzes**: limited revisions. Additional flexibility will be provided in rare extenuating circumstances, upon discussion. Exceptions must be discussed with me (not assumed) early on (not after the fact). 
+- **Missed Class**: It’s okay to miss class in the case of an emergency. Please see the 'Absences' tab below for details.
+- **Practice Problems (PP)**: Limited extensions and limited mistakes without penalty. Please *carefully* go through all the sections from [STAT 155 PP Policies & Grading](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.b4wcvjckjps) doc.
+- **Checkpoints**: Some class periods will have course videos and readings assigned ahead of time. For each class period where this is the case, a checkpoint quiz (on Moodle) must be completed 30 minutes before class starts. Checkpoints may be attempted as many times as you’d like, but to earn completion credit for a given checkpoint you must score 100% by your final attempt. These short quizzes are designed to ensure that you stay on top of course material, since much of the content in this course builds on itself.
+- **Quizzes**: Limited revisions. Additional flexibility will be provided in rare extenuating circumstances, upon discussion. Exceptions must be discussed with me (not assumed) early on (not after the fact). 
 
 ::: {.callout-tip title="🤝 **PLEASE REACH OUT WHEN YOU NEED HELP.**"}
 :::
@@ -250,7 +251,7 @@ Engagement is important to your own learning & to fostering a supportive learnin
 - **When attending class:**
   - Be on time & don’t leave early  
   - Do not use your phone (phones must be put away when you enter the course, even if class hasn’t started)  
-  - [Do not use your laptop for anything other than taking notes](https://www.sciencedirect.com/science/article/pii/S0360131512002254) (e.g., no videos, no email, no messaging apps, etc.)  
+  - [Do not use your laptop for anything other than taking notes and in-class activities](https://www.sciencedirect.com/science/article/pii/S0360131512002254) (e.g., no videos, no email, no messaging apps, etc.)  
   - Be actively present (e.g., don’t work alone, don’t work on other courses, etc.)  
 
 - **Outside class:**
@@ -259,12 +260,10 @@ Engagement is important to your own learning & to fostering a supportive learnin
   
 :::
 
-**NOTE**: To share clear & consistent information, any deviations from these expectations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
 
+## (2) Collaboration
 
-## (2) Colloboration
-
-Collaboration improves higher-level thinking, confidence, communication, community, & more. You will work in groups in and outside class. These groups will occasionally switch & will sometimes be assigned. 
+Collaboration improves higher-level thinking, confidence, communication, community, & more. You will work in groups in and outside class. These groups may occasionally switch & may sometimes be assigned. 
 
 ::: {.callout-note title="🤝 Expectations"}
 - Follow the [MSCS Community Guidelines](https://docs.google.com/document/u/3/d/e/2PACX-1vSlLLWmyOf8WKGDKJ_qypgA_kQI1dNFGEKH0mtFoqfAUARZN7ypVCgivnmPjccks9jJzW1rgEzt7QMI/pub)
@@ -278,28 +277,25 @@ Collaboration improves higher-level thinking, confidence, communication, communi
   
 :::
 
-**NOTE**: To share clear & consistent information, any deviations from these expectations during in-class collaborations will be recorded in the “In-class engagement & collaboration” activity on Moodle.
-
 
 ## (3) Preparation (Checkpoints) 
 
 Roughly half of our class sessions will require some prep work. Before class you will watch videos which introduce new concepts, then take a low-stakes checkpoint quiz (CP). This will help us prepare for class, build a common foundation, & maximize our time together – just how readings & reading reflections might be used in another class!
 
 ::: {.callout-important title="📊 Expectations"}
-Pass 13+ of the 16 CPs (≈80%); **OR** earn at least 80% of total points across all CPs.  
+Complete at least 13 (out of 17) CPs (≈80%) without affecting your final grades!
 :::
 
 ::: {.callout-note title="📜 Policies"}
-- You will make mistakes and that’s ok!  
-  - You can reattempt most CP questions with a 33% penalty for each incorrect response.  
-    *Exceptions*: open-ended questions or multiple choice questions with only 2 options (TRUE/FALSE). 
-  - CPs are graded pass/fail. To pass, you must earn at least 80% of the points.  
-  - The goal is to pass 13+ CPs. Thus you may miss or not pass 3 CPs without it impacting your grade.  
+  - CPs may be attempted as many times as you’d like, but to earn completion credit for a given checkpoint you must score 100% by your final attempt.
+  - If you complete less than 13 (out of 17) CPs (≈80%) before the time they are due, your overall course grade will be lowered by 1/3 of a letter grade (i.e. B –> B-, A- –> B+, etc.).
+    - If you complete less than 8 (out of 17) CPs (≈50%) before the time they are due, your overall course grade will be lowered by 1 of a letter grade (i.e. A –> B, etc.).
+  
 
-- CPs are due **10 minutes before class** on the assigned date. **There are no extensions for CPs**, as they are important *preparation* for the relevant class session.  
+- CPs are due **30 minutes before class** on the assigned date. **There are no extensions for CPs**, as they are important *preparation* for the relevant class session.  
 :::
 
-## (4) Practice
+## (4) Practice (Practice Problem Sets)
 
 In 8 practice problem sets (PP), you will practice and explore the course material in more depth. The following flexibility is built in to help reduce stress and to facilitate deeper learning. Detailed directions and policies are [here](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.y44zqzjp7zgk).
 
@@ -320,21 +316,21 @@ More details will be provided later in the semester. Here are some basics:
 
 ## (6) Quizzes (Content Expertise)
 
-Your course engagement, collaboration, preparation, practice, and application will support your deeper understanding of the course material. This will be assessed through three in-person quizzes. You must schedule all travel and other commitments around them — there will not be any alternative quiz times.  
+Your course engagement, collaboration, preparation, practice, and application will support your deeper understanding of the course material. This will be assessed through three in-person quizzes. You must schedule all travel and other commitments around them — there will not be any alternative quiz times.
 
-- **Quiz 1:** Date in class  
-- **Quiz 2:** Date in class  
+- **Quiz 1:** Monday, 09/22 in class (tentative) 
+- **Quiz 2:** Monday, 10/27 in class (tentative)
 - **Quiz 3:** *Finals week*  
   - The exam will be written to take ~1.25 hours, but you will have the full 2-hour period to complete it.  
-    - 09:40–10:40 am section  
-    - 12:00–01:00 pm section  
+    - 09:40–10:40 am section 03: Monday 12/15- 08:00am-10:00am
+    - 12:00–01:00 pm section 04: Saturday 12.13- 08:00am-10:00am
 
 
 ::: {.callout-warning title="📜 Quiz Policies"}
 - **All quizzes will have the following format:**
   - Taken individually, using pen/pencil & paper  
   - You will not need to write code or use a calculator, but you will need to read & interpret R output  
-  - Closed notes, but you may use a 3x5 index card with writing on both sides. These can be handwritten or typed, but you may not include screenshots or share note cards. Making your own card is important to the review process.
+  - Closed notes, but you may use a 3x5 index card with writing on both sides. These can be handwritten or typed, but you may not include screenshots or share note cards. Making your own card is important to the review process- as you are required to submit the index card along with the answer paper.
 
 - **Quizzes 2 & 3 will be cumulative.** This is unavoidable as the material builds upon itself.  
 
@@ -384,23 +380,22 @@ $\tfrac{1}{3}$ Project
 ### Grade Modifiers
 
 Engagement (including attendance) +  
-Collaboration +  
 Preparation (checkpoints)
 
 | Modifier                          | Scenario                                                                 |
 |:----------------------------------|:-------------------------------------------------------------------------|
-| none <br>(e.g. A → A)            | Meets expectations in all 3 areas (Engagement, Collaboration, Preparation) |
-| ⅓ lower grade <br>(e.g. A → A-)  | Demonstrates strong progress (e.g., 4 absences or 70% checkpoint total, or...)  |
-| 1 lower grade <br>(e.g. A → B)   | Demonstrates moderate progress (e.g., 5–6 absences or 50% checkpoint total, or...) |
-| >1 lower grade                   | Demonstrates little progress toward expectations in all 3 areas          |
+| none <br>(e.g. A → A)            | Meets expectations in all two areas (Engagement and Preparation) |
+| ⅓ lower grade <br>(e.g. A → A-)  | Demonstrates strong progress (e.g., 4 absences OR less than 13 (out of 17) CPs (≈80%))  |
+| 1 lower grade <br>(e.g. A → B)   | Demonstrates moderate progress (e.g., 5–6 absences OR less than 8 (out of 17) CPs (≈50%)) |
+| >1 lower grade                   | Demonstrates little progress toward expectations in two areas          |
 | Drop to D/NC                     | Has 7+ absences                                                          |
 
-**NOTE:** The table presents general scenarios. Please reach out if you want to discuss progress in Engagement, Collaboration, and/or Preparation.
+**NOTE:** The table presents general scenarios. Please reach out if you want to discuss progress in Engagement and/or Preparation.
 :::
 
 :::
 
-::: {.callout-important title="📊 Grading Cavities"}
+::: {.callout-important title="📊 Grading Caveats"}
 - The goal of sharing this specific information is to provide transparency around final grades, hence clear goals to work toward. That said, assigning grades is much more nuanced than any grading rubric / framework might suggest (for good reasons).  What’s shared here is a **worst case scenario** – it represents the lowest a grade might be if you meet the corresponding goals.
 
 - <span style="color:red; font-weight:bold;">Moodle does NOT correctly weight your grades</span>, thus should not be used alone to monitor your progress.  
@@ -446,7 +441,7 @@ You may also contact Macalester’s Title IX Coordinator directly (phone: 651-69
 
 **General Health and Well-being:** I care that you prioritize your well-being in this semester and beyond. Investing time into taking care of yourself will have profound impacts on all aspects of your life. Remember that beyond being a student, you are a human being carrying your own experiences, thoughts, emotions, and identities. It is important to acknowledge any stressors you may be facing, which can be mental, emotional, physical, cultural, financial, etc., and how they can have an impact on you. I encourage you to remember that you have a body with needs. In the classroom, eat when you are hungry, drink water, use the restroom, and step out if you are upset and need some air. Please do what is necessary so long as it does not impede your or others' ability to be mentally and emotionally present in the course. Outside of the classroom, sleeping well, moving your body, and connecting with others can be strategies can help nourish you. If you are having difficulties maintaining your well-being, please don't hesitate to contact me and/or find support from physical and mental health resources [here](https://docs.google.com/document/d/1lz-ii5yze_OSkQJqz_7pap7fRjG81LJh0_saBniP-zg/edit), [here](https://docs.google.com/document/d/1iC-ykD8QJ-w2BVO1Gb0AobD-00Zq_8mznWR5C2mNiF0/edit?usp=sharing), and [here](https://www.macalester.edu/current-students/).
 
-# Advice for Success in STAT 155
+# Want 'A' in this course? Read, Read, Read...
 
 ::: {.callout-tip title="❓ Ask Questions"}
 When you have questions, please stop me during class, ask your neighbor, post on Slack, and come to office hours. Saying *"I don't understand"* is an important part of learning and it helps others around you.
@@ -460,7 +455,8 @@ Office hours are a great time to talk about course material and assignments, stu
 Performing a thoughtful statistical analysis requires time: to plan, to implement, to interpret, and to revise.  
 
 - Start your assignments early. It is very hard to be creative or to debug R code when you are in a rush.  
-- In addition to the 3 hours we spend together during class, expect to spend about **7 hours per week** on this class.  
+- In addition to the 3 hours we spend together during class, expect to spend about **10-12 hours per week** on this class.  
+- Don’t miss any Checkpoint quizzes—they are designed to give you a core understanding of the subject matter!
 - If you’re spending much more (or less!) time than that, please let me know.
 :::
 
@@ -497,6 +493,25 @@ I also ask that you check in with me as soon as possible if:
 - Something about the class is not working for you
 :::
 
+::: {.callout-note title="💡 Tips from Past Students at MTU!"}
+Here are some comments from previous students in my **Engineering Statistics** class at Michigan Tech that may help you succeed in STAT 155 as well!
+
+- Pay attention to the class lectures, and take notes. Makes the entire class 10x easier.
+- Go to the office hours. He is a really kind professor, and will help so much during the course. The course isn't hard if you have been through higher levels of math, but getting to know professor Billah is just a joy and can make the course so much more fun, not to mention he will definitely make your day.
+- Class is easy to follow along, content is easy to follow, homework helps prepare you for the exam. 
+- Homework discussion page will help you to secure maximum points, don't hesitate to ask questions there; also if you know the answer, let others know as well!
+- I liked the way the class was setup as a whole. The discussions were helpful. 
+- Discussions were helpful to see that you had a similar understanding as your classmates.
+- My advice would be to attend office hours! Dr Bill gives great feedback. The meetings are short too, so no need to worry about allocating a significant amount of time. 
+- Personally, this was my favorite class of the semester. More as how accessible the assignments and lectures were. I could re-watch lectures and with the required discussion boards, I was able to get help by others in the class if I didn't get the right answer, or faced a problem.
+- The emails to keep students on track as well as other call outs were nice throughout the semester. I think overall, work and requirements were well done and distributed.
+- Continue with the discussion posts because they made problems easier to solve and when you get the same answer as another student in the class, you feel more confident in yourself.
+- I really liked the handouts and the notes that you had us take to better understand the material. Hearing different things from other classes, it seemed like this class was the most prepared and I knew and could explain more topics better than other students in other classes. The lecture videos of the class were great too to go back and review certain things if I was confused. Overall the class was great!
+- Thank you for teaching the course! I like how organized your lecture notes were. They were easy to read and allowed me to easily copy them down for my own reference. You were also very great to talk with and were enthusiastic about the course. Please keep that incredible attitude, as students will appreciate that very much! 
+- I like how you tell us what the material is with very detailed information. Then, we jump to exercises to further understand the concept. I personally have found that you bring a lot of life into the subject matter by giving funny but relevant examples and problems to solve in class. I enjoyed the way that you taught the subject matter and you were knowledgeable enough to answer questions that students had. I recommend keeping playing music at the beginning of class especially because I personally feel more interested in the class because of it and I think others do too. 
+- I think my experience in this class was so good because of the high level of engagement with students. The class was made fun and the material was applicable. Notes were very neat and well organized, which also helped to make learning the material a lot easier. The pace of the course was perfect too in order to really learn the first time without always having to look back at the Huskycast. Again, I liked the personal interaction with the class a lot, it made me want to come to class more than out of pure obligation. Thank you for a great semester!
+
+:::
 
 # Note
 

@@ -1,0 +1,245 @@
+---
+title: "Practice Problems 8"
+author: "ANSWER KEY"
+date: now
+date-format: "YYYY-MM-DDTHH:mm:ssZ"
+format:
+  html:
+    toc: true
+    embed-resources: true
+    code-tools: true    
+editor_options: 
+  chunk_output_type: console
+---
+
+<center>**Due Friday, 11/22 at 5pm on [Moodle](INSERT_LINK_TO_MOODLE_ASSIGNMENT).**</center>
+
+# Purpose
+
+The purpose of this assignment is to practice the following skills:
+
+-   Interpreting test statistics and p-values and using them to test statistical hypotheses
+-   Determining when an F-test is needed/appropriate for a specific hypothesis
+
+# Directions
+
+1.  Create a code chunk in which you load the `ggplot2`, `dplyr`, `ggmosaic`, `broom`, and `readr` packages.
+
+```{r warning = FALSE, message = FALSE}
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(ggmosaic)
+library(broom)
+```
+
+2.  Continue with the exercises below. You will need to create new code chunks to construct visualizations and models and write interpretations beneath. Put text responses in blockquotes as shown below:
+
+> Response here. (The \> at the start of the line starts a blockquote and makes the text larger and easier to read.)
+
+3.  Render your work for submission:
+    -   Click the "Render" button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.
+    -   Scroll through and inspect the document to check that your work translated to the HTML format correctly.
+    -   Close the browser tab.
+    -   Go to the "Background Jobs" pane in RStudio and click the Stop button to end the rendering process.
+    -   Locate the rendered HTML file in the folder where this file is saved. Open the HTML to ensure that your work looks as it should (code appears, output displays, interpretations appear). Upload this HTML file to Moodle.
+
+# Context
+
+Throughout this problem set, we'll continue working with data on poisonous mushrooms. In addition to cap shape, we now have information on cap surface and gill size as well. We will investigate whether these two additional variables add "value" to our logistic regression model, in addition to cap shape (where we'll consider a few different definitions of "value").
+
+```{r warning = FALSE, message = FALSE}
+# Read in mushroom data
+mushrooms <- read_csv("https://Mac-STAT.github.io/data/mushrooms.csv")
+```
+
+# Exercises
+
+## Exercise 1
+
+### Part a
+
+Construct two separate visualizations comparing whether a mushroom is `poisonous` or not to `cap_surface`, and `gill_size`, respectively. Comment on what sort of relationships you observe.
+
+```{r}
+# Mosaic plots
+ggplot(data = mushrooms) +
+    geom_mosaic(aes(x = product(cap_surface), fill = poisonous))
+
+ggplot(data = mushrooms) +
+    geom_mosaic(aes(x = product(gill_size), fill = poisonous))
+```
+
+> The proportion of narrow-gilled mushrooms that are poisonous is greater than the proportion of broad-gilled mushrooms that are poisonous. There are very few grooved-surface mushrooms present in the dataset, and all of them are poisonous. Of the remaining types of surfaces, smooth- and scaly-surfaced caps have a greater proportion of poisonous mushrooms than not, and fibrous mushrooms have a higher proportion of non-poisonous mushrooms.
+
+> **Feedback Guide**: Mosiac plots are great, bar charts are good as well. If they made a mosaic plot, they should probably comment on how there are very few mushrooms with grooved surface caps. If they made a bar plot, this would not be obvious. They should have at least one comment about the proportion/percentage of poisonous mushrooms in each respective category, for each respective plot.
+
+### Part b
+
+Construct a 4x2 table of counts for `poisonous` and `cap_surface`. Based on the values in this table, explain why we *cannot* estimate the odds of a mushroom being poisonous for *all* types of mushroom cap surfaces.
+
+```{r}
+mushrooms %>%
+  count(poisonous, cap_surface)
+```
+
+> We cannot calculate the odds of a grooved-surface mushroom being poisonous because we have no observations for non-poisonous, grooved-surface mushrooms! To calculate the odds, this would involve dividing by zero (which we cannot do). We can estimate the odds of being poisonous for the three remaining types of mushrooms.
+
+> **Feedback Guide**: They should note the dividing by zero issue.
+
+## Exercise 2
+
+Since we determined in Exercise 1 that we cannot estimate the odds of a mushroom being poisonous for certain mushroom cap surfaces, we will no longer consider including it in our multiple logistic regression model. Fit a multiple logistic regression model with *two* predictors for whether or not a mushroom is poisonous (shape and gill size).
+
+Interpret the coefficient for the `cap_shapesunken` coefficient, in context.
+
+```{r}
+mod <- glm(data = mushrooms, poisonous ~ cap_shape + gill_size, family = binomial)
+exp(coef(mod))
+1/(2.417808e-07)
+```
+
+> We expect the odds of a mushroom being poisonous to be 2.4 x 10\^(-7) times higher (or, 4135978 times lower) for sunken-shaped mushrooms compared to bell-shaped mushrooms, for mushrooms of the same gill size.
+
+> **Feedback Guide**: Make sure they interpret the exponentiated regression coefficient, compare to the reference category, and adjust for the gill size!
+
+## Exercise 3
+
+### Part a
+
+State the null and alternative hypothesis (in symbols) associated with the p-value given by the logistic regression summary output for the `cap_shapesunken` coefficient.
+
+> $H_0: \beta_5 = 0$ 
+
+> $H_1: \beta_5 \neq 0$
+
+> **Feedback Guide**: Note that whichever $\beta$ they choose should line up with the order in which they appear in their model that they fit. If they put gill_size before cap_shape, then this should be $\beta_6$ instead of $\beta_5$. Alternatively, if they wrote up their own model statement, just make sure it's the appropriate $\beta$ that corresponds to the coefficient for `cap_shapesunken`. They can also state the hypotheses on the odds scale, in which case they should have $e^{\beta}$ on the left-hand side and 1 on the right-hand size.
+
+### Part b
+
+Explain why the hypothesis test in Part a *does not* correspond to testing whether or not cap shape on the whole is associated with whether or not a mushroom is poisonous, after adjusting for gill size.
+
+Then, state the appropriate null and alternative hypothesis (in symbols) that would address this question.
+
+> The hypothesis test in Part a only tests whether or not there is a significant difference in the odds of being poisonous, comparing sunken to bell shaped mushrooms, and does not address *all* differences between *all* cap shapes.
+
+> The appropriate null and alternative hypotheses would involve all coefficients for `cap_shape`:
+
+> $H_0: \beta_1 = \beta_2 = \beta_3 = \beta_4 = \beta_5 = 0$ 
+
+> $H_1:$ at least one of $\beta_1, \beta_2, \beta_3, \beta_4, \beta_5 \neq 0$
+
+> **Feedback Guide**: Similar to Part a, their $\beta$s should align with what their model output looks like, or if they wrote a model statement, that model statement. If they put `gill_size` first, then their hypotheses should involve $\beta_2, \dots, \beta_6$ instead. They can also state the hypotheses on the odds scale, in which case they should have $e^{\beta}$s on the left-hand side and 1 on the right-hand size.
+
+### Part c
+
+Conduct the hypothesis test you stated in Part b, and make a conclusion.
+
+```{r}
+mod_small <- glm(data = mushrooms, poisonous ~ gill_size, family = binomial)
+
+anova(mod_small, mod, test = 'LRT')
+```
+
+> We have statistically significant evidence of an association between whether or not a mushroom is poisonous and cap shape, adjusting for gill size (p \< 2.2e-16).
+
+> **Feedback Guide:** They don't need to state the p-value exactly as R spits it out since it's so tiny, if they say "p \< 0.0001" for example, that would be fine. Their code should be correct here. If they have `anova(mod, mod_small)` instead, don't mark them off (they'll arrive at the correct conclusion), but please do leave a comment saying that the smaller model should come first.
+
+## Exercise 4
+
+Suppose we are interested in whether there is a significant association between gill size and whether or not a mushroom is poisonous, adjusting for shape of a mushroom's cap. Note that this question can be addressed using the same model we've already fit.
+
+Do we need to conduct an F-test to answer this question? If yes, state the null and alternative hypotheses you would need to answer this question, and conduct the F-test. If no, state the null and alternative hypotheses you would need to answer this question, and report (no need to interpret) the *test-statistic and p-value* of your hypothesis test.
+
+> We do *not* need to conduct an F-test, because this hypothesis test involves only a single coefficient. The null and alternative hypotheses are:
+
+> $H_0: \beta_6 = 0$ 
+
+> $H_1: \beta_6 \neq 0$
+
+> The test statistic and p-value associated with this hypothesis test are 38.904 and very close to 0, respectively.
+
+> **Feedback Guide:** They can also state the hypotheses on the odds scale, in which case they should have $e^{\beta}$s on the left-hand side and 1 on the right-hand size. If they state the p-value as 2e-16 that's fine too, or say something like " \< 0.0001 ".
+
+## Exercise 5
+
+Returning to our original research question, we wanted to investigate whether gill size added "value" to our logistic regression model, in addition to cap shape. Let's consider "value" in terms of statistical significance. Conclude whether or not we have evidence of "value" here, citing an appropriate p-value or test statistic.
+
+> We *do* have evidence that gill size provides value, because there is a statistically significant association between gill size and poison-status, after adjusting for cap shape (p \< 2e-16, z = 38.904).
+
+> **Feedback Guide:** They should conclude "yes", and state either the p-value or z-statistic from Exercise 4.
+
+## Exercise 6
+
+For this exercise, we'll review model evaluation for logistic regression, and consider the accuracy, sensitivity, and specificity of the following two models for predicting whether or not a mushroom is poisonous:
+
+Model 1: poisonous \~ cap_shape
+
+Model 2: poisonous \~ cap_shape + gill_size
+
+### Part a
+
+Compute the (overall) accuracy, sensitivity, and specificity of *both* logistic regression models, using a probability threshold of 0.5. Show your work for the calculations.
+
+```{r}
+# Augment our models
+mod_shape <- augment(glm(formula = poisonous ~ cap_shape, family = binomial, 
+    data = mushrooms), type.predict = "response")
+mod_shape_gill <- augment(mod, type.predict = "response")
+
+# poisonous ~ cap_shape
+mod_shape %>%
+    mutate(predictPoison = .fitted >= 0.5) %>%
+    count(poisonous, predictPoison)
+
+# accuracy
+(3980 + 604) / (3980 + 228 + 3312 + 604)
+
+# sensitivity
+604 / (604 + 3312)
+
+# specificity
+3980 / (3980 + 228)
+
+# poisonous ~ cap_shape + gill_size
+mod_shape_gill %>%
+    mutate(predictPoison = .fitted >= 0.5) %>%
+    count(poisonous, predictPoison)
+
+# accuracy
+(3952 + 2224) / (3952 + 256 + 1692 + 2224)
+
+# sensitivity
+2224 / (2224 + 1692)
+
+# specificity
+3952 / (3952 + 256)
+```
+
+|             | cap_shape | cap_shape + gill_size |
+|-------------|-----------|-----------------------|
+| accuracy    | 0.56      | 0.76                  |
+| sensitivity | 0.15      | 0.57                  |
+| specificity | 0.95      | 0.94                  |
+
+> **Feedback Guide:** They don't need to format their results nicely, but a table would be convenient so I included one in the answer key :)
+
+### Part b
+
+Returning to our original research question, we wanted to investigate whether cap surface and gill size add "value" to our logistic regression model, in addition to cap shape. For each of the following metrics separately, determine whether the additional two variables added value to our logistic regression model:
+
+> Overall accuracy: In terms of overall accuracy, the model that includes both gill size and cap shape outperforms the model with only cap shape by about 20% overall accuracy. This suggests that gill size adds value!
+
+> Sensitivity: The sensitivity of the model that includes both gill size and cap shape also outperforms the model with only cap shape, by about 40% sensitivity. This also suggests that gill size adds value!
+
+> Specificity: The specificity of the model that includes both gill size and cap shape is *slightly* lower than the model that includes only cap shape, by about 1%. This suggests that in terms of specificity, gill size actually does *not* add value to the model.
+
+### Part c
+
+Suppose you are going mushroom hunting, and you don't want to accidentally poison yourself. Would you prefer a model with higher sensitivity, or higher specificity, if you could only have one? Explain why or why not, and using this justification, conclude which model from Part a you would prefer.
+
+> I would definitely care about more about sensitivity: if a mushroom is *actually* poisonous, I would not want to accidentally eat it. If a mushroom is truly non-poisonous and I think on accident that it *is* poisonous, I miss out on eating the mushroom, but on the bright side I don't die.
+
+> Given this reasoning, I would prefer the model with both gill size and cap shape, because it has a much higher sensitivity than the model with only cap shape, and only a slightly lower specificity (which I care less about).
+
+> **Feedback Guide:** I can't think of a good reason for why you would prefer specificity here, so they should definitely care more about sensitivity. They should have a reasonable justification as to why (probably involving explaining what sensitivity and specificity actually mean in this case, practically) and then conclude that the model with both predictors is best.

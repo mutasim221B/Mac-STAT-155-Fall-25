@@ -1,0 +1,282 @@
+---
+title: "Practice Problems 6"
+author: "SOLUTIONS"
+date: now
+date-format: "YYYY-MM-DDTHH:mm:ssZ"
+format:
+  html:
+    embed-resources: true
+    code-tools: true
+---
+
+
+
+# Purpose
+
+The goal of this set of practice problems is to practice the following skills:
+
+- Recognize the difference between a **population parameter** and a **sample estimate**.
+- Demonstrate understanding of properties of the Normal probability model
+- Connect the *ideas* of randomness, sampling distributions, bootstrapping, the Central Limit Theorem, sample size, and standard error 
+- Identify the difference between *sampling* and *resampling*
+
+
+# Directions
+
+1. Create a code chunk in which you load the `ggplot2`, `dplyr`, `broom`, `mosaicData`, and `readr` packages. The data for this assignment comes from the `mosaicData` package in R. To read it in, you will need to run the code `data(Whickham)`.
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(broom)
+library(mosaicData)
+library(readr)
+
+data(Whickham)
+```
+
+
+2. Continue with the exercises below. You will need to create new code chunks to construct visualizations and models and write interpretations beneath. Put text responses in blockquotes as shown below:
+
+> Response here. (The > at the start of the line starts a blockquote and makes the text larger and easier to read.)
+
+3. Render your work for submission:
+    - Click the "Render" button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.
+    - Scroll through and inspect the document to check that your work translated to the HTML format correctly.
+    - Close the browser tab.
+    - Go to the "Background Jobs" pane in RStudio and click the Stop button to end the rendering process.
+    - Locate the rendered HTML file in the folder where this file is saved. Open the HTML to ensure that your work looks as it should (code appears, output displays, interpretations appear). Upload this HTML file to Moodle.
+
+
+
+# Exercises
+
+## Context:
+
+In the following exercises, we'll work with data from a one-in-six survey of the electoral roll in Whickham, a mixed urban and rural district near Newcastle upon Tyne, in the UK. The survey was conducted in 1972-1974 to study heart disease and thyroid disease. A follow-up on those in the survey was conducted twenty years later.
+
+We have access to the following information, for 1314 women:
+
+- `outcome`: survival status after twenty years (Alive or Dead)
+- `smoker`: smoking status at baseline (No or Yes)
+- `age`: age (in years) at the time of the first survey
+
+We'll use this data to explore sampling distributions, properties of Normal distributions, and more. The main research question we'll explore is whether the odds of mortality in 20 years varies between smokers and non-smokers.
+
+## Exercise 1: Parameter vs. Estimate
+
+### Part a
+
+Before digging into the data, think about the context of our research question. In one sentence, describe what the population parameter of interest is.
+
+> The population parameter is the true underlying odds ratio of mortality in 20 years, comparing smokers to non-smokers.
+
+### Part b
+
+In two-to-three sentences, describe how we could use the data we have access to to obtain a **sample estimate** of this population parameter **without** fitting a linear or logistic regression model (just using algebra!)
+
+> We could just use algebra to obtain a sample estimate by calculating the odds of dying in 20 years for both smokers and non-smokers, and then dividing one by the other. The odds can be calculated either directly as either # died / # not died, or by computing the probability of death in each group (smokers, non-smokers) and converting those probabilities to odds.
+
+### Part c
+
+Do what you described in part b! What is the sample estimate from the data we have? Include any code you need to answer this question in the code chunk below (remember, R is a calculator!)
+
+```{r}
+Whickham %>% count(outcome, smoker)
+
+## Odds of dying for smokers
+# 139 / 443
+
+## Odds of dying for non-smokers
+# 230 / 502
+
+## Odds ratio
+(139 / 443) / (230 / 502)
+```
+
+> The sample estimate of our odds ratio is 0.68.
+
+> **Feedback Guide**: They don't need to make a 2x2 table here, but it will likely help them answer the question. Similarly, they don't need to do their calculations in R, but their code should, at a minimum, make it clear that they know how to obtain counts for each group of individuals. Also, they do not need to interpret the odds ratio here, but feel free to provide them with feedback if they do!
+
+## Exercise 2: Resampling
+
+### Part a
+
+Rather than calculate the observed odds ratio by hand, we could have instead fit a simple logistic regression model with `outcome` as the outcome (hah!) amd `smoker` as our predictor of interest. The exponentiated slope coefficient is then our odds ratio comparing smokers to non-smokers. 
+
+R output from regression models automatically provides us with standard errors, but **suppose** we instead wanted to obtain the standard error for our odds ratio without `glm`'s (direct) assistance, and instead estimate it via bootstrapping!
+
+Fill in the code below to draw 500 re-samples from the `Whickham` dataset.
+
+```{r}
+# Set the seed so that we all get the same results
+set.seed(155)
+
+# Store the sample models
+sample_coefs <- mosaic::do(500)*( 
+  Whickham %>%
+    sample_n(size = 1314, replace = TRUE) %>% 
+    with(glm(outcome ~ smoker, family = binomial(link = "logit"))) 
+)
+
+# Exponential our slope coefficient samples to get odds ratios
+sample_coefs <- sample_coefs %>%
+  mutate(OR = exp(smokerYes))
+```
+
+
+> **Feedback Guide**: They should fill in the appropriate variables and numbers in the code above.
+
+### Part b
+
+Explain in one-to-two sentences, why we need to sample from our data **with replacement** when doing bootstrapping (recall Exercise 4 on activity 20 if you need a hint!).
+
+> If we don't sample with replacement, we would get the same sample every time (and hence, no variation in our sample estimates).
+
+> **Feedback Guide**: They should note that if we sample without replacement, they would just get the same estimate all 500 times. The fully correct answer here would involve a discussion of how sampling with replacement is what gives us *independent* observations in each of our re-samples, but this is just a fun bonus fact for you preceptors :)
+
+## Exercise 3: Sampling distributions
+
+### Part a
+
+If we were to make a histogram of the 500 re-sampled odds ratio estimates, what shape do you anticipate the histogram to take? What value do you expect it to be centered around?
+
+> I would expect the histogram to be symmetric (likely a bell curve / normal distribution), and it should be centered around the odds ratio we observe in our original dataset (0.68).
+
+> **Feedback guide**: Ideally, their intuition will be correct, but I wouldn't grade this question too harshly. Mostly, just mark them off if they don't bother to answer this question at all.
+
+### Part b
+
+Make the plot you described in part a! What do you observe? Were your "hypotheses" correct?
+
+```{r}
+sample_coefs %>%
+  ggplot(aes(OR)) +
+  geom_histogram() 
+```
+
+> **Feedback guide**: They should note that the re-sampled odds ratios are roughly normally distributed (if they say "symmetric" and "bell curve" that's okay too), and should note that they're centered around the odds ratio calculated in our original dataset. They should also comment on whether their hypotheses in part a were correct. 
+
+### Part c
+
+Estimate where roughly the middle 50% of the 500, re-sampled odds ratios fall. Add vertical lines to your histogram using `geom_vline` to indicate the values that contain the middle 50% of your estimates.
+
+```{r}
+summary(sample_coefs$OR)
+
+sample_coefs %>%
+  ggplot(aes(OR)) +
+  geom_histogram() +
+  geom_vline(xintercept = c(0.6308, 0.7397), col = "red")
+```
+
+
+> **Feedback guide**: They do not need to have an exact answer here. The middle 50% of the estimates should be between 0.6308 and 0.7397, so long as they used the same seed to generate their odds ratios. In general if they say roughly between 0.6 and 0.75 that's a reasonable answer! Their plot should have vertical lines at whichever values they choose.
+
+### Part d
+
+Estimate where roughly the middle 80% of the 500, re-sampled odds ratios fall, and report this range of values. Explain why the range that contains the middle 80% is **necessarily** larger than the range that contains the middle 50%.
+
+```{r}
+sample_coefs %>%
+  summarize(q10 = quantile(OR, 0.1),
+            q90 = quantile(OR, 0.9))
+```
+
+> **Feedback guide**: Again, they do not need to have an exact answer here. If they say roughly between 0.6 and 0.8 that's a reasonable anser. They should note that the range containing the middle 80% is necessarily larger because 80% > 50%, and hence in order to capture additional observations, they'd need to extend their interval. They do not need to make a plot for this question or add lines.
+
+## Exercise 4: Properties of Normal distributions and Standard Errors
+
+### Part a
+
+Using your re-sampled odds ratios, calculate and report your estimated standard error.
+
+```{r}
+sample_coefs %>%
+  summarize(sd(OR))
+```
+
+> **Feedback guide**: The estimated standard error is 0.08.
+
+### Part b
+
+Now use `glm` to fit one, simple logistic regression model to our original dataset. What is the standard error provided by `glm` for the slope coefficient, and how does it compare to your answer from part a?
+
+```{r}
+glm(outcome ~ smoker, data = Whickham, family = binomial) %>% summary()
+```
+
+> **Feedback guide**: The standard error for the slope coefficient is 0.12566. This is similar to the standard error for the slope coefficient from the re-sampled odds ratios. If they note that this is a bit larger, that's also reasonable, but please note in your feedback that these are *reasonably* close!
+
+
+## Exercise 5: Evaluating logistic regression models
+
+### Part a
+
+- Fit a multiple logistic regression model that models mortality (`outcome`) as a function of both smoking status and age. (Don't include an interaction term between the 2 predictors.)
+- Interpret all 3 exponentiated coefficients. Explain if the intercept is meaningful in this context.
+
+```{r}
+log_mod <- glm(outcome ~ smoker + age, data = Whickham, family = binomial)
+tidy(log_mod) %>%
+    select(term, estimate) %>%
+    mutate(estimate_exp = exp(estimate))
+
+summary(Whickham$age)
+```
+
+> `exp(Intercept)`: The odds of mortality within 20 years for a nonsmoker who is age 0 is 0.000501. This is not meaningful because a newborn is completely out of the age range of the dataset (18-84 year olds).
+> 
+> `exp(smokerYes)`: Among people of the same age, smokers have 1.23 times the odds of 20-year mortality than nonsmokers.
+> 
+> `exp(age)`: Among people of the same smoking status, each additional year of age is associated with a 1.23 multiplicative increase in the odds of 20-year mortality.
+
+
+### Part b
+
+- Construct a boxplot of predicted probabilities in those who were alive and in those who died in the 20 year time span. 
+- If the model did a worse job of predicting 20-year mortality, how would you expect the boxplot to look different?
+
+> If the model did a worse job of predicting 20-year mortality, the boxplots would be less separated and overlap more. Greater overlap would mean that the predicted probabilities are worse at distinguishing between the two outcomes.
+
+> **Feedback guide:** They only need to have something like the first sentence in the example response above.
+
+```{r}
+log_mod_output <- augment(log_mod, type.predict = "response")
+
+ggplot(log_mod_output, aes(x = outcome, y = .fitted)) +
+    geom_boxplot()
+```
+
+### Part c
+
+Compute the (overall) accuracy, sensitivity, and specificity of the logistic regression model from Part a using a probability threshold of 0.375. Show your work for the calculations.
+
+```{r}
+log_mod_output %>%
+    mutate(predictDead = .fitted >= 0.375) %>%
+    count(outcome, predictDead)
+```
+
+```{r}
+# Overall accuracy
+(796 + 286)/(796 + 149 + 83 + 286)
+```
+
+```{r}
+# Sensitivity
+286/(83 + 286)
+```
+
+```{r}
+# Specificity
+796/(796 + 149)
+```
+
+> **Feedback guide:** They need to show their work for the computations and not just report the result.
+
+
+
+
+
+

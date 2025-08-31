@@ -3,4 +3,4 @@ title: "Practice Problems"
 sidebar: false
 ---
 
-**...due Friday at 11:59 pm Central on Moodle!**
+**...due Fridays at 11:59 pm Central on Moodle!**

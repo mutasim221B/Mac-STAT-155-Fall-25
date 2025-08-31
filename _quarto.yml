@@ -38,8 +38,8 @@ website:
   sidebar:
     - id: activities
       title: "Activities"
-      contents:
-        - "activities/01_foundations_welcome.qmd"
+      contents: []
+      #- "activities/01_foundations_welcome.qmd"
   
   page-footer:
     left: |
