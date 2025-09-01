@@ -9,116 +9,103 @@ format:
 
 Download the .qmd file for this activity [here](../activities/01_foundations_welcome.qmd). For this and all future activities, you will download the .qmd file, open it in Rstudio, and use it to type your answers/code to the exercises on the in-class activities. A rendered ("printed") version of the activity will always be available on this course page.
 
-# Notes
 
-Welcome to our first in-class activity! Today we will collect and summarize some data. Our goals are to get to know the people in this class and to start working with data.
+# Welcome {-}
 
-By the end of this lesson, you should be able to:
+\
 
--   Define *cases* and *variables*
--   Apply the 5 W's + H (who, what, when, where, why, and how) to data collection
+
+**Statistical Modeling?!**
+
+Statistical Modeling is the art and science of turning data into information about relationships of interest.
+For example, the following are just a few Mac faculty / offices that use statistical models to study relationships:
+
+- **Michelle Tong (BIOL):** [Making "Good" Choices: Social Isolation in Mice Exacerbates the Effects of Chronic Stress on Decision Making](https://www.frontiersin.org/journals/behavioral-neuroscience/articles/10.3389/fnbeh.2020.00081/full)    
+- **Ariel James (PSYCH):** [Language Experience Predicts Eye Movements During Online Auditory Comprehension](https://journalofcognition.org/articles/10.5334/joc.285)
+- **Sarah West (ECON):** [Redevelopment along arterial streets: The effects of light rail on land use change](https://onlinelibrary.wiley.com/doi/10.1111/1540-6229.12407)
+- **Admissions** uses data to help understand potential enrollments
+- **Athletics** uses data (eg: to better understand the relationship between sleep and outcomes)
+
+
+
+
+
+\
+\
+\
+\
+
+
+
+
+**This class is designed for you.**    
+
+
+- STAT 155 is a modern, non-traditional introduction to statistics. We'll explore sophisticated tools that typically aren't covered until a second course in statistics.       
+    - This means:        
+        - Non-majors taking this as a terminal course will take away highly applicable and marketable knowledge & skills.
+        - Majors will gain a solid foundation from which to study more more advanced models & theory.
+    
+    - This does NOT mean that we're skipping a course! STAT 155 teaches introductory statistics content, but through a different lens than a traditional course (regression).
+
+- Thriving in STAT 155 is NOT correlated with the following: your major, whether you think you're a "math person," whether you have any previous idea what "statistical modeling" is, etc. It IS correlated with effort (time, practice, studying, completing assignments without relying on AI) and engagement (attendance, attention, collaboration).
+
+- STAT 155 emphasizes statistical applications and intuition over theory (and memorizing formulas). To focus on applications and intuition, we'll utilize statistical software (R/RStudio). It's assumed that you are totally new to RStudio! More on this later...
+
+- Even though I have been teaching Statistics since 2018 (as GTI!), this is the first time I am teaching this course at Mac! Please let me know as soon as you see any broken links/typos/etc., or you have any question/problem/concern.
+
+
+
+
+\
+\
+\
+\
+
+
+# Introductions & Data Principles {-}
+
+
+\
+\
 
 Links to related reading(s):
 
 -   [What is Data?](https://mac-stat.github.io/Stat155Notes/what-is-data.html)
 -   [Data Context](https://mac-stat.github.io/Stat155Notes/data-context.html)
 
-This activity is structured a bit differently than the activities for the remainder of the class. In this section, you'll typically find a mini-lecture, review material, or guided / structural examples, followed by exercises.
+\
+\
 
-For today, you'll have some steps to follow for an interactive, tactile activity at your tables before working through the exercises below together.
 
-## Step 1
+## See class notes
 
-At your table, write a 1-2 word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.
 
-1.  How many hours of sleep did you get last night? How many cups of coffee did you drink this morning?
+\
+\
 
-2.  What is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)
 
-3.  What is your class year? (first year, sophomore, junior, senior)
+**EXAMPLE 1: Tidy data (Class Activities!)**
 
-4.  How many stats courses have you taken in the past?
+Welcome to the first in-class activities of STAT 155! Fill out the [Day 1 Activities](https://forms.gle/nV88ppYJmybHy8vx5) form of the following questions (anonymous). We'll come back to this in a future class. Wait until everyone in your group is done with this.
 
-5.  On a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?
+1.  How many hours of sleep did you get last night? 
 
-6.  Is it your birthday this semester? (yes/no)
+2. How many cups of coffee did you drink this morning?
 
-7.  How many unread emails do you have in your inbox right now?
+3.  What is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)
 
-8.  Have you used R/RStudio a lot, a little, or never?
+4. What is your anticipated graduation year?
 
-## Step 2
+5.  How many stats/data science courses have you taken in the past?
 
-Designate one person from your table to distribute your group's answers to the questions to the corresponding "station" around the classroom. Each table should have a number on it, corresponding to the "station"/question.
+6.  On a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?
 
-## Step 3
+7.  Is it your birthday this semester? (yes/no)
 
-Fill out an [electronic version](https://forms.gle/36tu9whBg5GmUnzs8) of these questions. We'll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.
+8.  How many unread emails do you have in your inbox right now?
 
-# Exercises
-
-You'll now answer a few questions related to the data collected at your group's table. Data is *anything* that contains information.
-
-## Exercise 1
-
-With your group, in no more than two sentences per question, respond to the questions posed by the 5 W's + H for the data at your group's table. If you need a refresher on the 5 W's + H, check out the related readings posted at the top of this activity!
-
-**Who**
-
-> **Response:** Type your response here.
-
-**What**
-
-> **Response:** Type your response here.
-
-**When**
-
-> **Response:** Type your response here.
-
-**Where**
-
-> **Response:** Type your response here.
-
-**Why**
-
-> **Response:** Type your response here.
-
-**How**
-
-> **Response:** Type your response here.
-
-## Exercise 2
-
-Move the post-it notes around to construct a visualization of the responses at your station.
-
-## Exercise 3
-
-Calculate at least one numerical summary of the post-it note responses at your station, and record your numerical summary in the response text below. Write a complete sentence, not just the numerical summary alone! This is good practice for summarizing data in more formal writing.
-
-> **Response:** Type your response here.
-
-## Exercise 4
-
-In no more than three sentences, describe what you learn about from the visual and numerical summaries. Try to write your description in a way that tells an interesting story about the people in this class.
-
-> **Response:** Type your response here.
-
-## Exercise 5
-
-Imagine that you took all the post-it notes in this room and organized them into a spreadsheet. What would each row in the underlying data set represent? What would each column of the data set represent? Check out the first related reading, linked at the top of this activity, if you need assistance!
-
-> **Response:** Type your response here.
-
-## Reflection
-
-In three to four sentences, reflect upon today's activity. Some reflection prompts are found below:
-
--   Do you think the context in which the data was collected influenced the results you found? 
--   Who would the numerical summaries you calculated potentially be represented of? Could you generalize the information you learned to a broader population (all students at Mac, perhaps), or would you have ethical concerns with generalizing your results?
--   What (if anything) surprised you about the numerical summaries calculated by your group, or other groups?
--   Did your data visualization help you better understand, or discover new things about the data that otherwise would have been difficult to distinguish? Why or why not?
-
-> **Response:** Type your response here.
+\
 
 
 
@@ -185,7 +172,7 @@ Why R/RStudio?
 **DIRECTIONS**
 
 - Go to Mac's RStudio server: [https://rstudio.macalester.edu/](https://rstudio.macalester.edu/)        
-    - Sign in with your Mac username (eg: ajohns24) and password.
+    - Sign in with your Mac username (eg: mbillah) and password.
     - NOTE: After class, you'll install R/RStudio on your own machine and will not be using the server.
     
 - Work on these exercises in your groups. (Collaboration is a key learning goal in this course, which we'll discuss in the coming classes.)       
@@ -290,5 +277,447 @@ Take time to read the **error message**!
 ```{r eval = FALSE}
 Rep(5, 2)
 ```
+
+
+\
+\
+\
+\
+
+
+## Exercise 3: Save it for later {-}
+
+We'll often want to store some R output for later use.
+In R:
+
+`name <- output`
+
+where `name` is the name under which to store a result, `output` is the result we wish to store, and `<-` is the **assignment operator** (I think of this as an arrow pointing the `output` into the `name`).
+
+IMPORTANT: Try out each line *one at a time*.
+Why doesn't the first line produce any output?
+
+```{r eval = FALSE}
+degrees_c <- -13
+```
+
+```{r eval = FALSE}
+degrees_c
+```
+
+```{r eval = FALSE}
+degrees_c * (9/5) + 32
+```
+
+
+
+
+\
+\
+\
+\
+
+
+
+
+## Exercise 4: Import data {-}
+
+
+Next, let's work with some **data**!!
+The first step is importing our data into RStudio.
+How we do this depends on:
+
+1. file format (eg: .xls Excel spreadsheet, .csv, .txt)
+2. file location (eg: online, on your desktop, built into RStudio itself).
+
+The data from the survey you took before class is stored as a **.csv** file **online**.
+Import this data using the `read_csv()` function, and store it as `survey` using the code below:
+
+```{r eval = FALSE}
+# Load the "tidyverse" package which contains the read_csv() function
+library(tidyverse)
+
+# Import the data
+survey <- read_csv("https://mac-stat.github.io/data/112_fall_2024_survey.csv")
+```
+
+
+\
+
+
+**Check out the data**
+
+In the Environment tab in the upper right pane of RStudio, click on `survey`. What happens?!
+
+
+
+
+
+\
+\
+\
+\
+
+
+
+## Exercise 5: Get to know the data {-}
+
+PAUSE: Make sure you're still in sync with your group.
+
+Before we can learn anything from our data, we must understand its structure.
+For each function below:
+
+- try it out
+- discuss with your group what the function *does*
+- discuss with your group how the function's *name* connects to what it *does*
+
+
+```{r eval = FALSE}
+dim(survey)
+```
+
+```{r eval = FALSE}
+nrow(survey)
+```
+
+```{r eval = FALSE}
+head(survey)
+```
+
+```{r eval = FALSE}
+head(survey, 3)
+```
+
+```{r eval = FALSE}
+tail(survey)
+```
+
+```{r eval = FALSE}
+names(survey)
+```
+
+```{r eval = FALSE}
+str(survey)
+```
+
+\
+\
+\
+\
+
+
+
+## Exercise 6: Code = communication {-}
+
+It's important to recognize from day 1 that **code is a form of communication**, both to yourself and others!!!!!
+Code structure and details are important to readability and clarity, just as grammar, punctuation, spelling, paragraphs, and line spacing are important in written essays.
+All of the code below *works*, but has bad structure.
+With your group, discuss what is unfortunate about each line, then make it better.
+
+
+```{r eval = FALSE}
+seq(from=1,to=9,by=2)
+seq(from = 1, to=9,by=2)
+my_output <- -13
+thisisthetemperaturetodayincelsius <- -13
+this_is_the_temperature_today_in_celsius <- -13
+```
+
+\
+\
+\
+\
+
+
+## Exercise 7: You will make so many mistakes! {-}
+
+Mistakes are common when, and even *important* to, learning any new language.
+You'll get better and better at interpreting error messages, finding help, and fixing errors.
+In addition to finding help online, R has built-in **help files**.
+For example:       
+
+-   In the console, type `?rep` and press Return/Enter.
+-   Check out the documentation file that pops up in the Help tab (lower right).
+-   Quickly scroll through, noting the type of information provided.
+-   Pause at the "Examples" section at the bottom -- perhaps the most useful section! Try out a couple of the provided examples in your console.
+
+
+
+
+
+\
+\
+\
+\
+
+
+
+## Exercise 8: Your turn {-}
+
+Use R code to do the following:
+
+a. Import & name data on different Himalayan peaks from the url below:       
+    `https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/peaks.csv`
+    NOTE: A **codebook**, i.e. a description of the data, is [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-22/readme.md).
+    
+b. Use a function to show which variables are recorded on each peak.
+
+c. How many peaks are included in the dataset? Answer this using a *function*, not by counting up the rows yourself.
+
+d. Show the first 6 rows of the dataset. NOTE: This gives us a quick glimpse without having to print out the entire dataset!
+
+
+\
+\
+\
+\
+
+
+
+## Exercise 9: Make a "cheat sheet" {-}
+
+You will continue to pick up new R code and ideas.
+You're highly encouraged to start tracking this in a cheat sheet (eg: in a Google doc).
+The cheat sheet will be a handy reference for you, and the act of making it will help deepen your understanding and retention.
+
+
+
+
+\
+\
+\
+\
+
+
+
+
+
+
+# Wrap-up {-}
+
+\
+
+
+**Finish the activity**
+
+If some activities which should be done in the class, I will tell you that- "We will continue the activities in the next class."
+
+If we can't finish some activities which can be finished outside of the class and/or you didn’t finish the activity during class, be sure to complete the activity outside of class, review the solutions in the online manual, and ask any questions in office hours.
+
+\
+\
+
+
+**Online course manual (linked on Moodle)**
+
+- Bookmark this!
+- All in-class activities and other resources will be compiled here, making for easier review.
+- There are solutions at the bottom of each activity. Consult them!
+- There's a daily Course Schedule which outlines what we’re doing, what’s due, and where to find this material each day.
+
+
+\
+
+**Moodle**
+
+Where you can access a big picture calendar (which you should integrate into your Google calendar!) and all course materials (free!). Also where you will submit work.
+
+
+\
+
+**Syllabus (linked on Moodle)**
+
+You're expected to carefully review the syllabus outside of class.
+
+
+
+\
+
+
+
+**Upcoming due dates**
+
+- If you were approved from the waitlist, be sure to approach me after class & register for the course *today*. At that point you will be added to Moodle.
+
+- Due Thursday: Checkpoint "CP" 1 (10 minutes before the start of your section)    
+    - Check out the syllabus for policies.
+    - This is the longest CP of the semester!
+  
+- Due Tuesday: CP 2 (10 minutes before the start of your section)
+    
+
+
+
+
+
+
+
+\
+\
+\
+\
+
+
+
+# Solutions {-}
+
+
+## Exercise 1: Use R as a calculator {-}
+
+```{r}
+4 + 2
+4^2
+4*2
+#4(2) # We need to use * for multiplication
+```
+
+
+## Exercise 2: Functions and arguments {-}
+
+
+```{r}
+# Calculate the square root of 9
+sqrt(9)
+
+# Calculate the number of characters in the word "macalester"
+nchar("macalester")
+
+# Calculate the square root of the number of characters in the word "snow"
+sqrt(nchar("snow"))
+```
+
+
+
+```{r}
+# Repeat the number 2, 5 times
+rep(x = 2, times = 5)
+
+# Repeat the number 2, 5 times
+rep(times = 5, x = 2)
+
+# Repeat the number 2, 5 times
+rep(2, 5)
+
+# Repeat the number 5, 2 times
+rep(5, 2)
+```
+
+
+
+
+## Exercise 3: Save it for later {-}
+
+
+```{r}
+# Nothing shows up -- all we're doing here is storing -13 as degrees_c
+degrees_c <- -13
+
+# Print the contents of degrees_c
+degrees_c
+
+# We can "do math" with the contents of degrees_c
+degrees_c * (9/5) + 32
+```
+
+
+
+
+## Exercise 4: Import data {-}
+
+
+
+```{r message = FALSE, warning = FALSE}
+# Load the tidyverse package
+library(tidyverse)
+
+# Import the data
+survey <- read_csv("https://mac-stat.github.io/data/112_fall_2024_survey.csv")
+```
+
+
+
+## Exercise 5: Get to know the data {-}
+
+
+```{r}
+# Dimensions of the survey data set
+# First number = number of rows
+# Second number = number of columns
+dim(survey)
+```
+
+```{r}
+# Number of rows in the survey data set
+nrow(survey)
+```
+
+```{r}
+# First 6 rows (the head) of the survey data set
+head(survey)
+```
+
+```{r}
+# First 3 rows of the survey data set
+head(survey, 3)
+```
+
+```{r}
+# Last 6 rows (the tail) of the survey data set
+tail(survey)
+```
+
+```{r}
+# Names of the variables in the survey data set
+names(survey)
+```
+
+```{r}
+# Structure of all variables in the survey data set
+str(survey)
+```
+
+
+
+
+## Exercise 6: Code = communication {-}
+
+
+```{r}
+# Make it less smooshy. Add spaces!
+seq(from = 1, to = 9, by = 2)
+
+# Use consistent spacing
+seq(from = 1, to = 9, by = 2)
+
+# Use more descriptive names when storing objects
+my_output <- -13
+
+# Use a shorter and easier to read name
+celsius_today <- -13
+CelsiusToday  <- -13
+```
+
+
+## Exercise 7: You will make so many mistakes! {-}
+
+
+## Exercise 8: Your turn {-}
+
+```{r}
+# a
+peaks <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/peaks.csv")
+
+# b
+names(peaks)
+
+# c
+dim(peaks)
+nrow(peaks)
+
+# d
+head(peaks)
+```
+
+
 
 
