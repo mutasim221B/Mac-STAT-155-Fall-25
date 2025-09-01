@@ -44,15 +44,10 @@ Choose either the reading or the videos to go through **before** class.
 
 - Reading: Sections 2.8, 3.1-3.3, 3.6 in the [STAT 155 Notes](https://mac-stat.github.io/Stat155Notes/)
 - Videos:
-    - [Summarizing the Relationships between Two Quantitative Variables](https://voicethread.com/share/14942266/) (Time: 12:12)
-    - [Introduction to Linear Models](https://voicethread.com/share/14927659/) (Time: 10:57)
-    - [Method of Least Squares](https://voicethread.com/share/14980221/) (Time: 5:10)
-    - [Interpretation of Intercept and Slope](https://voicethread.com/share/15148106/) (Time: 11:09)
+    - [Simple linear regression Part 1: motivation & scatterplots](https://youtu.be/ghweQRQE0yw)
+    - [Simple linear regression Part 2: correlation](https://youtu.be/S6sgLrROfNw)
+    - [Simple linear regression Part 3: simple linear regression models](https://youtu.be/cwxUNJUYKsA)
     - [R Code for Fitting a Linear Model](https://voicethread.com/share/14928147/) (Time: 11:07)
-
-<!-- This section is for any mini-lecture, review material, material to motivate today's lesson, more guided / structured examples than the exercises section below. -->
-
-
 
 **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
 

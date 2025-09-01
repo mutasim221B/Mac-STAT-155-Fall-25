@@ -43,16 +43,16 @@ Choose either the reading or the videos to go through **before** class.
 - Reading: Sections 1.7, 3.7, and 3.8 in the [STAT 155 Notes](https://mac-stat.github.io/Stat155Notes/)
     - Note: You do *not* need to focus on the "Ladder of Power" in Section 3.8. Transformations in general will be the focus of the *next* activity we do.
 - Videos:
-    - [Model evaluation: is the model wrong?](https://youtu.be/12Y4r57GuKc) ([slides](https://drive.google.com/file/d/1fkrCKhmUrorMaJEqKQBu3BFV6Y8T1A-Y/view?usp=drive_link))
-    - [Model evaluation: is the model strong?](https://youtu.be/7ovhiVjXwM0) ([slides](https://drive.google.com/file/d/1QIYkfAVeSw-dFVBRJvj22zxf3cohd-SZ/view?usp=drive_link))
+    - [Model evaluation: is the model wrong?](https://youtu.be/uUf4XYF4x3Y) ([slides](https://drive.google.com/file/d/1H6DYqemLNp2x6YiQQ606w9FiO-bkgRpd/view?usp=drive_link))
+    - [Model evaluation: is the model strong?](https://youtu.be/ew9eCkcUWGw) ([slides](https://drive.google.com/file/d/1Pd84YX20P1X5xfM34ZvWsYFZoljwK_pK/view?usp=drive_link))
     - [Model evaluation: is the model fair?](https://youtu.be/40PWKLns0B4) ([slides](https://drive.google.com/file/d/1fhVyieXzUf4zqRj-0H5gu4ubJkIkl8RX/view?usp=drive_link))
     - [R Code for Evaluating and Using a Linear Model](https://voicethread.com/share/14931045/)
 
 
 
-## Independence Assumption
+## Model Assumptions
 
-One way to think about model evaluation is to consider whether or not underlying *assumptions* of our regression models are being met (or not). Asking ourselves if our models are "wrong", "strong", and "fair" approaches this from one perspective. Another perspective, that is more classical, is to consider the following four *assumptions* of linear regression:
+One way to think about model evaluation is to consider whether or not underlying *assumptions* of our regression models are being met (or not). Asking ourselves if our models are "wrong", "strong", and "fair" approaches this from one perspective. To the first question (whether our model is wrong), recall the following four *assumptions* of linear regression:
 
 1. Linearity
 2. Independence
@@ -61,8 +61,9 @@ One way to think about model evaluation is to consider whether or not underlying
 
 Note that they spell "LINE" (how convenient!).
 
-By *assumptions*, we mean that the above four "things" are needed **mathematically** in order for linear regression to "work". We won't get into the details of most of these (because it turns out that two of the above assumptions aren't really needed in most cases... ask your professor for more details), but one important one to note that was not covered in the videos/course notes is the Independence assumption.
+By *assumptions*, we mean that the above four "things" are needed **mathematically** in order for linear regression to "work". 
 
+Whereas we can check some of these assumptions using a **residual plot**, we need to examine the *context* of our data collection when checking the Independence assumption.
 What we mean by independence, is that the *residuals* in our model *do not depend* on one another. This may seem like an unsatisfying definition, so here are some examples:
 
 -   Suppose I want to understand the association between a person's high school GPA and their college GPA. I collect data from *every* graduating senior, at three different high schools. If I have college GPA as my outcome, and high school GPA as my predictor, are my residuals independent? Probably not! It is reasonable to believe that students *from the same high school* may have similar GPAs, due to resources their high school may have had available, or specific teachers grading differently at one school or another. This is an example of *clustering*, where we have clusters of students within schools. The independence assumption of our linear regression model would be violated. One way to address this would be to include which high school they went to as an additional covariate in our regression model (we'll get to this with multiple linear regression), and more advanced methods are covered in a course on Correlated Data.
@@ -76,7 +77,9 @@ All types of data that will violate the independence assumption of linear regres
 
 # Exercises
 
-We'll start by revisiting the Capital Bikeshare data from a previous activity. This data contains information on daily ridership for a bike sharing service in Washington DC alongside weather and calendar information. Read in the data and load required packages:
+## Exercise 1: Is the model correct?
+
+Let's revisit the Capital Bikeshare data:
 
 ```{r}
 # Load packages and import data
@@ -87,108 +90,121 @@ library(dplyr)
 bikes <- read_csv("https://mac-stat.github.io/data/bikeshare.csv")
 ```
 
-## Exercise 1: Is the model correct?
+We previously explored a model of daily ridership among registered users as a function of temperature:
 
-We previously explored modeling daily ridership among registered users as a function of temperature. Create a plot of this relationship with both a curved and linear trend line. Based on this plot, do you think a linear model is correct?
+```{r}
+# Fit a linear model
+bike_model <- lm(riders_registered ~ temp_feel, data = bikes)
+
+# Check it out
+summary(bike_model)
+```
+
+Plot this relationship with both a curved and linear trend line.
+Based on this plot, do you think the model is correct?
+If not, which of the LINE assumptions does it violate?
   
 ```{r}
 # Plot temp_feel vs riders_registered with a model trend
 ___(___, aes(x = ___, y = ___)) + 
     geom___() + 
-    geom___(se = FALSE) +
-    geom___(method = "lm", se = FALSE, color = "red")
+    geom___(se = FALSE, color = "red") +
+    geom___(method = "lm", se = FALSE)
 ```
 
 
    
-## Exercise 2: Fixing the model
+## Exercise 2: Residual plots
 
-In this course, we have and will continue to build "linear" regression models. "Linear" means we have a *linear combination of predictors*. It does *not* mean that the models themselves must look linear! It's possible to include "transformations" in our models in order to better match the trend. Below we create a squared version of temperature and visualize the predictions from 2 models: (1) with just temperature as a linear term and (2) with both temperature and squared temperature. (Don't worry about the new syntax in `geom_smooth()`.)
-
-How does the quality (correctness) of the two models compare?
-
-```{r}
-bikes <- bikes %>% 
-    mutate(temp_feel_squared = temp_feel^2)
-
-# Plot the model WITHOUT squared temperature
-ggplot(bikes, aes(x = temp_feel, y = riders_registered)) + 
-    geom_point() + 
-    geom_smooth(se = FALSE) +
-    geom_smooth(method = "lm", se = FALSE, color = "red")
-# Plot the model WITH squared temperature
-ggplot(bikes, aes(x = temp_feel, y = riders_registered)) + 
-    geom_point() + 
-    geom_smooth(se = FALSE) +
-    geom_smooth(method = "lm", formula = y ~ x + I(x^2), se = FALSE, color = "red")
-```
-
-
-## Exercise 3: Residual plots
-
-Plotting the **residuals** vs the **predictions** (also called "fitted values") for each case can help us assess how wrong our model is. This will be a particularly important tool when evaluating models with multiple predictors. Construct the residual plots for our two temperature models. Do these suggest that `bike_mod1` is wrong? What about `bike_mod2`? Explain.
+Plotting the **residuals** vs the **predictions** (also called "fitted values") for each case can help us assess how wrong our model is.
+This will be a particularly important tool when evaluating models with multiple predictors.
+Construct the residual plot for `bike_model`.
+As with the scatterplot, this plot indicates that `bike_model` violates one of the LINE assumptions.
+Explain which assumption that is and how you can tell that from just the residual plot.
     
-Note: Information about the residuals (`.resid`) and predictions (`.fitted`) are stored within our *model*, thus we start our `ggplot()` with the model name as opposed to the raw dataset. We will *rarely* start `ggplot()` with a model instead of the data.
+Notes:
+
+- Information about the residuals (`.resid`) and predictions (`.fitted`) are stored within our *model*, thus we start our `ggplot()` with the model name as opposed to the raw dataset. We will *rarely* start `ggplot()` with a model instead of the data.
+- We can *fix* this model by adding a quadratic "transformation term". We'll discuss this idea in our next class.
 
 ```{r}
-# Fit a linear model
-bike_mod1 <- lm(riders_registered ~ temp_feel, data = bikes)
-# Fit a quadratic model
-bike_mod2 <- lm(riders_registered ~ temp_feel + temp_feel_squared, data = bikes)
-
-# Check out the residual plot for bike_mod1 (the incorrect model)
-ggplot(bike_mod1, aes(x = .fitted, y = .resid)) + 
+# Check out the residual plot for bike_model
+ggplot(bike_model, aes(x = .fitted, y = .resid)) + 
     geom_point() + 
     geom_hline(yintercept = 0) +
     geom_smooth(se = FALSE)
-
-# Construct the residual plot for bike_mod2 (the good model)
-
 ```
 
 
+## Exercise 3: What's incorrect about this model?
 
-## Exercise 4: Another example of an incorrect model
-
-The [Bechdel test](https://en.wikipedia.org/wiki/Bechdel_test) is a test applied to films to assess the quality of women's presence in the film. We'll be looking at movies that have had the Bechdel test applied available in the `fivethirtyeight` R package. In the **Console**, enter `install.packages("fivethirtyeight")` to install this package.
-
-We'll be using the `bechdel` data. You can view the codebook by entering `?bechdel` in the Console.
-
-Let's examine the relationship between international earnings (`intgross`) and movie budget (`budget`) for **films made in 1997**.
+Consider another example.
+The `mammals` data includes data on the average brain weight (g) and body weight (kg) for a variety of mammals:
 
 ```{r}
 # Import the data
-library(fivethirtyeight)
-data(bechdel)
+mammals <- read_csv("https://mac-stat.github.io/data/mammals.csv")
 
-# Get only 1997 movies
-movies_1997 <- bechdel %>% 
-    filter(year == 1997)
+# Check it out
+head(mammals)
+```
 
+Fit a model of `brain` vs `body` weight:
+
+```{r}
 # Construct the model
-bechdel_model <- lm(intgross ~ budget, movies_1997)
+mammal_model <- lm(brain ~ body, mammals)
+
+# Check it out
+summary(mammal_model)
 ```
 
 
-a. Construct two plots:
+a. Construct two plots that will help us evaluate `mammal_model`:
 
 ```{r}
-# Scatterplot of earnings and budget with linear and curved trend lines
-
-
-# Residual plot for bechdel_model
+# Scatterplot of brain weight (y) vs body weight (x)
+# Include a model trend line (i.e. a representation of mammal_model)
 
 ```
 
-b. These two plots confirm that our model is wrong. *What* is wrong and how might we fix it?
-
-c. Identify which movie is causing the problem. Hint: `filter()` according to `budget`. Also, note that we could, but won't, take that film out of the data set and re-build the model.
-    
 ```{r}
-# NOTE: Many numbers could go in the ___
-movies_1997 %>%
-    filter(budget > ___)
+# Residual plot for mammal_model
+
 ```
+
+b. These two plots confirm that our model is wrong. *What* is wrong? That is, which of the LINE assumptions are violated? (NOTE: We again can *fix* this model by "transforming" one or both of the `brain` and `body` variables. We'll discuss this idea in our next class.)
+
+
+
+
+## Exercise 4: Exploring mammals
+
+Just for fun, let's dig into the mammals data.
+Discuss what you observe:
+
+```{r}
+# Label the points by the animal name!
+# Discuss: What 2 things are new in this code?
+ggplot(mammals, aes(x = body, y = brain, label = animal)) + 
+    geom_text() + 
+    geom_smooth(method = "lm", se = FALSE) 
+```
+
+```{r}
+# Zoom in
+ggplot(mammals, aes(x = body, y = brain, label = animal)) + 
+    geom_text() + 
+    lims(y = c(0, 1500), x = c(0, 600))
+```
+
+```{r}
+# Zoom in more
+ggplot(mammals, aes(x = body, y = brain, label = animal)) + 
+    geom_text() + 
+    lims(y = c(0, 500), x = c(0, 200))
+```
+
 
 
 ## Exercise 5: Is the model strong? Developing R-squared intuition
@@ -227,7 +243,7 @@ Recall `bikemod1` from Exercise 3, where we predicted registered riders by what 
 
 ```{r}
 # Get R-squared
-summary(bike_mod1)
+summary(bike_model)
 ```
 
 

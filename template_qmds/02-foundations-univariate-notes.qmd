@@ -45,9 +45,12 @@ Choose either the reading or the videos to go through **before** class.
 
 -   Reading: Sections 2.1-2.4, 2.6 in the [STAT 155 Notes](https://mac-stat.github.io/Stat155Notes/)
 -   Videos:
-    -   [Univariate visualization and summarization](https://youtu.be/7zQmWTT_m-Y) ([slides](https://drive.google.com/file/d/1QJgnchneN-cHfa2TNa-amBAx6VWO3UGT/view?usp=drive_link))
+    -   Univariate summaries ([slides](https://drive.google.com/file/d/1xnN-IWM7BUEXxlvIFYpkOvstRtOj1Hti/view?usp=sharing))
+        - [Part 1](https://www.youtube.com/watch?v=rEjOZgk2Z0Q)
+        - [Part 2](https://www.youtube.com/watch?v=gQqoiMi4FFA)
     -   [R Code for Categorical Visualization and Summarization](https://voicethread.com/share/14968914/)
     -   [R Code for Quantitative Visualization and Summarization](https://voicethread.com/share/14923042/)
+    - [Quarto docs](https://www.youtube.com/watch?v=8ykEm0_9sYI)
 
 <!-- This section is for any mini-lecture, review material, material to motivate today's lesson, more guided / structured examples than the exercises section below. -->
 
@@ -103,6 +106,35 @@ dbl (7): year, month, letterId, afinn_overall, a...
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
+
+Throughout this activity, **we'll work only with the most recent year of data, from 2017**.
+Run the following chunk:
+
+```{r}
+# Wrangle the Dear Abby data
+# Ignore this code for now!
+abby <- abby %>% 
+  filter(year == 2017) %>% 
+  mutate(month = month(month, label = TRUE)) %>%
+  mutate(
+    parents = str_detect(question_only, "mother|mama|mom|father|papa|dad"),
+    marriage = str_detect(question_only, "marriage|marry|married"),
+    money = str_detect(question_only, "money|finance")
+  ) %>%
+  rowwise() %>%
+  mutate(
+    themes = c(
+      if (parents) "parents",
+      if (marriage) "marriage",
+      if (money) "money"
+    ) %>% paste(collapse = ", "),
+    themes = ifelse(themes == "", "other", themes)
+  ) %>%
+  ungroup() %>% 
+  select(year, month, day, question_only, bing_pos, afinn_overall, afinn_pos, afinn_neg, themes)
+```
+
+
 a.  Click on the **Environment tab** (generally in the upper right hand pane in RStudio). Then click the `abby` line. The `abby` data will pop up as a separate pane (like viewing a spreadsheet) -- check it out.
 
 b.  In this **tidy** dataset, what is the unit of observation? That is, what is represented in each row of the dataset?
@@ -148,39 +180,14 @@ In the next exercises, we will be exploring themes in the Dear Abby questions an
 
 a.  What sentiment variables do we have in the dataset? Are they **quantitative** or **categorical**?
 
-b.  If we were able to create a `theme` variable that took values like "friendship", "marriage", and "relationships", would `theme` be **quantitative** or **categorical**?
+b.  Check out the `theme` variable. Is this **quantitative** or **categorical**?
 
 c.  What visualizations are appropriate for looking at the distribution of a single quantitative variable? What about a single categorical variable?
 
 ## Exercise 4: Exploring themes in the letters
 
-The `dplyr` package provides many useful functions for managing data (like creating new variables, summarizing information). The `stringr` package provides tools for working with strings (text). We'll use these packages to search for words in the questions in order to (roughly) identify themes/subjects.
 
-The code below searches for words related to mothers, fathers, marriage, and money and combines them into a single `theme` variable.
-
--   Inside `mutate()` the line `moms = ifelse(str_detect(question_only, "mother|mama|mom"), "mom", "no mom")` creates a new variable called `moms`. If any of the text "mother", "mama", or "mom" (which covers "mommy") is found, then the variable takes the value "mom". Otherwise, the variable takes the value "no mom".
--   The `dads`, `marriage`, and `money` variables are created similarly.
--   The `themes = str_c(moms, dads, marriage, money, sep = "|")` line takes the 4 created variables and combines the text of those variables separated with a \|. For example, one value of the `themes` variable is "mom\|no_dad\|no_marriage\|no_money" (which contains words about moms but not dads, marriage, or money).
-
-```{r}
-library(dplyr)
-library(stringr)
-
-abby <- abby %>% 
-    mutate(
-        moms = ifelse(str_detect(question_only, "mother|mama|mom"), "mom", "no mom"),
-        dads = ifelse(str_detect(question_only, "father|papa|dad"), "dad", "no dad"),
-        marriage = ifelse(str_detect(question_only, "marriage|marry|married"), "marriage", "no marriage"),
-        money = ifelse(str_detect(question_only, "money|finance"), "money", "no money"),
-        themes = str_c(moms, dads, marriage, money, sep = "|")
-    )
-```
-
-a.  Modify the code above however you wish to replace themes (e.g., replace "moms" with something else) or add new themes to search for. If you want to add a new subject to search for, copy and paste a line for an existing subject above the `themes` line, and modify the code like this:
-    -   If your subject is captured by multiple words: `YOUR_SUBJECT = ifelse(str_detect(question_only, "WORD1|WORD2|ETC"), "SUBJECT", "NO SUBJECT"),`
-    -   If your subject is captured by a single word: `YOUR_SUBJECT = ifelse(str_detect(question_only, "WORD"), "SUBJECT", "NO SUBJECT"),`
-    -   Try to have no more than 6 subjects---otherwise we'll have too many themes, which will complicate exploration.
-b.  The code below makes a **barplot** of the `themes` variable using the `ggplot2` visualization package. *Before making the plot*, make note of what you expect the plot might look like. (This might be hard--just do your best!) *Then* compare to what you observe when you run the code chunk to make the plot. (Clearly defining your expectations first is good scientific practice to avoid confirmation bias.)
+a.  The code below makes a **barplot** of the `themes` variable using the `ggplot2` visualization package. *Before making the plot*, make note of what you expect the plot might look like. (This might be hard--just do your best!) *Then* compare to what you observe when you run the code chunk to make the plot. (Clearly defining your expectations first is good scientific practice to avoid confirmation bias.)
 
 ```{r}
 # Load package
@@ -192,7 +199,7 @@ ggplot(abby, aes(x = themes)) +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ```
 
-c.  We can follow up on the barplot with a simple numerical summary. Whereas the `ggplot2` package is great for visualizations, `dplyr` is great for numerical summaries. The code below constructs a table of the number of questions with each theme. Make sure that these numerical summaries match up with what you saw in the barplot.
+b.  We can follow up on the barplot with a simple numerical summary. Whereas the `ggplot2` package is great for visualizations, `dplyr` is great for numerical summaries. The code below constructs a table of the number of questions with each theme. Make sure that these numerical summaries match up with what you saw in the barplot.
 
 ```{r}
 # Construct a table of counts
@@ -200,7 +207,7 @@ abby %>%
     count(themes)
 ```
 
-d.  Before proceeding, let's break down the plotting code above. Run each chunk to see how the two lines of code above build up the plot in "layers". Add comments (on the lines starting with `#`) to document what you notice.
+c.  Before proceeding, let's break down the plotting code above. Run each chunk to see how the two lines of code above build up the plot in "layers". Add comments (on the lines starting with `#`) to document what you notice.
 
 ```{r}
 # ???
@@ -230,13 +237,13 @@ ggplot(abby, aes(x = themes)) +
 
 ## Exercise 5: Exploring sentiment
 
-We'll look at the distribution of the `afinn_overall` sentiment variable and associated summary statistics.
+We'll look at the distribution of the `bing_pos` sentiment variable and associated summary statistics.
 
-a.  The code below creates a **boxplot** of this variable. In the comment, make note of how this code is simliar to the code for the barplot above. As in the previous exercise, *before* running the code chunk to create the plot, make note of what you expect the boxplot to look like.
+a.  The code below creates a **boxplot** of this variable. In the comment, make note of how this code is similar to the code for the barplot above. As in the previous exercise, *before* running the code chunk to create the plot, make note of what you expect the boxplot to look like.
 
 ```{r}
 # ???
-ggplot(abby, aes(x = afinn_overall)) +
+ggplot(abby, aes(x = bing_pos)) +
     geom_boxplot()
 ```
 
@@ -257,16 +264,47 @@ c.  We can compute summary statistics (numerical summaries) for a quantitative v
 # Summary statistics
 # Using summary() - convenient for computing many summaries in one command
 # Does not show the standard deviation
-summary(abby$afinn_overall)
+abby %>% 
+    select(bing_pos) %>% 
+    summary()
 
 # Using summarize() from dplyr
 # Note that we use %>% to pipe the data into the summarize() function
 # We need to use na.rm = TRUE because there are missing values (NAs)
 abby %>% 
-    summarize(mean(afinn_overall, na.rm = TRUE), median(afinn_overall, na.rm = TRUE), sd(afinn_overall, na.rm = TRUE))
+    summarize(mean(bing_pos, na.rm = TRUE), median(bing_pos, na.rm = TRUE), sd(bing_pos, na.rm = TRUE))
 ```
 
 d.  Write a good paragraph describing the information in the histogram (or density plot) by discussing shape, center, spread, and outliers. Incorporate the numerical summaries from part c.
+
+
+## Pause: Math box
+
+Below is an example of a "math box" which summarizes the formulas for some of the numerical summaries above.
+You are *not* required to memorize, nor will you be assessed on, any formulas presented in this or any future math box.
+They serve 3 purposes:
+
+1. To emphasize that there's "math" / a formal structure behind what we're doing.
+2. To provide students that plan to *continue* studying Statistics a glimpse into the formal statistical theory they'll explore in later courses.
+3. To make happy the students that are simply interested in math!
+
+
+\
+\
+
+
+::: {.callout-note title = "MATH BOX: Univariate numerical summaries"}
+
+Let $(y_1, y_2, ..., y_n)$ be a sample of $n$ data points.
+
+mean: $$\overline{y} = \frac{y_1 + y_2 + \cdots + y_n}{n} = \frac{\sum_{i=1}^n y_i}{n}$$
+
+variance: $$\text{var}(y) = \frac{(y_1 - \overline{y})^2 + (y_2 - \overline{y})^2 + \cdots + (y_n - \overline{y})^2}{n - 1} = \frac{\sum_{i=1}^n (y_i - \overline{y})^2}{n - 1}$$
+
+standard deviation: $$\text{sd}(y) = \sqrt{\text{var}(y)}$$
+:::
+
+
 
 ## Exercise 6: Box plots vs. histograms vs. density plots
 
@@ -276,37 +314,23 @@ a.  What is one pro about the boxplot in comparison to the histogram and density
 b.  What is one con about the boxplot in comparison to the histogram and density plots?
 c.  In this example, which plot do you prefer and why?
 
-## Exercise 7: Explore outliers
 
-Given that Dear Abby column is an advice column, it seems natural that the sentiment of the questions would lean more negative. What's going on with the questions that have particularly positive sentiments?
-
-We can use the `filter()` function in the `dplyr` package to look at the . Based on the plots of `afinn_overall` that you made in Exercise 5, pick a threshold for the `afinn_overall` variable---we'll say that questions with an overall sentiment score above this threshold are high outliers. Fill in this number where it says `YOUR_THRESHOLD` below.
-
-```{r}
-abby %>% 
-    filter(afinn_overall > YOUR_THRESHOLD) %>% 
-    pull(question_only)
-```
-
-What do you notice? Why might these questions have such high sentiment scores?
-
-## Exercise 8: Returning to our context, looking ahead
+## Exercise 7: Returning to our context, looking ahead
 
 In this activity, we explored data on Dear Abby question, with a focus on exploring a single variable at a time.
 
 -   In big picture terms, what have we learned about Dear Abby questions?
 -   What further curiosities do you have about the data?
 
-## Exercise 9: Different ways to think about data visualization
+## Exercise 8: Different ways to think about data visualization
 
 In working with and visualizing data, it's important to keep in mind what a data point *represents*. It can reflect the experience of a real person. It might reflect the sentiment in a piece of art. It might reflect history. We've taken one very narrow and technical approach to data visualization. Check out the following examples, and write some notes about anything you find interesting.
 
 -   [Dear Data](http://www.dear-data.com/by-week)
 -   [W.E.B. DuBois](https://hyperallergic.com/476334/how-w-e-b-du-bois-meticulously-visualized-20th-century-black-america/)
 -   [Decolonizing Data Viz](https://stephanieevergreen.com/decolonizing-data-viz/)
--   [Phase Change Project (by Prof Kim, Mac research students)](http://www.variableprojects.com/#/phase-change/)
 
-## Exercise 10: Rendering your work
+## Exercise 9: Rendering your work
 
 Save this file, and then click the "Render" button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.
 
@@ -321,11 +345,18 @@ Go to the top of this file and review the learning objectives for this lesson. W
 
 > **Response:** Put your response here.
 
+
+## Advice: make an R code "cheat sheet"!
+
+You will continue to pick up new R code and ideas.
+You're highly encouraged to start tracking this in a cheat sheet (eg: in a Google doc).
+The cheat sheet will be a handy reference for you, and the act of making it will help deepen your understanding and retention.
+
 # Additional Practice
 
 If you have time and want additional practice, try out the following exercises.
 
-## Exercise 11: Read in and get to know the weather data
+## Exercise 10: Read in and get to know the weather data
 
 Daily weather data are available for 3 locations in Perth, Australia.
 
@@ -338,7 +369,7 @@ Daily weather data are available for 3 locations in Perth, Australia.
 ??? <- ___("https://mac-stat.github.io/data/weather_3_locations.csv")
 ```
 
-## Exercise 12: Exploring the data structure
+## Exercise 11: Exploring the data structure
 
 Check out the basic features of the weather data.
 
@@ -351,7 +382,7 @@ Check out the basic features of the weather data.
 
 What does a case represent in this data?
 
-## Exercise 13: Exploring rainfall
+## Exercise 12: Exploring rainfall
 
 The `raintoday` variable contains information about rainfall.
 
@@ -366,7 +397,7 @@ The `raintoday` variable contains information about rainfall.
 
 ```
 
-## Exercise 14: Exploring temperature
+## Exercise 13: Exploring temperature
 
 The `maxtemp` variable contains information on the daily high temperature.
 
@@ -381,7 +412,7 @@ The `maxtemp` variable contains information on the daily high temperature.
 
 ```
 
-## Exercise 15: Customizing! (CHALLENGE)
+## Exercise 14: Customizing! (CHALLENGE)
 
 Though you will naturally absorb some RStudio code throughout the semester, being an effective statistical thinker and "programmer" does not require that we memorize *all* code. That would be impossible! In contrast, using the *foundation* you built today, do some digging online to learn how to customize your visualizations.
 
@@ -405,6 +436,70 @@ c.  Check out the `ggplot2` [cheat sheet](https://rstudio.github.io/cheatsheets/
 
 d.  What else would you like to change about your plot? Try it!
 
+
+## Exercise 15: Optional challenge
+
+At the top of this activity, we searched for words related to some topics of interest (`parents`, `marriage`, `money`) and combined them into a single `theme` variable.
+It looked something like this:
+
+```{r}
+abby_new <- abby %>% 
+  mutate(
+    parents = str_detect(question_only, "mother|mama|mom|father|papa|dad"),
+    marriage = str_detect(question_only, "marriage|marry|married"),
+    money = str_detect(question_only, "money|finance")
+  ) %>%
+  rowwise() %>%
+  mutate(
+    themes = c(
+      if (parents) "parents",
+      if (marriage) "marriage",
+      if (money) "money"
+    ) %>% paste(collapse = ", "),
+    themes = ifelse(themes == "", "other", themes)
+  ) %>%
+  ungroup()
+```
+
+Check it out:
+
+```{r}
+head(abby_new)
+```
+
+
+a. Understand the code!   
+    -   Inside `mutate()` the line `parents = str_detect(question_only, "mother|mama|mom|father|papa|dad")` created a new variable called `parents`. This variable takes on `TRUE` or `FALSE`. Explain what `TRUE` and `FALSE` mean here.
+    
+    -   The `themes` variable combines the information from the `parents`, `marriage`, and `money` variables. Check out the `themes` for the first 3 rows / data points. Convince yourself that you understand how it corresponds to the `parents`, `marriage`, and `money` variables.
+
+b. Beyond `parents`, `marriage`, and `money`, what are some other topics that might pop up in the Dear Abby letters (and that you're interested in exploring)? Modify the code below to explore those topics! Update the `themes` variable accordingly.
+
+```{r}
+abby_new <- abby %>% 
+  mutate(
+    parents = str_detect(question_only, "mother|mama|mom|father|papa|dad"),
+    marriage = str_detect(question_only, "marriage|marry|married"),
+    money = str_detect(question_only, "money|finance")
+  ) %>%
+  rowwise() %>%
+  mutate(
+    themes = c(
+      if (parents) "parents",
+      if (marriage) "marriage",
+      if (money) "money"
+    ) %>% paste(collapse = ", "),
+    themes = ifelse(themes == "", "other", themes)
+  ) %>%
+  ungroup()
+
+# Check out the raw data
+head(abby_new)
+
+# Check out the number of letters belonging to each theme
+abby_new %>% 
+  count(themes)
+```
 
 
 

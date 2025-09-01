@@ -73,7 +73,7 @@ Fill out an [electronic version](https://forms.gle/36tu9whBg5GmUnzs8) of these q
 
 # Exercises
 
-You'll now answer a few questions related to the data collected at your group's table. Data is *anything* that contains information
+You'll now answer a few questions related to the data collected at your group's table. Data is *anything* that contains information. You can either write these answers down by hand (recommended), or in the text boxes below (which won't be saved if you leave/refresh this page!).
 
 ## Exercise 1
 
@@ -81,27 +81,57 @@ With your group, in no more than two sentences per question, respond to the ques
 
 **Who**
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 **What**
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 **When**
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 **Where**
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 **Why**
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 **How**
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 ## Exercise 2
 
@@ -111,19 +141,34 @@ Move the post-it notes around to construct a visualization of the responses at y
 
 Calculate at least one numerical summary of the post-it note responses at your station, and record your numerical summary in the response text below. Write a complete sentence, not just the numerical summary alone! This is good practice for summarizing data in more formal writing.
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 ## Exercise 4
 
 In no more than three sentences, describe what you learn about from the visual and numerical summaries. Try to write your description in a way that tells an interesting story about the people in this class.
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 ## Exercise 5
 
 Imagine that you took all the post-it notes in this room and organized them into a spreadsheet. What would each row in the underlying data set represent? What would each column of the data set represent? Check out the first related reading, linked at the top of this activity, if you need assistance!
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 ## Reflection
 
@@ -134,12 +179,18 @@ In three to four sentences, reflect upon today's activity. Some reflection promp
 -   What (if anything) surprised you about the numerical summaries calculated by your group, or other groups?
 -   Did your data visualization help you better understand, or discover new things about the data that otherwise would have been difficult to distinguish? Why or why not?
 
-> **Response:** Type your response here.
+```{=html}
+<form action="/action_page.php">
+  <label for="fname">Your answer:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+</form>
+```
 
 
 ## Done!
 
-- Render your notes.
+- Finalize your notes: (1) Render your notes to an HTML file; (2) Inspect this HTML in your Viewer -- check that your work translated correctly; and (3) Outside RStudio, navigate to your 'Activities' subfolder within your 'STAT155' folder and locate the HTML file -- you can open it again in your browser.
+- Clean up your RStudio session: End the rendering process by clicking the 'Stop' button in the 'Background Jobs' pane.
 - Check the solutions in the course website, at the bottom of the corresponding chapter.
 - Work on homework!
 

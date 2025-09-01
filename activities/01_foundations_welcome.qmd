@@ -119,3 +119,176 @@ In three to four sentences, reflect upon today's activity. Some reflection promp
 -   Did your data visualization help you better understand, or discover new things about the data that otherwise would have been difficult to distinguish? Why or why not?
 
 > **Response:** Type your response here.
+
+
+
+# Exercises {-}
+
+\
+
+**MOTIVATION**
+
+"Doing" statistical modeling and working with data in general requires statistical software -- calculators, spreadsheet functionality, etc don't cut it.
+We'll exclusively use **R** and **RStudio**:
+
+```{r echo = FALSE, fig.cap = "Figure 1.1 from [A ModernDive into R and the Tidyverse](https://moderndive.com/1-getting-started.html)."}
+knitr::include_graphics("../images/r_vs_rstudio.png")
+```
+
+
+\
+
+
+
+Why R/RStudio?
+
+-   it's free
+-   it's open source (the code is free & anybody can contribute to it)
+-   it has a huge online community (which is helpful for when you get stuck)
+-   it's an industry standard
+-   it can be used to create *reproducible* and lovely documents (including this online manual!)
+-   Fun fact: it was started by Mac alum JJ Allaire and beta-tested at Mac!
+
+
+
+
+\
+\
+\
+\
+
+
+
+**IMPORTANT: RStudio is NOT the point of this course!!**
+
+
+- RStudio = a hammer    
+    - Simply a tool needed for statistical modeling that you'll learn through lots of practice, trial, and error.
+    - Alone, it's not very interesting.
+    
+- You = a carpenter   
+    - You will develop the knowledge about designing statistical analyses that are useful and correct.
+    - You will learn to build these analyses with the appropriate tools (RStudio).
+    - Your analyses, not use of RStudio, are the interesting part!
+    
+- You'll pick up the RStudio basics needed for introductory statistical models. To learn more about RStudio more generally you should take COMP/STAT 112.  
+
+
+
+
+\
+\
+\
+\
+
+
+**DIRECTIONS**
+
+- Go to Mac's RStudio server: [https://rstudio.macalester.edu/](https://rstudio.macalester.edu/)        
+    - Sign in with your Mac username (eg: ajohns24) and password.
+    - NOTE: After class, you'll install R/RStudio on your own machine and will not be using the server.
+    
+- Work on these exercises in your groups. (Collaboration is a key learning goal in this course, which we'll discuss in the coming classes.)       
+    - Take your time. You won't hand anything in and can finish up outside of class.
+    - We will not discuss these exercises as a class. Your group should ask me questions as I walk around the room.
+
+
+
+
+
+\
+\
+\
+\
+
+
+
+## Exercise 1: Use R as a calculator {-}
+
+Type the following lines in the **console** (bottom left), one by one, hitting Return/Enter after each line.
+In some cases you might even get an error!
+This error is *important* to learning how R code does and doesn't work.
+
+```{r eval = FALSE}
+4 + 2
+```
+
+```{r eval = FALSE}
+4^2
+```
+
+```{r eval = FALSE}
+4*2
+```
+
+```{r eval = FALSE}
+4(2)
+```
+
+
+
+
+\
+\
+\
+\
+
+
+## Exercise 2: Functions and arguments {-}
+
+We can also use built-in **functions** to perform common tasks.
+These functions have *names* and require information about *arguments* in order to run:
+
+`function(argument)`
+
+Try out the following functions *one by one* in the RStudio console.
+For each function, note its...
+
+- *name*
+- the *argument* or information it needs to run
+- what *output* it produces (what the function *does*)
+- how the name *connects* to what the function does
+
+```{r eval = FALSE}
+sqrt(9)
+```
+
+```{r eval = FALSE}
+nchar("macalester")
+```
+
+```{r eval = FALSE}
+sqrt(nchar("snow"))
+```
+
+Some functions have *more than 1 argument*, separated by commas:
+
+`function(argument1 = ___, argument2 = ___)`
+
+Try out the following, one by one.
+
+```{r eval = FALSE}
+rep(x = 2, times = 5)
+```
+
+```{r eval = FALSE}
+rep(times = 5, x = 2)
+```
+
+```{r eval = FALSE}
+rep(2, 5)
+```
+
+```{r eval = FALSE}
+rep(5, 2)
+```
+
+Finally, R is case sensitive.
+Try using `Rep()` instead of `rep()`.
+Take time to read the **error message**!
+
+```{r eval = FALSE}
+Rep(5, 2)
+```
+
+
