@@ -44,7 +44,7 @@ For example, the following are just a few Mac faculty / offices that use statist
 - STAT 155 is a modern, non-traditional introduction to statistics. We'll explore sophisticated tools that typically aren't covered until a second course in statistics.       
     - This means:        
         - Non-majors taking this as a terminal course will take away highly applicable and marketable knowledge & skills.
-        - Majors will gain a solid foundation from which to study more more advanced models & theory.
+        - Majors will gain a solid foundation from which to study more advanced models & theory.
     
     - This does NOT mean that we're skipping a course! STAT 155 teaches introductory statistics content, but through a different lens than a traditional course (regression).
 
@@ -80,6 +80,7 @@ Links to related reading(s):
 
 ## See class notes
 
+Go to your class-notes to see what we covered in live-note taking!
 
 \
 \
@@ -109,7 +110,7 @@ Welcome to the first in-class activities of STAT 155! Fill out the [Day 1 Activi
 
 
 
-# Exercises {-}
+# R and RStudio {-}
 
 \
 
@@ -173,12 +174,7 @@ Why R/RStudio?
 
 - Go to Mac's RStudio server: [https://rstudio.macalester.edu/](https://rstudio.macalester.edu/)        
     - Sign in with your Mac username (eg: mbillah) and password.
-    - NOTE: After class, you'll install R/RStudio on your own machine and will not be using the server.
-    
-- Work on these exercises in your groups. (Collaboration is a key learning goal in this course, which we'll discuss in the coming classes.)       
-    - Take your time. You won't hand anything in and can finish up outside of class.
-    - We will not discuss these exercises as a class. Your group should ask me questions as I walk around the room.
-
+    - NOTE: After class, you'll install R/RStudio on your own machine and will not be using the server (if you haven't done so!).
 
 
 
@@ -190,7 +186,7 @@ Why R/RStudio?
 
 
 
-## Exercise 1: Use R as a calculator {-}
+## Example 1: Use R as a calculator {-}
 
 Type the following lines in the **console** (bottom left), one by one, hitting Return/Enter after each line.
 In some cases you might even get an error!
@@ -221,7 +217,7 @@ This error is *important* to learning how R code does and doesn't work.
 \
 
 
-## Exercise 2: Functions and arguments {-}
+## Example 2: Functions and arguments {-}
 
 We can also use built-in **functions** to perform common tasks.
 These functions have *names* and require information about *arguments* in order to run:
@@ -285,7 +281,7 @@ Rep(5, 2)
 \
 
 
-## Exercise 3: Save it for later {-}
+## Example 3: Save it for later {-}
 
 We'll often want to store some R output for later use.
 In R:
@@ -317,10 +313,19 @@ degrees_c * (9/5) + 32
 \
 \
 
+# Exercises {-}
+
+\
 
 
+**DIRECTIONS**
+    
+- Work on these exercises in your groups. (Collaboration is a key learning goal in this course, which we'll discuss in the coming classes.)       
+    - Take your time. You won't hand anything in and can finish up outside of class.
+    - We will not discuss these exercises as a class. Your group should ask me questions as I walk around the room.
 
-## Exercise 4: Import data {-}
+
+## Exercise 1: Import data {-}
 
 
 Next, let's work with some **data**!!
@@ -360,7 +365,7 @@ In the Environment tab in the upper right pane of RStudio, click on `survey`. Wh
 
 
 
-## Exercise 5: Get to know the data {-}
+## Exercise 2: Get to know the data {-}
 
 PAUSE: Make sure you're still in sync with your group.
 
@@ -407,7 +412,7 @@ str(survey)
 
 
 
-## Exercise 6: Code = communication {-}
+## Exercise 3: Code = communication {-}
 
 It's important to recognize from day 1 that **code is a form of communication**, both to yourself and others!!!!!
 Code structure and details are important to readability and clarity, just as grammar, punctuation, spelling, paragraphs, and line spacing are important in written essays.
@@ -429,7 +434,7 @@ this_is_the_temperature_today_in_celsius <- -13
 \
 
 
-## Exercise 7: You will make so many mistakes! {-}
+## Exercise 4: You will make so many mistakes! {-}
 
 Mistakes are common when, and even *important* to, learning any new language.
 You'll get better and better at interpreting error messages, finding help, and fixing errors.
@@ -452,7 +457,7 @@ For example:
 
 
 
-## Exercise 8: Your turn {-}
+## Exercise 5: Your turn {-}
 
 Use R code to do the following:
 
@@ -474,7 +479,7 @@ d. Show the first 6 rows of the dataset. NOTE: This gives us a quick glimpse wit
 
 
 
-## Exercise 9: Make a "cheat sheet" {-}
+## Exercise 6: Make a "cheat sheet" {-}
 
 You will continue to pick up new R code and ideas.
 You're highly encouraged to start tracking this in a cheat sheet (eg: in a Google doc).
@@ -502,7 +507,7 @@ The cheat sheet will be a handy reference for you, and the act of making it will
 
 If some activities which should be done in the class, I will tell you that- "We will continue the activities in the next class."
 
-If we can't finish some activities which can be finished outside of the class and/or you didn’t finish the activity during class, be sure to complete the activity outside of class, review the solutions in the online manual, and ask any questions in office hours.
+If we can't finish some activities which can be finished outside of the class and/or you didn’t finish the activity during class, be sure to complete the activity outside of class, review the solutions in the online manual (at the end of in-class activities!), and ask any questions in office hours.
 
 \
 \
