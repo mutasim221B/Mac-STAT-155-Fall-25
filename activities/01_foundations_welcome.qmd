@@ -7,14 +7,15 @@ format:
     toc: true
 ---
 
-You can view the .qmd file for this activity [here](../activity_templates/01_foundations_welcome.qmd); I will also share the .qmd activity file before the class via moodle announcement. 
-
+You can download the .qmd file for this activity [here](../activity_templates/01_foundations_welcome.qmd) and open in R-studio. The rendered version is posted in the [course website](https://mutasim221b.github.io/Mac-STAT-155-Fall-25/) (Activities tab). I often experiment with the class activities (and see it in live!) and make updates, but I always post the final version before class starts. To be sure you have the most up-to-date copy, please download it once you’ve settled in before class begins.
 
 # Welcome {-}
 
 \
 
 **Settling in**
+
+- [We need to change the setup of the classroom (unfortunately!). Let us start an unintended class activity of making pods (by joining two tables and 4 chairs face-to-face)]
 
 - Sit in groups of 3-4. Your group should include:
     - *nobody* that you already know
@@ -28,9 +29,16 @@ You can view the .qmd file for this activity [here](../activity_templates/01_fou
 
 
 \
+
+
+If you have applied/approved for the waitlist, be sure to approach me after the class & register for the course *today*. At that point you will be added to Moodle.
+
+
 \
 \
-\goodnote
+\
+\
+
 
 
 **Statistical Modeling?!**
@@ -560,7 +568,6 @@ You're expected to carefully review the syllabus outside of class.
 
 **Upcoming due dates**
 
-- If you were approved from the waitlist, be sure to approach me after class & register for the course *today*. At that point you will be added to Moodle.
 
 - Due Thursday: Checkpoint "CP" 1 (10 minutes before the start of your section)    
     - Check out the syllabus for policies.

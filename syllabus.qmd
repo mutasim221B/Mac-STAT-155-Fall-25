@@ -444,11 +444,11 @@ You may also contact Macalester’s Title IX Coordinator directly (phone: 651-69
 # Want 'A' in this course? Read, Read, Read...
 
 ::: {.callout-tip title="❓ Ask Questions"}
-When you have questions, please stop me during class, ask your neighbor, post on Slack, and come to office hours. Saying *"I don't understand"* is an important part of learning and it helps others around you.
+When you have questions, please stop me during class, ask your neighbor, email me and come to office hours. Saying *"I don't understand"* is an important part of learning and it helps others around you.
 :::
 
 ::: {.callout-note title="🤝 Come to Office Hours"}
-Office hours are a great time to talk about course material and assignments, study strategies, selecting courses, declaring a major, grad school and/or career planning, or life in general. You don’t need to have a specific question in order to attend: it can also be a space to review concepts, talk through examples, or just chat!
+Office hours are a great time to talk about course material, study strategies, selecting courses, declaring a major, grad school and/or career planning, or life in general. You don’t need to have a specific question in order to attend: it can also be a space to review concepts, talk through examples, or just chat!
 :::
 
 ::: {.callout-important title="⏳ Make Time"}
@@ -456,7 +456,7 @@ Performing a thoughtful statistical analysis requires time: to plan, to implemen
 
 - Start your assignments early. It is very hard to be creative or to debug R code when you are in a rush.  
 - In addition to the 3 hours we spend together during class, expect to spend about **10-12 hours per week** on this class.  
-- Don’t miss any Checkpoint quizzes—they are designed to give you a core understanding of the subject matter!
+- Don’t miss any Checkpoint quizzes—they are designed to give you a core understanding of the subject matter (**due on 09:00 am, if assigned**)!
 - If you’re spending much more (or less!) time than that, please let me know.
 :::
 
@@ -483,7 +483,7 @@ Investing time into taking care of yourself will help you engage more fully in y
 ::: {.callout-note title="📢 Communicate"}
 I will do my best to clearly communicate changes to expectations, deadlines, office hours, or class meetings due to instructor illness or unexpected life issues.  
 
-Please check Moodle and Slack regularly so you don’t miss announcements.  
+Please check Moodle regularly so you don’t miss announcements.  
 
 I also ask that you check in with me as soon as possible if:  
 - You need to miss multiple classes in a row  
