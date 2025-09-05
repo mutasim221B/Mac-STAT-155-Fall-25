@@ -39,6 +39,7 @@ website:
     - id: activities
       title: "Activities"
       contents:
+          - "activities/02-foundations-univariate.qmd"
           - "activities/01_foundations_welcome.qmd"
   
   page-footer:

@@ -7,6 +7,23 @@ format:
     toc: true
 ---
 
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(
+  collapse = TRUE, 
+  warning = FALSE,
+  message = FALSE,
+  error = TRUE,
+  fig.height = 2.75, 
+  fig.width = 4.25,
+  fig.env = 'figure',
+  fig.pos = 'h',
+  fig.align = 'center')
+```
+
+
+
 You can download the .qmd file for this activity [here](../activity_templates/01_foundations_welcome.qmd) and open in R-studio. The rendered version is posted in the [course website](https://mutasim221b.github.io/Mac-STAT-155-Fall-25/) (Activities tab). I often experiment with the class activities (and see it in live!) and make updates, but I always post the final version before class starts. To be sure you have the most up-to-date copy, please download it once you’ve settled in before class begins.
 
 # Welcome {-}
@@ -17,10 +34,15 @@ You can download the .qmd file for this activity [here](../activity_templates/01
 
 - [We need to change the setup of the classroom (unfortunately!). Let us start an unintended class activity of making pods (by joining two tables and 4 chairs face-to-face)]
 
-- Sit in groups of 3-4. Your group should include:
+- Sit in groups of **4 (preferably) or 3 (at least)**. Your group should include:
     - *nobody* that you already know
     - at least 1 person who has used RStudio before
-- Meet the people at your table. Share your names and pronouns. Discuss a high point of your summer break.
+- **Meet the people at your table. Share your names and pronouns (again!?). Discuss a high point of your summer break.**
+
+
+\
+
+
 - Open the online manual:
     - [https://mutasim221b.github.io/Mac-STAT-155-Fall-25/](https://mutasim221b.github.io/Mac-STAT-155-Fall-25/) (also linked in Moodle)
     - Top bar < Activities < Collecting and Summarizing Data
@@ -198,9 +220,9 @@ Why R/RStudio?
 
 **DIRECTIONS**
 
-- Go to Mac's RStudio server: [https://rstudio.macalester.edu/](https://rstudio.macalester.edu/)        
+- If you haven't already installed R and RStudio in your laptop, please go to Mac's RStudio server: [https://rstudio.macalester.edu/](https://rstudio.macalester.edu/)        
     - Sign in with your Mac username (eg: mbillah) and password.
-    - NOTE: After class, you'll install R/RStudio on your own machine and will not be using the server (if you haven't done so!).
+    - NOTE: After class, you'll install R/RStudio on your own machine and will not be using the server. Please meet me in-person to know why you can't rely on the server (specially for this course!)
 
 
 
@@ -249,6 +271,7 @@ We can also use built-in **functions** to perform common tasks.
 These functions have *names* and require information about *arguments* in order to run:
 
 `function(argument)`
+`Cheatcode: RiceCooker(Rice)`
 
 Try out the following functions *one by one* in the RStudio console.
 For each function, note its...
@@ -273,6 +296,7 @@ sqrt(nchar("snow"))
 Some functions have *more than 1 argument*, separated by commas:
 
 `function(argument1 = ___, argument2 = ___)`
+`Cheatcode: RiceCooker(Rice,Chicken)`
 
 Try out the following, one by one.
 
@@ -339,19 +363,10 @@ degrees_c * (9/5) + 32
 \
 \
 
-# Exercises {-}
-
-\
 
 
-**DIRECTIONS**
-    
-- Work on these exercises in your groups. (Collaboration is a key learning goal in this course, which we'll discuss in the coming classes.)       
-    - Take your time. You won't hand anything in and can finish up outside of class.
-    - We will not discuss these exercises as a class. Your group should ask me questions as I walk around the room.
 
-
-## Exercise 1: Import data {-}
+## Example 4: Import data {-}
 
 
 Next, let's work with some **data**!!
@@ -363,6 +378,10 @@ How we do this depends on:
 
 The data from the survey you took before class is stored as a **.csv** file **online**.
 Import this data using the `read_csv()` function, and store it as `survey` using the code below:
+
+First, in the Console pane of RStudio, run the following command to install some necessary packages (you will need to do this any time you are installing a new package):
+
+`install.packages("tidyverse")`
 
 ```{r eval = FALSE}
 # Load the "tidyverse" package which contains the read_csv() function
@@ -380,7 +399,9 @@ survey <- read_csv("https://mac-stat.github.io/data/112_fall_2024_survey.csv")
 
 In the Environment tab in the upper right pane of RStudio, click on `survey`. What happens?!
 
+\
 
+In the modern era, datasets often contain hundreds of variables and millions of observations. We need more effective ways to explore such data.
 
 
 
@@ -391,7 +412,7 @@ In the Environment tab in the upper right pane of RStudio, click on `survey`. Wh
 
 
 
-## Exercise 2: Get to know the data {-}
+## Example 5: Get to know the data {-}
 
 PAUSE: Make sure you're still in sync with your group.
 
@@ -404,31 +425,35 @@ For each function below:
 
 
 ```{r eval = FALSE}
-dim(survey)
+dim(survey) # (Number of row (case/obs.), Number of column (variable))
 ```
 
 ```{r eval = FALSE}
-nrow(survey)
+nrow(survey) # Number of case/obs.
 ```
 
 ```{r eval = FALSE}
-head(survey)
+ncol(survey) # Number of variables
 ```
 
 ```{r eval = FALSE}
-head(survey, 3)
+head(survey) # View first few rows of the dataset (6 rows, by default)
 ```
 
 ```{r eval = FALSE}
-tail(survey)
+head(survey, 3) # Controlling the view of first few rows of the dataset
 ```
 
 ```{r eval = FALSE}
-names(survey)
+tail(survey) # View first few rows of the dataset (6 rows, by default)
+```
+
+```{r eval = FALSE} 
+names(survey) # Get all column (variable) names
 ```
 
 ```{r eval = FALSE}
-str(survey)
+str(survey) # Overall info about data
 ```
 
 \
@@ -438,7 +463,7 @@ str(survey)
 
 
 
-## Exercise 3: Code = communication {-}
+## Example 6 : Code = communication {-}
 
 It's important to recognize from day 1 that **code is a form of communication**, both to yourself and others!!!!!
 Code structure and details are important to readability and clarity, just as grammar, punctuation, spelling, paragraphs, and line spacing are important in written essays.
@@ -460,7 +485,7 @@ this_is_the_temperature_today_in_celsius <- -13
 \
 
 
-## Exercise 4: You will make so many mistakes! {-}
+## Example 7: You will make so many mistakes! {-}
 
 Mistakes are common when, and even *important* to, learning any new language.
 You'll get better and better at interpreting error messages, finding help, and fixing errors.
@@ -481,9 +506,23 @@ For example:
 \
 \
 
+## Example 8: Make a "cheat sheet" {-}
+
+You will continue to pick up new R code and ideas.
+You're highly encouraged to start tracking this in a cheat sheet (eg: in a Google doc).
+The cheat sheet will be a handy reference for you, and the act of making it will help deepen your understanding and retention.
 
 
-## Exercise 5: Your turn {-}
+\
+\
+\
+\
+
+
+    
+## Exercise: Complete this after the class {-}
+
+Complete this exercise after class. First, try it on your own (or with your group), and then check your work against the solution provided at the end of this .qmd file.
 
 Use R code to do the following:
 
@@ -499,87 +538,9 @@ d. Show the first 6 rows of the dataset. NOTE: This gives us a quick glimpse wit
 
 
 \
-\
-\
-\
 
 
-
-## Exercise 6: Make a "cheat sheet" {-}
-
-You will continue to pick up new R code and ideas.
-You're highly encouraged to start tracking this in a cheat sheet (eg: in a Google doc).
-The cheat sheet will be a handy reference for you, and the act of making it will help deepen your understanding and retention.
-
-
-
-
-\
-\
-\
-\
-
-
-
-
-
-
-# Wrap-up {-}
-
-\
-
-
-**Finish the activity**
-
-If some activities which should be done in the class, I will tell you that- "We will continue the activities in the next class."
-
-If we can't finish some activities which can be finished outside of the class and/or you didn’t finish the activity during class, be sure to complete the activity outside of class, review the solutions in the online manual (at the end of in-class activities!), and ask any questions in office hours.
-
-\
-\
-
-
-**Online course manual (linked on Moodle)**
-
-- Bookmark this!
-- All in-class activities and other resources will be compiled here, making for easier review.
-- There are solutions at the bottom of each activity. Consult them!
-- There's a daily Course Schedule which outlines what we’re doing, what’s due, and where to find this material each day.
-
-
-\
-
-**Moodle**
-
-Where you can access a big picture calendar (which you should integrate into your Google calendar!) and all course materials (free!). Also where you will submit work.
-
-
-\
-
-**Syllabus (linked on Moodle)**
-
-You're expected to carefully review the syllabus outside of class.
-
-
-
-\
-
-
-
-**Upcoming due dates**
-
-
-- Due Thursday: Checkpoint "CP" 1 (10 minutes before the start of your section)    
-    - Check out the syllabus for policies.
-    - This is the longest CP of the semester!
-  
-- Due Tuesday: CP 2 (10 minutes before the start of your section)
-    
-
-
-
-
-
+# We start Univariate Visualization and Summaries activities now
 
 
 \
