@@ -22,16 +22,16 @@ knitr::opts_chunk$set(
   fig.align = 'center')
 ```
 
+You can download the .qmd file for this activity [here](../activity_templates/02-foundations-univariate.qmd) and open in R-studio. The rendered version is posted in the [course website](https://mutasim221b.github.io/Mac-STAT-155-Fall-25/) (Activities tab). I often experiment with the class activities (and see it in live!) and make updates, but I always post the final version before class starts. To be sure you have the most up-to-date copy, please download it once you’ve settled in before class begins.
+
 
 # Notes
 
 ## Learning goals
 
-By the end of this lesson, you should be able to:
+By the end of this activity, you should be able to:
 
--   Describe what a **case** (or **unit of analysis**) represents in a dataset.
--   Describe what a **variable** represents in a dataset.
--   Identify whether a variable is **categorical** or **quantitative** and what summarizations and visualizations are appropriate for that variable
+-   What summarizations and visualizations are appropriate for **categorical** or **quantitative** variables
 -   Write R code to read in data and to summarize and visualize a single variable at a time.
 -   Interpret key features of barplots, boxplots, histograms, and density plots
 -   Describe information about the distribution of a quantitative variable using the concepts of shape, center, spread, and outliers
@@ -39,7 +39,7 @@ By the end of this lesson, you should be able to:
 
 ## Readings and videos
 
-Choose either the reading or the videos to go through **before** class.
+You should have gone through the followings **before** the class and finished checkpoint quizzes! 
 
 -   Reading: Sections 2.1-2.4, 2.6 in the [STAT 155 Notes](https://mac-stat.github.io/Stat155Notes/)
 -   Videos:
@@ -54,7 +54,30 @@ Choose either the reading or the videos to go through **before** class.
 
 **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
 
-# Exercises
+
+
+# Exercises {-}
+
+\
+
+
+**DIRECTIONS**
+    
+- Work on these exercises in your groups. (Collaboration is a key learning goal in this course, which we'll discuss in the coming classes.)       
+    - Take your time. You won't hand anything in and can finish up outside of class.
+    - We might not discuss all of these exercises as a class. Your group should ask me questions as I walk around the room when I will tell you to do in group.
+    - **Choose one person from your group to answer questions on behalf of the group. The role of group representative will rotate each class meeting.**
+
+
+
+**Finish the activity**
+
+- Some activities are important to learn and in that case I will tell you that we will finish the activities next class.
+
+- Otherwise, if we can't finish some activities which can be finished outside of the class and/or you didn’t finish the activity during class, be sure to complete the activity outside of class, review the solutions in the online manual (at the end of in-class activities!), and ask any questions in office hours (me and preceptors).
+
+
+
 
 > **Guiding question:** What anxieties have been on Americans' minds over the decades?
 
@@ -62,18 +85,14 @@ Choose either the reading or the videos to go through **before** class.
 
 In 2018, the data journalism site [The Pudding](https://pudding.cool/) published a visual article called [30 Years of American Anxieties](https://pudding.cool/2018/11/dearabby/) in which the authors explored themes in Dear Abby letters from 1985 to 2017. (We only have the questions, not Abby's responses.) The codebook is available [here](https://github.com/Mac-STAT/data/blob/main/dear_abby_codebook.md).
 
-## Exercise 1: Get curious
 
--   Hypothesize with each other: what themes do you think might come up often in Dear Abby letters?
--   After brainstorming, take a quick glance at the original article from [The Pudding](https://pudding.cool/2018/11/dearabby/) to see what themes they explored.
--   Go to the very end of the Pudding article to the section titled "Data and Method". In thinking about the who, what, when, where, why, and how of data context, what concerns/limitations surface with regards to using this data to learn about Americans' concerns over the decades?
 
-## Exercise 2: Importing and getting to know the data
+## Exercise 1: Importing and getting to know the data **[Group]**
 
 First, in the **Console pane** of RStudio, run the following command to install some necessary packages (you will need to do this any time you are installing a new package):
 
 ```         
-install.packages("tidyverse")
+install.packages("tidyverse") # We have already installed it!
 ```
 
 Now, in the **Quarto pane**, run the following code chunk to load the package and load a dataset (you can either click the green arrow in the top right of the code chunk, put your cursor in the code chunk and hit Ctrl+Alt+C \[on Windows/Linux\] or Command+Option+C \[on Mac\]).
@@ -84,24 +103,6 @@ library(tidyverse)
 
 # Read in the Dear Abby data
 abby <- read_csv("https://mac-stat.github.io/data/dear_abby.csv")
-```
-
-If it runs successfully, you should see the following output appear in the **Console pane**:
-
-```         
-> # Load package
-> library(tidyverse)
-> 
-> # Read in the course evaluation data
-> abby <- read_csv("https://mac-stat.github.io/data/dear_abby.csv")
-Rows: 20034 Columns: 11
-── Column specification ────────────────────────────
-Delimiter: ","
-chr (4): day, url, title, question_only
-dbl (7): year, month, letterId, afinn_overall, a...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 
@@ -172,7 +173,9 @@ names(abby)
 
 e.  **\[OPTIONAL\]** If you're not sure how exactly to use a function, you can pull up a built-in help page with information about the arguments a function takes (i.e., what goes inside the parentheses), and the output it produces. To do this, click inside the Console pane, and enter `?function_name`. For example, to pull up a help page for the `dim()` function, we can type `?dim` and hit Enter. Try pulling up the help page for the `read_csv()` function we used to load the dataset.
 
-## Exercise 3: Preparing to summarize and visualize the data
+
+
+## Exercise 2: Preparing to summarize and visualize the data **[Explore]**
 
 In the next exercises, we will be exploring themes in the Dear Abby questions and the overall "mood" or sentiment of the questions. Before continuing, read the [codebook](https://github.com/Mac-STAT/data/blob/main/dear_abby_codebook.md) for this dataset for some context about sentiment analysis, which gives us a measure of the mood/sentiment of a text.
 
@@ -182,13 +185,17 @@ b.  Check out the `theme` variable. Is this **quantitative** or **categorical**?
 
 c.  What visualizations are appropriate for looking at the distribution of a single quantitative variable? What about a single categorical variable?
 
-## Exercise 4: Exploring themes in the letters
+
+
+
+## Exercise 3: Exploring themes in the letters [Group & Explore]
 
 
 a.  The code below makes a **barplot** of the `themes` variable using the `ggplot2` visualization package. *Before making the plot*, make note of what you expect the plot might look like. (This might be hard--just do your best!) *Then* compare to what you observe when you run the code chunk to make the plot. (Clearly defining your expectations first is good scientific practice to avoid confirmation bias.)
 
 ```{r}
 # Load package
+# install.packages("ggplot2") # Run in R Console first time to install (copy without '#')
 library(ggplot2)
 
 # barplot
@@ -200,6 +207,7 @@ ggplot(abby, aes(x = themes)) +
 b.  We can follow up on the barplot with a simple numerical summary. Whereas the `ggplot2` package is great for visualizations, `dplyr` is great for numerical summaries. The code below constructs a table of the number of questions with each theme. Make sure that these numerical summaries match up with what you saw in the barplot.
 
 ```{r}
+# install.packages("dplyr")
 # Construct a table of counts
 abby %>% 
     count(themes)
@@ -209,20 +217,20 @@ c.  Before proceeding, let's break down the plotting code above. Run each chunk 
 
 ```{r}
 # ???
-ggplot(abby, aes(x = themes))
+ggplot(abby, aes(x = themes)) #sets up the "canvas" of the plot with axis labels
 ```
 
 ```{r}
 # ???
 ggplot(abby, aes(x = themes)) +
-    geom_bar()
+    geom_bar() # Adds the bars- Any Problem you notice?
 ```
 
 ```{r}
 # ???
 ggplot(abby, aes(x = themes)) +
     geom_bar() +
-    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) #Rotates the x axis labels
 ```
 
 ```{r}
@@ -230,12 +238,22 @@ ggplot(abby, aes(x = themes)) +
 ggplot(abby, aes(x = themes)) +
     geom_bar() +
     theme_classic() +
-    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) # Changes the visual theme of the plot with a white background and removes gridlines
 ```
 
-## Exercise 5: Exploring sentiment
+
+
+
+## Exercise 4: Exploring sentiment
 
 We'll look at the distribution of the `bing_pos` sentiment variable and associated summary statistics.
+
+** Open class-Notes and start live note-taking! **
+
+
+\
+\
+
 
 a.  The code below creates a **boxplot** of this variable. In the comment, make note of how this code is similar to the code for the barplot above. As in the previous exercise, *before* running the code chunk to create the plot, make note of what you expect the boxplot to look like.
 
@@ -304,7 +322,8 @@ standard deviation: $$\text{sd}(y) = \sqrt{\text{var}(y)}$$
 
 
 
-## Exercise 6: Box plots vs. histograms vs. density plots
+
+## Exercise 5: Box plots vs. histograms vs. density plots
 
 We took 3 different approaches to plotting the quantitative average course variable above. They all have pros and cons.
 
@@ -313,14 +332,21 @@ b.  What is one con about the boxplot in comparison to the histogram and density
 c.  In this example, which plot do you prefer and why?
 
 
-## Exercise 7: Returning to our context, looking ahead
+
+
+
+## Exercise 6: Returning to our context, looking ahead
 
 In this activity, we explored data on Dear Abby question, with a focus on exploring a single variable at a time.
 
 -   In big picture terms, what have we learned about Dear Abby questions?
 -   What further curiosities do you have about the data?
 
-## Exercise 8: Different ways to think about data visualization
+
+
+
+
+## Exercise 7: Different ways to think about data visualization
 
 In working with and visualizing data, it's important to keep in mind what a data point *represents*. It can reflect the experience of a real person. It might reflect the sentiment in a piece of art. It might reflect history. We've taken one very narrow and technical approach to data visualization. Check out the following examples, and write some notes about anything you find interesting.
 
@@ -328,7 +354,10 @@ In working with and visualizing data, it's important to keep in mind what a data
 -   [W.E.B. DuBois](https://hyperallergic.com/476334/how-w-e-b-du-bois-meticulously-visualized-20th-century-black-america/)
 -   [Decolonizing Data Viz](https://stephanieevergreen.com/decolonizing-data-viz/)
 
-## Exercise 9: Rendering your work
+
+
+
+## Exercise 8: Rendering your work
 
 Save this file, and then click the "Render" button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.
 
@@ -354,7 +383,10 @@ The cheat sheet will be a handy reference for you, and the act of making it will
 
 If you have time and want additional practice, try out the following exercises.
 
-## Exercise 10: Read in and get to know the weather data
+
+
+
+## Exercise 9: Read in and get to know the weather data
 
 Daily weather data are available for 3 locations in Perth, Australia.
 
@@ -367,7 +399,10 @@ Daily weather data are available for 3 locations in Perth, Australia.
 ??? <- ___("https://mac-stat.github.io/data/weather_3_locations.csv")
 ```
 
-## Exercise 11: Exploring the data structure
+
+
+
+## Exercise 10: Exploring the data structure
 
 Check out the basic features of the weather data.
 
@@ -380,7 +415,10 @@ Check out the basic features of the weather data.
 
 What does a case represent in this data?
 
-## Exercise 12: Exploring rainfall
+
+
+
+## Exercise 11: Exploring rainfall
 
 The `raintoday` variable contains information about rainfall.
 
@@ -395,7 +433,10 @@ The `raintoday` variable contains information about rainfall.
 
 ```
 
-## Exercise 13: Exploring temperature
+
+
+
+## Exercise 12: Exploring temperature
 
 The `maxtemp` variable contains information on the daily high temperature.
 
@@ -410,7 +451,11 @@ The `maxtemp` variable contains information on the daily high temperature.
 
 ```
 
-## Exercise 14: Customizing! (CHALLENGE)
+
+
+
+
+## Exercise 13: Customizing! (CHALLENGE)
 
 Though you will naturally absorb some RStudio code throughout the semester, being an effective statistical thinker and "programmer" does not require that we memorize *all* code. That would be impossible! In contrast, using the *foundation* you built today, do some digging online to learn how to customize your visualizations.
 
@@ -435,7 +480,10 @@ c.  Check out the `ggplot2` [cheat sheet](https://rstudio.github.io/cheatsheets/
 d.  What else would you like to change about your plot? Try it!
 
 
-## Exercise 15: Optional challenge
+
+
+
+## Exercise 14: Optional challenge
 
 At the top of this activity, we searched for words related to some topics of interest (`parents`, `marriage`, `money`) and combined them into a single `theme` variable.
 It looked something like this:
@@ -498,4 +546,292 @@ head(abby_new)
 abby_new %>% 
   count(themes)
 ```
+
+
+\
+\
+\
+
+
+
+
+
+
+
+# Solutions
+
+```{r eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+# Load package
+library(tidyverse)
+
+# Read in the Dear Abby data
+abby <- read_csv("https://mac-stat.github.io/data/dear_abby.csv")
+
+# Wrangle the data
+abby <- abby %>% 
+  filter(year == 2017) %>% 
+  mutate(month = month(month, label = TRUE)) %>%
+  mutate(
+    parents = str_detect(question_only, "mother|mama|mom|father|papa|dad"),
+    marriage = str_detect(question_only, "marriage|marry|married"),
+    money = str_detect(question_only, "money|finance")
+  ) %>%
+  rowwise() %>%
+  mutate(
+    themes = c(
+      if (parents) "parents",
+      if (marriage) "marriage",
+      if (money) "money"
+    ) %>% paste(collapse = ", "),
+    themes = ifelse(themes == "", "other", themes)
+  ) %>%
+  ungroup() %>% 
+  select(year, month, day, question_only, bing_pos, themes)
+```
+
+
+## Exercise 1: Importing and getting to know the data
+
+a.  Note how clicking the `abby` data causes both a popup pane and the command `View(abby)` to appear in the Console. In fact, the `View()` function is the underlying command that opens a dataset pane. (`View()` should always be entered in the Console and NOT your Quarto document.)
+
+b.  Each row / case corresponds to a single question.
+
+c.  Columns = variables
+
+d.  Try out each function below. Identify what each function tells you about the `abby` data and note this in the `???`:
+
+```{r eval = TRUE}
+# First number = number of rows / cases
+# Second number = number of columns / variables
+dim(abby)
+
+# Number of rows (cases)
+nrow(abby)
+
+# Number of columns (variables)
+ncol(abby)
+
+# View first few rows of the dataset (6 rows, by default)
+head(abby)
+
+# Get all column (variable) names
+names(abby)
+```
+
+e.  We can display the first 10 rows with `head(abby, n = 10)`.
+
+
+
+## Exercise 2: Preparing to summarize and visualize the data
+
+a.  The sentiment variables are `afinn_overall`, `afinn_pos`, `afinn_neg`, and `bing_pos`, and they are **quantitative**. The `afinn` variables don't have units but we can still get a sense of the scale by remembering that each word gets a score between -5 and 5. The `bing_pos` variable doesn't have units because it's a fraction, but we know that it ranges from 0 to 1.
+
+b.  **categorical**
+
+c.  Appropriate visualizations:
+
+    -   single quantitative variable: boxplot, histogram, density plot
+    -   single categorical variable: barplot
+
+
+
+## Exercise 3: Exploring themes in the letters
+
+
+a.  Expectations about the plot will vary
+
+```{r eval = TRUE}
+ggplot(abby, aes(x = themes)) +
+    geom_bar() +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+b.  Counts in the table below match the barplot
+
+```{r eval = TRUE}
+# Construct a table of counts
+abby %>% 
+    count(themes)
+```
+
+c.  What do the plot layers do?
+
+```{r eval = TRUE}
+# Just sets up the "canvas" of the plot with axis labels
+ggplot(abby, aes(x = themes))
+```
+
+```{r eval = TRUE}
+# Adds the bars
+ggplot(abby, aes(x = themes)) +
+    geom_bar()
+```
+
+```{r eval = TRUE}
+# Rotates the x axis labels
+ggplot(abby, aes(x = themes)) +
+    geom_bar() +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+```{r eval = TRUE}
+# Changes the visual theme of the plot with a white background and removes gridlines
+ggplot(abby, aes(x = themes)) +
+    geom_bar() +
+    theme_classic() +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+
+
+
+## Exercise 4: Exploring sentiment
+
+
+a.  
+
+    -   We might expect the mean of this variable is less than zero given that more negative words might be appear in questions on an advice column.
+    -   The code has a similar structure to the barplot in that there is an initial `ggplot()` layer which sets the canvas, then a `+` to add a layer, then the final layer `geom_boxplot()` (like `geom_bar()`) which tells R what type of plot to make.
+
+```{r eval = TRUE}
+ggplot(abby, aes(x = afinn_overall)) +
+    geom_boxplot()
+```
+
+b.  We replace `geom_boxplot()` with `geom_histogram()` and `geom_density()`.
+    -   The tallest bar of the histogram indicates that over 7500 questions had an overall `afinn` sentiment score between around -8 to 0.(The -8 to 0 comes from eyeballing where the tallest bar is placed on the x-axis, and the height of this bar indicates how many cases fall into that bin.)
+    -   The shape of the distribution: roughly symmetric
+
+```{r eval = TRUE}
+# Histogram
+ggplot(abby, aes(x = afinn_overall)) +
+    geom_histogram()
+
+# Density plot
+ggplot(abby, aes(x = afinn_overall)) +
+    geom_density()
+```
+
+c.  
+
+    -   Boxplot shows min, max, median, 1st and 3rd quartile easily. (It shows median, 1st and 3rd quartile directly as lines)
+    -   Histogram and density plot show min and max but the mean and median aren't shown directly--we have to roughly guess based on the peak of the distribution
+
+```{r eval = TRUE}
+# Summary statistics
+summary(abby$afinn_overall)
+
+abby %>% 
+    summarize(mean(afinn_overall, na.rm = TRUE), median(afinn_overall, na.rm = TRUE), sd(afinn_overall, na.rm = TRUE))
+```
+
+d.  The distribution of sentiment scores is roughly symmetric with a mean of -1.4 and a similar median of -1. The median and mean are quite similar because the distribution is fairly symmetric. The standard deviation of the sentiment scores is about 11.08 which tells us how much variation there is from the center of the distribution. 11.08 is somewhat high given the IQR of -6 to 3 (which is a span of 9 units).
+
+
+
+
+## Exercise 5: Box plots vs. histograms vs. density plots
+
+a.  Boxplots very clearly show key summary statistics like median, 1st and 3rd quartile
+b.  Boxplots can oversimplify by not showing the shape of the distribution.
+
+
+
+
+## Exercise 6: Returning to our context, looking ahead
+
+-   Answers will vary
+
+
+
+
+## Exercise 9: Read in and get to know the weather data
+
+```{r eval = TRUE}
+weather <- read_csv("https://raw.githubusercontent.com/Mac-STAT/data/main/weather_3_locations.csv")
+```
+
+
+
+
+## Exercise 10: Exploring the data structure
+
+Check out the basic features of the weather data.
+
+```{r eval = TRUE}
+# Examine the first six cases
+head(weather)
+
+# Find the dimensions of the data
+dim(weather)
+```
+
+A case represents a day of the year in a particular area (Hobart, Uluru, Wollongong as seen by the `location` variable).
+
+
+
+
+## Exercise 11: Exploring rainfall
+
+The `raintoday` variable contains information about rainfall.
+
+-   `raintoday` is categorical (No, Yes)
+-   It is more common to have no rain.
+
+```{r eval = TRUE}
+# Visualization
+ggplot(weather, aes(x = raintoday)) +
+    geom_bar()
+
+# Numerical summaries
+weather %>% 
+    count(raintoday)
+```
+
+
+
+
+## Exercise 12: Exploring temperature
+
+The `maxtemp` variable contains information on the daily high temperature.
+
+-   `maxtemp` is quantitative
+-   The *typical* max temperature is around 23 degrees Celsius (with an average of 23.62 and a median of 22 degrees). The max temperatures ranged from 8.6 to 45.4 degrees. Finally, on the typical day, the max temp falls about 7.8 degrees from the mean. There are multiple modes in the distribution of max temperature---this likely reflects the different cities in the dataset.
+
+```{r eval = TRUE}
+# Visualization
+ggplot(weather, aes(x = maxtemp)) + 
+    geom_histogram()
+
+# Numerical summaries
+summary(weather$maxtemp)
+
+# There are missing values (NAs) in this variable, so we add
+# the na.rm = TRUE argument
+weather %>% 
+    summarize(sd(maxtemp, na.rm = TRUE))
+```
+
+
+
+
+## Exercise 13: Customizing! (CHALLENGE)
+
+a.  
+
+```{r eval = TRUE}
+ggplot(weather, aes(x = maxtemp)) + 
+    geom_histogram() + 
+    labs(x = "Maximum temperature", y = "Number of days", title = "Distribution of max temperatures in Perth")
+```
+
+b.  
+
+```{r eval = TRUE}
+# Make the bars green
+ggplot(weather, aes(x = raintoday)) + 
+    geom_bar(fill = "green")
+```
+
+
 

@@ -27,14 +27,6 @@ You can download the .qmd file for this activity [here](../activity_templates/02
 
 # Notes
 
-## Recall
-
-In the last class, we:
-
--   Introduced **Tidy Data** and described what an **observation**, **case** (or **unit of analysis**) represents in a dataset.
--   Described what a **variable** represents in a dataset.
--   Identified whether a variable is **categorical** or **quantitative** and 
-
 ## Learning goals
 
 By the end of this activity, you should be able to:
@@ -73,7 +65,7 @@ You should have gone through the followings **before** the class and finished ch
     
 - Work on these exercises in your groups. (Collaboration is a key learning goal in this course, which we'll discuss in the coming classes.)       
     - Take your time. You won't hand anything in and can finish up outside of class.
-    - We will not discuss these exercises as a class. Your group should ask me questions as I walk around the room.
+    - We might not discuss all of these exercises as a class. Your group should ask me questions as I walk around the room when I will tell you to do in group.
     - **Choose one person from your group to answer questions on behalf of the group. The role of group representative will rotate each class meeting.**
 
 
@@ -82,7 +74,7 @@ You should have gone through the followings **before** the class and finished ch
 
 - Some activities are important to learn and in that case I will tell you that we will finish the activities next class.
 
-- Otherwise, if we can't finish some activities which can be finished outside of the class and/or you didn’t finish the activity during class, be sure to complete the activity outside of class, review the solutions in the online manual (at the end of in-class activities!), and ask any questions in office hours.
+- Otherwise, if we can't finish some activities which can be finished outside of the class and/or you didn’t finish the activity during class, be sure to complete the activity outside of class, review the solutions in the online manual (at the end of in-class activities!), and ask any questions in office hours (me and preceptors).
 
 
 
@@ -95,12 +87,12 @@ In 2018, the data journalism site [The Pudding](https://pudding.cool/) published
 
 
 
-## Exercise 1: Importing and getting to know the data
+## Exercise 1: Importing and getting to know the data **[Group]**
 
 First, in the **Console pane** of RStudio, run the following command to install some necessary packages (you will need to do this any time you are installing a new package):
 
 ```         
-install.packages("tidyverse")
+install.packages("tidyverse") # We have already installed it!
 ```
 
 Now, in the **Quarto pane**, run the following code chunk to load the package and load a dataset (you can either click the green arrow in the top right of the code chunk, put your cursor in the code chunk and hit Ctrl+Alt+C \[on Windows/Linux\] or Command+Option+C \[on Mac\]).
@@ -183,7 +175,7 @@ e.  **\[OPTIONAL\]** If you're not sure how exactly to use a function, you can p
 
 
 
-## Exercise 2: Preparing to summarize and visualize the data
+## Exercise 2: Preparing to summarize and visualize the data **[Explore]**
 
 In the next exercises, we will be exploring themes in the Dear Abby questions and the overall "mood" or sentiment of the questions. Before continuing, read the [codebook](https://github.com/Mac-STAT/data/blob/main/dear_abby_codebook.md) for this dataset for some context about sentiment analysis, which gives us a measure of the mood/sentiment of a text.
 
@@ -196,7 +188,7 @@ c.  What visualizations are appropriate for looking at the distribution of a sin
 
 
 
-## Exercise 3: Exploring themes in the letters
+## Exercise 3: Exploring themes in the letters [Group & Explore]
 
 
 a.  The code below makes a **barplot** of the `themes` variable using the `ggplot2` visualization package. *Before making the plot*, make note of what you expect the plot might look like. (This might be hard--just do your best!) *Then* compare to what you observe when you run the code chunk to make the plot. (Clearly defining your expectations first is good scientific practice to avoid confirmation bias.)
@@ -225,20 +217,20 @@ c.  Before proceeding, let's break down the plotting code above. Run each chunk 
 
 ```{r}
 # ???
-ggplot(abby, aes(x = themes))
+ggplot(abby, aes(x = themes)) #sets up the "canvas" of the plot with axis labels
 ```
 
 ```{r}
 # ???
 ggplot(abby, aes(x = themes)) +
-    geom_bar()
+    geom_bar() # Adds the bars- Any Problem you notice?
 ```
 
 ```{r}
 # ???
 ggplot(abby, aes(x = themes)) +
     geom_bar() +
-    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) #Rotates the x axis labels
 ```
 
 ```{r}
@@ -246,7 +238,7 @@ ggplot(abby, aes(x = themes)) +
 ggplot(abby, aes(x = themes)) +
     geom_bar() +
     theme_classic() +
-    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) # Changes the visual theme of the plot with a white background and removes gridlines
 ```
 
 

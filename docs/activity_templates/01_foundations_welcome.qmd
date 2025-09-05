@@ -34,10 +34,15 @@ You can download the .qmd file for this activity [here](../activity_templates/01
 
 - [We need to change the setup of the classroom (unfortunately!). Let us start an unintended class activity of making pods (by joining two tables and 4 chairs face-to-face)]
 
-- Sit in groups of 3-4. Your group should include:
+- Sit in groups of **4 (preferably) or 3 (at least)**. Your group should include:
     - *nobody* that you already know
     - at least 1 person who has used RStudio before
-- Meet the people at your table. Share your names and pronouns. Discuss a high point of your summer break.
+- **Meet the people at your table. Share your names and pronouns (again!?). Discuss a high point of your summer break.**
+
+
+\
+
+
 - Open the online manual:
     - [https://mutasim221b.github.io/Mac-STAT-155-Fall-25/](https://mutasim221b.github.io/Mac-STAT-155-Fall-25/) (also linked in Moodle)
     - Top bar < Activities < Collecting and Summarizing Data
@@ -215,9 +220,9 @@ Why R/RStudio?
 
 **DIRECTIONS**
 
-- Go to Mac's RStudio server: [https://rstudio.macalester.edu/](https://rstudio.macalester.edu/)        
+- If you haven't already installed R and RStudio in your laptop, please go to Mac's RStudio server: [https://rstudio.macalester.edu/](https://rstudio.macalester.edu/)        
     - Sign in with your Mac username (eg: mbillah) and password.
-    - NOTE: After class, you'll install R/RStudio on your own machine and will not be using the server (if you haven't done so!).
+    - NOTE: After class, you'll install R/RStudio on your own machine and will not be using the server. Please meet me in-person to know why you can't rely on the server (specially for this course!)
 
 
 
