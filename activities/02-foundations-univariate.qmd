@@ -61,23 +61,6 @@ You should have gone through the followings **before** the class and finished ch
 \
 
 
-**DIRECTIONS**
-    
-- Work on these exercises in your groups. (Collaboration is a key learning goal in this course, which we'll discuss in the coming classes.)       
-    - Take your time. You won't hand anything in and can finish up outside of class.
-    - We might not discuss all of these exercises as a class. Your group should ask me questions as I walk around the room when I will tell you to do in group.
-    - **Choose one person from your group to answer questions on behalf of the group. The role of group representative will rotate each class meeting.**
-
-
-
-**Finish the activity**
-
-- Some activities are important to learn and in that case I will tell you that we will finish the activities next class.
-
-- Otherwise, if we can't finish some activities which can be finished outside of the class and/or you didn’t finish the activity during class, be sure to complete the activity outside of class, review the solutions in the online manual (at the end of in-class activities!), and ask any questions in office hours (me and preceptors).
-
-
-
 
 > **Guiding question:** What anxieties have been on Americans' minds over the decades?
 
@@ -87,7 +70,7 @@ In 2018, the data journalism site [The Pudding](https://pudding.cool/) published
 
 
 
-## Exercise 1: Importing and getting to know the data **[Group]**
+## Exercise 1: Importing and getting to know the data 
 
 First, in the **Console pane** of RStudio, run the following command to install some necessary packages (you will need to do this any time you are installing a new package):
 
@@ -175,7 +158,7 @@ e.  **\[OPTIONAL\]** If you're not sure how exactly to use a function, you can p
 
 
 
-## Exercise 2: Preparing to summarize and visualize the data **[Explore]**
+## Exercise 2: Preparing to summarize and visualize the data 
 
 In the next exercises, we will be exploring themes in the Dear Abby questions and the overall "mood" or sentiment of the questions. Before continuing, read the [codebook](https://github.com/Mac-STAT/data/blob/main/dear_abby_codebook.md) for this dataset for some context about sentiment analysis, which gives us a measure of the mood/sentiment of a text.
 
@@ -188,7 +171,7 @@ c.  What visualizations are appropriate for looking at the distribution of a sin
 
 
 
-## Exercise 3: Exploring themes in the letters [Group & Explore]
+## Exercise 3: Exploring themes in the letters 
 
 
 a.  The code below makes a **barplot** of the `themes` variable using the `ggplot2` visualization package. *Before making the plot*, make note of what you expect the plot might look like. (This might be hard--just do your best!) *Then* compare to what you observe when you run the code chunk to make the plot. (Clearly defining your expectations first is good scientific practice to avoid confirmation bias.)
@@ -690,25 +673,20 @@ ggplot(abby, aes(x = themes)) +
 
 a.  
 
-    -   We might expect the mean of this variable is less than zero given that more negative words might be appear in questions on an advice column.
-    -   The code has a similar structure to the barplot in that there is an initial `ggplot()` layer which sets the canvas, then a `+` to add a layer, then the final layer `geom_boxplot()` (like `geom_bar()`) which tells R what type of plot to make.
-
 ```{r eval = TRUE}
-ggplot(abby, aes(x = afinn_overall)) +
+ggplot(abby, aes(x = bing_pos)) +
     geom_boxplot()
 ```
 
 b.  We replace `geom_boxplot()` with `geom_histogram()` and `geom_density()`.
-    -   The tallest bar of the histogram indicates that over 7500 questions had an overall `afinn` sentiment score between around -8 to 0.(The -8 to 0 comes from eyeballing where the tallest bar is placed on the x-axis, and the height of this bar indicates how many cases fall into that bin.)
-    -   The shape of the distribution: roughly symmetric
-
+    
 ```{r eval = TRUE}
 # Histogram
-ggplot(abby, aes(x = afinn_overall)) +
+ggplot(abby, aes(x = bing_pos)) +
     geom_histogram()
 
 # Density plot
-ggplot(abby, aes(x = afinn_overall)) +
+ggplot(abby, aes(x = bing_pos)) +
     geom_density()
 ```
 
@@ -719,13 +697,16 @@ c.
 
 ```{r eval = TRUE}
 # Summary statistics
-summary(abby$afinn_overall)
+abby %>% 
+    select(bing_pos) %>% 
+    summary()
 
 abby %>% 
-    summarize(mean(afinn_overall, na.rm = TRUE), median(afinn_overall, na.rm = TRUE), sd(afinn_overall, na.rm = TRUE))
+    summarize(mean(bing_pos, na.rm = TRUE), median(bing_pos, na.rm = TRUE), sd(bing_pos, na.rm = TRUE))
 ```
 
-d.  The distribution of sentiment scores is roughly symmetric with a mean of -1.4 and a similar median of -1. The median and mean are quite similar because the distribution is fairly symmetric. The standard deviation of the sentiment scores is about 11.08 which tells us how much variation there is from the center of the distribution. 11.08 is somewhat high given the IQR of -6 to 3 (which is a span of 9 units).
+d.  The distribution of sentiment scores is roughly tri-modal, ranging from 0 to 1. There's a group of very negative letters (with roughly 0\% of words being positive), a group of very positive letters (with roughly 100\% of words being positive), and a group of mostly negative letters. The typical sentiment is around 0.34.
+
 
 
 

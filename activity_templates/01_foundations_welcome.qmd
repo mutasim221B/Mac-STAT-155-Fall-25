@@ -472,9 +472,9 @@ With your group, discuss what is unfortunate about each line, then make it bette
 
 
 ```{r eval = FALSE}
-seq(from=1,to=9,by=2)
-seq(from = 1, to=9,by=2)
-my_output <- -13
+seq(from=1, to=9, by=2)
+seq(from = 1, to=9, by=2)
+temp_cel <- -13
 thisisthetemperaturetodayincelsius <- -13
 this_is_the_temperature_today_in_celsius <- -13
 ```

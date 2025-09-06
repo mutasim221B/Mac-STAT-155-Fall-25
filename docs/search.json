@@ -207,7 +207,7 @@
     "href": "template_qmds/20-bootstrapping-notes.html#exercise-5-resampling",
     "title": "Bootstrapping (Notes)",
     "section": "Exercise 5: Resampling",
-    "text": "Exercise 5: Resampling\nIn practice, we take one sample of size n from the population. To obtain a bootstrapping distribution of some sample estimate \\(\\hat{\\beta}\\), we…\n\ntake many resamples of size n with replacement from the sample\ncalculate \\(\\hat{\\beta}\\) using each resample\n\n\nLet’s wrap our minds around the idea of resampling using a small example of 5 fish:\n\n# Define data\nsmall_sample &lt;- data.frame(\n  id = 1:5,\n  Length = c(44, 43, 54, 52, 40))\n\nsmall_sample\n##   id Length\n## 1  1     44\n## 2  2     43\n## 3  3     54\n## 4  4     52\n## 5  5     40\n\nThis sample has a mean Length of 46.6 cm:\n\nsmall_sample %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.6\n\n\nThe chunk below samples 5 fish without replacement from our small_sample of 5 fish, and calculates their mean length. Run it several times. How do the sample and resulting mean change?\n\n\nsample_1 &lt;- sample_n(small_sample, size = 5, replace = FALSE)\nsample_1\n##   id Length\n## 1  1     44\n## 2  2     43\n## 3  5     40\n## 4  4     52\n## 5  3     54\n\nsample_1 %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.6\n\n\nSampling our sample without replacement merely returns our original sample. Instead, resample 5 fish from our small_sample with replacement. Run it several times. What do you notice about the samples? About their mean lengths?\n\n\nsample_2 &lt;- sample_n(small_sample, size = 5, replace = TRUE)\nsample_2\n##   id Length\n## 1  4     52\n## 2  4     52\n## 3  2     43\n## 4  1     44\n## 5  2     43\n\nsample_2 %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.8\n\n\nResampling our sample provides insight into the variability, hence potential error, in our sample estimates. (This works better when we have a sample bigger than 5!) As you observed in part b, each resample might include some fish from the original sample several times and others not at all. Why is this ok?"
+    "text": "Exercise 5: Resampling\nIn practice, we take one sample of size n from the population. To obtain a bootstrapping distribution of some sample estimate \\(\\hat{\\beta}\\), we…\n\ntake many resamples of size n with replacement from the sample\ncalculate \\(\\hat{\\beta}\\) using each resample\n\n\nLet’s wrap our minds around the idea of resampling using a small example of 5 fish:\n\n# Define data\nsmall_sample &lt;- data.frame(\n  id = 1:5,\n  Length = c(44, 43, 54, 52, 40))\n\nsmall_sample\n##   id Length\n## 1  1     44\n## 2  2     43\n## 3  3     54\n## 4  4     52\n## 5  5     40\n\nThis sample has a mean Length of 46.6 cm:\n\nsmall_sample %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.6\n\n\nThe chunk below samples 5 fish without replacement from our small_sample of 5 fish, and calculates their mean length. Run it several times. How do the sample and resulting mean change?\n\n\nsample_1 &lt;- sample_n(small_sample, size = 5, replace = FALSE)\nsample_1\n##   id Length\n## 1  2     43\n## 2  4     52\n## 3  1     44\n## 4  3     54\n## 5  5     40\n\nsample_1 %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         46.6\n\n\nSampling our sample without replacement merely returns our original sample. Instead, resample 5 fish from our small_sample with replacement. Run it several times. What do you notice about the samples? About their mean lengths?\n\n\nsample_2 &lt;- sample_n(small_sample, size = 5, replace = TRUE)\nsample_2\n##   id Length\n## 1  2     43\n## 2  5     40\n## 3  5     40\n## 4  4     52\n## 5  4     52\n\nsample_2 %&gt;% \n  summarize(mean(Length))\n##   mean(Length)\n## 1         45.4\n\n\nResampling our sample provides insight into the variability, hence potential error, in our sample estimates. (This works better when we have a sample bigger than 5!) As you observed in part b, each resample might include some fish from the original sample several times and others not at all. Why is this ok?"
   },
   {
     "objectID": "template_qmds/20-bootstrapping-notes.html#exercise-6-bootstrapping",
@@ -291,7 +291,7 @@
     "href": "template_qmds/19-20-sampling-dist-clt-bootstrap-notes.html#exercise-1-500-samples-of-size-10",
     "title": "Sampling distributions, the CLT, and Bootstrapping (Notes)",
     "section": "Exercise 1: 500 samples of size 10",
-    "text": "Exercise 1: 500 samples of size 10\nRecall that we can sample 10 observations from our dataset using sample_n():\n\n# Run this chunk a few times to explore the different samples you get\nfish %&gt;% \n  sample_n(size = 10, replace = TRUE)\n## # A tibble: 10 × 5\n##    River   Station Length Weight Concen\n##    &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n##  1 Lumber        0   48.7   1862   1.5 \n##  2 Lumber        0   44.7   1320   0.56\n##  3 Lumber        1   36.1    622   1.5 \n##  4 Wacamaw      10   28.5    303   0.61\n##  5 Lumber        2   31.4    362   1.1 \n##  6 Lumber        2   30.5    314   0.9 \n##  7 Wacamaw      11   43     1258   0.9 \n##  8 Wacamaw      11   47.2   1699   1.9 \n##  9 Wacamaw      15   53.7   2625   2.9 \n## 10 Wacamaw      12   27.5    283   0.14\n\nWe can also take a sample and then use the data to estimate the model:\n\n# Run this chunk a few times to explore the different sample models you get\nfish %&gt;% \n  sample_n(size = 10, replace = TRUE) %&gt;% \n  with(lm(Concen ~ Length))\n## \n## Call:\n## lm(formula = Concen ~ Length)\n## \n## Coefficients:\n## (Intercept)       Length  \n##     -0.3295       0.0440\n\nWe can also take multiple unique samples and build a sample model from each.\nThe code below obtains 500 separate samples of 10 fish, and stores the model estimates from each:\n\n# Set the seed so that we all get the same results\nset.seed(155)\n\n# Store the sample models\nsample_models_10 &lt;- mosaic::do(500)*(\n  fish %&gt;% \n    sample_n(size = 10, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n\n# Check it out\nhead(sample_models_10)\n##    Intercept     Length     sigma r.squared          F numdf dendf .row .index\n## 1 -2.7811151 0.09635286 0.5737186 0.7273700  21.343798     1     8    1      1\n## 2 -3.0684939 0.10953496 0.3797853 0.9347767 114.655478     1     8    1      2\n## 3 -1.2880671 0.05933243 0.7457468 0.3776855   4.855237     1     8    1      3\n## 4 -0.9248832 0.05411299 0.6251621 0.4796674   7.374782     1     8    1      4\n## 5 -1.0882523 0.05349699 0.3441272 0.4985134   7.952571     1     8    1      5\n## 6 -0.4558309 0.04074788 0.7785389 0.1719987   1.661820     1     8    1      6\ndim(sample_models_10)\n## [1] 500   9\n\n\nWhat’s the point of the do() function?!? If you’ve taken any COMP classes, what process do you think do() is a shortcut for?\nWhat is stored in the Intercept, Length, and r.squared columns of the results?\nWe’ll obtain a bootstrapping distribution of \\(\\hat{\\beta}_1\\) by taking many (500, in this case) different samples of every fish in our dataset (171 of them) and exploring the degree to which \\(\\hat{\\beta}_1\\) varies from sample to sample.\n\nEdit the code below to obtain a bootstrapping distribution.\n\n# Set the seed so that we all get the same results\nset.seed(155)\n\n# Store the sample models\nsample_models_boot &lt;- mosaic::do(___)*(\n  fish %&gt;% \n    sample_n(size = ___, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n## Error in parse(text = input): &lt;text&gt;:5:35: unexpected input\n## 4: # Store the sample models\n## 5: sample_models_boot &lt;- mosaic::do(__\n##                                      ^"
+    "text": "Exercise 1: 500 samples of size 10\nRecall that we can sample 10 observations from our dataset using sample_n():\n\n# Run this chunk a few times to explore the different samples you get\nfish %&gt;% \n  sample_n(size = 10, replace = TRUE)\n## # A tibble: 10 × 5\n##    River   Station Length Weight Concen\n##    &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n##  1 Wacamaw       8   31.5    521   0.74\n##  2 Wacamaw      10   46.1   1327   0.91\n##  3 Wacamaw      12   39      743   0.39\n##  4 Lumber        1   45.1   2920   0.34\n##  5 Wacamaw       8   40      856   1.1 \n##  6 Lumber        4   30      430   0.27\n##  7 Wacamaw      14   40.2   1090   1.2 \n##  8 Wacamaw      14   46.5    772   1.7 \n##  9 Lumber        1   41     1059   1.8 \n## 10 Lumber        3   50     1883   1.2\n\nWe can also take a sample and then use the data to estimate the model:\n\n# Run this chunk a few times to explore the different sample models you get\nfish %&gt;% \n  sample_n(size = 10, replace = TRUE) %&gt;% \n  with(lm(Concen ~ Length))\n## \n## Call:\n## lm(formula = Concen ~ Length)\n## \n## Coefficients:\n## (Intercept)       Length  \n##    -0.15962      0.02538\n\nWe can also take multiple unique samples and build a sample model from each.\nThe code below obtains 500 separate samples of 10 fish, and stores the model estimates from each:\n\n# Set the seed so that we all get the same results\nset.seed(155)\n\n# Store the sample models\nsample_models_10 &lt;- mosaic::do(500)*(\n  fish %&gt;% \n    sample_n(size = 10, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n\n# Check it out\nhead(sample_models_10)\n##    Intercept     Length     sigma r.squared          F numdf dendf .row .index\n## 1 -2.7811151 0.09635286 0.5737186 0.7273700  21.343798     1     8    1      1\n## 2 -3.0684939 0.10953496 0.3797853 0.9347767 114.655478     1     8    1      2\n## 3 -1.2880671 0.05933243 0.7457468 0.3776855   4.855237     1     8    1      3\n## 4 -0.9248832 0.05411299 0.6251621 0.4796674   7.374782     1     8    1      4\n## 5 -1.0882523 0.05349699 0.3441272 0.4985134   7.952571     1     8    1      5\n## 6 -0.4558309 0.04074788 0.7785389 0.1719987   1.661820     1     8    1      6\ndim(sample_models_10)\n## [1] 500   9\n\n\nWhat’s the point of the do() function?!? If you’ve taken any COMP classes, what process do you think do() is a shortcut for?\nWhat is stored in the Intercept, Length, and r.squared columns of the results?\nWe’ll obtain a bootstrapping distribution of \\(\\hat{\\beta}_1\\) by taking many (500, in this case) different samples of every fish in our dataset (171 of them) and exploring the degree to which \\(\\hat{\\beta}_1\\) varies from sample to sample.\n\nEdit the code below to obtain a bootstrapping distribution.\n\n# Set the seed so that we all get the same results\nset.seed(155)\n\n# Store the sample models\nsample_models_boot &lt;- mosaic::do(___)*(\n  fish %&gt;% \n    sample_n(size = ___, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n## Error in parse(text = input): &lt;text&gt;:5:35: unexpected input\n## 4: # Store the sample models\n## 5: sample_models_boot &lt;- mosaic::do(__\n##                                      ^"
   },
   {
     "objectID": "template_qmds/19-20-sampling-dist-clt-bootstrap-notes.html#exercise-2-why-resampling-replace-true",
@@ -1211,6 +1211,322 @@
     "text": "STAT 155: Introduction to Statistical Modeling\nMacalester College, Fall 2025\nStatistics is not just about theories & numbers — it’s about making sense of the world.\n\n\n\n\n\n\n📖 A Thought from H. G. Wells\n\n\n\n\n“Statistical thinking will one day be as necessary for efficient citizenship as the ability to read and write.”\n\n\n\nWelcome to the world of Statistics! In this course, you’ll learn how to analyze data, test research hypotheses, and make predictions in ways that matter.\nInstructor: Md Mutasim Billah  Class meeting times:\n\nSection 03: M/W/F 09:40-10:40am, THTR 002\nSection 04: M/W/F 12:00-01:00pm, THTR 202\n\nInstructor’s drop-in (office) hours:\n\nLocation: My office (OLRI 234)\nTimes: M/W: 01:30-02:30 pm.\nBy Appointment: I’m also happy to meet one-on-one! Shoot me an email and we can arrange it either in-person or over zoom, password: 123456.\nEmail Response Time: I do my best to reply to emails promptly during weekdays.\nPlease note that messages sent after 4:00 pm or on weekends may take longer to receive a response.\n\n\nSTAT 155 Preceptor Office Hours: There is a link to a Google Calendar containing all preceptor office hours available at the top of the course Moodle page!\nR/RStudio Preceptor Office Hours: Available on the MSCS Events google calendar (not to be used for questions about course content, only Data and R-related things!)\n\nThis course website will be updated throughout the semester with new activities, assignments, and announcements, so please bookmark this page if you are enrolled in the course!\nIf you find any typos, bugs, dead links, or have other questions, please email mbillah@macalester.edu"
   },
   {
+    "objectID": "activities/03-slr-introduction.html",
+    "href": "activities/03-slr-introduction.html",
+    "title": "Notes",
+    "section": "",
+    "text": "By the end of this lesson, you should be able to:\n\nVisualize and describe the relationship between two quantitative variables using a scatterplot\nWrite R code to create a scatterplot and compute the linear correlation between two quantitative variables\nDescribe/identify weak / strong, and positive / negative correlation from a point cloud\nBuild intuition for fitting lines to quantify the relationship between two quantitative variables\n\n\n\n\nChoose either the reading or the videos to go through after class.\n\nReading: Sections 2.8, 3.1-3.3, 3.6 in the STAT 155 Notes\nVideos:\n\nSimple linear regression Part 1: motivation & scatterplots\nSimple linear regression Part 2: correlation\nSimple linear regression Part 3: simple linear regression models\nR Code for Fitting a Linear Model (Time: 11:07)\n\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder."
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#learning-goals",
+    "href": "activities/03-slr-introduction.html#learning-goals",
+    "title": "Notes",
+    "section": "",
+    "text": "By the end of this lesson, you should be able to:\n\nVisualize and describe the relationship between two quantitative variables using a scatterplot\nWrite R code to create a scatterplot and compute the linear correlation between two quantitative variables\nDescribe/identify weak / strong, and positive / negative correlation from a point cloud\nBuild intuition for fitting lines to quantify the relationship between two quantitative variables"
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#readings-and-videos",
+    "href": "activities/03-slr-introduction.html#readings-and-videos",
+    "title": "Notes",
+    "section": "",
+    "text": "Choose either the reading or the videos to go through after class.\n\nReading: Sections 2.8, 3.1-3.3, 3.6 in the STAT 155 Notes\nVideos:\n\nSimple linear regression Part 1: motivation & scatterplots\nSimple linear regression Part 2: correlation\nSimple linear regression Part 3: simple linear regression models\nR Code for Fitting a Linear Model (Time: 11:07)\n\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder."
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-1-get-to-know-the-data",
+    "href": "activities/03-slr-introduction.html#exercise-1-get-to-know-the-data",
+    "title": "Notes",
+    "section": "Exercise 1: Get to know the data",
+    "text": "Exercise 1: Get to know the data\n\nCreate a new code chunk by clicking the green “C” button with a green + sign in the top right of the menu bar. In this code chunk, use an appropriate function to look at the first few rows of the data.\nCreate a new code chunk, and use an appropriate function to learn how much data we have (in terms of cases and variables).\nWhat does a case represent?\nNavigate to the FAQ page and read the response to the “How does this site work? Do you just download results from the federations?” question. What do you learn about data quality and completeness from this response?"
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-2-mutating-our-data",
+    "href": "activities/03-slr-introduction.html#exercise-2-mutating-our-data",
+    "title": "Notes",
+    "section": "Exercise 2: Mutating our data",
+    "text": "Exercise 2: Mutating our data\nStrength-to-weight ratio (SWR) is defined as TotalKg/BodyweightKg. We can use the mutate() function from the dplyr package to create a new variable in our dataframe for SWR using the following code:\n\n# The %&gt;% is called a \"pipe\" and feeds what comes before it\n# into what comes after (lifts data is \"fed into\" the mutate() function).\n# When creating a new variable, we often reassign the data frame to itself,\n# which updates the existing columns in lifts with the additional \"new\" column(s)\n# in lifts!\nlifts &lt;- lifts %&gt;% \n    mutate(NEW_VARIABLE_NAME = Age/BestSquatKg)\n## Error in `mutate()`:\n## ℹ In argument: `NEW_VARIABLE_NAME = Age/BestSquatKg`.\n## Caused by error:\n## ! object 'BestSquatKg' not found\n\nAdapt the example above to create a new variable called SWR, where SWR is defined as TotalKg/BodyweightKg."
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-3-get-to-know-the-outcomeresponse-variable",
+    "href": "activities/03-slr-introduction.html#exercise-3-get-to-know-the-outcomeresponse-variable",
+    "title": "Notes",
+    "section": "Exercise 3: Get to know the outcome/response variable",
+    "text": "Exercise 3: Get to know the outcome/response variable\nLet’s get acquainted with the SWR variable.\n\nConstruct an appropriate plot to visualize the distribution of this variable, and compute appropriate numerical summaries.\nWrite a good paragraph interpreting the plot and numerical summaries."
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-4-data-visualization---two-quantitative-variables",
+    "href": "activities/03-slr-introduction.html#exercise-4-data-visualization---two-quantitative-variables",
+    "title": "Notes",
+    "section": "Exercise 4: Data visualization - two quantitative variables",
+    "text": "Exercise 4: Data visualization - two quantitative variables\nWe’d like to visualize the relationship between body weight and the strength-to-weight ratio. A scatterplot (or informally, a “point cloud”) allows us to do this! The code below creates a scatterplot of body weight vs. SWR using ggplot().\n\n# scatterplot\n\n# The alpha = 0.5 in geom_point() adds transparency to the points\n# to make them easier to see. You can make this smaller for more transparency\nlifts %&gt;%\n  ggplot(aes(x = BodyweightKg, y = SWR)) +\n  geom_point(alpha = 0.5)\n## Error in `geom_point()`:\n## ! Problem while computing aesthetics.\n## ℹ Error occurred in the 1st layer.\n## Caused by error:\n## ! object 'SWR' not found\n\n\nThis is your first bivariate data visualization (visualization for two variables)! What differences do you notice in the code structure when creating a bivariate visualization, compared to univariate visualizations we’ve worked with before?\nWhat similarities do you notice in the code structure?\nDoes there appear to be some sort of pattern in the structure of the point cloud? Describe it, in no more than three sentences! Comment on the direction of the relationship between the two variables (positive? negative?) and the spread of the points (are they dispersed? close together?)."
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-5-scatterplots---patterns-in-point-clouds",
+    "href": "activities/03-slr-introduction.html#exercise-5-scatterplots---patterns-in-point-clouds",
+    "title": "Notes",
+    "section": "Exercise 5: Scatterplots - patterns in point clouds",
+    "text": "Exercise 5: Scatterplots - patterns in point clouds\nSometimes, it can be easier to see a pattern in a point cloud by adding a smoothing line to our scatterplots. The code below adapts the code in Exercise 4 to do this:\n\n# scatterplot with smoothing line\nlifts %&gt;%\n  ggplot(aes(x = BodyweightKg, y = SWR)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth()\n## Error in `geom_point()`:\n## ! Problem while computing aesthetics.\n## ℹ Error occurred in the 1st layer.\n## Caused by error:\n## ! object 'SWR' not found\n\n\nLook back at your answer to Exercise 4 (c). Does the smoothing line assist you in seeing a pattern, or change your answer at all? Why or why not?\nBased on the scatterplot with the smoothing line added above, does there appear to be a linear relationship between body weight and SWR (i.e. would a straight line do a decent job at summarizing the relationship between these two variables)? Why or why not?"
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-6-correlation",
+    "href": "activities/03-slr-introduction.html#exercise-6-correlation",
+    "title": "Notes",
+    "section": "Exercise 6: Correlation",
+    "text": "Exercise 6: Correlation\nWe can quantify the linear relationship between two quantitative variables using a numerical summary known as correlation (sometimes known as a “correlation coefficient” or “Pearson’s correlation”). Correlation can range from -1 to 1, where a correlation of 0 indicates that there is no linear relationship between the two quantitative variables.\nBelow is an example of a “Math Box”. You’ll see these occasionally throughout the activities. You are not required to memorize, nor will you be assessed on, anything in the math boxes. If you plan on continuing with Statistics courses at Macalester (or are interested in the math behind everything!), these math boxes are for you!\n\n\n\n\n\n\nCorrelation\n\n\n\n\n\nThe Pearson correlation coefficient, \\(r_{x, y}\\), of \\(x\\) and \\(y\\) is the (almost) average of products of the z-scores of variables \\(x\\) and \\(y\\):\n\\[\nr_{x, y} = \\frac{\\sum z_x z_y}{n - 1}\n\\]\n\n\n\nIn general, we will want to be able to describe (qualitatively) two aspects of correlation:\n\nStrength\n\n\nIs the correlation between x and y strong, or weak, i.e. how closely do the points fit around a line? This has to do with how dispersed our point clouds are.\n\n\nDirection\n\n\nIs the correlation between x and y positive or negative, i.e. does y go “up” when x goes “up” (positive), or does y go “down” when x goes “up” (negative)?\n\nStronger correlations will be further from 0 (closer to -1 or 1), and positive and negative correlations will have the appropriate respective sign (above or below zero).\n\nRather than a smooth trend line, we can force the line we add to our scatterplots to be linear using geom_smooth(method = 'lm'), as below:\n\n\n# scatterplot with linear trend line\nlifts %&gt;%\n  ggplot(aes(x = BodyweightKg, y = SWR)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth(method = \"lm\")\n## Error in `geom_point()`:\n## ! Problem while computing aesthetics.\n## ℹ Error occurred in the 1st layer.\n## Caused by error:\n## ! object 'SWR' not found\n\n\nBased on the above scatterplot, how would you describe the correlation between body weight and SWR, in terms of strength and direction?\nMake a guess as to what numerical value the correlation between body weight and SWR will have, based on your response to part (b)."
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-7-computing-correlation-in-r",
+    "href": "activities/03-slr-introduction.html#exercise-7-computing-correlation-in-r",
+    "title": "Notes",
+    "section": "Exercise 7: Computing correlation in R",
+    "text": "Exercise 7: Computing correlation in R\nWe can compute the correlation between body weight and SWR using summarize and cor functions:\n\n# correlation\n\n# Note: the order in which you put your two quantitative variables into the cor\n# function doesn't matter! Try switching them around to confirm this for yourself\n# Because of the missing data, we need to include the use = \"complete.obs\" - otherwise the correlation would be computed as NA\nlifts %&gt;%\n    summarize(cor(SWR, BodyweightKg, use = \"complete.obs\"))\n## Error in `summarize()`:\n## ℹ In argument: `cor(SWR, BodyweightKg, use = \"complete.obs\")`.\n## Caused by error:\n## ! object 'SWR' not found\n\nIs the computed correlation close to what you guessed in Exercise 6 part (c)?"
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-8-limitations-of-correlation",
+    "href": "activities/03-slr-introduction.html#exercise-8-limitations-of-correlation",
+    "title": "Notes",
+    "section": "Exercise 8: Limitations of correlation",
+    "text": "Exercise 8: Limitations of correlation\nWe previously noted that correlation was a numerical summary of the linear relationship between two variables. We’ll now go through some examples of relationships between quantitative variables to demonstrate why it is incredibly important to visualize our data in addition to just computing numerical summaries!\nFor this exercise, we’ll be working with the anscombe dataset, which is built in to R. To load this dataset into our environment, we run the following code:\n\n# load anscombe data\ndata(\"anscombe\")\n\nThe anscombe dataset contains four different pairs of quantitative variables:\n\nx1, y1\nx2, y2\nx3, y3\nx4, y4\n\nAdapt the code we used in Exercise 7 to compute the correlation between each of these four pairs of variables, below:\n\n# correlation between x1, y1\n\n# correlation between x2, y2\n\n# correlation between x3, y3\n\n# correlation between x4, y4\n\n\nWhat do you notice about each of these correlations (if the answer to this isn’t obvious, double-check your code)?\nDescribe these correlations in terms of strength and direction, using only the numerical summary to assist you in your description.\nDraw an example on the white board or at your tables of what you think the point clouds for these pairs of variables might look like. There are only 11 observations, so you can draw all 11 points if you’d like!\nAdapt the code for scatterplots given previously in this activity to make four distinct scatterplots for each pair of quantitative variables in the anscombe dataset. You do not need to add a smooth trend line or a linear trend line to these plots.\n\n\n# scatterplot: x1, y1\n\n# scatterplot: x2, y2\n\n# scatterplot: x3, y3\n\n# scatterplot: x4, y4\n\n\nBased on the correlations you calculated and scatterplots you made, what is the message of this last exercise as it relates to the limits of correlation?"
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#reflection",
+    "href": "activities/03-slr-introduction.html#reflection",
+    "title": "Notes",
+    "section": "Reflection",
+    "text": "Reflection\nMuch of statistics is about making (hopefully) reasonable assumptions in attempt to summarize observed relationships in data. Today we started considering assumptions of linear relationships between quantitative variables.\nReview the learning objectives at the top of this file and today’s activity. How do you imagine assumptions of linearity might be useful in terms of quantifying relationships between quantitative variables? How do you imagine these assumptions could sometimes fall short, or even be unethical in certain cases?\n\nResponse: Put your response here."
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-9-lines-of-best-fit",
+    "href": "activities/03-slr-introduction.html#exercise-9-lines-of-best-fit",
+    "title": "Notes",
+    "section": "Exercise 9: Lines of best fit",
+    "text": "Exercise 9: Lines of best fit\nIn this activity, we’ve learned how to fit straight lines to data, to help us visualize the relationship between two quantitative variables. So far, ggplot has chosen the line for us. How does it know which line is “best”, and what does “best” even mean?\nFor this exercise, we’ll consider the relationship between x1 and y1 in the anscombe dataset. Run the following code, which creates a scatterplot with a fitted line to our data using the function geom_abline:\n\n# scatterplot with a fitted line, whose slope is 0.4 and intercept is 3\nanscombe %&gt;%\n  ggplot(aes(x = x1, y = y1)) +\n  geom_point() +\n  geom_abline(slope = 0.4, intercept = 3, col = \"blue\", size = 1)\n\n\n\n\n\n\n\n\nDescribe the line that you see. Do you think the line is “good”? What are you using to define “good”?\nSome things to think about:\n\nHow many points are above the line?\nHow many points are below the line?\nAre the distances of the points above and below the line roughly similar, or is there meaningful difference?\n\nNow we’ll add another line to our plot. Which line do you think is better suited for this data? Why? Be specific!\n\n# scatterplot with a fitted line, whose slope is 0.4 and intercept is 3\nanscombe %&gt;%\n  ggplot(aes(x = x1, y = y1)) +\n  geom_point() +\n  geom_abline(slope = 0.4, intercept = 3, col = \"blue\", size = 1) +\n  geom_abline(slope = 0.5, intercept = 4, col = \"orange\", size = 1)\n\n\n\n\n\n\n\n\nIt’s usually quite simple to note when a line is bad, but more difficult to quantify when a line is a good fit for our data. Consider the following line:\n\n# scatterplot with a fitted line, whose slope is 0.4 and intercept is 3\nanscombe %&gt;%\n  ggplot(aes(x = x1, y = y1)) +\n  geom_point() +\n  geom_abline(slope = -0.5, intercept = 10, col = \"red\", size = 1) \n\n\n\n\n\n\n\n\nIn the next activity, we’ll formalize the principle of least squares, which will give us one particular definition of a line of best fit that is commonly used in statistics! We’ll take advantage of the vertical distances between each point and the fitted line (residuals), which will help us define (mathematically) a line that best fits our data:\n\nlibrary(broom)\nanscombe %&gt;%\n  lm(y1 ~ x1, data = .) %&gt;%\n  augment() %&gt;%\n  ggplot(aes(x = x1, y = y1)) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  geom_segment(aes(xend = x1, yend = .fitted), col = \"red\") +\n  geom_point()"
+  },
+  {
+    "objectID": "activities/03-slr-introduction.html#exercise-10-correlation-and-extreme-values",
+    "href": "activities/03-slr-introduction.html#exercise-10-correlation-and-extreme-values",
+    "title": "Notes",
+    "section": "Exercise 10: Correlation and extreme values",
+    "text": "Exercise 10: Correlation and extreme values\nIn this exercise, we’ll explore how correlation changes with the addition of extreme values, or observations. We’ll begin by generating a toy dataset called dat with two quantitative variables, x and y. Run the code below to create the dataset.\nwhile not required, recall that you can look up function documentation in R using the ? in front of a function name to figure out what that function is doing!\n\n# create a toy dataset\nset.seed(1234)\nx &lt;- rnorm(100, mean = 5, sd = 2)\ny &lt;- -3 * x + rnorm(100, sd = 4)\ndat &lt;- data.frame(x = x, y = y)\n\n\nMake a scatterplot of x vs. y.\n\n\n# scatterplot\n\n\nBased on your scatterplot, describe the correlation between x and y in terms of strength and direction.\nGuess the correlation (the numerical value) between x and y.\nCompute the correlation between x and y. Was your guess from part (c) close?\n\n\n# correlation\n\n\nSuppose we observe an additional observation with x = 15 and y = -45. We can create a new data frame, dat_new1, that contains this observation in addition to the original ones as follows:\n\n\n# creating dat_new1\nx1 &lt;- c(x, 15)\ny1 &lt;- c(y, -45)\ndat_new1 &lt;- data.frame(x = x1, y = y1)\n\n\nMake a scatterplot of x vs. y for this new data frame, and compute the correlation between x and y. Did your correlation change very much with the addition of this observation? Hypothesize why or why not.\n\n\n# scatterplot\n\n# correlation\n\n\nSuppose instead of our additional observation having values x = 15 and y = -45, we instead observe x = 15 and y = -15. We can create a new data frame, dat_new2, that contains this observation in addition to the original ones as follows:\n\n\n# creating dat_new1\nx2 &lt;- c(x, 15)\ny2 &lt;- c(y, 45)\ndat_new2 &lt;- data.frame(x = x2, y = y2)\n\n\nMake a scatterplot of x vs. y for this new data frame, and compute the correlation between x and y. Did your correlation change very much with the addition of this observation? Hypothesize why or why not.\n\n\n# scatterplot\n\n# correlation\n\n\nWhat do you think the takeaway message is of this exercise?\n\n\nChallenge Add linear trend lines to your scatterplots from parts (f) and (h). Does this give you any additional insight into why the correlations may have changed in different ways with the addition of a new observation?"
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html",
+    "href": "activities/01_foundations_welcome.html",
+    "title": "Collecting and Summarizing Data",
+    "section": "",
+    "text": "You can download the .qmd file for this activity here and open in R-studio. The rendered version is posted in the course website (Activities tab). I often experiment with the class activities (and see it in live!) and make updates, but I always post the final version before class starts. To be sure you have the most up-to-date copy, please download it once you’ve settled in before class begins.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#see-class-notes",
+    "href": "activities/01_foundations_welcome.html#see-class-notes",
+    "title": "Collecting and Summarizing Data",
+    "section": "See class notes",
+    "text": "See class notes\nGo to your class-notes to see what we covered in live-note taking!\n\n\n\nEXAMPLE 1: Tidy data (Class Activities!)\nWelcome to the first in-class activities of STAT 155! Fill out the Day 1 Activities form of the following questions (anonymous). We’ll come back to this in a future class. Wait until everyone in your group is done with this.\n\nHow many hours of sleep did you get last night?\nHow many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your anticipated graduation year?\nHow many stats/data science courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#example-1-use-r-as-a-calculator",
+    "href": "activities/01_foundations_welcome.html#example-1-use-r-as-a-calculator",
+    "title": "Collecting and Summarizing Data",
+    "section": "Example 1: Use R as a calculator",
+    "text": "Example 1: Use R as a calculator\nType the following lines in the console (bottom left), one by one, hitting Return/Enter after each line. In some cases you might even get an error! This error is important to learning how R code does and doesn’t work.\n\n4 + 2\n\n\n4^2\n\n\n4*2\n\n\n4(2)",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#example-2-functions-and-arguments",
+    "href": "activities/01_foundations_welcome.html#example-2-functions-and-arguments",
+    "title": "Collecting and Summarizing Data",
+    "section": "Example 2: Functions and arguments",
+    "text": "Example 2: Functions and arguments\nWe can also use built-in functions to perform common tasks. These functions have names and require information about arguments in order to run:\nfunction(argument) Cheatcode: RiceCooker(Rice)\nTry out the following functions one by one in the RStudio console. For each function, note its…\n\nname\nthe argument or information it needs to run\nwhat output it produces (what the function does)\nhow the name connects to what the function does\n\n\nsqrt(9)\n\n\nnchar(\"macalester\")\n\n\nsqrt(nchar(\"snow\"))\n\nSome functions have more than 1 argument, separated by commas:\nfunction(argument1 = ___, argument2 = ___) Cheatcode: RiceCooker(Rice,Chicken)\nTry out the following, one by one.\n\nrep(x = 2, times = 5)\n\n\nrep(times = 5, x = 2)\n\n\nrep(2, 5)\n\n\nrep(5, 2)\n\nFinally, R is case sensitive. Try using Rep() instead of rep(). Take time to read the error message!\n\nRep(5, 2)",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#example-3-save-it-for-later",
+    "href": "activities/01_foundations_welcome.html#example-3-save-it-for-later",
+    "title": "Collecting and Summarizing Data",
+    "section": "Example 3: Save it for later",
+    "text": "Example 3: Save it for later\nWe’ll often want to store some R output for later use. In R:\nname &lt;- output\nwhere name is the name under which to store a result, output is the result we wish to store, and &lt;- is the assignment operator (I think of this as an arrow pointing the output into the name).\nIMPORTANT: Try out each line one at a time. Why doesn’t the first line produce any output?\n\ndegrees_c &lt;- -13\n\n\ndegrees_c\n\n\ndegrees_c * (9/5) + 32",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#example-4-import-data",
+    "href": "activities/01_foundations_welcome.html#example-4-import-data",
+    "title": "Collecting and Summarizing Data",
+    "section": "Example 4: Import data",
+    "text": "Example 4: Import data\nNext, let’s work with some data!! The first step is importing our data into RStudio. How we do this depends on:\n\nfile format (eg: .xls Excel spreadsheet, .csv, .txt)\nfile location (eg: online, on your desktop, built into RStudio itself).\n\nThe data from the survey you took before class is stored as a .csv file online. Import this data using the read_csv() function, and store it as survey using the code below:\nFirst, in the Console pane of RStudio, run the following command to install some necessary packages (you will need to do this any time you are installing a new package):\ninstall.packages(\"tidyverse\")\n\n# Load the \"tidyverse\" package which contains the read_csv() function\nlibrary(tidyverse)\n\n# Import the data\nsurvey &lt;- read_csv(\"https://mac-stat.github.io/data/112_fall_2024_survey.csv\")\n\n\n\nCheck out the data\nIn the Environment tab in the upper right pane of RStudio, click on survey. What happens?!\n\n\nIn the modern era, datasets often contain hundreds of variables and millions of observations. We need more effective ways to explore such data.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#example-5-get-to-know-the-data",
+    "href": "activities/01_foundations_welcome.html#example-5-get-to-know-the-data",
+    "title": "Collecting and Summarizing Data",
+    "section": "Example 5: Get to know the data",
+    "text": "Example 5: Get to know the data\nPAUSE: Make sure you’re still in sync with your group.\nBefore we can learn anything from our data, we must understand its structure. For each function below:\n\ntry it out\ndiscuss with your group what the function does\ndiscuss with your group how the function’s name connects to what it does\n\n\ndim(survey) # (Number of row (case/obs.), Number of column (variable))\n\n\nnrow(survey) # Number of case/obs.\n\n\nncol(survey) # Number of variables\n\n\nhead(survey) # View first few rows of the dataset (6 rows, by default)\n\n\nhead(survey, 3) # Controlling the view of first few rows of the dataset\n\n\ntail(survey) # View first few rows of the dataset (6 rows, by default)\n\n\nnames(survey) # Get all column (variable) names\n\n\nstr(survey) # Overall info about data",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#example-6-code-communication",
+    "href": "activities/01_foundations_welcome.html#example-6-code-communication",
+    "title": "Collecting and Summarizing Data",
+    "section": "Example 6 : Code = communication",
+    "text": "Example 6 : Code = communication\nIt’s important to recognize from day 1 that code is a form of communication, both to yourself and others!!!!! Code structure and details are important to readability and clarity, just as grammar, punctuation, spelling, paragraphs, and line spacing are important in written essays. All of the code below works, but has bad structure. With your group, discuss what is unfortunate about each line, then make it better.\n\nseq(from=1, to=9, by=2)\nseq(from = 1, to=9, by=2)\ntemp_cel &lt;- -13\nthisisthetemperaturetodayincelsius &lt;- -13\nthis_is_the_temperature_today_in_celsius &lt;- -13",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#example-7-you-will-make-so-many-mistakes",
+    "href": "activities/01_foundations_welcome.html#example-7-you-will-make-so-many-mistakes",
+    "title": "Collecting and Summarizing Data",
+    "section": "Example 7: You will make so many mistakes!",
+    "text": "Example 7: You will make so many mistakes!\nMistakes are common when, and even important to, learning any new language. You’ll get better and better at interpreting error messages, finding help, and fixing errors. In addition to finding help online, R has built-in help files. For example:\n\nIn the console, type ?rep and press Return/Enter.\nCheck out the documentation file that pops up in the Help tab (lower right).\nQuickly scroll through, noting the type of information provided.\nPause at the “Examples” section at the bottom – perhaps the most useful section! Try out a couple of the provided examples in your console.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#example-8-make-a-cheat-sheet",
+    "href": "activities/01_foundations_welcome.html#example-8-make-a-cheat-sheet",
+    "title": "Collecting and Summarizing Data",
+    "section": "Example 8: Make a “cheat sheet”",
+    "text": "Example 8: Make a “cheat sheet”\nYou will continue to pick up new R code and ideas. You’re highly encouraged to start tracking this in a cheat sheet (eg: in a Google doc). The cheat sheet will be a handy reference for you, and the act of making it will help deepen your understanding and retention.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-complete-this-after-the-class",
+    "href": "activities/01_foundations_welcome.html#exercise-complete-this-after-the-class",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise: Complete this after the class",
+    "text": "Exercise: Complete this after the class\nComplete this exercise after class. First, try it on your own (or with your group), and then check your work against the solution provided at the end of this .qmd file.\nUse R code to do the following:\n\nImport & name data on different Himalayan peaks from the url below:\nhttps://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/peaks.csv NOTE: A codebook, i.e. a description of the data, is here.\nUse a function to show which variables are recorded on each peak.\nHow many peaks are included in the dataset? Answer this using a function, not by counting up the rows yourself.\nShow the first 6 rows of the dataset. NOTE: This gives us a quick glimpse without having to print out the entire dataset!",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-1-use-r-as-a-calculator",
+    "href": "activities/01_foundations_welcome.html#exercise-1-use-r-as-a-calculator",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 1: Use R as a calculator",
+    "text": "Exercise 1: Use R as a calculator\n\n4 + 2\n## [1] 6\n4^2\n## [1] 16\n4*2\n## [1] 8\n#4(2) # We need to use * for multiplication",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-2-functions-and-arguments",
+    "href": "activities/01_foundations_welcome.html#exercise-2-functions-and-arguments",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 2: Functions and arguments",
+    "text": "Exercise 2: Functions and arguments\n\n# Calculate the square root of 9\nsqrt(9)\n## [1] 3\n\n# Calculate the number of characters in the word \"macalester\"\nnchar(\"macalester\")\n## [1] 10\n\n# Calculate the square root of the number of characters in the word \"snow\"\nsqrt(nchar(\"snow\"))\n## [1] 2\n\n\n# Repeat the number 2, 5 times\nrep(x = 2, times = 5)\n## [1] 2 2 2 2 2\n\n# Repeat the number 2, 5 times\nrep(times = 5, x = 2)\n## [1] 2 2 2 2 2\n\n# Repeat the number 2, 5 times\nrep(2, 5)\n## [1] 2 2 2 2 2\n\n# Repeat the number 5, 2 times\nrep(5, 2)\n## [1] 5 5",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-3-save-it-for-later",
+    "href": "activities/01_foundations_welcome.html#exercise-3-save-it-for-later",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 3: Save it for later",
+    "text": "Exercise 3: Save it for later\n\n# Nothing shows up -- all we're doing here is storing -13 as degrees_c\ndegrees_c &lt;- -13\n\n# Print the contents of degrees_c\ndegrees_c\n## [1] -13\n\n# We can \"do math\" with the contents of degrees_c\ndegrees_c * (9/5) + 32\n## [1] 8.6",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-4-import-data",
+    "href": "activities/01_foundations_welcome.html#exercise-4-import-data",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 4: Import data",
+    "text": "Exercise 4: Import data\n\n# Load the tidyverse package\nlibrary(tidyverse)\n\n# Import the data\nsurvey &lt;- read_csv(\"https://mac-stat.github.io/data/112_fall_2024_survey.csv\")",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-5-get-to-know-the-data",
+    "href": "activities/01_foundations_welcome.html#exercise-5-get-to-know-the-data",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 5: Get to know the data",
+    "text": "Exercise 5: Get to know the data\n\n# Dimensions of the survey data set\n# First number = number of rows\n# Second number = number of columns\ndim(survey)\n## [1] 98  4\n\n\n# Number of rows in the survey data set\nnrow(survey)\n## [1] 98\n\n\n# First 6 rows (the head) of the survey data set\nhead(survey)\n## # A tibble: 6 × 4\n##   cafe_mac     minutes_to_campus fave_temp hangout      \n##   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;        \n## 1 Cheesecake                  15        18 the mountains\n## 2 Cheese pizza                10        24 a beach      \n## 3 udon noodles                 4        18 the mountains\n## 4 egg rolls                    7        10 a beach      \n## 5 Tacos                        5        18 the mountains\n## 6 pasta                       35         7 the mountains\n\n\n# First 3 rows of the survey data set\nhead(survey, 3)\n## # A tibble: 3 × 4\n##   cafe_mac     minutes_to_campus fave_temp hangout      \n##   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;        \n## 1 Cheesecake                  15        18 the mountains\n## 2 Cheese pizza                10        24 a beach      \n## 3 udon noodles                 4        18 the mountains\n\n\n# Last 6 rows (the tail) of the survey data set\ntail(survey)\n## # A tibble: 6 × 4\n##   cafe_mac        minutes_to_campus fave_temp hangout \n##   &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;   \n## 1 Burger                         10        21 a forest\n## 2 Pepperoni Pizza                10        24 a beach \n## 3 Hamburger                       6        23 a beach \n## 4 Ginger Cookies                 10        26 a beach \n## 5 bbq chicken                     5        14 a city  \n## 6 Breakfast food                 15        25 a city\n\n\n# Names of the variables in the survey data set\nnames(survey)\n## [1] \"cafe_mac\"          \"minutes_to_campus\" \"fave_temp\"        \n## [4] \"hangout\"\n\n\n# Structure of all variables in the survey data set\nstr(survey)\n## spc_tbl_ [98 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n##  $ cafe_mac         : chr [1:98] \"Cheesecake\" \"Cheese pizza\" \"udon noodles\" \"egg rolls\" ...\n##  $ minutes_to_campus: num [1:98] 15 10 4 7 5 35 5 15 7 20 ...\n##  $ fave_temp        : num [1:98] 18 24 18 10 18 7 75 24 13 16 ...\n##  $ hangout          : chr [1:98] \"the mountains\" \"a beach\" \"the mountains\" \"a beach\" ...\n##  - attr(*, \"spec\")=\n##   .. cols(\n##   ..   cafe_mac = col_character(),\n##   ..   minutes_to_campus = col_double(),\n##   ..   fave_temp = col_double(),\n##   ..   hangout = col_character()\n##   .. )\n##  - attr(*, \"problems\")=&lt;externalptr&gt;",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-6-code-communication",
+    "href": "activities/01_foundations_welcome.html#exercise-6-code-communication",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 6: Code = communication",
+    "text": "Exercise 6: Code = communication\n\n# Make it less smooshy. Add spaces!\nseq(from = 1, to = 9, by = 2)\n## [1] 1 3 5 7 9\n\n# Use consistent spacing\nseq(from = 1, to = 9, by = 2)\n## [1] 1 3 5 7 9\n\n# Use more descriptive names when storing objects\nmy_output &lt;- -13\n\n# Use a shorter and easier to read name\ncelsius_today &lt;- -13\nCelsiusToday  &lt;- -13",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-7-you-will-make-so-many-mistakes",
+    "href": "activities/01_foundations_welcome.html#exercise-7-you-will-make-so-many-mistakes",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 7: You will make so many mistakes!",
+    "text": "Exercise 7: You will make so many mistakes!",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#exercise-8-your-turn",
+    "href": "activities/01_foundations_welcome.html#exercise-8-your-turn",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 8: Your turn",
+    "text": "Exercise 8: Your turn\n\n# a\npeaks &lt;- read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/peaks.csv\")\n\n# b\nnames(peaks)\n## [1] \"peak_id\"                    \"peak_name\"                 \n## [3] \"peak_alternative_name\"      \"height_metres\"             \n## [5] \"climbing_status\"            \"first_ascent_year\"         \n## [7] \"first_ascent_country\"       \"first_ascent_expedition_id\"\n\n# c\ndim(peaks)\n## [1] 468   8\nnrow(peaks)\n## [1] 468\n\n# d\nhead(peaks)\n## # A tibble: 6 × 8\n##   peak_id peak_name     peak_alternative_name height_metres climbing_status\n##   &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;                         &lt;dbl&gt; &lt;chr&gt;          \n## 1 AMAD    Ama Dablam    Amai Dablang                   6814 Climbed        \n## 2 AMPG    Amphu Gyabjen &lt;NA&gt;                           5630 Climbed        \n## 3 ANN1    Annapurna I   &lt;NA&gt;                           8091 Climbed        \n## 4 ANN2    Annapurna II  &lt;NA&gt;                           7937 Climbed        \n## 5 ANN3    Annapurna III &lt;NA&gt;                           7555 Climbed        \n## 6 ANN4    Annapurna IV  &lt;NA&gt;                           7525 Climbed        \n## # ℹ 3 more variables: first_ascent_year &lt;dbl&gt;, first_ascent_country &lt;chr&gt;,\n## #   first_ascent_expedition_id &lt;chr&gt;",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "R_Resources.html",
+    "href": "R_Resources.html",
+    "title": "R and RStudio Resources",
+    "section": "",
+    "text": "Crowd-sourced R functions\nInteractive RStudio tutorials (R basics, data viz, and more)\nMarkdown (Quarto) basics, and Quarto/RStudio tutorial\nRStudio cheatsheets\nGoogle it! If you have a question about R, someone else probably asked it. Add “R tidyverse” to your search term.\nExample: scatterplot R tidyverse\nNote about ChatGPT for code: Please avoid using ChatGPT as a first resort for R code. It often suggests overly wordy or unfamiliar approaches. Our goal is for you to understand the code you write; sticking to tools and syntax we use in class will support your learning best."
+  },
+  {
+    "objectID": "R_Resources.html#getting-help",
+    "href": "R_Resources.html#getting-help",
+    "title": "R and RStudio Resources",
+    "section": "",
+    "text": "Crowd-sourced R functions\nInteractive RStudio tutorials (R basics, data viz, and more)\nMarkdown (Quarto) basics, and Quarto/RStudio tutorial\nRStudio cheatsheets\nGoogle it! If you have a question about R, someone else probably asked it. Add “R tidyverse” to your search term.\nExample: scatterplot R tidyverse\nNote about ChatGPT for code: Please avoid using ChatGPT as a first resort for R code. It often suggests overly wordy or unfamiliar approaches. Our goal is for you to understand the code you write; sticking to tools and syntax we use in class will support your learning best."
+  },
+  {
+    "objectID": "R_Resources.html#getting-started",
+    "href": "R_Resources.html#getting-started",
+    "title": "R and RStudio Resources",
+    "section": "Getting Started",
+    "text": "Getting Started\nThe videos below introduce R and RStudio and show how to install them on your computer. Start with the overview, then watch the step-by-step video for your operating system.\nDownload links (mentioned in the videos): - R: http://cran.r-project.org/ - RStudio: https://www.rstudio.com/products/rstudio/download/#download\n\n\n\n\n\n\nImportant\n\n\n\nVersion numbers in the videos are out-of-date. Please download the latest versions of both R and RStudio. As of August 25, 2025, the latest versions are: R 4.5.1 and RStudio 2025.05.1+513.\n\n\n\nInstallation / Overview\n\nInstalling R and RStudio (Overview) (Length: 4:30)\n\nPick one of the following: - Mac — Installing R and RStudio Step-by-Step (Length: 3:24) - Windows — Installing R and RStudio Step-by-Step (Length: 5:43)\nIf you run into installation issues, contact me right away. If we can’t get RStudio working locally, you can use Macalester’s online RStudio server:\nQuick intro video"
+  },
+  {
+    "objectID": "R_Resources.html#intro-videos-to-r-watch-in-order",
+    "href": "R_Resources.html#intro-videos-to-r-watch-in-order",
+    "title": "R and RStudio Resources",
+    "section": "Intro Videos to R (watch in order)",
+    "text": "Intro Videos to R (watch in order)\n\nIntro to R and RStudio (11:31)\nR Data Types (8:05)\nR Error Messages and Troubleshooting (Optional) (7:52)\nIntro to RMarkdown / Quarto (9:33)\nFile Structure & Organization (Optional)\n\nMac (5:13)\nWindows (7:44)\n\nTips on File Naming & Organization (Optional)\nR Packages (7:30)\n\n\nYou can adjust video speed and pause as needed. If anything doesn’t work, please let me know so we can fix it quickly."
+  },
+  {
     "objectID": "activities/02-foundations-univariate.html",
     "href": "activities/02-foundations-univariate.html",
     "title": "Univariate Visualization & Summaries",
@@ -1241,31 +1557,31 @@
     ]
   },
   {
-    "objectID": "activities/02-foundations-univariate.html#exercise-1-importing-and-getting-to-know-the-data-group",
-    "href": "activities/02-foundations-univariate.html#exercise-1-importing-and-getting-to-know-the-data-group",
+    "objectID": "activities/02-foundations-univariate.html#exercise-1-importing-and-getting-to-know-the-data",
+    "href": "activities/02-foundations-univariate.html#exercise-1-importing-and-getting-to-know-the-data",
     "title": "Univariate Visualization & Summaries",
-    "section": "Exercise 1: Importing and getting to know the data [Group]",
-    "text": "Exercise 1: Importing and getting to know the data [Group]\nFirst, in the Console pane of RStudio, run the following command to install some necessary packages (you will need to do this any time you are installing a new package):\ninstall.packages(\"tidyverse\") # We have already installed it!\nNow, in the Quarto pane, run the following code chunk to load the package and load a dataset (you can either click the green arrow in the top right of the code chunk, put your cursor in the code chunk and hit Ctrl+Alt+C [on Windows/Linux] or Command+Option+C [on Mac]).\n\n# Load package\nlibrary(tidyverse)\n\n# Read in the Dear Abby data\nabby &lt;- read_csv(\"https://mac-stat.github.io/data/dear_abby.csv\")\n\nThroughout this activity, we’ll work only with the most recent year of data, from 2017. Run the following chunk:\n\n# Wrangle the Dear Abby data\n# Ignore this code for now!\nabby &lt;- abby %&gt;% \n  filter(year == 2017) %&gt;% \n  mutate(month = month(month, label = TRUE)) %&gt;%\n  mutate(\n    parents = str_detect(question_only, \"mother|mama|mom|father|papa|dad\"),\n    marriage = str_detect(question_only, \"marriage|marry|married\"),\n    money = str_detect(question_only, \"money|finance\")\n  ) %&gt;%\n  rowwise() %&gt;%\n  mutate(\n    themes = c(\n      if (parents) \"parents\",\n      if (marriage) \"marriage\",\n      if (money) \"money\"\n    ) %&gt;% paste(collapse = \", \"),\n    themes = ifelse(themes == \"\", \"other\", themes)\n  ) %&gt;%\n  ungroup() %&gt;% \n  select(year, month, day, question_only, bing_pos, afinn_overall, afinn_pos, afinn_neg, themes)\n\n\nClick on the Environment tab (generally in the upper right hand pane in RStudio). Then click the abby line. The abby data will pop up as a separate pane (like viewing a spreadsheet) – check it out.\nIn this tidy dataset, what is the unit of observation? That is, what is represented in each row of the dataset?\nWhat term do we use for the columns of the dataset?\nTry out each function below. Identify what each function tells you about the abby data and note this in the ???:\n\n\n# ??? [what do both numbers mean?]\ndim(abby)\n## [1] 514   9\n\n\n# ???\nnrow(abby)\n## [1] 514\n\n\n# ???\nncol(abby)\n## [1] 9\n\n\n# ???\nhead(abby)\n## # A tibble: 6 × 9\n##    year month day   question_only     bing_pos afinn_overall afinn_pos afinn_neg\n##   &lt;dbl&gt; &lt;ord&gt; &lt;chr&gt; &lt;chr&gt;                &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n## 1  2017 Aug   30    \"i moved to the …    0.75             14        16         2\n## 2  2017 Aug   30    \"under what circ…   NA                NA        NA        NA\n## 3  2017 Aug   28    \"i'm not a dog p…    0.333             5         5         0\n## 4  2017 Aug   28    \"my 62-year-old …    0.143           -11         8        19\n## 5  2017 Aug   27    \"i have a friend…    0.222             0         7         7\n## 6  2017 Aug   27    \"i have been sel…    0.333            -5         2         7\n## # ℹ 1 more variable: themes &lt;chr&gt;\n\n\n# ???\nnames(abby)\n## [1] \"year\"          \"month\"         \"day\"           \"question_only\"\n## [5] \"bing_pos\"      \"afinn_overall\" \"afinn_pos\"     \"afinn_neg\"    \n## [9] \"themes\"\n\n\n[OPTIONAL] If you’re not sure how exactly to use a function, you can pull up a built-in help page with information about the arguments a function takes (i.e., what goes inside the parentheses), and the output it produces. To do this, click inside the Console pane, and enter ?function_name. For example, to pull up a help page for the dim() function, we can type ?dim and hit Enter. Try pulling up the help page for the read_csv() function we used to load the dataset.",
+    "section": "Exercise 1: Importing and getting to know the data",
+    "text": "Exercise 1: Importing and getting to know the data\nFirst, in the Console pane of RStudio, run the following command to install some necessary packages (you will need to do this any time you are installing a new package):\ninstall.packages(\"tidyverse\") # We have already installed it!\nNow, in the Quarto pane, run the following code chunk to load the package and load a dataset (you can either click the green arrow in the top right of the code chunk, put your cursor in the code chunk and hit Ctrl+Alt+C [on Windows/Linux] or Command+Option+C [on Mac]).\n\n# Load package\nlibrary(tidyverse)\n\n# Read in the Dear Abby data\nabby &lt;- read_csv(\"https://mac-stat.github.io/data/dear_abby.csv\")\n\nThroughout this activity, we’ll work only with the most recent year of data, from 2017. Run the following chunk:\n\n# Wrangle the Dear Abby data\n# Ignore this code for now!\nabby &lt;- abby %&gt;% \n  filter(year == 2017) %&gt;% \n  mutate(month = month(month, label = TRUE)) %&gt;%\n  mutate(\n    parents = str_detect(question_only, \"mother|mama|mom|father|papa|dad\"),\n    marriage = str_detect(question_only, \"marriage|marry|married\"),\n    money = str_detect(question_only, \"money|finance\")\n  ) %&gt;%\n  rowwise() %&gt;%\n  mutate(\n    themes = c(\n      if (parents) \"parents\",\n      if (marriage) \"marriage\",\n      if (money) \"money\"\n    ) %&gt;% paste(collapse = \", \"),\n    themes = ifelse(themes == \"\", \"other\", themes)\n  ) %&gt;%\n  ungroup() %&gt;% \n  select(year, month, day, question_only, bing_pos, afinn_overall, afinn_pos, afinn_neg, themes)\n\n\nClick on the Environment tab (generally in the upper right hand pane in RStudio). Then click the abby line. The abby data will pop up as a separate pane (like viewing a spreadsheet) – check it out.\nIn this tidy dataset, what is the unit of observation? That is, what is represented in each row of the dataset?\nWhat term do we use for the columns of the dataset?\nTry out each function below. Identify what each function tells you about the abby data and note this in the ???:\n\n\n# ??? [what do both numbers mean?]\ndim(abby)\n## [1] 514   9\n\n\n# ???\nnrow(abby)\n## [1] 514\n\n\n# ???\nncol(abby)\n## [1] 9\n\n\n# ???\nhead(abby)\n## # A tibble: 6 × 9\n##    year month day   question_only     bing_pos afinn_overall afinn_pos afinn_neg\n##   &lt;dbl&gt; &lt;ord&gt; &lt;chr&gt; &lt;chr&gt;                &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n## 1  2017 Aug   30    \"i moved to the …    0.75             14        16         2\n## 2  2017 Aug   30    \"under what circ…   NA                NA        NA        NA\n## 3  2017 Aug   28    \"i'm not a dog p…    0.333             5         5         0\n## 4  2017 Aug   28    \"my 62-year-old …    0.143           -11         8        19\n## 5  2017 Aug   27    \"i have a friend…    0.222             0         7         7\n## 6  2017 Aug   27    \"i have been sel…    0.333            -5         2         7\n## # ℹ 1 more variable: themes &lt;chr&gt;\n\n\n# ???\nnames(abby)\n## [1] \"year\"          \"month\"         \"day\"           \"question_only\"\n## [5] \"bing_pos\"      \"afinn_overall\" \"afinn_pos\"     \"afinn_neg\"    \n## [9] \"themes\"\n\n\n[OPTIONAL] If you’re not sure how exactly to use a function, you can pull up a built-in help page with information about the arguments a function takes (i.e., what goes inside the parentheses), and the output it produces. To do this, click inside the Console pane, and enter ?function_name. For example, to pull up a help page for the dim() function, we can type ?dim and hit Enter. Try pulling up the help page for the read_csv() function we used to load the dataset.",
     "crumbs": [
       "Univariate Visualization & Summaries"
     ]
   },
   {
-    "objectID": "activities/02-foundations-univariate.html#exercise-2-preparing-to-summarize-and-visualize-the-data-explore",
-    "href": "activities/02-foundations-univariate.html#exercise-2-preparing-to-summarize-and-visualize-the-data-explore",
+    "objectID": "activities/02-foundations-univariate.html#exercise-2-preparing-to-summarize-and-visualize-the-data",
+    "href": "activities/02-foundations-univariate.html#exercise-2-preparing-to-summarize-and-visualize-the-data",
     "title": "Univariate Visualization & Summaries",
-    "section": "Exercise 2: Preparing to summarize and visualize the data [Explore]",
-    "text": "Exercise 2: Preparing to summarize and visualize the data [Explore]\nIn the next exercises, we will be exploring themes in the Dear Abby questions and the overall “mood” or sentiment of the questions. Before continuing, read the codebook for this dataset for some context about sentiment analysis, which gives us a measure of the mood/sentiment of a text.\n\nWhat sentiment variables do we have in the dataset? Are they quantitative or categorical?\nCheck out the theme variable. Is this quantitative or categorical?\nWhat visualizations are appropriate for looking at the distribution of a single quantitative variable? What about a single categorical variable?",
+    "section": "Exercise 2: Preparing to summarize and visualize the data",
+    "text": "Exercise 2: Preparing to summarize and visualize the data\nIn the next exercises, we will be exploring themes in the Dear Abby questions and the overall “mood” or sentiment of the questions. Before continuing, read the codebook for this dataset for some context about sentiment analysis, which gives us a measure of the mood/sentiment of a text.\n\nWhat sentiment variables do we have in the dataset? Are they quantitative or categorical?\nCheck out the theme variable. Is this quantitative or categorical?\nWhat visualizations are appropriate for looking at the distribution of a single quantitative variable? What about a single categorical variable?",
     "crumbs": [
       "Univariate Visualization & Summaries"
     ]
   },
   {
-    "objectID": "activities/02-foundations-univariate.html#exercise-3-exploring-themes-in-the-letters-group-explore",
-    "href": "activities/02-foundations-univariate.html#exercise-3-exploring-themes-in-the-letters-group-explore",
+    "objectID": "activities/02-foundations-univariate.html#exercise-3-exploring-themes-in-the-letters",
+    "href": "activities/02-foundations-univariate.html#exercise-3-exploring-themes-in-the-letters",
     "title": "Univariate Visualization & Summaries",
-    "section": "Exercise 3: Exploring themes in the letters [Group & Explore]",
-    "text": "Exercise 3: Exploring themes in the letters [Group & Explore]\n\nThe code below makes a barplot of the themes variable using the ggplot2 visualization package. Before making the plot, make note of what you expect the plot might look like. (This might be hard–just do your best!) Then compare to what you observe when you run the code chunk to make the plot. (Clearly defining your expectations first is good scientific practice to avoid confirmation bias.)\n\n\n# Load package\n# install.packages(\"ggplot2\") # Run in R Console first time to install (copy without '#')\nlibrary(ggplot2)\n\n# barplot\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))\n\n\n\n\n\n\n\n\n\nWe can follow up on the barplot with a simple numerical summary. Whereas the ggplot2 package is great for visualizations, dplyr is great for numerical summaries. The code below constructs a table of the number of questions with each theme. Make sure that these numerical summaries match up with what you saw in the barplot.\n\n\n# install.packages(\"dplyr\")\n# Construct a table of counts\nabby %&gt;% \n    count(themes)\n## # A tibble: 8 × 2\n##   themes                       n\n##   &lt;chr&gt;                    &lt;int&gt;\n## 1 marriage                    75\n## 2 marriage, money              5\n## 3 money                       21\n## 4 other                      234\n## 5 parents                    127\n## 6 parents, marriage           33\n## 7 parents, marriage, money     4\n## 8 parents, money              15\n\n\nBefore proceeding, let’s break down the plotting code above. Run each chunk to see how the two lines of code above build up the plot in “layers”. Add comments (on the lines starting with #) to document what you notice.\n\n\n# ???\nggplot(abby, aes(x = themes)) #sets up the \"canvas\" of the plot with axis labels\n\n\n\n\n\n\n\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar() # Adds the bars- Any Problem you notice?\n\n\n\n\n\n\n\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) #Rotates the x axis labels\n\n\n\n\n\n\n\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme_classic() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) # Changes the visual theme of the plot with a white background and removes gridlines",
+    "section": "Exercise 3: Exploring themes in the letters",
+    "text": "Exercise 3: Exploring themes in the letters\n\nThe code below makes a barplot of the themes variable using the ggplot2 visualization package. Before making the plot, make note of what you expect the plot might look like. (This might be hard–just do your best!) Then compare to what you observe when you run the code chunk to make the plot. (Clearly defining your expectations first is good scientific practice to avoid confirmation bias.)\n\n\n# Load package\n# install.packages(\"ggplot2\") # Run in R Console first time to install (copy without '#')\nlibrary(ggplot2)\n\n# barplot\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))\n\n\n\n\n\n\n\n\n\nWe can follow up on the barplot with a simple numerical summary. Whereas the ggplot2 package is great for visualizations, dplyr is great for numerical summaries. The code below constructs a table of the number of questions with each theme. Make sure that these numerical summaries match up with what you saw in the barplot.\n\n\n# install.packages(\"dplyr\")\n# Construct a table of counts\nabby %&gt;% \n    count(themes)\n## # A tibble: 8 × 2\n##   themes                       n\n##   &lt;chr&gt;                    &lt;int&gt;\n## 1 marriage                    75\n## 2 marriage, money              5\n## 3 money                       21\n## 4 other                      234\n## 5 parents                    127\n## 6 parents, marriage           33\n## 7 parents, marriage, money     4\n## 8 parents, money              15\n\n\nBefore proceeding, let’s break down the plotting code above. Run each chunk to see how the two lines of code above build up the plot in “layers”. Add comments (on the lines starting with #) to document what you notice.\n\n\n# ???\nggplot(abby, aes(x = themes)) #sets up the \"canvas\" of the plot with axis labels\n\n\n\n\n\n\n\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar() # Adds the bars- Any Problem you notice?\n\n\n\n\n\n\n\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) #Rotates the x axis labels\n\n\n\n\n\n\n\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme_classic() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) # Changes the visual theme of the plot with a white background and removes gridlines",
     "crumbs": [
       "Univariate Visualization & Summaries"
     ]
@@ -1411,8 +1727,8 @@
     ]
   },
   {
-    "objectID": "activities/02-foundations-univariate.html#exercise-1-importing-and-getting-to-know-the-data",
-    "href": "activities/02-foundations-univariate.html#exercise-1-importing-and-getting-to-know-the-data",
+    "objectID": "activities/02-foundations-univariate.html#exercise-1-importing-and-getting-to-know-the-data-1",
+    "href": "activities/02-foundations-univariate.html#exercise-1-importing-and-getting-to-know-the-data-1",
     "title": "Univariate Visualization & Summaries",
     "section": "Exercise 1: Importing and getting to know the data",
     "text": "Exercise 1: Importing and getting to know the data\n\nNote how clicking the abby data causes both a popup pane and the command View(abby) to appear in the Console. In fact, the View() function is the underlying command that opens a dataset pane. (View() should always be entered in the Console and NOT your Quarto document.)\nEach row / case corresponds to a single question.\nColumns = variables\nTry out each function below. Identify what each function tells you about the abby data and note this in the ???:\n\n\n# First number = number of rows / cases\n# Second number = number of columns / variables\ndim(abby)\n## [1] 514   6\n\n# Number of rows (cases)\nnrow(abby)\n## [1] 514\n\n# Number of columns (variables)\nncol(abby)\n## [1] 6\n\n# View first few rows of the dataset (6 rows, by default)\nhead(abby)\n## # A tibble: 6 × 6\n##    year month day   question_only                                bing_pos themes\n##   &lt;dbl&gt; &lt;ord&gt; &lt;chr&gt; &lt;chr&gt;                                           &lt;dbl&gt; &lt;chr&gt; \n## 1  2017 Aug   30    \"i moved to the philippines five years ago.…    0.75  paren…\n## 2  2017 Aug   30    \"under what circumstances do you ask your a…   NA     money \n## 3  2017 Aug   28    \"i'm not a dog person. i'm not even an anim…    0.333 other \n## 4  2017 Aug   28    \"my 62-year-old father has recently started…    0.143 paren…\n## 5  2017 Aug   27    \"i have a friend, \\\"charlene,\\\" whom i met …    0.222 other \n## 6  2017 Aug   27    \"i have been selected to attend a symposium…    0.333 other\n\n# Get all column (variable) names\nnames(abby)\n## [1] \"year\"          \"month\"         \"day\"           \"question_only\"\n## [5] \"bing_pos\"      \"themes\"\n\n\nWe can display the first 10 rows with head(abby, n = 10).",
@@ -1421,8 +1737,8 @@
     ]
   },
   {
-    "objectID": "activities/02-foundations-univariate.html#exercise-2-preparing-to-summarize-and-visualize-the-data",
-    "href": "activities/02-foundations-univariate.html#exercise-2-preparing-to-summarize-and-visualize-the-data",
+    "objectID": "activities/02-foundations-univariate.html#exercise-2-preparing-to-summarize-and-visualize-the-data-1",
+    "href": "activities/02-foundations-univariate.html#exercise-2-preparing-to-summarize-and-visualize-the-data-1",
     "title": "Univariate Visualization & Summaries",
     "section": "Exercise 2: Preparing to summarize and visualize the data",
     "text": "Exercise 2: Preparing to summarize and visualize the data\n\nThe sentiment variables are afinn_overall, afinn_pos, afinn_neg, and bing_pos, and they are quantitative. The afinn variables don’t have units but we can still get a sense of the scale by remembering that each word gets a score between -5 and 5. The bing_pos variable doesn’t have units because it’s a fraction, but we know that it ranges from 0 to 1.\ncategorical\nAppropriate visualizations:\n\nsingle quantitative variable: boxplot, histogram, density plot\nsingle categorical variable: barplot",
@@ -1431,8 +1747,8 @@
     ]
   },
   {
-    "objectID": "activities/02-foundations-univariate.html#exercise-3-exploring-themes-in-the-letters",
-    "href": "activities/02-foundations-univariate.html#exercise-3-exploring-themes-in-the-letters",
+    "objectID": "activities/02-foundations-univariate.html#exercise-3-exploring-themes-in-the-letters-1",
+    "href": "activities/02-foundations-univariate.html#exercise-3-exploring-themes-in-the-letters-1",
     "title": "Univariate Visualization & Summaries",
     "section": "Exercise 3: Exploring themes in the letters",
     "text": "Exercise 3: Exploring themes in the letters\n\nExpectations about the plot will vary\n\n\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))\n\n\n\n\n\n\n\n\n\nCounts in the table below match the barplot\n\n\n# Construct a table of counts\nabby %&gt;% \n    count(themes)\n## # A tibble: 8 × 2\n##   themes                       n\n##   &lt;chr&gt;                    &lt;int&gt;\n## 1 marriage                    75\n## 2 marriage, money              5\n## 3 money                       21\n## 4 other                      234\n## 5 parents                    127\n## 6 parents, marriage           33\n## 7 parents, marriage, money     4\n## 8 parents, money              15\n\n\nWhat do the plot layers do?\n\n\n# Just sets up the \"canvas\" of the plot with axis labels\nggplot(abby, aes(x = themes))\n\n\n\n\n\n\n\n\n\n# Adds the bars\nggplot(abby, aes(x = themes)) +\n    geom_bar()\n\n\n\n\n\n\n\n\n\n# Rotates the x axis labels\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))\n\n\n\n\n\n\n\n\n\n# Changes the visual theme of the plot with a white background and removes gridlines\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme_classic() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))",
@@ -1445,7 +1761,7 @@
     "href": "activities/02-foundations-univariate.html#exercise-4-exploring-sentiment-1",
     "title": "Univariate Visualization & Summaries",
     "section": "Exercise 4: Exploring sentiment",
-    "text": "Exercise 4: Exploring sentiment\n\n\nWe might expect the mean of this variable is less than zero given that more negative words might be appear in questions on an advice column.\nThe code has a similar structure to the barplot in that there is an initial ggplot() layer which sets the canvas, then a + to add a layer, then the final layer geom_boxplot() (like geom_bar()) which tells R what type of plot to make.\n\n\n\nggplot(abby, aes(x = afinn_overall)) +\n    geom_boxplot()\n## Error in `geom_boxplot()`:\n## ! Problem while computing aesthetics.\n## ℹ Error occurred in the 1st layer.\n## Caused by error:\n## ! object 'afinn_overall' not found\n\n\nWe replace geom_boxplot() with geom_histogram() and geom_density().\n\nThe tallest bar of the histogram indicates that over 7500 questions had an overall afinn sentiment score between around -8 to 0.(The -8 to 0 comes from eyeballing where the tallest bar is placed on the x-axis, and the height of this bar indicates how many cases fall into that bin.)\nThe shape of the distribution: roughly symmetric\n\n\n\n# Histogram\nggplot(abby, aes(x = afinn_overall)) +\n    geom_histogram()\n## Error in `geom_histogram()`:\n## ! Problem while computing aesthetics.\n## ℹ Error occurred in the 1st layer.\n## Caused by error:\n## ! object 'afinn_overall' not found\n\n# Density plot\nggplot(abby, aes(x = afinn_overall)) +\n    geom_density()\n## Error in `geom_density()`:\n## ! Problem while computing aesthetics.\n## ℹ Error occurred in the 1st layer.\n## Caused by error:\n## ! object 'afinn_overall' not found\n\n\n\nBoxplot shows min, max, median, 1st and 3rd quartile easily. (It shows median, 1st and 3rd quartile directly as lines)\nHistogram and density plot show min and max but the mean and median aren’t shown directly–we have to roughly guess based on the peak of the distribution\n\n\n\n# Summary statistics\nsummary(abby$afinn_overall)\n## Length  Class   Mode \n##      0   NULL   NULL\n\nabby %&gt;% \n    summarize(mean(afinn_overall, na.rm = TRUE), median(afinn_overall, na.rm = TRUE), sd(afinn_overall, na.rm = TRUE))\n## Error in `summarize()`:\n## ℹ In argument: `mean(afinn_overall, na.rm = TRUE)`.\n## Caused by error:\n## ! object 'afinn_overall' not found\n\n\nThe distribution of sentiment scores is roughly symmetric with a mean of -1.4 and a similar median of -1. The median and mean are quite similar because the distribution is fairly symmetric. The standard deviation of the sentiment scores is about 11.08 which tells us how much variation there is from the center of the distribution. 11.08 is somewhat high given the IQR of -6 to 3 (which is a span of 9 units).",
+    "text": "Exercise 4: Exploring sentiment\n\n\n\n\nggplot(abby, aes(x = bing_pos)) +\n    geom_boxplot()\n\n\n\n\n\n\n\n\n\nWe replace geom_boxplot() with geom_histogram() and geom_density().\n\n\n# Histogram\nggplot(abby, aes(x = bing_pos)) +\n    geom_histogram()\n\n\n\n\n\n\n\n\n# Density plot\nggplot(abby, aes(x = bing_pos)) +\n    geom_density()\n\n\n\n\n\n\n\n\n\n\nBoxplot shows min, max, median, 1st and 3rd quartile easily. (It shows median, 1st and 3rd quartile directly as lines)\nHistogram and density plot show min and max but the mean and median aren’t shown directly–we have to roughly guess based on the peak of the distribution\n\n\n\n# Summary statistics\nabby %&gt;% \n    select(bing_pos) %&gt;% \n    summary()\n##     bing_pos     \n##  Min.   :0.0000  \n##  1st Qu.:0.1667  \n##  Median :0.3333  \n##  Mean   :0.3650  \n##  3rd Qu.:0.5000  \n##  Max.   :1.0000  \n##  NA's   :19\n\nabby %&gt;% \n    summarize(mean(bing_pos, na.rm = TRUE), median(bing_pos, na.rm = TRUE), sd(bing_pos, na.rm = TRUE))\n## # A tibble: 1 × 3\n##   `mean(bing_pos, na.rm = TRUE)` median(bing_pos, na.rm…¹ sd(bing_pos, na.rm =…²\n##                            &lt;dbl&gt;                    &lt;dbl&gt;                  &lt;dbl&gt;\n## 1                          0.365                    0.333                  0.279\n## # ℹ abbreviated names: ¹​`median(bing_pos, na.rm = TRUE)`,\n## #   ²​`sd(bing_pos, na.rm = TRUE)`\n\n\nThe distribution of sentiment scores is roughly tri-modal, ranging from 0 to 1. There’s a group of very negative letters (with roughly 0% of words being positive), a group of very positive letters (with roughly 100% of words being positive), and a group of mostly negative letters. The typical sentiment is around 0.34.",
     "crumbs": [
       "Univariate Visualization & Summaries"
     ]
@@ -1518,224 +1834,6 @@
     "text": "Exercise 13: Customizing! (CHALLENGE)\n\n\n\n\nggplot(weather, aes(x = maxtemp)) + \n    geom_histogram() + \n    labs(x = \"Maximum temperature\", y = \"Number of days\", title = \"Distribution of max temperatures in Perth\")\n\n\n\n\n\n\n\n\n\n\n\n\n# Make the bars green\nggplot(weather, aes(x = raintoday)) + \n    geom_bar(fill = \"green\")",
     "crumbs": [
       "Univariate Visualization & Summaries"
-    ]
-  },
-  {
-    "objectID": "R_Resources.html",
-    "href": "R_Resources.html",
-    "title": "R and RStudio Resources",
-    "section": "",
-    "text": "Crowd-sourced R functions\nInteractive RStudio tutorials (R basics, data viz, and more)\nMarkdown (Quarto) basics, and Quarto/RStudio tutorial\nRStudio cheatsheets\nGoogle it! If you have a question about R, someone else probably asked it. Add “R tidyverse” to your search term.\nExample: scatterplot R tidyverse\nNote about ChatGPT for code: Please avoid using ChatGPT as a first resort for R code. It often suggests overly wordy or unfamiliar approaches. Our goal is for you to understand the code you write; sticking to tools and syntax we use in class will support your learning best."
-  },
-  {
-    "objectID": "R_Resources.html#getting-help",
-    "href": "R_Resources.html#getting-help",
-    "title": "R and RStudio Resources",
-    "section": "",
-    "text": "Crowd-sourced R functions\nInteractive RStudio tutorials (R basics, data viz, and more)\nMarkdown (Quarto) basics, and Quarto/RStudio tutorial\nRStudio cheatsheets\nGoogle it! If you have a question about R, someone else probably asked it. Add “R tidyverse” to your search term.\nExample: scatterplot R tidyverse\nNote about ChatGPT for code: Please avoid using ChatGPT as a first resort for R code. It often suggests overly wordy or unfamiliar approaches. Our goal is for you to understand the code you write; sticking to tools and syntax we use in class will support your learning best."
-  },
-  {
-    "objectID": "R_Resources.html#getting-started",
-    "href": "R_Resources.html#getting-started",
-    "title": "R and RStudio Resources",
-    "section": "Getting Started",
-    "text": "Getting Started\nThe videos below introduce R and RStudio and show how to install them on your computer. Start with the overview, then watch the step-by-step video for your operating system.\nDownload links (mentioned in the videos): - R: http://cran.r-project.org/ - RStudio: https://www.rstudio.com/products/rstudio/download/#download\n\n\n\n\n\n\nImportant\n\n\n\nVersion numbers in the videos are out-of-date. Please download the latest versions of both R and RStudio. As of August 25, 2025, the latest versions are: R 4.5.1 and RStudio 2025.05.1+513.\n\n\n\nInstallation / Overview\n\nInstalling R and RStudio (Overview) (Length: 4:30)\n\nPick one of the following: - Mac — Installing R and RStudio Step-by-Step (Length: 3:24) - Windows — Installing R and RStudio Step-by-Step (Length: 5:43)\nIf you run into installation issues, contact me right away. If we can’t get RStudio working locally, you can use Macalester’s online RStudio server:\nQuick intro video"
-  },
-  {
-    "objectID": "R_Resources.html#intro-videos-to-r-watch-in-order",
-    "href": "R_Resources.html#intro-videos-to-r-watch-in-order",
-    "title": "R and RStudio Resources",
-    "section": "Intro Videos to R (watch in order)",
-    "text": "Intro Videos to R (watch in order)\n\nIntro to R and RStudio (11:31)\nR Data Types (8:05)\nR Error Messages and Troubleshooting (Optional) (7:52)\nIntro to RMarkdown / Quarto (9:33)\nFile Structure & Organization (Optional)\n\nMac (5:13)\nWindows (7:44)\n\nTips on File Naming & Organization (Optional)\nR Packages (7:30)\n\n\nYou can adjust video speed and pause as needed. If anything doesn’t work, please let me know so we can fix it quickly."
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html",
-    "href": "activities/01_foundations_welcome.html",
-    "title": "Collecting and Summarizing Data",
-    "section": "",
-    "text": "You can download the .qmd file for this activity here and open in R-studio. The rendered version is posted in the course website (Activities tab). I often experiment with the class activities (and see it in live!) and make updates, but I always post the final version before class starts. To be sure you have the most up-to-date copy, please download it once you’ve settled in before class begins.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#see-class-notes",
-    "href": "activities/01_foundations_welcome.html#see-class-notes",
-    "title": "Collecting and Summarizing Data",
-    "section": "See class notes",
-    "text": "See class notes\nGo to your class-notes to see what we covered in live-note taking!\n\n\n\nEXAMPLE 1: Tidy data (Class Activities!)\nWelcome to the first in-class activities of STAT 155! Fill out the Day 1 Activities form of the following questions (anonymous). We’ll come back to this in a future class. Wait until everyone in your group is done with this.\n\nHow many hours of sleep did you get last night?\nHow many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your anticipated graduation year?\nHow many stats/data science courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#example-1-use-r-as-a-calculator",
-    "href": "activities/01_foundations_welcome.html#example-1-use-r-as-a-calculator",
-    "title": "Collecting and Summarizing Data",
-    "section": "Example 1: Use R as a calculator",
-    "text": "Example 1: Use R as a calculator\nType the following lines in the console (bottom left), one by one, hitting Return/Enter after each line. In some cases you might even get an error! This error is important to learning how R code does and doesn’t work.\n\n4 + 2\n\n\n4^2\n\n\n4*2\n\n\n4(2)",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#example-2-functions-and-arguments",
-    "href": "activities/01_foundations_welcome.html#example-2-functions-and-arguments",
-    "title": "Collecting and Summarizing Data",
-    "section": "Example 2: Functions and arguments",
-    "text": "Example 2: Functions and arguments\nWe can also use built-in functions to perform common tasks. These functions have names and require information about arguments in order to run:\nfunction(argument) Cheatcode: RiceCooker(Rice)\nTry out the following functions one by one in the RStudio console. For each function, note its…\n\nname\nthe argument or information it needs to run\nwhat output it produces (what the function does)\nhow the name connects to what the function does\n\n\nsqrt(9)\n\n\nnchar(\"macalester\")\n\n\nsqrt(nchar(\"snow\"))\n\nSome functions have more than 1 argument, separated by commas:\nfunction(argument1 = ___, argument2 = ___) Cheatcode: RiceCooker(Rice,Chicken)\nTry out the following, one by one.\n\nrep(x = 2, times = 5)\n\n\nrep(times = 5, x = 2)\n\n\nrep(2, 5)\n\n\nrep(5, 2)\n\nFinally, R is case sensitive. Try using Rep() instead of rep(). Take time to read the error message!\n\nRep(5, 2)",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#example-3-save-it-for-later",
-    "href": "activities/01_foundations_welcome.html#example-3-save-it-for-later",
-    "title": "Collecting and Summarizing Data",
-    "section": "Example 3: Save it for later",
-    "text": "Example 3: Save it for later\nWe’ll often want to store some R output for later use. In R:\nname &lt;- output\nwhere name is the name under which to store a result, output is the result we wish to store, and &lt;- is the assignment operator (I think of this as an arrow pointing the output into the name).\nIMPORTANT: Try out each line one at a time. Why doesn’t the first line produce any output?\n\ndegrees_c &lt;- -13\n\n\ndegrees_c\n\n\ndegrees_c * (9/5) + 32",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#example-4-import-data",
-    "href": "activities/01_foundations_welcome.html#example-4-import-data",
-    "title": "Collecting and Summarizing Data",
-    "section": "Example 4: Import data",
-    "text": "Example 4: Import data\nNext, let’s work with some data!! The first step is importing our data into RStudio. How we do this depends on:\n\nfile format (eg: .xls Excel spreadsheet, .csv, .txt)\nfile location (eg: online, on your desktop, built into RStudio itself).\n\nThe data from the survey you took before class is stored as a .csv file online. Import this data using the read_csv() function, and store it as survey using the code below:\nFirst, in the Console pane of RStudio, run the following command to install some necessary packages (you will need to do this any time you are installing a new package):\ninstall.packages(\"tidyverse\")\n\n# Load the \"tidyverse\" package which contains the read_csv() function\nlibrary(tidyverse)\n\n# Import the data\nsurvey &lt;- read_csv(\"https://mac-stat.github.io/data/112_fall_2024_survey.csv\")\n\n\n\nCheck out the data\nIn the Environment tab in the upper right pane of RStudio, click on survey. What happens?!\n\n\nIn the modern era, datasets often contain hundreds of variables and millions of observations. We need more effective ways to explore such data.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#example-5-get-to-know-the-data",
-    "href": "activities/01_foundations_welcome.html#example-5-get-to-know-the-data",
-    "title": "Collecting and Summarizing Data",
-    "section": "Example 5: Get to know the data",
-    "text": "Example 5: Get to know the data\nPAUSE: Make sure you’re still in sync with your group.\nBefore we can learn anything from our data, we must understand its structure. For each function below:\n\ntry it out\ndiscuss with your group what the function does\ndiscuss with your group how the function’s name connects to what it does\n\n\ndim(survey) # (Number of row (case/obs.), Number of column (variable))\n\n\nnrow(survey) # Number of case/obs.\n\n\nncol(survey) # Number of variables\n\n\nhead(survey) # View first few rows of the dataset (6 rows, by default)\n\n\nhead(survey, 3) # Controlling the view of first few rows of the dataset\n\n\ntail(survey) # View first few rows of the dataset (6 rows, by default)\n\n\nnames(survey) # Get all column (variable) names\n\n\nstr(survey) # Overall info about data",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#example-6-code-communication",
-    "href": "activities/01_foundations_welcome.html#example-6-code-communication",
-    "title": "Collecting and Summarizing Data",
-    "section": "Example 6 : Code = communication",
-    "text": "Example 6 : Code = communication\nIt’s important to recognize from day 1 that code is a form of communication, both to yourself and others!!!!! Code structure and details are important to readability and clarity, just as grammar, punctuation, spelling, paragraphs, and line spacing are important in written essays. All of the code below works, but has bad structure. With your group, discuss what is unfortunate about each line, then make it better.\n\nseq(from=1,to=9,by=2)\nseq(from = 1, to=9,by=2)\nmy_output &lt;- -13\nthisisthetemperaturetodayincelsius &lt;- -13\nthis_is_the_temperature_today_in_celsius &lt;- -13",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#example-7-you-will-make-so-many-mistakes",
-    "href": "activities/01_foundations_welcome.html#example-7-you-will-make-so-many-mistakes",
-    "title": "Collecting and Summarizing Data",
-    "section": "Example 7: You will make so many mistakes!",
-    "text": "Example 7: You will make so many mistakes!\nMistakes are common when, and even important to, learning any new language. You’ll get better and better at interpreting error messages, finding help, and fixing errors. In addition to finding help online, R has built-in help files. For example:\n\nIn the console, type ?rep and press Return/Enter.\nCheck out the documentation file that pops up in the Help tab (lower right).\nQuickly scroll through, noting the type of information provided.\nPause at the “Examples” section at the bottom – perhaps the most useful section! Try out a couple of the provided examples in your console.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#example-8-make-a-cheat-sheet",
-    "href": "activities/01_foundations_welcome.html#example-8-make-a-cheat-sheet",
-    "title": "Collecting and Summarizing Data",
-    "section": "Example 8: Make a “cheat sheet”",
-    "text": "Example 8: Make a “cheat sheet”\nYou will continue to pick up new R code and ideas. You’re highly encouraged to start tracking this in a cheat sheet (eg: in a Google doc). The cheat sheet will be a handy reference for you, and the act of making it will help deepen your understanding and retention.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-complete-this-after-the-class",
-    "href": "activities/01_foundations_welcome.html#exercise-complete-this-after-the-class",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise: Complete this after the class",
-    "text": "Exercise: Complete this after the class\nComplete this exercise after class. First, try it on your own (or with your group), and then check your work against the solution provided at the end of this .qmd file.\nUse R code to do the following:\n\nImport & name data on different Himalayan peaks from the url below:\nhttps://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/peaks.csv NOTE: A codebook, i.e. a description of the data, is here.\nUse a function to show which variables are recorded on each peak.\nHow many peaks are included in the dataset? Answer this using a function, not by counting up the rows yourself.\nShow the first 6 rows of the dataset. NOTE: This gives us a quick glimpse without having to print out the entire dataset!",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-1-use-r-as-a-calculator",
-    "href": "activities/01_foundations_welcome.html#exercise-1-use-r-as-a-calculator",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 1: Use R as a calculator",
-    "text": "Exercise 1: Use R as a calculator\n\n4 + 2\n## [1] 6\n4^2\n## [1] 16\n4*2\n## [1] 8\n#4(2) # We need to use * for multiplication",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-2-functions-and-arguments",
-    "href": "activities/01_foundations_welcome.html#exercise-2-functions-and-arguments",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 2: Functions and arguments",
-    "text": "Exercise 2: Functions and arguments\n\n# Calculate the square root of 9\nsqrt(9)\n## [1] 3\n\n# Calculate the number of characters in the word \"macalester\"\nnchar(\"macalester\")\n## [1] 10\n\n# Calculate the square root of the number of characters in the word \"snow\"\nsqrt(nchar(\"snow\"))\n## [1] 2\n\n\n# Repeat the number 2, 5 times\nrep(x = 2, times = 5)\n## [1] 2 2 2 2 2\n\n# Repeat the number 2, 5 times\nrep(times = 5, x = 2)\n## [1] 2 2 2 2 2\n\n# Repeat the number 2, 5 times\nrep(2, 5)\n## [1] 2 2 2 2 2\n\n# Repeat the number 5, 2 times\nrep(5, 2)\n## [1] 5 5",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-3-save-it-for-later",
-    "href": "activities/01_foundations_welcome.html#exercise-3-save-it-for-later",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 3: Save it for later",
-    "text": "Exercise 3: Save it for later\n\n# Nothing shows up -- all we're doing here is storing -13 as degrees_c\ndegrees_c &lt;- -13\n\n# Print the contents of degrees_c\ndegrees_c\n## [1] -13\n\n# We can \"do math\" with the contents of degrees_c\ndegrees_c * (9/5) + 32\n## [1] 8.6",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-4-import-data",
-    "href": "activities/01_foundations_welcome.html#exercise-4-import-data",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 4: Import data",
-    "text": "Exercise 4: Import data\n\n# Load the tidyverse package\nlibrary(tidyverse)\n\n# Import the data\nsurvey &lt;- read_csv(\"https://mac-stat.github.io/data/112_fall_2024_survey.csv\")",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-5-get-to-know-the-data",
-    "href": "activities/01_foundations_welcome.html#exercise-5-get-to-know-the-data",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 5: Get to know the data",
-    "text": "Exercise 5: Get to know the data\n\n# Dimensions of the survey data set\n# First number = number of rows\n# Second number = number of columns\ndim(survey)\n## [1] 98  4\n\n\n# Number of rows in the survey data set\nnrow(survey)\n## [1] 98\n\n\n# First 6 rows (the head) of the survey data set\nhead(survey)\n## # A tibble: 6 × 4\n##   cafe_mac     minutes_to_campus fave_temp hangout      \n##   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;        \n## 1 Cheesecake                  15        18 the mountains\n## 2 Cheese pizza                10        24 a beach      \n## 3 udon noodles                 4        18 the mountains\n## 4 egg rolls                    7        10 a beach      \n## 5 Tacos                        5        18 the mountains\n## 6 pasta                       35         7 the mountains\n\n\n# First 3 rows of the survey data set\nhead(survey, 3)\n## # A tibble: 3 × 4\n##   cafe_mac     minutes_to_campus fave_temp hangout      \n##   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;        \n## 1 Cheesecake                  15        18 the mountains\n## 2 Cheese pizza                10        24 a beach      \n## 3 udon noodles                 4        18 the mountains\n\n\n# Last 6 rows (the tail) of the survey data set\ntail(survey)\n## # A tibble: 6 × 4\n##   cafe_mac        minutes_to_campus fave_temp hangout \n##   &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;   \n## 1 Burger                         10        21 a forest\n## 2 Pepperoni Pizza                10        24 a beach \n## 3 Hamburger                       6        23 a beach \n## 4 Ginger Cookies                 10        26 a beach \n## 5 bbq chicken                     5        14 a city  \n## 6 Breakfast food                 15        25 a city\n\n\n# Names of the variables in the survey data set\nnames(survey)\n## [1] \"cafe_mac\"          \"minutes_to_campus\" \"fave_temp\"        \n## [4] \"hangout\"\n\n\n# Structure of all variables in the survey data set\nstr(survey)\n## spc_tbl_ [98 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n##  $ cafe_mac         : chr [1:98] \"Cheesecake\" \"Cheese pizza\" \"udon noodles\" \"egg rolls\" ...\n##  $ minutes_to_campus: num [1:98] 15 10 4 7 5 35 5 15 7 20 ...\n##  $ fave_temp        : num [1:98] 18 24 18 10 18 7 75 24 13 16 ...\n##  $ hangout          : chr [1:98] \"the mountains\" \"a beach\" \"the mountains\" \"a beach\" ...\n##  - attr(*, \"spec\")=\n##   .. cols(\n##   ..   cafe_mac = col_character(),\n##   ..   minutes_to_campus = col_double(),\n##   ..   fave_temp = col_double(),\n##   ..   hangout = col_character()\n##   .. )\n##  - attr(*, \"problems\")=&lt;externalptr&gt;",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-6-code-communication",
-    "href": "activities/01_foundations_welcome.html#exercise-6-code-communication",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 6: Code = communication",
-    "text": "Exercise 6: Code = communication\n\n# Make it less smooshy. Add spaces!\nseq(from = 1, to = 9, by = 2)\n## [1] 1 3 5 7 9\n\n# Use consistent spacing\nseq(from = 1, to = 9, by = 2)\n## [1] 1 3 5 7 9\n\n# Use more descriptive names when storing objects\nmy_output &lt;- -13\n\n# Use a shorter and easier to read name\ncelsius_today &lt;- -13\nCelsiusToday  &lt;- -13",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-7-you-will-make-so-many-mistakes",
-    "href": "activities/01_foundations_welcome.html#exercise-7-you-will-make-so-many-mistakes",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 7: You will make so many mistakes!",
-    "text": "Exercise 7: You will make so many mistakes!",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-8-your-turn",
-    "href": "activities/01_foundations_welcome.html#exercise-8-your-turn",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 8: Your turn",
-    "text": "Exercise 8: Your turn\n\n# a\npeaks &lt;- read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/peaks.csv\")\n\n# b\nnames(peaks)\n## [1] \"peak_id\"                    \"peak_name\"                 \n## [3] \"peak_alternative_name\"      \"height_metres\"             \n## [5] \"climbing_status\"            \"first_ascent_year\"         \n## [7] \"first_ascent_country\"       \"first_ascent_expedition_id\"\n\n# c\ndim(peaks)\n## [1] 468   8\nnrow(peaks)\n## [1] 468\n\n# d\nhead(peaks)\n## # A tibble: 6 × 8\n##   peak_id peak_name     peak_alternative_name height_metres climbing_status\n##   &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;                         &lt;dbl&gt; &lt;chr&gt;          \n## 1 AMAD    Ama Dablam    Amai Dablang                   6814 Climbed        \n## 2 AMPG    Amphu Gyabjen &lt;NA&gt;                           5630 Climbed        \n## 3 ANN1    Annapurna I   &lt;NA&gt;                           8091 Climbed        \n## 4 ANN2    Annapurna II  &lt;NA&gt;                           7937 Climbed        \n## 5 ANN3    Annapurna III &lt;NA&gt;                           7555 Climbed        \n## 6 ANN4    Annapurna IV  &lt;NA&gt;                           7525 Climbed        \n## # ℹ 3 more variables: first_ascent_year &lt;dbl&gt;, first_ascent_country &lt;chr&gt;,\n## #   first_ascent_expedition_id &lt;chr&gt;",
-    "crumbs": [
-      "Collecting and Summarizing Data"
     ]
   },
   {
