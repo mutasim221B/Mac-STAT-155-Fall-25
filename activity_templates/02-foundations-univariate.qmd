@@ -231,8 +231,6 @@ ggplot(abby, aes(x = themes)) +
 
 We'll look at the distribution of the `bing_pos` sentiment variable and associated summary statistics.
 
-** Open class-Notes and start live note-taking! **
-
 
 \
 \
