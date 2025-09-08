@@ -94,6 +94,13 @@ We'd like to understand how daily ridership among registered users relates with 
 
 a. What type of plot would be appropriate to visualize this relationship? Sketch and describe what you expect this plot to look like.
 b. Create an appropriate plot using `ggplot()`. How does the plot compare to what you predicted?
+
+```{r eval = TRUE}
+ggplot(bikes, aes(x = temp_feel, y = riders_registered)) +
+    geom_point()
+```
+
+
 c. Add the following two lines after your plot to add a linear (blue) and curved (red) smoothing line. What do you notice? Is a simple linear regression model appropriate for this data?
 
 ```{r eval=FALSE}
@@ -104,6 +111,52 @@ YOUR_PLOT +
 ```
 
 
+```{r eval = TRUE}
+# Add a red straight line of best fit and a blue curve of best fit
+ggplot(bikes, aes(x = temp_feel, y = riders_registered)) +
+    geom_point() +
+    geom_smooth(method = "lm", color = "red", se = FALSE) +
+    geom_smooth(color = "blue", se = FALSE)
+```
+
+d. Compute Correlation coefficient of temp_feel and riders_registered.
+
+### Correlation
+
+We can quantify the **linear** relationship between two quantitative variables using a numerical summary known as **correlation** (sometimes known as a "correlation coefficient" or "Pearson's correlation"). Correlation can range from -1 to 1, where a correlation of 0 indicates that there is *no* linear relationship between the two quantitative variables. 
+
+Below is an example of a "Math Box". You'll see these occasionally throughout the activities. You are *not* required to memorize, nor will you be assessed on, anything in the math boxes. If you plan on *continuing* with Statistics courses at Macalester (or are interested in the math behind everything!), these math boxes are for you!
+
+::: {.callout-note collapse="true"}
+## Correlation
+
+The Pearson correlation coefficient, $r_{x, y}$, of $x$ and $y$ is the (almost) **average** of products of the z-scores of variables $x$ and $y$:
+
+$$
+r_{x, y} = \frac{\sum z_x z_y}{n - 1}
+$$
+:::
+
+In general, we will want to be able to describe (qualitatively) two aspects of correlation:
+
+1. Strength
+- Is the correlation between x and y **strong**, or **weak**, i.e. how closely do the points fit around a line? This has to do with how **dispersed** our point clouds are.
+
+2. Direction
+- Is the correlation between x and y **positive** or **negative**, i.e. does y go "up" when x goes "up" (positive), or does y go "down" when x goes "up" (negative)?
+
+Stronger correlations will be *further* from 0 (closer to -1 or 1), and *positive* and *negative* correlations will have the appropriate respective sign (above or below zero).
+
+
+
+```{r}
+# correlation
+
+# Note: the order in which you put your two quantitative variables into the cor
+# function doesn't matter! Try switching them around to confirm this for yourself
+bikes %>%
+    summarize(cor(temp_feel, riders_registered))
+```
 
 
 ## Exercise 4: Filtering our data
@@ -120,6 +173,13 @@ NEW_DATASET_NAME <- bikes %>%
 ```
 
 Adapt the example above to create a new dataset called `bikes_sub` that only keeps cases where the felt temperature is less than 80 degrees.
+
+```{r eval = TRUE}
+# The %>% is called a "pipe" and feeds what comes before it
+# into what comes after (bikes data is "fed into" the filter() function)
+bikes_sub <- bikes %>% 
+    filter(temp_feel < 80)
+```
 
 
 
@@ -368,7 +428,7 @@ lifts %>%
 ```
 
 
-a. This is your first **bivariate** data visualization (visualization for two variables)! What differences do you notice in the code structure when creating a bivariate visualization, compared to univariate visualizations we've worked with before? 
+a. This is your second (!) **bivariate** data visualization (visualization for two variables)! What differences do you notice in the code structure when creating a bivariate visualization, compared to univariate visualizations we've worked with before? 
 b. What similarities do you notice in the code structure?
 c. Does there appear to be some sort of **pattern** in the structure of the point cloud? Describe it, in no more than three sentences! Comment on the direction of the relationship between the two variables (positive? negative?) and the spread of the points (are they dispersed? close together?).
 

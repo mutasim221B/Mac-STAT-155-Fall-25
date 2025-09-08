@@ -143,14 +143,14 @@ Please visit us!!
 - OH are oriented around group discussion. They are not first come, first served appointments.
 - Since it’s not an effective way to deepen your learning, OH are not a place to sit and do assignments with me or preceptors. It’s an opportunity to discuss concepts & specific questions.
 
-### Moodle Forum
+### Moodle Forum: STAT 155 Discussion Board
 
 This forum is where we’ll communicate outside class. Students can post and answer comments / questions there. This is an informal way to converse, ask questions, share info, & connect. Do not 
 rely on receiving responses outside weekdays between 9am & 5pm.
 
 ## What to do when you have a question for me?
 
-- If it’s non-private (e.g. about policies, homework, etc), you must post it on the public Moodle forum.
+- If it’s non-private (e.g. about policies, homework (Practice Problems), class activities, etc), you must post it on STAT 155 Discussion Board in Moodle. Remember- collaboration is the KEY!
 - If it’s personal (e.g. about an absence), email me.
 - It’s good, professional practice to check whether your question is already answered in the provided resources. For example:
   - **Info** (what to do if you miss class): syllabus
@@ -190,7 +190,7 @@ I provide transparent accommodations to all students. It helps reduce stress and
 
 - **Missed Class**: It’s okay to miss class in the case of an emergency. Please see the 'Absences' tab below for details.
 - **Practice Problems (PP)**: Limited extensions and limited mistakes without penalty. Please *carefully* go through all the sections from [STAT 155 PP Policies & Grading](https://docs.google.com/document/d/1gffiL-OKMrHSqgNijI2pnjliyzNWg8vIIfoP2MY_DSA/edit?tab=t.0#heading=h.b4wcvjckjps) doc.
-- **Checkpoints**: Some class periods will have course videos and readings assigned ahead of time. For each class period where this is the case, a checkpoint quiz (on Moodle) must be completed 30 minutes before class starts. Checkpoints may be attempted as many times as you’d like, but to earn completion credit for a given checkpoint you must score 100% by your final attempt. These short quizzes are designed to ensure that you stay on top of course material, since much of the content in this course builds on itself.
+- **Checkpoints**: Some class periods will have course videos and readings assigned ahead of time. For each class period where this is the case, a checkpoint quiz (on Moodle) must be completed by 09:00 am. Checkpoints may be attempted as many times as you’d like, but to earn completion credit for a given checkpoint you must score 100% by your final attempt. These short quizzes are designed to ensure that you stay on top of course material, since much of the content in this course builds on itself.
 - **Quizzes**: Limited revisions. Additional flexibility will be provided in rare extenuating circumstances, upon discussion. Exceptions must be discussed with me (not assumed) early on (not after the fact). 
 
 ::: {.callout-tip title="🤝 **PLEASE REACH OUT WHEN YOU NEED HELP.**"}
@@ -292,7 +292,7 @@ Complete at least 13 (out of 17) CPs (≈80%) without affecting your final grade
     - If you complete less than 8 (out of 17) CPs (≈50%) before the time they are due, your overall course grade will be lowered by 1 of a letter grade (i.e. A –> B, etc.).
   
 
-- CPs are due **30 minutes before class** on the assigned date. **There are no extensions for CPs**, as they are important *preparation* for the relevant class session.  
+- CPs are due **09:00am** on the assigned date. **There are no extensions for CPs**, as they are important *preparation* for the relevant class session.  
 :::
 
 ## (4) Practice (Practice Problem Sets)
@@ -302,6 +302,18 @@ In 8 practice problem sets (PP), you will practice and explore the course materi
 - **Grading**: PP grades will be based on Exercises & Presentation. You can make some mistakes without it chipping away at your score (e.g. you will earn 5/5 points on an exercise if it’s at least 90% correct & complete).
 - **Dropped score**: *IF* you submit and demonstrate clear effort on all 8 PPs, your lowest PP score will be dropped from your final grade.
 - **Extensions**: Limited extensions will be provided. 
+- **STAT 155 Discussion Board:** Use the Moodle board as your first stop for Practice Problems (PP):
+    - Ask first: Post questions about PP on Moodle. Include the problem number, a brief summary of your approach, and where you’re stuck. For coding, share the entire code chunk for the related problem.
+
+    - Help each other: If you know (or suspect) the answer, reply! Explaining your reasoning helps everyone learn.
+
+    - Share alternatives: Multiple correct methods are welcome—post yours with explanation.
+
+    - Show your work: To earn full collaboration credit, provide complete, well-explained solutions/steps. Partial or unexplained answers may lose points.
+
+    - Be professional: Be respectful, cite any resources you used, and write solutions in your own words.
+
+    - Goal: work together as a class so everyone can earn the PP points while learning deeply.
 
 ## (5) Project (Independence & Application)
 
