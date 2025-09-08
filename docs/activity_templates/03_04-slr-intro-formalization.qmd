@@ -87,6 +87,8 @@ Let's get acquainted with the `riders_registered` variable.
 - Write a good paragraph interpreting the plot and numerical summaries.
 
 
+## A little-bit of Live Note Taking!
+
 
 ## Exercise 3: Explore the relationship between ridership and temperature
 
