@@ -106,6 +106,10 @@ The html has saved in the same location (folder) where you initially saved the .
 
 c. Now, click on the **+C** at the top right side of RStudio and then choose **R**. What happens?
 
+```{r}
+
+```
+
 ::: {.callout-tip title="Answers"}
 It creates code chunks
 :::
