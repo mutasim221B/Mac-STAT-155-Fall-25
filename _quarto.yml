@@ -39,6 +39,7 @@ website:
     - id: activities
       title: "Activities"
       contents:
+          - "activities/05-slr-model-eval.qmd"
           - "activities/03_04-slr-intro-formalization.qmd"
           - "activities/02-foundations-univariate.qmd"
           - "activities/01_foundations_welcome.qmd"
