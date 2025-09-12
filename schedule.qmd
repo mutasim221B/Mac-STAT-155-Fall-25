@@ -3,7 +3,7 @@ title: "Course Schedule"
 sidebar: false
 ---
 
-The course schedule below will be filled in throughout the semester. For each day, there will be a link to course slides (if there are any that day) and notes/links on what is due ahead of class time. The “Announcements” column is (hopefully) self-explanatory. Any urgent announcements will be made over email.
+The (tentative) course schedule below will be filled in throughout the semester. For each day, there will be written on what is due ahead of class time OR whats' the big thing (like quizzes!). The “Announcements” column is (hopefully) self-explanatory. Any urgent announcements will be made over email (moodle).
 
 ::: {.callout-note collapse="true" title="Week 1"}
 | Monday         | Wednesday | Friday | Announcements |
@@ -17,4 +17,8 @@ The course schedule below will be filled in throughout the semester. For each da
 | **09/08: Simple Linear Regression: Discovery** <br><br> _Before class:_ <br> - Finish Univariate Foundations Activity outside of class <br> - Look through the Study Tips & Slides page on the Course Website – set a plan for yourself to be successful this semester! <br> - No checkpoint on Moodle for today! <br><br> _During class:_ <br> - Begin SLR: Discovery Activity | **09/10: Simple Linear Regression: Formalization** <br><br> _Before class:_ <br> - Finish SLR: Discovery Activity outside of class <br> - Do either the readings or videos for today’s activity (Links in the Moodle checkpoint quiz) <br> - Complete today’s checkpoint on Moodle <br><br> _During class:_ <br> - Begin SLR: Formalization Activity | **09/12: Simple Linear Regression: Model Evaluation** <br><br> _Before class:_ <br> - Finish SLR: Formalization Activity outside of class <br> - Do either the readings or videos for today’s activity (Links in the Moodle checkpoint quiz) <br> - Complete today’s checkpoint on Moodle <br><br> _During class:_ <br> - Begin SLR: Model Evaluation Activity | - PP#1 is posted on the [assignments](assignments.qmd) tab (due Friday 09/12, 11:59pm CT) <br> - Last day to add/drop is Friday, 09/12 |
 :::
 
+::: {.callout-note collapse="true" title="Week 3"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **09/15: Simple Linear Regression: Transformation** <br><br> _Before class:_ <br> - Finish last class activities and CP Quiz on Moodles | **09/17: Simple Linear Regression: Categorcial Variable** <br><br> _Before class:_ <br> - Finish last class activities and CP Quiz on Moodles | **09/19: Mulitple Linear Regression Intro** <br><br> _Before class:_ <br> - Finish last class activities  | - PP#2 is posted on the [assignments](assignments.qmd) tab (due Friday 09/20, 11:59pm CT) |
 :::
