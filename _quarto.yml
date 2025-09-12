@@ -11,6 +11,7 @@ project:
     - "data/*.csv"
     # - "activity_templates/*.qmd"
     - "assignments/*.qmd"
+    - .nojekyll
 
 website:
   title: "STAT 155"
