@@ -10,7 +10,6 @@ format:
 
 
 
-
 ```{r setup}
 #| include: false
 knitr::opts_chunk$set(
@@ -24,6 +23,11 @@ knitr::opts_chunk$set(
   fig.pos = 'h',
   fig.align = 'center')
 ```
+
+
+You can download the .qmd file for this activity [here](../activity_templates/05-slr-model-eval.qmd) and open in R-studio. The rendered version is posted in the [course website](https://mutasim221b.github.io/Mac-STAT-155-Fall-25/) (Activities tab). I often experiment with the class activities (and see it in live!) and make updates, but I always post the final version before class starts. To be sure you have the most up-to-date copy, please download it once you’ve settled in before class begins.
+
+
 
 
 # Notes
@@ -107,10 +111,11 @@ If not, which of the LINE assumptions does it violate?
   
 ```{r}
 # Plot temp_feel vs riders_registered with a model trend
-___(___, aes(x = ___, y = ___)) + 
-    geom___() + 
-    geom___(se = FALSE, color = "red") +
-    geom___(method = "lm", se = FALSE)
+ggplot(bikes, aes(x = temp_feel, y = riders_registered)) + 
+    geom_point() + 
+    geom_smooth(method = "lm", se = FALSE) +
+    geom_smooth(se = FALSE, color = "red")
+
 ```
 
 
@@ -126,13 +131,14 @@ Explain which assumption that is and how you can tell that from just the residua
 Notes:
 
 - Information about the residuals (`.resid`) and predictions (`.fitted`) are stored within our *model*, thus we start our `ggplot()` with the model name as opposed to the raw dataset. We will *rarely* start `ggplot()` with a model instead of the data.
-- We can *fix* this model by adding a quadratic "transformation term". We'll discuss this idea in our next class.
+- We can *fix* this model by adding a quadratic "transformation term" (Next CP quiz topic!).
+
 
 ```{r}
 # Check out the residual plot for bike_model
 ggplot(bike_model, aes(x = .fitted, y = .resid)) + 
     geom_point() + 
-    geom_hline(yintercept = 0) +
+    geom_hline(yintercept = 0) + # Check this first!
     geom_smooth(se = FALSE)
 ```
 
@@ -174,7 +180,7 @@ a. Construct two plots that will help us evaluate `mammal_model`:
 
 ```
 
-b. These two plots confirm that our model is wrong. *What* is wrong? That is, which of the LINE assumptions are violated? (NOTE: We again can *fix* this model by "transforming" one or both of the `brain` and `body` variables. We'll discuss this idea in our next class.)
+b. These two plots confirm that our model is wrong. *What* is wrong? That is, which of the LINE assumptions are violated? (NOTE: We again can *fix* this model by "transforming" one or both of the `brain` and `body` variables (next CP quiz topic!).
 
 
 
@@ -229,6 +235,8 @@ Strong models have residuals that don't deviate far from 0.  So the smaller the 
 Putting this together, the R-squared compares Var(predicted) to Var(response):
 
 $$R^2 = \frac{\text{variance of predicted values}}{\text{variance of observed response values}} = 1 - \frac{\text{variance of residuals}}{\text{variance of observed response values}}$$
+
+
 ::: {.callout-note collapse="true"}
 ## R-squared
 
@@ -238,9 +246,10 @@ $$
 where $y_i$ are our observed outcomes, $i = 1, \dots, n$, $\hat{y}_i$ are our fitted values/predictions, and $\bar{y}$ is our observed *average* outcome.
 :::
 
+
 ## Exercise 6: R-squared Interpretations
 
-Recall `bikemod1` from Exercise 3, where we predicted registered riders by what the temperature felt like on a given day. Use the `summary` function to look out the model output for `bikemod1`, and **interpret** the $R^2$ value for this model, in the context of the problem. (NOTE: $R^2$ is reported in output here as "Multiple R-squared"). 
+Recall `bikemod1` from Exercise 1, where we predicted registered riders by what the temperature felt like on a given day. Use the `summary` function to look out the model output for `bikemod1`, and **interpret** the $R^2$ value for this model, in the context of the problem. (NOTE: $R^2$ is reported in output here as "Multiple R-squared"). 
 
 ```{r}
 # Get R-squared
@@ -294,6 +303,7 @@ ggplot(anscombe, aes(x = x4, y = y4)) +
 ```
 
 
+### Complete Exercise 8-11 after the class.
 
 ## Exercise 8: Biased data, biased results: example 1
 
