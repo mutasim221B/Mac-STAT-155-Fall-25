@@ -4084,6 +4084,7 @@ vertical-align: -.125em;
 <p>For the first several exercises, our focus will be on the relationship between diamond price and cut.</p>
 <section id="exercise-1-get-to-know-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-get-to-know-the-data">Exercise 1: Get to know the data</h2>
+<!-- In Group -->
 <p>Write R code to answer the following:</p>
 <ul>
 <li>How many cases and variables do we have? What does a case represent?</li>
@@ -4094,9 +4095,10 @@ vertical-align: -.125em;
 </section>
 <section id="exercise-2-visualizations" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-visualizations">Exercise 2: Visualizations</h2>
+<!-- In Team -->
 <p>Start by visualizing this relationship of interest, that between <code>price</code> and <code>cut</code>.</p>
 <ol type="a">
-<li>The appropriate plot depends upon the type of variables we’re plotting. When exploring the relationship between a quantitative response (price) and a quantitative predictor (cut), a scatterplot was an effective choice. After running the code below, explain why a scatterplot is not effective for exploring the relationship between ridership and our <em>categorical</em> <code>cut</code> predictor.</li>
+<li>The appropriate plot depends upon the type of variables we’re plotting. When exploring the relationship between a quantitative response and a quantitative predictor, a scatterplot was an effective choice. After running the code below, explain why a scatterplot is not effective for exploring the relationship between the outcome price and <em>categorical</em> <code>cut</code> predictor.</li>
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Try a scatterplot</span></span>
@@ -4110,6 +4112,7 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
+<!-- Nothing clear; With the small number of unique values of the predictor variable, all of the points are bunched up on each other. -->
 <ol start="2" type="a">
 <li>Separately run each chunk below, with two plots. Comment (<code>#</code>) on what changes in the code / output.</li>
 </ol>
@@ -4137,6 +4140,7 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
+<!-- *Highest median: premium cut; *Interestingly, although “Ideal” suggests top quality- median price is actually lower than Premium and closer to Good/Very Good; *Premium and Very Good cuts show wider spreads, meaning more variation in prices; *Many outliers -->
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Univariate density plot</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> </span>
@@ -4149,6 +4153,7 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
+<!-- *Distribution is right-skewed; mean > median; *Highest peak in lower prices, another small bump in around 4k-5k; As price increases, density drops quickly -->
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ???</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span> </span>
@@ -4161,6 +4166,7 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
+<!-- *All right skewed; *Ideal Cut- highest peak at very low prices (under $1k) - many Ideal-cut diamonds are sold in lower price range; *Fair cut (red): Distribution is flatter, shifted toward somewhat higher prices compared to Ideal; Ideal cut may not “most expensive”- matches boxplot: lower median price -->
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Univariate histogram</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> </span>
@@ -4186,23 +4192,26 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
+<!-- What problem do you notice? Can we now interprate the relationship between price and cut as we could in boxplot? Why not? Hint: Area under curve -->
 <ol start="3" type="a">
 <li>Do you notice anything interesting about the relationship between price and cut? What do you think might be happening here?</li>
 </ol>
+<!-- *Surprisingly, diamonds with the best cut (Ideal) tend to have lower average prices, while those with the worst cut (Fair) are often more expensive -> suggests might be another factor— size maybe incfleuncing price? -->
 </section>
 <section id="exercise-3-numerical-summaries" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-numerical-summaries">Exercise 3: Numerical summaries</h2>
+<!-- In Team -->
 <p>Let’s follow up our plots with some numerical summaries.</p>
 <ol type="a">
 <li>To warm up, first calculate the mean <code>price</code> across all diamonds.</li>
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">___</span>(<span class="fu">mean</span>(___))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in parse(text = input): &lt;text&gt;:2:6: unexpected input</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1: diamonds %&gt;% </span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2:     __</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">##         ^</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 1 × 1</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   `mean(price)`</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="do">##           &lt;dbl&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 1         3933.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="a">
 <li>To summarize the trends we observed in the grouped plots above, we can calculate the mean <code>price</code> for each type of <code>cut</code>. This requires the inclusion of the <code>group_by()</code> function:</li>
@@ -4211,15 +4220,22 @@ vertical-align: -.125em;
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean price by cut</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">___</span>(<span class="fu">mean</span>(___))</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in parse(text = input): &lt;text&gt;:4:6: unexpected input</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3:     group_by(cut) %&gt;% </span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4:     __</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="do">##         ^</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 5 × 2</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   cut       `mean(price)`</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;             &lt;dbl&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Fair              4359.</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Good              3929.</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 Very Good         3982.</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Premium           4584.</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Ideal             3458.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="a">
-<li><p>Examine the group mean measurements, and make sure that you can match these numbers up with what you see in the plots.</p></li>
-<li><p>Based on the results above, we can see that, on average, diamonds with a “Fair” cut tend to cost more than higher-quality cuts. Let’s construct a new variable named <code>cutFair</code>, using on the following criteria:</p></li>
+<li>Examine the group mean measurements. can you match these numbers up with what you see in the plots?</li>
+</ol>
+<!-- Group means approx. reflect what we see in the plots (easiest to see in the boxplots) -->
+<ol start="4" type="a">
+<li>Based on the results above, we can see that, on average, diamonds with a “Fair” cut tend to cost more than higher-quality cuts. Let’s construct a new variable named <code>cutFair</code>, using on the following criteria:</li>
 </ol>
 <ul>
 <li><code>cutFair</code> = 1 if the diamond is of Fair cut</li>
@@ -4231,11 +4247,7 @@ vertical-align: -.125em;
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In the first blank, put what value cutFair should have if the condition is &quot;met&quot;, or TRUE</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In the second blank, put what value cutFair should have if the condition is &quot;not met&quot;, or FALSE</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>diamonds <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutFair=</span><span class="fu">ifelse</span>(cut <span class="sc">==</span> <span class="st">&quot;Fair&quot;</span>, ___, ___))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in parse(text = input): &lt;text&gt;:4:41: unexpected input</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3: diamonds &lt;- diamonds %&gt;%</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4:   mutate(cutFair=ifelse(cut == &quot;Fair&quot;, __</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="do">##                                            ^</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutFair=</span><span class="fu">ifelse</span>(cut <span class="sc">==</span> <span class="st">&quot;Fair&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Variables like <code>cutFair</code> that are coded as 0/1 to numerically indicate if a categorical variable is at a particular state are known as an <strong>indicator variable</strong>. You will sometimes see these referred to as a “binary variable” or “dichotomous variable”; you may also encounter the term “dummy variable” in older statistical literature.</p>
 <ol start="5" type="a">
@@ -4245,9 +4257,11 @@ vertical-align: -.125em;
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(cutFair) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in `group_by()`:</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">## ! Must group by variables found in `.data`.</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ✖ Column `cutFair` is not found.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 2 × 2</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   cutFair `mean(price)`</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">##     &lt;dbl&gt;         &lt;dbl&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 1       0         3920.</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 2       1         4359.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-4-modeling-trend-using-a-categorical-predictor-with-exactly-2-categories" class="level2">
@@ -4256,19 +4270,19 @@ vertical-align: -.125em;
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the model</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>diamond_mod0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> cutFair, <span class="at">data =</span> diamonds)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eval(predvars, data, env): object &#39;cutFair&#39; not found</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the model</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod0))</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: object &#39;diamond_mod0&#39; not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the model</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod0))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">##              Estimate Std. Error    t value     Pr(&gt;|t|)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) 3919.6946    17.4367 224.795616 0.000000e+00</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">## cutFair      439.0632   100.9269   4.350309 1.361951e-05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Compare these results to the output of exercise 3e. What do you notice? How do you interpret the intercept and <code>cutFair</code> coefficient terms from this model?</p>
-<blockquote class="blockquote">
-<p>your answer here</p>
-</blockquote>
+<!-- * Intercept is the expected value (mean) of the price for all diamonds with a cut quality that isn’t Fair (Good, Very Good, Premium, or Ideal, i.e. when cutFair = 0)–the same as we saw in exercise 3e; *When we add the intercept and coefficient for cutFair, we get 3919.69 + 439.06 = 4358.75–this is the mean price for all diamonds with a Fair cut quality that we saw in exercise 3e! Therefore, the coefficient of cutFair (439.06) is interpreted as the difference between the mean value of diamonds with a Fair cut quality and the mean value of diamonds with a higher cut quality. -->
 </section>
 <section id="exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories">Exercise 5: Modeling trend using a categorical predictor with &gt;2 categories</h2>
+<!-- If have time, in group; o/w, next class -->
 <p>Using a single binary predictor like the <code>cutFair</code> indicator variable is useful when there are two clearly delineated categories. However, the <code>cut</code> variable actually contains 5 categories! Because we’ve collapsed all non-Fair classifications into a single category (i.e. <code>cutFair = 0</code>), the model above can’t tell us anything about the difference in expected price between, say, <em>Premium</em> and <em>Ideal</em> cuts. The good news is that it is very straightforward to model categorical predictors with &gt;2 categories. We can do this by using the <code>cut</code> variable as our predictor:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the model</span></span>
@@ -4286,9 +4300,7 @@ vertical-align: -.125em;
 <ol type="a">
 <li>Even though we specified a single predictor variable in the model, we are seeing 4 coefficient estimates–why do you think this is the case?</li>
 </ol>
-<blockquote class="blockquote">
-<p>your answer here</p>
-</blockquote>
+<!-- each category assigned to a separate indicator variable–cutGood = 1 when cut == "Good" and 0 otherwise, cutVery Good = 1 when `cut == “Very Good” and 0 otherwise, and so on. -->
 <hr>
 <p>NOTE: We see 4 indicator variables (for Good, Very Good, Premium, and Ideal), but we do not see <code>cutFair</code> in the model output. This is because <code>Fair</code> is the <strong>reference level</strong> of the <code>cut</code> variable (it’s first alphabetically). You’ll see below that it is, indeed, still in the model. You’ll also see why the term “reference level” makes sense!</p>
 <hr>
@@ -4302,6 +4314,7 @@ vertical-align: -.125em;
 </section>
 <section id="exercise-6-making-sense-of-the-model" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6-making-sense-of-the-model">Exercise 6: Making sense of the model</h2>
+<!-- If have time, in group; o/w, next class -->
 <p>Recall our model: E[price | cut] = 4358.7578 - 429.8933 cutGood - 376.9979 cutVery Good + 225.4999 cutPremium - 901.2158 cutIdeal</p>
 <ol type="a">
 <li><p>Use the model formula to calculate the expected/typical price for diamonds of <em>Good</em> cut.</p></li>
@@ -4311,6 +4324,7 @@ vertical-align: -.125em;
 </section>
 <section id="exercise-7-interpreting-coefficients" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7-interpreting-coefficients">Exercise 7: Interpreting coefficients</h2>
+<!-- If have time, in group; o/w, next class -->
 <p>Recall that our model formula is <em>not a formula for a line</em>. Thus we can’t interpret the coefficients as “slopes” as we have before. Taking this into account and reflecting upon your calculations above…</p>
 <ol type="a">
 <li><p>Interpret the intercept coefficient (<code>4358.7578</code>) in terms of the data context. <em>Make sure to use non-causal language, include units, and talk about averages rather than individual cases.</em></p></li>
@@ -4319,6 +4333,7 @@ vertical-align: -.125em;
 </section>
 <section id="exercise-8-modeling-choices-challenge" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8-modeling-choices-challenge">Exercise 8: Modeling choices (CHALLENGE)</h2>
+<!-- After class -->
 <p>Why do we fit this model in this way (using 4 indicator variables <code>cutGood</code>, <code>cutVery Good</code>, <code>cutPremium</code>, <code>cutIdeal</code>)? Instead, suppose that we created a single variable <code>cutCat</code> that gave each category a numerical value: 0 for Fair, 1 for Good, 2 for Very Good, 3 for Premium, and 4 for Ideal.</p>
 <p>How would this change things? What are the pros and cons of each approach?</p>
 </section>
@@ -4342,6 +4357,7 @@ vertical-align: -.125em;
 </section>
 <section id="additional-practice" class="level1">
 <h1>Additional Practice</h1>
+<!-- After class -->
 <section id="exercise-9-diamond-color" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9-diamond-color">Exercise 9: Diamond color</h2>
 <p>Consider modeling <code>price</code> by <code>color</code>.</p>
@@ -4375,18 +4391,18 @@ vertical-align: -.125em;
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(diamonds)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 53940    10</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 53940    11</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(diamonds)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 10</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   carat cut       color clarity depth table price     x     y     z</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;dbl&gt; &lt;fct&gt;     &lt;fct&gt; &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 11</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   carat cut       color clarity depth table price     x     y     z cutFair</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;dbl&gt; &lt;fct&gt;     &lt;fct&gt; &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43       0</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31       0</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31       0</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63       0</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75       0</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48       0</span></span>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize price (outcome variable)</span></span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span></span>

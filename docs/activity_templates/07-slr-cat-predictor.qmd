@@ -72,9 +72,12 @@ diamonds <- diamonds %>%
     )
 ```
 
+
+
 For the first several exercises, our focus will be on the relationship between diamond price and cut.
 
-## Exercise 1: Get to know the data
+## Exercise 1: Get to know the data 
+<!-- In Group -->
 
 Write R code to answer the following:
 
@@ -85,17 +88,27 @@ Write R code to answer the following:
 
 
 
-## Exercise 2: Visualizations
+## Exercise 2: Visualizations 
+<!-- In Team -->
 
 Start by visualizing this relationship of interest, that between `price` and `cut`.
 
-a. The appropriate plot depends upon the type of variables we're plotting. When exploring the relationship between a quantitative response (price) and a quantitative predictor (cut), a scatterplot was an effective choice. After running the code below, explain why a scatterplot is not effective for exploring the relationship between ridership and our *categorical* `cut` predictor.
+a. The appropriate plot depends upon the type of variables we're plotting. When exploring the relationship between a quantitative response and a quantitative predictor, a scatterplot was an effective choice. After running the code below, explain why a scatterplot is not effective for exploring the relationship between the outcome price and *categorical* `cut` predictor.
 
 ```{r}
 # Try a scatterplot
 ggplot(diamonds, aes(y = price, x = cut)) + 
     geom_point()
 ```
+
+
+
+
+
+
+
+<!-- Nothing clear; With the small number of unique values of the predictor variable, all of the points are bunched up on each other. -->
+
 
 b. Separately run each chunk below, with two plots. Comment (`#`) on what changes in the code / output.
 
@@ -105,11 +118,29 @@ ggplot(diamonds, aes(y = price)) +
     geom_boxplot()
 ```
 
+
+
+
+
+
+
+
 ```{r}
 # ???
 ggplot(diamonds, aes(y = price, x = cut)) + 
     geom_boxplot()
 ```
+
+
+
+
+
+
+
+
+
+<!-- *Highest median: premium cut; *Interestingly, although “Ideal” suggests top quality- median price is actually lower than Premium and closer to Good/Very Good; *Premium and Very Good cuts show wider spreads, meaning more variation in prices; *Many outliers -->
+
 
 ```{r}
 # Univariate density plot
@@ -117,17 +148,46 @@ ggplot(diamonds, aes(x = price)) +
     geom_density()
 ```
 
+
+
+
+
+
+
+
+
+<!-- *Distribution is right-skewed; mean > median; *Highest peak in lower prices, another small bump in around 4k-5k; As price increases, density drops quickly -->
+
+
 ```{r}
 # ???
 ggplot(diamonds, aes(x = price, color = cut)) + 
     geom_density()
 ```
 
+
+
+
+
+
+
+
+
+
+
+<!-- *All right skewed; *Ideal Cut- highest peak at very low prices (under $1k) - many Ideal-cut diamonds are sold in lower price range; *Fair cut (red): Distribution is flatter, shifted toward somewhat higher prices compared to Ideal; Ideal cut may not “most expensive”- matches boxplot: lower median price -->
+
+
+
 ```{r}
 # Univariate histogram
 ggplot(diamonds, aes(x = price)) + 
     geom_histogram()
 ```
+
+
+
+
 
 ```{r}
 # ???
@@ -136,11 +196,38 @@ ggplot(diamonds, aes(x = price)) +
     facet_wrap(~ cut)
 ```
 
+
+
+
+
+
+
+
+<!-- What problem do you notice? Can we now interprate the relationship between price and cut as we could in boxplot? Why not? Hint: Area under curve -->
+
+
 c. Do you notice anything interesting about the relationship between price and cut? What do you think might be happening here?
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *Surprisingly, diamonds with the best cut (Ideal) tend to have lower average prices, while those with the worst cut (Fair) are often more expensive -> suggests might be another factor— size maybe incfleuncing price? -->
+
+
+
 ## Exercise 3: Numerical summaries
+<!-- In Team -->
 
 Let's follow up our plots with some numerical summaries.
 
@@ -148,8 +235,9 @@ a. To warm up, first calculate the mean `price` across all diamonds.
 
 ```{r}
 diamonds %>% 
-    ___(mean(___))
+     summarize(mean(price))
 ```
+
 
 b. To summarize the trends we observed in the grouped plots above, we can calculate the mean `price` for each type of `cut`. This requires the inclusion of the `group_by()` function:
 
@@ -157,11 +245,18 @@ b. To summarize the trends we observed in the grouped plots above, we can calcul
 # Calculate mean price by cut
 diamonds %>% 
     group_by(cut) %>% 
-    ___(mean(___))
+    summarize(mean(price))
 ```
 
 
-c. Examine the group mean measurements, and make sure that you can match these numbers up with what you see in the plots.
+c. Examine the group mean measurements. can you match these numbers up with what you see in the plots?
+
+
+
+
+<!-- Group means approx. reflect what we see in the plots (easiest to see in the boxplots) -->
+
+
 
 d. Based on the results above, we can see that, on average, diamonds with a "Fair" cut tend to cost more than higher-quality cuts. Let's construct a new variable named `cutFair`, using on the following criteria:
 
@@ -176,7 +271,7 @@ Fill in the following code to create `cutFair`. The condition was given to you a
 # In the first blank, put what value cutFair should have if the condition is "met", or TRUE
 # In the second blank, put what value cutFair should have if the condition is "not met", or FALSE
 diamonds <- diamonds %>%
-  mutate(cutFair=ifelse(cut == "Fair", ___, ___))
+  mutate(cutFair=ifelse(cut == "Fair", 1, 0))
 ```
 
 
@@ -189,6 +284,8 @@ diamonds %>%
     group_by(cutFair) %>% 
     summarize(mean(price))
 ```
+
+
 
 ## Exercise 4: Modeling trend using a categorical predictor with exactly 2 categories 
 
@@ -205,9 +302,20 @@ coef(summary(diamond_mod0))
 
 Compare these results to the output of exercise 3e. What do you notice? How do you interpret the intercept and `cutFair` coefficient terms from this model?
 
-> your answer here
+
+
+
+
+
+<!-- * Intercept is the expected value (mean) of the price for all diamonds with a cut quality that isn’t Fair (Good, Very Good, Premium, or Ideal, i.e. when cutFair = 0)–the same as we saw in exercise 3e; *When we add the intercept and coefficient for cutFair, we get 3919.69 + 439.06 = 4358.75–this is the mean price for all diamonds with a Fair cut quality that we saw in exercise 3e! Therefore, the coefficient of cutFair (439.06) is interpreted as the difference between the mean value of diamonds with a Fair cut quality and the mean value of diamonds with a higher cut quality. -->
+
+
+
 
 ## Exercise 5: Modeling trend using a categorical predictor with >2 categories
+<!-- If have time, in group; o/w, next class -->
+
+
 
 Using a single binary predictor like the `cutFair` indicator variable is useful when there are two clearly delineated categories. However, the `cut` variable actually contains 5 categories! Because we've collapsed all non-Fair classifications into a single category (i.e. `cutFair = 0`), the model above can't tell us anything about the difference in expected price between, say, *Premium* and *Ideal* cuts. The good news is that it is very straightforward to model categorical predictors with >2 categories. We can do this by using the `cut` variable as our predictor: 
 
@@ -221,7 +329,9 @@ coef(summary(diamond_mod))
 
 a. Even though we specified a single predictor variable in the model, we are seeing 4 coefficient estimates--why do you think this is the case?
 
-> your answer here
+
+
+<!-- each category assigned to a separate indicator variable–cutGood = 1 when cut == "Good" and 0 otherwise, cutVery Good = 1 when `cut == “Very Good” and 0 otherwise, and so on. -->
 
 ---
 
@@ -240,6 +350,8 @@ E[price | cut] = ___ +/- ___ cutGood +/- ___ cutVery Good +/- ___ cutPremium +/-
 
 ## Exercise 6: Making sense of the model
 
+<!-- If have time, in group; o/w, next class -->
+
 Recall our model:  E[price | cut] = 4358.7578 - 429.8933 cutGood - 376.9979 cutVery Good + 225.4999 cutPremium - 901.2158 cutIdeal
 
 a. Use the model formula to calculate the expected/typical price for diamonds of *Good* cut.
@@ -251,6 +363,8 @@ c. Re-examine these 2 calculations. Where have you seen these numbers before?!
 
 ## Exercise 7: Interpreting coefficients
 
+<!-- If have time, in group; o/w, next class -->
+
 Recall that our model formula is *not a formula for a line*. Thus we can't interpret the coefficients as "slopes" as we have before. Taking this into account and reflecting upon your calculations above...   
 
 a. Interpret the intercept coefficient (`4358.7578`) in terms of the data context. *Make sure to use non-causal language, include units, and talk about averages rather than individual cases.*
@@ -260,6 +374,8 @@ b. Interpret the `cutGood` and `cutVery Good` coefficients (`-429.8933` and `-37
 
 
 ## Exercise 8: Modeling choices (CHALLENGE)
+
+<!-- After class -->
 
 Why do we fit this model in this way (using 4 indicator variables `cutGood`,  `cutVery Good`, `cutPremium`, `cutIdeal`)? Instead, suppose that we created a single variable `cutCat` that gave each category a numerical value: 0 for Fair, 1 for Good, 2 for Very Good, 3 for Premium, and 4 for Ideal.
 
@@ -286,6 +402,8 @@ Through the exercises above, you learned how to build and interpret models that 
 
 
 # Additional Practice
+
+<!-- After class -->
 
 ## Exercise 9: Diamond color
 
