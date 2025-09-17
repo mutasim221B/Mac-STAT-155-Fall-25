@@ -3993,7 +3993,6 @@ vertical-align: -.125em;
   <li><a href="#exercise-6-making-sense-of-the-model" id="toc-exercise-6-making-sense-of-the-model" class="nav-link" data-scroll-target="#exercise-6-making-sense-of-the-model">Exercise 6: Making sense of the model</a></li>
   <li><a href="#exercise-7-interpreting-coefficients" id="toc-exercise-7-interpreting-coefficients" class="nav-link" data-scroll-target="#exercise-7-interpreting-coefficients">Exercise 7: Interpreting coefficients</a></li>
   <li><a href="#exercise-8-modeling-choices-challenge" id="toc-exercise-8-modeling-choices-challenge" class="nav-link" data-scroll-target="#exercise-8-modeling-choices-challenge">Exercise 8: Modeling choices (CHALLENGE)</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   <li><a href="#render-your-work" id="toc-render-your-work" class="nav-link" data-scroll-target="#render-your-work">Render your work</a></li>
   </ul></li>
   <li><a href="#additional-practice" id="toc-additional-practice" class="nav-link" data-scroll-target="#additional-practice">Additional Practice</a>
@@ -4084,18 +4083,24 @@ vertical-align: -.125em;
 <p>For the first several exercises, our focus will be on the relationship between diamond price and cut.</p>
 <section id="exercise-1-get-to-know-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-get-to-know-the-data">Exercise 1: Get to know the data</h2>
-<!-- In Group -->
 <p>Write R code to answer the following:</p>
 <ul>
+<li><ol type="a">
 <li>How many cases and variables do we have? What does a case represent?</li>
+</ol></li>
+<li><ol start="2" type="a">
 <li>What do the first few rows of the data look like?</li>
+</ol></li>
+<li><ol start="3" type="a">
 <li>Construct and interpret two different visualizations of the <code>price</code> variable.</li>
+</ol></li>
+<li><ol start="4" type="a">
 <li>Construct and interpret a visualization of the <code>cut</code> variable.</li>
+</ol></li>
 </ul>
 </section>
 <section id="exercise-2-visualizations" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-visualizations">Exercise 2: Visualizations</h2>
-<!-- In Team -->
 <p>Start by visualizing this relationship of interest, that between <code>price</code> and <code>cut</code>.</p>
 <ol type="a">
 <li>The appropriate plot depends upon the type of variables we’re plotting. When exploring the relationship between a quantitative response and a quantitative predictor, a scatterplot was an effective choice. After running the code below, explain why a scatterplot is not effective for exploring the relationship between the outcome price and <em>categorical</em> <code>cut</code> predictor.</li>
@@ -4112,10 +4117,13 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<!-- Nothing clear; With the small number of unique values of the predictor variable, all of the points are bunched up on each other. -->
+<blockquote class="blockquote">
+<p><strong>Response:</strong> Put your response here.</p>
+</blockquote>
 <ol start="2" type="a">
 <li>Separately run each chunk below, with two plots. Comment (<code>#</code>) on what changes in the code / output.</li>
 </ol>
+<p>b.1.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Univariate boxplot</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">y =</span> price)) <span class="sc">+</span> </span>
@@ -4128,6 +4136,10 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p><strong>Response:</strong> Put your response here.</p>
+</blockquote>
+<p>b.2.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ???</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> cut)) <span class="sc">+</span> </span>
@@ -4140,7 +4152,10 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<!-- *Highest median: premium cut; *Interestingly, although “Ideal” suggests top quality- median price is actually lower than Premium and closer to Good/Very Good; *Premium and Very Good cuts show wider spreads, meaning more variation in prices; *Many outliers -->
+<blockquote class="blockquote">
+<p><strong>Response:</strong> Put your response here.</p>
+</blockquote>
+<p>b.3.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Univariate density plot</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> </span>
@@ -4153,9 +4168,12 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<!-- *Distribution is right-skewed; mean > median; *Highest peak in lower prices, another small bump in around 4k-5k; As price increases, density drops quickly -->
+<blockquote class="blockquote">
+<p><strong>Response:</strong> Put your response here.</p>
+</blockquote>
+<p>b.4.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ???</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparisons in density plot</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -4166,7 +4184,10 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<!-- *All right skewed; *Ideal Cut- highest peak at very low prices (under $1k) - many Ideal-cut diamonds are sold in lower price range; *Fair cut (red): Distribution is flatter, shifted toward somewhat higher prices compared to Ideal; Ideal cut may not “most expensive”- matches boxplot: lower median price -->
+<blockquote class="blockquote">
+<p><strong>Response:</strong> Put your response here.</p>
+</blockquote>
+<p>b.5.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Univariate histogram</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> </span>
@@ -4179,6 +4200,10 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p><strong>Response:</strong> Put your response here.</p>
+</blockquote>
+<p>b.6. What’s the difference between this and b4 density plot comparison? Can we now interpret the relationship between price and cut as we could in density plot? Why not?</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ???</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> </span>
@@ -4192,15 +4217,18 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<!-- What problem do you notice? Can we now interprate the relationship between price and cut as we could in boxplot? Why not? Hint: Area under curve -->
+<blockquote class="blockquote">
+<p><strong>Response:</strong> Put your response here.</p>
+</blockquote>
 <ol start="3" type="a">
 <li>Do you notice anything interesting about the relationship between price and cut? What do you think might be happening here?</li>
 </ol>
-<!-- *Surprisingly, diamonds with the best cut (Ideal) tend to have lower average prices, while those with the worst cut (Fair) are often more expensive -> suggests might be another factor— size maybe incfleuncing price? -->
+<blockquote class="blockquote">
+<p><strong>Response:</strong> Put your response here.</p>
+</blockquote>
 </section>
 <section id="exercise-3-numerical-summaries" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-numerical-summaries">Exercise 3: Numerical summaries</h2>
-<!-- In Team -->
 <p>Let’s follow up our plots with some numerical summaries.</p>
 <ol type="a">
 <li>To warm up, first calculate the mean <code>price</code> across all diamonds.</li>
@@ -4231,11 +4259,8 @@ vertical-align: -.125em;
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Ideal             3458.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="a">
-<li>Examine the group mean measurements. can you match these numbers up with what you see in the plots?</li>
-</ol>
-<!-- Group means approx. reflect what we see in the plots (easiest to see in the boxplots) -->
-<ol start="4" type="a">
-<li>Based on the results above, we can see that, on average, diamonds with a “Fair” cut tend to cost more than higher-quality cuts. Let’s construct a new variable named <code>cutFair</code>, using on the following criteria:</li>
+<li><p>Examine the group mean measurements. can you match these numbers up with what you see in the plots?</p></li>
+<li><p>Based on the results above, we can see that, on average, diamonds with a “Fair” cut tend to cost more than higher-quality cuts. Let’s construct a new variable named <code>cutFair</code>, using on the following criteria:</p></li>
 </ol>
 <ul>
 <li><code>cutFair</code> = 1 if the diamond is of Fair cut</li>
@@ -4278,11 +4303,9 @@ vertical-align: -.125em;
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">## cutFair      439.0632   100.9269   4.350309 1.361951e-05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Compare these results to the output of exercise 3e. What do you notice? How do you interpret the intercept and <code>cutFair</code> coefficient terms from this model?</p>
-<!-- * Intercept is the expected value (mean) of the price for all diamonds with a cut quality that isn’t Fair (Good, Very Good, Premium, or Ideal, i.e. when cutFair = 0)–the same as we saw in exercise 3e; *When we add the intercept and coefficient for cutFair, we get 3919.69 + 439.06 = 4358.75–this is the mean price for all diamonds with a Fair cut quality that we saw in exercise 3e! Therefore, the coefficient of cutFair (439.06) is interpreted as the difference between the mean value of diamonds with a Fair cut quality and the mean value of diamonds with a higher cut quality. -->
 </section>
 <section id="exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories">Exercise 5: Modeling trend using a categorical predictor with &gt;2 categories</h2>
-<!-- If have time, in group; o/w, next class -->
 <p>Using a single binary predictor like the <code>cutFair</code> indicator variable is useful when there are two clearly delineated categories. However, the <code>cut</code> variable actually contains 5 categories! Because we’ve collapsed all non-Fair classifications into a single category (i.e. <code>cutFair = 0</code>), the model above can’t tell us anything about the difference in expected price between, say, <em>Premium</em> and <em>Ideal</em> cuts. The good news is that it is very straightforward to model categorical predictors with &gt;2 categories. We can do this by using the <code>cut</code> variable as our predictor:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the model</span></span>
@@ -4300,7 +4323,6 @@ vertical-align: -.125em;
 <ol type="a">
 <li>Even though we specified a single predictor variable in the model, we are seeing 4 coefficient estimates–why do you think this is the case?</li>
 </ol>
-<!-- each category assigned to a separate indicator variable–cutGood = 1 when cut == "Good" and 0 otherwise, cutVery Good = 1 when `cut == “Very Good” and 0 otherwise, and so on. -->
 <hr>
 <p>NOTE: We see 4 indicator variables (for Good, Very Good, Premium, and Ideal), but we do not see <code>cutFair</code> in the model output. This is because <code>Fair</code> is the <strong>reference level</strong> of the <code>cut</code> variable (it’s first alphabetically). You’ll see below that it is, indeed, still in the model. You’ll also see why the term “reference level” makes sense!</p>
 <hr>
@@ -4314,7 +4336,6 @@ vertical-align: -.125em;
 </section>
 <section id="exercise-6-making-sense-of-the-model" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6-making-sense-of-the-model">Exercise 6: Making sense of the model</h2>
-<!-- If have time, in group; o/w, next class -->
 <p>Recall our model: E[price | cut] = 4358.7578 - 429.8933 cutGood - 376.9979 cutVery Good + 225.4999 cutPremium - 901.2158 cutIdeal</p>
 <ol type="a">
 <li><p>Use the model formula to calculate the expected/typical price for diamonds of <em>Good</em> cut.</p></li>
@@ -4324,7 +4345,6 @@ vertical-align: -.125em;
 </section>
 <section id="exercise-7-interpreting-coefficients" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7-interpreting-coefficients">Exercise 7: Interpreting coefficients</h2>
-<!-- If have time, in group; o/w, next class -->
 <p>Recall that our model formula is <em>not a formula for a line</em>. Thus we can’t interpret the coefficients as “slopes” as we have before. Taking this into account and reflecting upon your calculations above…</p>
 <ol type="a">
 <li><p>Interpret the intercept coefficient (<code>4358.7578</code>) in terms of the data context. <em>Make sure to use non-causal language, include units, and talk about averages rather than individual cases.</em></p></li>
@@ -4333,16 +4353,8 @@ vertical-align: -.125em;
 </section>
 <section id="exercise-8-modeling-choices-challenge" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8-modeling-choices-challenge">Exercise 8: Modeling choices (CHALLENGE)</h2>
-<!-- After class -->
 <p>Why do we fit this model in this way (using 4 indicator variables <code>cutGood</code>, <code>cutVery Good</code>, <code>cutPremium</code>, <code>cutIdeal</code>)? Instead, suppose that we created a single variable <code>cutCat</code> that gave each category a numerical value: 0 for Fair, 1 for Good, 2 for Very Good, 3 for Premium, and 4 for Ideal.</p>
 <p>How would this change things? What are the pros and cons of each approach?</p>
-</section>
-<section id="reflection" class="level2">
-<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>Through the exercises above, you learned how to build and interpret models that incorporate a categorical predictor variable. For the benefit of your future self, summarize how one can interpret the coefficients for a categorical predictor.</p>
-<blockquote class="blockquote">
-<p><strong>Response:</strong> Put your response here.</p>
-</blockquote>
 </section>
 <section id="render-your-work" class="level2">
 <h2 class="anchored" data-anchor-id="render-your-work">Render your work</h2>
@@ -4357,7 +4369,6 @@ vertical-align: -.125em;
 </section>
 <section id="additional-practice" class="level1">
 <h1>Additional Practice</h1>
-<!-- After class -->
 <section id="exercise-9-diamond-color" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9-diamond-color">Exercise 9: Diamond color</h2>
 <p>Consider modeling <code>price</code> by <code>color</code>.</p>
