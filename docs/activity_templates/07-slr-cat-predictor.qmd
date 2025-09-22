@@ -250,7 +250,7 @@ Next, let's *model* the trend in the relationship between the `cutFair` and `pri
 diamond_mod0 <- lm(price ~ cutFair, data = diamonds)
 
 # Summarize the model
-coef(summary(diamond_mod0))
+summary(diamond_mod0)
 ```
 
 

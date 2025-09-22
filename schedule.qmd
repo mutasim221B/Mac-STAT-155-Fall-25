@@ -22,3 +22,10 @@ The (tentative) course schedule below will be filled in throughout the semester.
 |:-------|:----------|:-------|:--------------|
 | **09/15: Simple Linear Regression: Transformation** <br><br> _Before class:_ <br> - Finish last class activities and CP Quiz on Moodles | **09/17: Simple Linear Regression: Categorcial Variable** <br><br> _Before class:_ <br> - Finish last class activities and CP Quiz on Moodles | **09/19: Mulitple Linear Regression Intro** <br><br> _Before class:_ <br> - Finish last class activities  | - PP#2 is posted on the [Practice Problems](assignments.qmd) tab (due Friday 09/20, 11:59pm CT) |
 :::
+
+
+::: {.callout-note collapse="true" title="Week 4"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **09/22: Multiple Linear Regression: Discovery** <br><br> | **09/24: Quiz 01** | **09/26: Mulitple Linear Regression Discovery** |
+:::

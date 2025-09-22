@@ -3872,6 +3872,10 @@ vertical-align: -.125em;
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
         <li>
+    <a class="dropdown-item" href="../activities/08-mlr-intro.html">
+ <span class="dropdown-text">Multiple Linear Regression - Intro</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../activities/07-slr-cat-predictor.html">
  <span class="dropdown-text">Simple Linear Regression - Categorical Predictor</span></a>
   </li>  
@@ -3932,6 +3936,15 @@ vertical-align: -.125em;
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">activities/Review-SLR.qmd.qmd</span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/08-mlr-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multiple Linear Regression - Intro</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../activities/07-slr-cat-predictor.html" class="sidebar-item-text sidebar-link active">
@@ -4297,10 +4310,25 @@ vertical-align: -.125em;
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>diamond_mod0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> cutFair, <span class="at">data =</span> diamonds)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the model</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod0))</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">##              Estimate Std. Error    t value     Pr(&gt;|t|)</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) 3919.6946    17.4367 224.795616 0.000000e+00</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">## cutFair      439.0632   100.9269   4.350309 1.361951e-05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diamond_mod0)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = price ~ cutFair, data = diamonds)</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Residuals:</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="do">##    Min     1Q Median     3Q    Max </span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  -4022  -2977  -1529   1391  14903 </span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  3919.69      17.44  224.80  &lt; 2e-16 ***</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="do">## cutFair       439.06     100.93    4.35 1.36e-05 ***</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Residual standard error: 3989 on 53938 degrees of freedom</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.0003507,  Adjusted R-squared:  0.0003322 </span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="do">## F-statistic: 18.93 on 1 and 53938 DF,  p-value: 1.362e-05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Compare these results to the output of exercise 3e. What do you notice? How do you interpret the intercept and <code>cutFair</code> coefficient terms from this model?</p>
 </section>
