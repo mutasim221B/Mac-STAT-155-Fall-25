@@ -232,7 +232,7 @@ a. Reflecting on your plot of `flipper_len` by `bill_len` and `species` in Exerc
 
 ```{r}
 penguins %>% 
-  ggplot(aes(y = flipper_len, x = bill_len, ____=____)) + 
+  ggplot(aes(y = flipper_len, x = bill_len, color = species)) + 
   geom_point() + 
   geom_smooth(method = "lm", se = FALSE)
 ```
@@ -285,15 +285,11 @@ coef(summary(penguin_mod))
 
 
 a. In the `lm()` function, how did we communicate that we wanted to model `flipper_len` by both `bill_len` and `species`?
-
+bill_len + species
 
 b. Complete the following model formula:    
-    
-    E[flipper_len | bill_len, speciesGentoo] = ___ + ___ * bill_len + ___ * speciesGentoo
 
-
-
-
+    E[flipper_len | bill_len, speciesGentoo] = 127.753693 + 1.402367 * bill_len + 22.848036 * speciesGentoo
 
 
 ## Exercise 5: Sub-model formulas
@@ -306,9 +302,9 @@ Let's bring these ideas together.
 
 Utilize the model formula to obtain the equations of these two lines, i.e. to obtain the *sub-model formulas* for the 2 species. Hint: Plug speciesGentoo = 1 and speciesGentoo  = 0         
     
-Chinstrap: flipper_len = ___ + ___ bill_len
+Chinstrap: flipper_len = 127.753693 + 1.402367* bill_len
 
-Gentoo:    flipper_len = ___ + ___ bill_len
+Gentoo:    flipper_len = (127.753693 +22.848036) + 1.402367 * bill_len
 
 
 
@@ -339,9 +335,10 @@ a. Interpret 127.75 (intercept of the Chinstrap line).
 b. Interpret 1.40 (slope of both lines). For both Chinstrap and Gentoo penguins, we expect...
 
 c. Interpret 22.85. At any `bill_len`, we expect...
-    
-    
 
+
+
+    
 
 
 
@@ -416,6 +413,7 @@ c. Check your intuition. How does the R-squared of our multiple regression model
 ```{r}
 summary(penguin_mod)
 ```
+
 
 
 

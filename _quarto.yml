@@ -40,7 +40,8 @@ website:
     - id: activities
       title: "Activities"
       contents:
-          - "activities/Review-SLR.qmd.qmd"
+        # - "activities/10-mlr-confounding.qmd"
+          - "activities/09-mlr-principles.qmd"
           - "activities/08-mlr-intro.qmd"
           - "activities/07-slr-cat-predictor.qmd"
           - "activities/06-slr-transformations.qmd"
