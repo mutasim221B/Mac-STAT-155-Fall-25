@@ -117,9 +117,9 @@ E[rides | windspeed, weekendTRUE] = 4738.38 - 63.97 * windspeed - 925.16 * weeke
 
 This model formula is represented by 2 lines, one corresponding to weekends and the other to weekdays. Simplify the model formula above for weekdays and weekends:       
     
-weekdays: rides = ___ - ___ windspeed   
+weekdays: rides = 4738.38 - 63.97 *windspeed   
 
-weekends: rides = ___ - ___ windspeed
+weekends: rides = (4738.38- 925.16) - 63.97 *windspeed
 
 
 
@@ -159,7 +159,7 @@ bikes %>%
 
 # rides vs season AND weekend
 bikes %>%
-  ggplot(aes(y = rides, x = season, ___ = ___)) +
+  ggplot(aes(y = rides, x = season, fill = weekend)) +
   geom_boxplot()
 ```
 
@@ -198,16 +198,16 @@ a. Use this model to predict the ridership on the following days:
     
 ```{r}
 # a fall weekday
-4260.45 - 912.33*___ - 116.38*___  + 438.44*___ - 1719.06*___
+4260.45 - 912.33*0 - 116.38*0  + 438.44*0 - 1719.06*0
 
 # a winter weekday    
-4260.45 - 912.33*___ - 116.38*___  + 438.44*___ - 1719.06*___
+4260.45 - 912.33*0 - 116.38*0  + 438.44*0 - 1719.06*1
 
 # a fall weekend day        
-4260.45 - 912.33*___ - 116.38*___  + 438.44*___ - 1719.06*___
+4260.45 - 912.33*1 - 116.38*0  + 438.44*0 - 1719.06*0
 
 # a winter weekend day
-4260.45 - 912.33*___ - 116.38*___  + 438.44*___ - 1719.06*___
+4260.45 - 912.33*1 - 116.38*0  + 438.44*0 - 1719.06*1
 ```
 
 
@@ -251,7 +251,7 @@ Modify the code below to recreate this plot.
 
 ```{r}
 bikes %>%
-  ggplot(aes(y = rides, x = windspeed, ___ = ___)) +
+  ggplot(aes(y = rides, x = windspeed, color = temp_feel)) +
   geom_point() #color = temp_feel
 ```
 
@@ -312,7 +312,7 @@ c. Interpret the `temp_feel` coefficient, 55.52, in context.
 
 
     
-    
+
 
 
 ## Exercise 11: Which is "best"?
@@ -333,12 +333,9 @@ model                     predictors                R-squared
 
 a. Which model does the best job of explaining the variability in ridership from day to day?
 
-
 b. If you could only pick one predictor, which would it be?
 
-
 c. What happens to R-squared when we add a second predictor to our model, and why does this make sense? For example, how does the R-squared for model 1 (with both `windspeed` and `weekend`) compare to those of model 4 (only `windspeed`) and model 6 (only `weekend`)?
-
 
 d. Are 2 predictors always better than 1? Provide evidence and explain why this makes sense.
 

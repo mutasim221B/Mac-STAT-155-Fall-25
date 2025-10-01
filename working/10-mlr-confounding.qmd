@@ -1,5 +1,5 @@
 ---
-title: "Multiple Linear Regression - Principles"
+title: "Multiple Linear Regression - Confounding"
 subtitle: "Notes and in-class exercises"
 format: 
   html:
@@ -95,7 +95,7 @@ Synthesis:
 - Interpreting the coefficient $\beta_Q$ for a quantitative variable Q:
     - Holding all other variables constant, each unit increase in Q is associated with $\beta_Q$ change (note if it's an increase or decrease) in Y on average.
 
-- Interpreting the coefficient $\beta_C$ for an indicator variable:
+- Interpreting the coefficient $\beta_C$ for an indicator(or categorical) variable:
     - Holding all other variables constant, the average outcome for the group referenced by this indicator (group for whom indicator = 1), is $\beta_C$ higher/lower than that of the reference group.
 
 
@@ -103,7 +103,7 @@ Synthesis:
 
 
 
-
+## Live Note Taking!
 
 
 
@@ -111,6 +111,7 @@ Synthesis:
 ## Exercise 2: Confounders
 
 > **Research question:** Is there a wage gap, hence possibly discrimination, by marital status among 18-34 year olds?
+
 
 To explore, we can revisit the `cps` data with employment information collected by the U.S. Current Population Survey (CPS) in 2018. View the codebook [here](https://github.com/Mac-STAT/data/blob/main/cps_2018_codebook.md).
 
@@ -211,6 +212,8 @@ cps %>%
 Since we now know that age is associated with both being married *and* higher wages, this plot doesn't tell the full story--people who are married could simply be earning higher wages because they tend to be older, *not necessarily because they are married!* Age is therefore a **confounder** in the relationship between marital status and wages.
 
 
+
+
 ## Exercise 3: Controlling for confounders
 
 The exercise above illustrates that it is important to *control* or *adjust* for confounding variables when trying to understand the *actual* causal relationship between a predictor (e.g. `marital`) and response (e.g. `wage`). 
@@ -244,7 +247,7 @@ coef(summary(wage_model_2))
 
 a. Visualize this model by modifying the code below. 
 
-(Note: The last line where we add a `geom_line` layer adds in trendlines similar to what we might obtain using `geom_smooth`, but it uses the exact fitted values from our model. `geom_smooth`, on the other hand, adds in trendlines based on fitting two separate models to the `married` and `single` subsets of the data. Tray adding `geom_smooth(method="lm", se=F, linetype="dashed")` to the plot to see how they compare).
+(Note: The last line where we add a `geom_line` layer adds in trend lines similar to what we might obtain using `geom_smooth`, but it uses the exact fitted values from our model. `geom_smooth`, on the other hand, adds in trend lines based on fitting two separate models to the `married` and `single` subsets of the data. Try adding `geom_smooth(method="lm", se=F, linetype="dashed")` to the plot to see how they compare).
 
 ```{r eval=FALSE}
 ggplot(cps, aes(y = ___, x = ___, color = ___)) +
@@ -257,7 +260,6 @@ b. Suppose 2 workers are the *same age*, but one is married and one is single. B
 c. How can we interpret the `maritalsingle` coefficient?
     
 
-    
     
 
 
@@ -319,7 +321,10 @@ Build a model that helps us explore `wage` by `marital` status while controlling
 Store this model as `wage_model_5`.
 
 
-
+```{r eval=FALSE}
+wage_model_5 <- lm(wage ~ marital + age + education + industry + hours + health, cps)
+coef(summary(wage_model_5))
+```
 
 
 
@@ -359,7 +364,6 @@ b. Do you still find the wage gap for single vs married people to be meaningfull
 
 
 
-
 ## Exercise 9: A new (extreme) example
 
 For a more extreme example of why it's important to control for confounding variables, let's return to the `diamonds` data:
@@ -374,6 +378,7 @@ diamonds <- diamonds %>%
         clarity = factor(clarity, ordered = FALSE)
     ) %>% 
     select(price, clarity, cut, color, carat)
+head(diamonds)
 ```
 
 Our goal is to explore how the `price` of a diamond depends upon its `clarity` (a measure of quality).
@@ -466,6 +471,25 @@ arrows(x0 = 1.7, y0 = 1, x1 = 4.5, y1 = 1, angle = 25, lwd = 4)
 
 
 
+```{r eval=FALSE}
+diamonds %>% 
+    ggplot(aes(y = price, x = carat)) + 
+    geom_point()
+
+```
+
+The bigger the diamond the bigger the price
+
+
+```{r eval=FALSE}
+diamonds %>% 
+    ggplot(aes(y = carat, x = clarity)) + 
+    geom_boxplot()
+
+```
+
+BUT the bigger the diamond, the more flawed it tends to be. Thus flawed diamonds looked more expensive, but only because they also tend to be bigger (and size is a bigger driver of price).
+
 
 
 
@@ -479,11 +503,6 @@ Which diamonds are more expensive: flawed ones or flawless ones?
 
 
 
-## Reflection
-
-Write a one-sentence warning label for what might happen if we do *not* control for confounding variables in our model.
-
-> **Response:** Put your response here.
 
 
 
@@ -622,7 +641,7 @@ wage_model_3 <- lm(wage ~ marital + age + education, cps)
 coef(summary(wage_model_3))
 ```
 
-a. 2 planes: There are 2 quantitative predictors which form the dimensions of the plane. The marital status categorical predictor creates 2 planes.
+a. 2 planes: There are 2 quantitative predictors which form the dimensions of a regression plane (including response, it’s a 3D!). Because marital status is a categorical predictor with two levels, the model produces two such planes—one for each group.
 
 b. The `maritalsingle` coefficient is of main interest:
     - Among workers of the same age and years of education, single workers earn $6478 less than married workers.

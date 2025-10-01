@@ -3976,7 +3976,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -4010,6 +4010,10 @@ window.Quarto = {
  <span class="menu-text">Activities</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
+        <li>
+    <a class="dropdown-item" href="../activities/10-mlr-confounding.html">
+ <span class="dropdown-text">Multiple Linear Regression - Confounding</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../activities/09-mlr-principles.html">
  <span class="dropdown-text">Multiple Linear Regression - Principles</span></a>
@@ -4062,10 +4066,81 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../activities/10-mlr-confounding.html">Multiple Linear Regression - Confounding</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/10-mlr-confounding.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Multiple Linear Regression - Confounding</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/09-mlr-principles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multiple Linear Regression - Principles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/08-mlr-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multiple Linear Regression - Intro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/07-slr-cat-predictor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Linear Regression - Categorical Predictor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/06-slr-transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Linear Regression - Transformation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/05-slr-model-eval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Linear Regression - Model Evaluation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/03_04-slr-intro-formalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Linear Regression - Intro+Formalization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/02-foundations-univariate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Univariate Visualization &amp; Summaries</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/01_foundations_welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Collecting and Summarizing Data</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -4080,6 +4155,7 @@ window.Quarto = {
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1-review" id="toc-exercise-1-review" class="nav-link" data-scroll-target="#exercise-1-review">Exercise 1: Review</a></li>
+  <li><a href="#live-note-taking" id="toc-live-note-taking" class="nav-link" data-scroll-target="#live-note-taking">Live Note Taking!</a></li>
   <li><a href="#exercise-2-confounders" id="toc-exercise-2-confounders" class="nav-link" data-scroll-target="#exercise-2-confounders">Exercise 2: Confounders</a></li>
   <li><a href="#exercise-2b-how-why-do-confounders-bias-results" id="toc-exercise-2b-how-why-do-confounders-bias-results" class="nav-link" data-scroll-target="#exercise-2b-how-why-do-confounders-bias-results">Exercise 2b: How &amp; why do confounders bias results?</a></li>
   <li><a href="#exercise-3-controlling-for-confounders" id="toc-exercise-3-controlling-for-confounders" class="nav-link" data-scroll-target="#exercise-3-controlling-for-confounders">Exercise 3: Controlling for confounders</a></li>
@@ -4092,7 +4168,6 @@ window.Quarto = {
   <li><a href="#exercise-10-size" id="toc-exercise-10-size" class="nav-link" data-scroll-target="#exercise-10-size">Exercise 10: Size</a></li>
   <li><a href="#exercise-11-simpsons-paradox" id="toc-exercise-11-simpsons-paradox" class="nav-link" data-scroll-target="#exercise-11-simpsons-paradox">Exercise 11: Simpson’s Paradox</a></li>
   <li><a href="#exercise-12-final-conclusion" id="toc-exercise-12-final-conclusion" class="nav-link" data-scroll-target="#exercise-12-final-conclusion">Exercise 12: Final conclusion</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   </ul></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a>
   <ul class="collapse">
@@ -4204,11 +4279,14 @@ window.Quarto = {
 <ul>
 <li>Holding all other variables constant, each unit increase in Q is associated with <span class="math inline">\(\beta_Q\)</span> change (note if it’s an increase or decrease) in Y on average.</li>
 </ul></li>
-<li>Interpreting the coefficient <span class="math inline">\(\beta_C\)</span> for an indicator variable:
+<li>Interpreting the coefficient <span class="math inline">\(\beta_C\)</span> for an indicator(or categorical) variable:
 <ul>
 <li>Holding all other variables constant, the average outcome for the group referenced by this indicator (group for whom indicator = 1), is <span class="math inline">\(\beta_C\)</span> higher/lower than that of the reference group.</li>
 </ul></li>
 </ul>
+</section>
+<section id="live-note-taking" class="level2">
+<h2 class="anchored" data-anchor-id="live-note-taking">Live Note Taking!</h2>
 </section>
 <section id="exercise-2-confounders" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-confounders">Exercise 2: Confounders</h2>
@@ -4354,7 +4432,7 @@ window.Quarto = {
 <ol type="a">
 <li>Visualize this model by modifying the code below.</li>
 </ol>
-<p>(Note: The last line where we add a <code>geom_line</code> layer adds in trendlines similar to what we might obtain using <code>geom_smooth</code>, but it uses the exact fitted values from our model. <code>geom_smooth</code>, on the other hand, adds in trendlines based on fitting two separate models to the <code>married</code> and <code>single</code> subsets of the data. Tray adding <code>geom_smooth(method=&quot;lm&quot;, se=F, linetype=&quot;dashed&quot;)</code> to the plot to see how they compare).</p>
+<p>(Note: The last line where we add a <code>geom_line</code> layer adds in trend lines similar to what we might obtain using <code>geom_smooth</code>, but it uses the exact fitted values from our model. <code>geom_smooth</code>, on the other hand, adds in trend lines based on fitting two separate models to the <code>married</code> and <code>single</code> subsets of the data. Try adding <code>geom_smooth(method=&quot;lm&quot;, se=F, linetype=&quot;dashed&quot;)</code> to the plot to see how they compare).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cps, <span class="fu">aes</span>(<span class="at">y =</span> ___, <span class="at">x =</span> ___, <span class="at">color =</span> ___)) <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom____</span>(<span class="at">size =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
@@ -4401,6 +4479,10 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exercise-7-biggest-model-yet">Exercise 7: Biggest model yet</h2>
 <p>Build a model that helps us explore <code>wage</code> by <code>marital</code> status while controlling for: <code>age</code>, <code>education</code>, job <code>industry</code>, typical number of work <code>hours</code>, and <code>health</code> status.</p>
 <p>Store this model as <code>wage_model_5</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wage_model_5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age <span class="sc">+</span> education <span class="sc">+</span> industry <span class="sc">+</span> hours <span class="sc">+</span> health, cps)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_5))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercise-8-reflection" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8-reflection">Exercise 8: Reflection</h2>
@@ -4451,15 +4533,25 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exercise-9-a-new-extreme-example">Exercise 9: A new (extreme) example</h2>
 <p>For a more extreme example of why it’s important to control for confounding variables, let’s return to the <code>diamonds</code> data:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import and wrangle the data</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(diamonds)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>diamonds <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">cut =</span> <span class="fu">factor</span>(cut, <span class="at">ordered =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="fu">factor</span>(color, <span class="at">ordered =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">clarity =</span> <span class="fu">factor</span>(clarity, <span class="at">ordered =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(price, clarity, cut, color, carat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import and wrangle the data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(diamonds)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>diamonds <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">cut =</span> <span class="fu">factor</span>(cut, <span class="at">ordered =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="fu">factor</span>(color, <span class="at">ordered =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">clarity =</span> <span class="fu">factor</span>(clarity, <span class="at">ordered =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(price, clarity, cut, color, carat)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(diamonds)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 5</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="do">##   price clarity cut       color carat</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;int&gt; &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt; &lt;dbl&gt;</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 1   326 SI2     Ideal     E      0.23</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 2   326 SI1     Premium   E      0.21</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 3   327 VS1     Good      E      0.23</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 4   334 VS2     Premium   I      0.29</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 5   335 SI2     Good      J      0.31</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 6   336 VVS2    Very Good J      0.24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Our goal is to explore how the <code>price</code> of a diamond depends upon its <code>clarity</code> (a measure of quality).</p>
 <p>Clarity is classified as follows, in order from best to worst:</p>
@@ -4509,10 +4601,10 @@ window.Quarto = {
 <li>Check out a model of <code>price</code> by <code>clarity</code>. What clarity has the highest average price? The lowest? (This is surprising!)</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>diamond_model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity, <span class="at">data =</span> diamonds)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a model summary</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_model_1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>diamond_model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity, <span class="at">data =</span> diamonds)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a model summary</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_model_1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="a">
 <li>What <em>confounding variable</em> might explain these results? What’s your rationale?</li>
@@ -4523,15 +4615,15 @@ window.Quarto = {
 <p>It turns out that <code>carat</code>, the <em>size</em> of a diamond, is an important confounding variable.</p>
 <p>Let’s explore what happens when we control for this in our model:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>diamond_model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity <span class="sc">+</span> carat, <span class="at">data =</span> diamonds)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a model summary</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_model_2))</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the model</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> carat, <span class="at">color =</span> clarity)) <span class="sc">+</span> </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> diamond_model_2<span class="sc">$</span>fitted.values))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>diamond_model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity <span class="sc">+</span> carat, <span class="at">data =</span> diamonds)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a model summary</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_model_2))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the model</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> carat, <span class="at">color =</span> clarity)) <span class="sc">+</span> </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> diamond_model_2<span class="sc">$</span>fitted.values))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What do you think now?</p>
 <p>Which clarity has the highest expected price?</p>
@@ -4553,18 +4645,23 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> carat)) <span class="sc">+</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The bigger the diamond the bigger the price</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">x =</span> clarity)) <span class="sc">+</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>BUT the bigger the diamond, the more flawed it tends to be. Thus flawed diamonds looked more expensive, but only because they also tend to be bigger (and size is a bigger driver of price).</p>
 </section>
 <section id="exercise-12-final-conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-12-final-conclusion">Exercise 12: Final conclusion</h2>
 <p>What’s your final conclusion about diamond prices?</p>
 <p>Which diamonds are more expensive: flawed ones or flawless ones?</p>
-</section>
-<section id="reflection" class="level2">
-<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>Write a one-sentence warning label for what might happen if we do <em>not</em> control for confounding variables in our model.</p>
-<blockquote class="blockquote">
-<p><strong>Response:</strong> Put your response here.</p>
-</blockquote>
 <p><br>
 <br>
 <br>
@@ -4577,14 +4674,14 @@ window.Quarto = {
 <section id="exercise-1-review-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-review-1">Exercise 1: Review</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>peaks_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(time <span class="sc">~</span> length <span class="sc">+</span> ascent <span class="sc">+</span> rating, <span class="at">data =</span> peaks)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(peaks_model))</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Estimate Std. Error   t value     Pr(&gt;|t|)</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)     6.5106514 1.62983740  3.994663 2.627176e-04</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="do">## length          0.4590819 0.08158314  5.627166 1.465288e-06</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ascent          0.1874830 0.34215350  0.547950 5.866973e-01</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ratingeasy     -3.1685224 0.86219113 -3.674965 6.827232e-04</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="do">## ratingmoderate -2.4767827 0.61058560 -4.056405 2.177589e-04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>peaks_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(time <span class="sc">~</span> length <span class="sc">+</span> ascent <span class="sc">+</span> rating, <span class="at">data =</span> peaks)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(peaks_model))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Estimate Std. Error   t value     Pr(&gt;|t|)</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)     6.5106514 1.62983740  3.994663 2.627176e-04</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="do">## length          0.4590819 0.08158314  5.627166 1.465288e-06</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ascent          0.1874830 0.34215350  0.547950 5.866973e-01</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ratingeasy     -3.1685224 0.86219113 -3.674965 6.827232e-04</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="do">## ratingmoderate -2.4767827 0.61058560 -4.056405 2.177589e-04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><code>length</code> coefficient:
@@ -4604,10 +4701,10 @@ window.Quarto = {
 <p>age, education, job industry, …</p>
 <p><code>marital</code> vs <code>wage</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>marital, <span class="at">y=</span>wage))<span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>marital, <span class="at">y=</span>wage))<span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4618,10 +4715,10 @@ window.Quarto = {
 </div>
 <p><code>age</code> vs <code>marital</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>marital))<span class="sc">+</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>marital))<span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4632,11 +4729,11 @@ window.Quarto = {
 </div>
 <p><code>age</code> vs <code>wage</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>wage))<span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span>F)<span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>wage))<span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span>F)<span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4656,22 +4753,22 @@ window.Quarto = {
 <section id="exercise-4-age-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-age-1">Exercise 4: Age</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the model</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>wage_model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age, cps)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_2))</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                 Estimate Std. Error   t value     Pr(&gt;|t|)</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)   -19595.948  3691.6998 -5.308110 1.184066e-07</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="do">## maritalsingle  -7500.146  1191.8526 -6.292847 3.545964e-10</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="do">## age             2213.869   120.7701 18.331265 2.035782e-71</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the model</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>wage_model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age, cps)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_2))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                 Estimate Std. Error   t value     Pr(&gt;|t|)</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)   -19595.948  3691.6998 -5.308110 1.184066e-07</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="do">## maritalsingle  -7500.146  1191.8526 -6.292847 3.545964e-10</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="do">## age             2213.869   120.7701 18.331265 2.035782e-71</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="a">
 <li>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> wage, <span class="at">x =</span> age, <span class="at">color =</span> marital)) <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> wage_model_2<span class="sc">$</span>fitted.values), <span class="at">size =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> wage, <span class="at">x =</span> age, <span class="at">color =</span> marital)) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> wage_model_2<span class="sc">$</span>fitted.values), <span class="at">size =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4682,11 +4779,11 @@ window.Quarto = {
 </div>
 <p>bonus! adding in the <code>geom_smooth</code> layer:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> wage, <span class="at">x =</span> age, <span class="at">color =</span> marital)) <span class="sc">+</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> wage_model_2<span class="sc">$</span>fitted.values), <span class="at">size =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span>F, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>cps <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> wage, <span class="at">x =</span> age, <span class="at">color =</span> marital)) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> wage_model_2<span class="sc">$</span>fitted.values), <span class="at">size =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span>F, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4706,16 +4803,16 @@ window.Quarto = {
 <section id="exercise-5-more-confounders-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5-more-confounders-1">Exercise 5: More confounders</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>wage_model_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age <span class="sc">+</span> education, cps)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_3))</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="do">##                 Estimate Std. Error    t value     Pr(&gt;|t|)</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)   -64898.607  4099.8737 -15.829416 2.254709e-54</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="do">## maritalsingle  -6478.094  1119.9345  -5.784351 7.988760e-09</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="do">## age             1676.796   116.3086  14.416777 1.102113e-45</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="do">## education       4285.259   207.2158  20.680173 3.209448e-89</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>wage_model_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age <span class="sc">+</span> education, cps)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_3))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="do">##                 Estimate Std. Error    t value     Pr(&gt;|t|)</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)   -64898.607  4099.8737 -15.829416 2.254709e-54</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="do">## maritalsingle  -6478.094  1119.9345  -5.784351 7.988760e-09</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="do">## age             1676.796   116.3086  14.416777 1.102113e-45</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="do">## education       4285.259   207.2158  20.680173 3.209448e-89</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="a">
-<li><p>2 planes: There are 2 quantitative predictors which form the dimensions of the plane. The marital status categorical predictor creates 2 planes.</p></li>
+<li><p>2 planes: There are 2 quantitative predictors which form the dimensions of a regression plane (including response, it’s a 3D!). Because marital status is a categorical predictor with two levels, the model produces two such planes—one for each group.</p></li>
 <li><p>The <code>maritalsingle</code> coefficient is of main interest:</p>
 <ul>
 <li>Among workers of the same age and years of education, single workers earn $6478 less than married workers.</li>
@@ -4729,18 +4826,18 @@ window.Quarto = {
 <section id="exercise-6-even-more-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6-even-more-1">Exercise 6: Even more</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>wage_model_4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age <span class="sc">+</span> education <span class="sc">+</span> industry, cps)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_4))</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="do">##                                   Estimate Std. Error    t value     Pr(&gt;|t|)</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)                     -52498.857  7143.8481 -7.3488206 2.533275e-13</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## maritalsingle                    -5892.842  1105.6898 -5.3295615 1.053631e-07</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="do">## age                               1493.360   116.1673 12.8552586 6.651441e-37</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="do">## education                         3911.117   243.0192 16.0938565 4.500408e-56</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="do">## industryconstruction              5659.082  6218.5649  0.9100302 3.628760e-01</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="do">## industryinstallation_production   1865.650  6109.2613  0.3053806 7.600964e-01</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="do">## industrymanagement                1476.884  6031.2901  0.2448704 8.065727e-01</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="do">## industryservice                  -7930.403  5945.6509 -1.3338158 1.823603e-01</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="do">## industrytransportation           -1084.176  6197.2462 -0.1749448 8.611342e-01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>wage_model_4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age <span class="sc">+</span> education <span class="sc">+</span> industry, cps)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_4))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="do">##                                   Estimate Std. Error    t value     Pr(&gt;|t|)</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)                     -52498.857  7143.8481 -7.3488206 2.533275e-13</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="do">## maritalsingle                    -5892.842  1105.6898 -5.3295615 1.053631e-07</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="do">## age                               1493.360   116.1673 12.8552586 6.651441e-37</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="do">## education                         3911.117   243.0192 16.0938565 4.500408e-56</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="do">## industryconstruction              5659.082  6218.5649  0.9100302 3.628760e-01</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="do">## industryinstallation_production   1865.650  6109.2613  0.3053806 7.600964e-01</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="do">## industrymanagement                1476.884  6031.2901  0.2448704 8.065727e-01</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="do">## industryservice                  -7930.403  5945.6509 -1.3338158 1.823603e-01</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="do">## industrytransportation           -1084.176  6197.2462 -0.1749448 8.611342e-01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="a">
 <li><p>Among workers of the same job industry, education, and age, single workers make $5893 less than a married worker on average.</p></li>
@@ -4750,23 +4847,23 @@ window.Quarto = {
 <section id="exercise-7-biggest-model-yet-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7-biggest-model-yet-1">Exercise 7: Biggest model yet</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>wage_model_5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age <span class="sc">+</span> education <span class="sc">+</span> industry <span class="sc">+</span> hours <span class="sc">+</span> health, cps)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_5))</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="do">##                                    Estimate Std. Error     t value     Pr(&gt;|t|)</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)                     -64886.5747 6914.18198 -9.38456275 1.171028e-20</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="do">## maritalsingle                    -4992.7685 1061.84882 -4.70195794 2.687274e-06</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="do">## age                               1061.1410  115.83503  9.16079518 9.031462e-20</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="do">## education                         3443.7625  236.12723 14.58435151 1.128646e-46</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="do">## industryconstruction              5381.3857 5959.05620  0.90306007 3.665630e-01</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="do">## industryinstallation_production   2951.0372 5854.23981  0.50408547 6.142365e-01</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="do">## industrymanagement                5107.6364 5782.95334  0.88322283 3.771832e-01</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="do">## industryservice                  -3074.5127 5705.56537 -0.53886207 5.900201e-01</span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="do">## industrytransportation            -207.3439 5940.02074 -0.03490626 9.721567e-01</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="do">## hours                              732.1340   43.72488 16.74410733 2.340115e-60</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="do">## healthfair                       -7407.7981 2901.71339 -2.55290483 1.072955e-02</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="do">## healthgood                       -2470.8096 1259.44276 -1.96182766 4.987035e-02</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="do">## healthpoor                       -9086.9110 7657.43781 -1.18667774 2.354441e-01</span></span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="do">## healthvery_good                    292.5278 1020.89213  0.28654136 7.744823e-01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>wage_model_5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> marital <span class="sc">+</span> age <span class="sc">+</span> education <span class="sc">+</span> industry <span class="sc">+</span> hours <span class="sc">+</span> health, cps)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(wage_model_5))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="do">##                                    Estimate Std. Error     t value     Pr(&gt;|t|)</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)                     -64886.5747 6914.18198 -9.38456275 1.171028e-20</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="do">## maritalsingle                    -4992.7685 1061.84882 -4.70195794 2.687274e-06</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="do">## age                               1061.1410  115.83503  9.16079518 9.031462e-20</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="do">## education                         3443.7625  236.12723 14.58435151 1.128646e-46</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="do">## industryconstruction              5381.3857 5959.05620  0.90306007 3.665630e-01</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="do">## industryinstallation_production   2951.0372 5854.23981  0.50408547 6.142365e-01</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="do">## industrymanagement                5107.6364 5782.95334  0.88322283 3.771832e-01</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="do">## industryservice                  -3074.5127 5705.56537 -0.53886207 5.900201e-01</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="do">## industrytransportation            -207.3439 5940.02074 -0.03490626 9.721567e-01</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="do">## hours                              732.1340   43.72488 16.74410733 2.340115e-60</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="do">## healthfair                       -7407.7981 2901.71339 -2.55290483 1.072955e-02</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="do">## healthgood                       -2470.8096 1259.44276 -1.96182766 4.987035e-02</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="do">## healthpoor                       -9086.9110 7657.43781 -1.18667774 2.354441e-01</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="do">## healthvery_good                    292.5278 1020.89213  0.28654136 7.744823e-01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-8-reflection-1" class="level2">
@@ -4821,19 +4918,19 @@ window.Quarto = {
 </tbody>
 </table>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>diamond_model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity, <span class="at">data =</span> diamonds)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a model summary</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_model_1))</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Estimate Std. Error      t value      Pr(&gt;|t|)</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  3924.1686910   144.5619 27.145247517 3.513547e-161</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="do">## claritySI2   1138.8599147   150.2746  7.578526239  3.550711e-14</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="do">## claritySI1     71.8324571   148.6049  0.483378837  6.288287e-01</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVS2      0.8207037   148.8672  0.005512992  9.956013e-01</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVS1    -84.7132999   150.9746 -0.561109670  5.747251e-01</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVVS2  -640.4316203   154.7737 -4.137858008  3.510944e-05</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVVS1 -1401.0540535   158.5401 -8.837224284  1.010097e-18</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityIF   -1059.3295848   171.8990 -6.162510636  7.210567e-10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>diamond_model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity, <span class="at">data =</span> diamonds)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a model summary</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_model_1))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Estimate Std. Error      t value      Pr(&gt;|t|)</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  3924.1686910   144.5619 27.145247517 3.513547e-161</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="do">## claritySI2   1138.8599147   150.2746  7.578526239  3.550711e-14</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="do">## claritySI1     71.8324571   148.6049  0.483378837  6.288287e-01</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVS2      0.8207037   148.8672  0.005512992  9.956013e-01</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVS1    -84.7132999   150.9746 -0.561109670  5.747251e-01</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVVS2  -640.4316203   154.7737 -4.137858008  3.510944e-05</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVVS1 -1401.0540535   158.5401 -8.837224284  1.010097e-18</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityIF   -1059.3295848   171.8990 -6.162510636  7.210567e-10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="a">
 <li><p>highest = SI2, lowest = VVS1</p></li>
@@ -4843,25 +4940,25 @@ window.Quarto = {
 <section id="exercise-10-size-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10-size-1">Exercise 10: Size</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>diamond_model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity <span class="sc">+</span> carat, <span class="at">data =</span> diamonds)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a model summary</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_model_2))</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              Estimate Std. Error    t value Pr(&gt;|t|)</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) -6911.566   50.22456 -137.61327        0</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="do">## claritySI2   2879.180   49.47264   58.19742        0</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="do">## claritySI1   3729.449   49.16156   75.86108        0</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVS2   4388.904   49.38115   88.87813        0</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVS1   4613.765   50.13112   92.03393        0</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVVS2  5163.323   51.62127  100.02318        0</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVVS1  5186.619   53.04830   97.77163        0</span></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityIF    5513.139   57.36530   96.10582        0</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="do">## carat        8440.057   12.65126  667.13154        0</span></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the model</span></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> carat, <span class="at">color =</span> clarity)) <span class="sc">+</span> </span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> diamond_model_2<span class="sc">$</span>fitted.values))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>diamond_model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity <span class="sc">+</span> carat, <span class="at">data =</span> diamonds)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a model summary</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_model_2))</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              Estimate Std. Error    t value Pr(&gt;|t|)</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) -6911.566   50.22456 -137.61327        0</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="do">## claritySI2   2879.180   49.47264   58.19742        0</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="do">## claritySI1   3729.449   49.16156   75.86108        0</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVS2   4388.904   49.38115   88.87813        0</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVS1   4613.765   50.13112   92.03393        0</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVVS2  5163.323   51.62127  100.02318        0</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityVVS1  5186.619   53.04830   97.77163        0</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="do">## clarityIF    5513.139   57.36530   96.10582        0</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="do">## carat        8440.057   12.65126  667.13154        0</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the model</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> carat, <span class="at">color =</span> clarity)) <span class="sc">+</span> </span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> diamond_model_2<span class="sc">$</span>fitted.values))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4877,9 +4974,9 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exercise-11-simpsons-paradox-1">Exercise 11: Simpson’s Paradox</h2>
 <p>The bigger the diamond the bigger the price:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> carat)) <span class="sc">+</span> </span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> price, <span class="at">x =</span> carat)) <span class="sc">+</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4890,9 +4987,9 @@ window.Quarto = {
 </div>
 <p>BUT the bigger the diamond, the more flawed it tends to be:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">x =</span> clarity)) <span class="sc">+</span> </span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">x =</span> clarity)) <span class="sc">+</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
