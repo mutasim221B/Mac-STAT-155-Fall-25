@@ -29,3 +29,23 @@ The (tentative) course schedule below will be filled in throughout the semester.
 |:-------|:----------|:-------|:--------------|
 | **09/22: Multiple Linear Regression: Discovery** <br><br> | **09/24: Quiz 01** | **09/26: Mulitple Linear Regression Discovery** |
 :::
+
+::: {.callout-note collapse="true" title="Week 5"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **09/29: MLR principles** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/01:  MLR principles + MLR confounding* <br><br> _Before class:_ <br> - CP Quiz on Moodle | **10/03: MLR confounding** | 
+:::
+
+
+::: {.callout-note collapse="true" title="Week 6"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **10/06: MLR interaction** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/08:  MLR interaction + MLR Model Building** <br><br> _Before class:_ <br> - CP Quiz on Moodle | **10/10: MLR Model Building** |  - PP#3 is posted on the [Practice Problems](assignments.qmd) tab (due Friday 10/10, 11:59pm CT) |
+:::
+
+
+::: {.callout-note collapse="true" title="Week 7"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **10/13: Logistic Univariate** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/15:  No class (Fall Break)** <br><br> - PP#4 is posted on the [Practice Problems](assignments.qmd) tab (due Wednesday 10/15 11:59pm CT) | **10/10: No class (Fall Break)** |
+:::

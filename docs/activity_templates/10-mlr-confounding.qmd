@@ -250,8 +250,8 @@ a. Visualize this model by modifying the code below.
 (Note: The last line where we add a `geom_line` layer adds in trend lines similar to what we might obtain using `geom_smooth`, but it uses the exact fitted values from our model. `geom_smooth`, on the other hand, adds in trend lines based on fitting two separate models to the `married` and `single` subsets of the data. Try adding `geom_smooth(method="lm", se=F, linetype="dashed")` to the plot to see how they compare).
 
 ```{r eval=FALSE}
-ggplot(cps, aes(y = ___, x = ___, color = ___)) +
-    geom____(size = 0.1, alpha = 0.5) +
+ggplot(cps, aes(y = wage, x = age, color = marital)) +
+    geom(size = 0.1, alpha = 0.5) +
     geom_line(aes(y = wage_model_2$fitted.values), linewidth = 0.5)
 ```
 
