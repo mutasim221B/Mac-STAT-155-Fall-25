@@ -75,63 +75,156 @@ For Exercises 5-7, we'll revisit the data on bike ridership. We've looked at man
 
 ### Part a
 
-Just as in Practice Problems #2, construct an appropriate visualization of the `GER` and `NER` variables (`NER` should be the dependent variable in your visualization). You may copy your code from the previous assignment.
+Just as in Practice Problems #2, construct an appropriate visualization of the relationship of `NER` (the response variable) with `GER`.
 
-At roughly what value of GER does the relationship between GER and NER appear to change?
+```{r}
+
+```
 
 ### Part b
 
-Define a binary (indicator) variable called `GER_binary`, that has value 0 when `GER` is less than 100, and 1 when `GER` is greater than or equal to 100. 
+At roughly what value of GER does the relationship between GER and NER appear to change?
+
+### Part c
+
+In the `enroll` dataset, define a TRUE/FALSE variable called `GER_high`, that is TRUE when `GER` is greater than or equal to 100, and FALSE when `GER` is less than 100.
+Show the first 6 rows of the dataset to demonstrate your results.
+
+```{r}
+# Define GER_high 
+# enroll <- enroll %>% 
+#   ___(___ = (GER >= 100))
+
+# Check out the first 6 rows
+
+```
+
 
 ## Exercise 2: Compare models with and without interaction
 
-In Practice Problems #2, we noted that a linear regression model did not accurately reflect the relationship between GER and NER. We'll now compare that same simple linear regression model to a multiple linear regression model with an interaction term between `GER` and `GER_binary`.
-
+In Practice Problems #2, we noted that a linear regression model did not accurately reflect the relationship between GER and NER. We'll now compare that same simple linear regression model to a multiple linear regression model with an interaction term between `GER` and `GER_high`.
 Fit both of these models.
+NOTE: This exercise just requires R code, no discussion.
+
+```{r}
+# Fit a simple linear regression model of NER by GER 
+
+
+# Show the model summary table
+
+```
+
+```{r}
+# Fit a multiple linear regression model of NER by GER and GER_high
+# INCLUDING an interaction between GER and GER_high
+
+
+# Show the model summary table
+
+```
+
 
 ## Exercise 3: Assess 
 
 ### Part a
 
-For each of the two models you fit in Exercise 2, plot residuals vs. fitted values. Does the model with the interaction term appear to better predict `NER` than the simple linear regression model? Explain why or why not.
+Construct residual plots for *both* of the models you fit in Exercise 2.
 
 ### Part b
 
-Compare the multiple $R^2$ values from each model. Based on these values, which model is stronger?
+Does the model with the interaction term appear to better predict `NER` than the simple linear regression model? Explain why or why not.
+
+### Part c
+
+Which model is stronger?
+Support your answer with specific numerical evidence.
+
+
 
 ## Exercise 4: Visualize Interaction Term - School Enrollment
 
-It may seem strange to include an interaction term between `GER` and another variable that was created from `GER` itself, but this is actually a special type of interaction term that creates what is called a *piecewise linear regression model*. It allows both the slope and intercept of the regression line to change at specific values of a predictor. Fill in the code below to visualize this model.
+It may seem strange to include an interaction term between `GER` and another variable that was created from `GER` itself, but this is actually a special type of interaction term that creates what is called a *piecewise linear regression model*. It allows both the slope and intercept of the regression line to change at specific values of a predictor. 
 
-```{r}
-# Generate predictions from model with interaction term
-newdat <- data.frame(GER = seq(from = min(enroll$GER), 
-                               to = max(enroll$GER), by = 0.01)) %>%
-  mutate(GER_binary = ifelse(GER < 100, 0, 1))
+### Part a 
 
-# Fill in your interaction model object below for ___
-newdat$NER <- predict(___, newdata = newdat)
+Let's visualize our 2 models:
 
-ggplot() +
-  geom_point(data = enroll, aes(GER, NER)) +
-  geom_line(data = newdat, aes(GER, NER), col = "red", size = 1)
-```
+- create a scatterplot of NER vs GER (as you did in Exercise 1)
+- add a line that represents the simple linear regression model in blue
+- add this line of code to draw the piecewise linear regression model, where you'll need to update the model name: `geom_line(aes(y = YOUR_MODEL_2$fitted.values), color = "red", size = 1)`
+
+### Part b
+
+Use your multiple linear regression model to provide the formula for the relationship of NER with GER when GER is high (at least 100).
+That is, provide the formula for the second piece of the *piecewise linear regression model*.
+Show work / the steps that went into obtaining the coefficients.
+
+E[NER | GER] = ???
+
+
+
 
 ## Exercise 5: Visualize Interaction Term - Bikes
 
-Recall that we are now interested in how season impacts the relationship between actual temperature and number of total riders. Make an appropriate visualization (consider number of total riders as your outcome variable) to display this impact. Comment on what you notice from the visual.
+Let's now turn to the bike data and explore the following research question: Does the relationship of total daily ridership (`riders_total`) with *actual* temperature vary by season?
+
+
+### Part a
+
+Construct a visualization of the relationship between total ridership, actual temperature, and season.
+Include a representation of the multiple linear regression model that helps us address the above research question.
+
+
+### Part b
+
+Discuss this visualization relative to the above research question.
+Also think about / comment on why your observations makes sense in context!
+
 
 ## Exercise 6: Model statement and fitting
 
-Write a model statement in the form $E[Y | X, Z] = ...$ in context, that would allow us to answer the research question we're interested in. Additionally, note which regression coefficient will be the relevant one to interpret that will directly address our research question.
+### Part a
 
-Fit this multiple linear regression model.
+Eventually, we want to build a *model* of total ridership by actual temperature and season that allows us to address our research question: Does the relationship of total daily ridership (`riders_total`) with *actual* temperature vary by season?
+Write a model statement for the model we need to build.
+
+E[total_rides | temp_actual, season] = $\beta_0$ + [FILL IN THE REST]
+
+### Part b
+
+Which coefficients in the above model will help us understand how the relationship between ridership and temperature varies by season?
+
+
+### Part c
+
+Fit this multiple linear regression model using the `bikes` data, and show a model summary table.
+
+
+
 
 ## Exercise 7: Interpretation and Conclusions
 
-Interpret the regression coefficient you noted would directly address the research question we're interested in. *Make sure to use appropriate causation vs. association language, include units, and talk about averages rather than individual cases.*
+Remember: When interpreting coefficients, *make sure to use appropriate causation vs. association language, include units, and talk about averages rather than individual cases.*
 
-Write a paragraph conclusion about the results of your analysis, fit for a news article. Does season appear to meaningfully impact the relationship between actual temperature and number of total riders? What impact would this have on cities looking to start bikeshare programs? Should more bikes be provided or expected in certain seasons based on temperature conditions? Explain why or why not.
+### Part a
+
+Interpret the `temp_actual` coefficient, in context.
+
+
+### Part b
+
+Interpret the coefficient (or combined coefficients) that would directly address our research question: Does the relationship of total daily ridership with actual temperature vary by season?
+There are multiple coefficients that you could use -- pick the most meaningful one.
+
+
+### Part c
+
+Write a 3-4 sentence conclusion about the results of your analysis, fit for a news article.
+Does season appear to *meaningfully* impact the relationship between actual temperature and number of total riders?
+What impact would this have on cities looking to start bikeshare programs? 
+Should more bikes be provided or expected in certain seasons based on temperature conditions?
+Explain why or why not.
+
 
 
 

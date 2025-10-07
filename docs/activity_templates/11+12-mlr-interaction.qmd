@@ -184,7 +184,6 @@ E[wage | education, industry = transportation] = -65590.606 + 8678.274 education
     = 24641.62 + 1098.046education
 
 
-
 **Question 1:** The intercept coefficient, -65590.606, corresponds to what property of the lines?
 
 a) management intercept
@@ -250,9 +249,10 @@ coef(summary(wage_model))
 
 d. In what industry do wages increase the *most* per additional year of education? What is this increase?
 
+A. Management; 8616.31984  + 61.95396 
 
 e. Similarly, in what industry do wages increase the *least* per additional year of education? What is this increase?
-
+A. Agreeculture; 61.95396 
 
 ## Example: Thinking beyond
 
@@ -333,7 +333,9 @@ a. Write R code to visualize the relationship between campaign spending and numb
 
 ```{r}
 # Visualization
-
+campaigns %>%
+  ggplot(aes(spending, votes, col = incumbent)) +
+  geom_point()
 ```
 
 b. Based on your visualization from part (a), what are your answers to research questions 2 (a) and 2 (b)? Write your answer in 2-3 sentences, describing general trends you notice, suitable for a general audience.
@@ -342,6 +344,10 @@ c. Add lines of best fit from a statistical model that includes an interaction t
 
 ```{r}
 # Visualization with lines of best fit
+campaigns %>%
+  ggplot(aes(spending, votes, col = incumbent)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
 
 ```
 
@@ -354,7 +360,7 @@ a. Fit the regression model you wrote out in Exercise 1 (c). *Report* (do not in
 
 ```{r}
 # Model with interaction term
-
+lm(data = campaigns, votes ~ spending*incumbent)
 ```
 
 > (Intercept):
