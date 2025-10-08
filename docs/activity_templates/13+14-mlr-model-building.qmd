@@ -154,7 +154,6 @@ model              predictors
 ```{r}
 summary(penguin_model_1)$r.squared
 summary(penguin_model_4)$r.squared
-summary(penguin_model_5)$r.squared
 ```
 
 a. Which is the better predictor of `bill_len`: `flipper_len` or `body_mass`? Provide some numerical evidence.
@@ -162,6 +161,10 @@ a. Which is the better predictor of `bill_len`: `flipper_len` or `body_mass`? Pr
 b. `penguin_model_5` incorporates both `flipper_len` and `body_mass` as predictors. *Before* examining a model summary, ask your gut: Will the `penguin_model_5` R-squared be close to 0.35, close to 0.43, or greater than 0.6?
 
 c. Check your intuition. Report the `penguin_model_5` R-squared and summarize how this compares to that of `penguin_model_1` and `penguin_model_4`.
+
+```{r}
+summary(penguin_model_5)$r.squared
+```
 
 d. Explain why your observation in part c makes sense. Support your reasoning with a plot of the 2 *predictors*: `flipper_len` vs `body_mass`.
 
@@ -312,11 +315,6 @@ c. Explain what it is about `island` that resulted in a decreased Adjusted R-squ
 
 
 
-## Reflection
-
-Today we looked at some cautions surrounding indiscriminately adding variables to a model. Summarize key takeaways.
-
-> **Response:** Put your response here.
 
 
 

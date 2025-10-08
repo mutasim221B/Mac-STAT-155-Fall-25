@@ -371,7 +371,7 @@ lm(data = campaigns, votes ~ spending*incumbent)
 
 > incumbentYes:spending:
 
-b. Using the coefficient estimates from part (a), write out *two separate model statements*, one for incumbents and one for challengers. Combine terms (using algebra) when you can! *Hint*: remember the indicator variables video!
+b. Using the coefficient estimates from part (a), write out *two separate model statements*, one for incumbents and one for challengers. Combine terms (using algebra) when you can! 
 
 * For incumbents:
 
@@ -421,7 +421,9 @@ b. Make an appropriate visualization to explore the relationship between these t
 
 ```{r}
 # Visualization
-
+new_bikes %>%
+  ggplot(aes(y = rides, user, fill = weekend)) +
+  geom_boxplot()
 ```
 
 c. Is the relationship between ridership and weekend status the same for both registered and casual users? Explain why or why not, referencing the visualization you made in part (b).
@@ -430,10 +432,13 @@ d. To reflect what you observed in your visualization, fit a multiple linear reg
 
 ```{r}
 # Multiple linear regression model
-
+lm(data = new_bikes, rides ~ user * weekend)
 ```
 
 e. Interpret the interaction term from your model, in context. *Make sure to use non-causal language, include units, and talk about averages rather than individual cases.* Just as in Exercise 3, you may find it useful to first write out multiple model statements for different categories defined by one of your categorical variables, and proceed from there! 
+
+## Class Notes 3
+
 
 
 
