@@ -40,6 +40,8 @@ website:
     - id: activities
       title: "Activities"
       contents:
+          - "activities/17-logistic-regression-II.qmd"
+          - "activities/15+16-Logistic-Regression-I.qmd"
           - "activities/13+14-mlr-model-building.qmd"
           - "activities/11+12-mlr-interaction.qmd"
           - "activities/10-mlr-confounding.qmd"

@@ -376,13 +376,13 @@ b. Using the coefficient estimates from part (a), write out *two separate model 
 * For incumbents:
 
 $$
-E[votes | spending] = 
+E[votes | spending] = 690.5 + 4813.9 + 209.7 *spending -125.9 *spending
 $$
 
 * For challengers:
 
 $$
-E[votes | spending] = 
+E[votes | spending] = 690.5  + 209.7 * spending
 $$
 
 c. Interpret the coefficient for `incumbent` in your interaction model, in context. *Make sure to use non-causal language, include units, and talk about averages rather than individual cases.* Is this coefficient scientifically meaningful?

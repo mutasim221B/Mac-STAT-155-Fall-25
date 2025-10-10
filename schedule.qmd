@@ -47,5 +47,14 @@ The (tentative) course schedule below will be filled in throughout the semester.
 ::: {.callout-note collapse="true" title="Week 7"}
 | Monday | Wednesday | Friday | Announcements |
 |:-------|:----------|:-------|:--------------|
-| **10/13: Logistic Univariate** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/15:  No class (Fall Break)** <br><br> - PP#4 is posted on the [Practice Problems](assignments.qmd) tab (due Wednesday 10/15 11:59pm CT) | **10/10: No class (Fall Break)** |
+| **10/13: Logistic Univariate** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/15:  No class (Fall Break)** <br><br> - PP#4 is posted on the [Practice Problems](assignments.qmd) tab (due Wednesday 10/15 at 11:59pm CT) | **10/10: No class (Fall Break)** |
 :::
+
+
+::: {.callout-note collapse="true" title="Week 8"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **10/20: Bill out of town (Fall break continues!)** <br><br> | **10/22: Multiple Logistic ** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/24: Multiple Logistic + Review ** <br><br> - PP#5 is posted on the [Practice Problems](assignments.qmd) tab (due Saturday, Oct 25 at 11:59pm CT)|
+:::
+
+

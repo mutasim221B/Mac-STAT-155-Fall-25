@@ -108,6 +108,7 @@ model              predictors
 Plots of the first two models are below:
 
 ```{r}
+library(ggplot2)
 ggplot(penguins, aes(y = bill_len, x = flipper_len)) + 
     geom_point() +
     geom_smooth(method = "lm", se = FALSE)
