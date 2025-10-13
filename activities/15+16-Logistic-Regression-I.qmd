@@ -114,14 +114,35 @@ table(firststeps$preterm, firststeps$firstep)
 
 a. How many birth parents were enrolled in the First Steps program? Which rows did you use to calculate this number?
 
+> 343 + 60 = 403 parents were enrolled in the First Steps program. I used both rows of the table where `firstep = 1`.
+
 b. What *percentage* of people in the study were enrolled in the First Steps program? **Recall: there were 2500 participants! You can confirm this by adding up the entire third column of the table**
+
+> 16.12% of people in the study were enrolled in First Steps!
+
+```{r eval = TRUE}
+403 / 2500
+```
 
 c. How many birth parents *who were enrolled in First Steps* had a premature baby?
 
+> 60 birth parents
+
 d. What *percentage* of birth parents in First Steps had a premature baby? Think carefully about the numerator and denominator you use to calculate this!
+
+> 14.89% (60 / 403) of birth parents in First Steps had a premature baby.
+
+```{r eval = TRUE}
+60 / 403
+```
 
 e. What *percentage* of birth parents who had a premature baby were enrolled in First Steps? Think carefully about the numerator and denominator you use to calculate this! 
 
+The total number of birth parents who had a premature baby was 218 + 60 = 278. Of those. 60 were enrolled in First Steps. Therefore, 21.58% (60/278) of birth parents who had a premature baby were enrolled in First Steps.
+
+```{r eval = TRUE}
+60/278
+```
 
 
 
@@ -133,19 +154,26 @@ Congratulations! If you've made it to this point, you already intuitively know w
 
 Using formal probability notation, write the probabilities you calculated in parts (b), (d), and (e) as
 
-> b. $P(\text{First Steps})$ = .1612
+$$
+b. P(\text{First Steps}) = .1612
+$$
 
-> d. $P(\text{Preterm} | \text{First Steps})$ = .1488
+$$
+d. P(\text{Preterm} | \text{First Steps}) = .1488
+$$
 
-> e. $P(\text{First Steps} | \text{Preterm})$ = .2158
-
+$$
+e. P(\text{First Steps} | \text{Preterm}) = .2158
+$$
 
 
 Note that the conditional probabilities calculated in parts (d) and (e) are not the same! This is because which event you condition on alters the denominator, and the event you're interested in alters the numerator.
 
-f. To determine if gestational age differed by enrollment in First Steps, we'll want to calculate the conditional probability that a baby is born prematurely given First Steps enrollment (.1488), *and* given that a parent is *not* enrolled in First Steps. Use the 2x2 table to calculated this conditional probability.
+f. To determine if gestational age differed by enrollment in First Steps, we'll want to calculate the conditional probability that a baby is born prematurely given First Steps enrollment (Done!.1488), *and* given that a parent is *not* enrolled in First Steps. Use the 2x2 table to calculated this conditional probability.
 
-> $P(\text{Preterm} | \text{Not in First Steps})$ = 218 / (218 + 1879) = 0.103958
+$$
+P(\text{Preterm} | \text{Not in First Steps}) = 218 / (218 + 1879) = 0.103958
+$$
 
 g. A ratio of conditional probabilities, where the conditioning event is the same for both, tells us how many times *more likely* an event is to occur for one group compared to another. Calculate how many times more likely a birth parent enrolled in First Steps is to have a premature baby compared to birth parents not enrolled in First Steps.
 
@@ -204,16 +232,23 @@ firststeps %>%
 
 b. Using the table from part (a), calculate the following conditional probabilities:
 
-> $P(\text{Low birth weight} | \text{First Steps})$ = 25 / (25 + 378) = 0.062
+$$
+P(\text{Low birth weight} | \text{First Steps}) = 25 / (25 + 378) = 0.062
+$$
 
-> $P(\text{Normal birth weight} | \text{First Steps})$ = 378 / (25 + 378) = 0.938
+$$
+P(\text{Normal birth weight} | \text{First Steps}) = 378 / (25 + 378) = 0.938
+$$
 
 
+$$
+P(\text{Low birth weight} | \text{Not in First Steps}) = 102 / (102 + 1995) = 0.049
+$$
 
-> $P(\text{Low birth weight} | \text{Not in First Steps})$ = 102 / (102 + 1995) = 0.049
 
-> $P(\text{Normal birth weight} | \text{Not in First Steps})$ = 1995 / (102 + 1995) = 0.951
-
+$$
+P(\text{Normal birth weight} | \text{Not in First Steps}) = 1995 / (102 + 1995) = 0.951
+$$
 
 
 An additional numerical summary that is often useful when working with indicator variables is *odds*. Odds are defined as
@@ -238,16 +273,20 @@ We'll see why odds are especially useful when we have binary outcome variables i
 
 c. Using your answer to part (b), calculate the following *odds* 
 
-> $Odds(\text{Low birth weight} | \text{First Steps})$ = 0.062 / (1 - 0.062) = 0.06609808
+$$
+Odds(\text{Low birth weight} | \text{First Steps}) = 0.062 / (1 - 0.062) = 0.06609808
+$$
 
-> $Odds(\text{Normal birth weight} | \text{First Steps})$ = 0.938 / (1 - 0.938) = 15.12903
+$$
+Odds(\text{Normal birth weight} | \text{First Steps}) = 0.938 / (1 - 0.938) = 15.12903
+$$
 
-
-
-> $Odds(\text{Low birth weight} | \text{Not in First Steps})$ = 0.049 / (1 - 0.049) = 0.05152471
-
-> $Odds(\text{Normal birth weight} | \text{Not in First Steps})$ = 0.951 / (1 - 0.951) = 19.40816
-
+$$
+Odds(\text{Low birth weight} | \text{Not in First Steps}) = 0.049 / (1 - 0.049) = 0.05152471
+$$
+$$
+Odds(\text{Normal birth weight} | \text{Not in First Steps}) = 0.951 / (1 - 0.951) = 19.40816
+$$
 
 d. A ratio of odds (called an **odds ratio**, unsurprisingly) tells us how many times *higher* or *greater* the odds are that an event occurs, comparing one group to another. This might sound irritatingly circular. The key here is that while odds ratios *do* allow us to compare binary/indicator outcomes from one group to one another, they *do not* tell us how much *more likely* an event is to occur comparing those same groups. This is distinct from ratios of probabilities!
 
@@ -492,7 +531,15 @@ $$
 p = \frac{Yes}{Total}, \quad Odds = \frac{Yes}{No}
 $$
 
-A. 
+
+Class     | Died     | Survived | Total 
+----------|----------|----------|-------
+1st Class | 129      |  193     | 322
+2nd Class | 160      |  119     | 279
+3rd Class | 573      |  138     | 711
+Total     | 862      |  450     | 1312
+
+A.
     - the odds of surviving among 1st class passengers: 193/129 = 1.496
     - the odds of surviving among 2nd class passengers: 119/160 = 0.744
     - the odds of surviving among 3rd class passengers: 138/573 = 0.241
@@ -517,6 +564,7 @@ d. Write an interpretation of each of the *exponentiated* coefficients in your l
     - exp(Intercept): the estimated odds of survival among passengers in first class is 1.496 (i.e., passengers in first class are 1.496 times more likely to survive than they are to die)
     - exp(PClass2nd): we estimate that the odds of survival for passengers in 2nd class are only 0.497 times as high as the odds of survival among passengers in 1st class (i.e., the odds of survival are 2 times higher among passengers in 1st class than they are among passengers in 2nd class)
     - exp(PClass3rd): we estimate that the odds of survival for passengers in 3rd class are only 0.16 times as high as the odds of survival among passengers in 1st class (i.e., the odds of survival are 1/0.16 = 6.21 times higher among passengers in 1st class than they are among passengers in 3rd class)
+
 
 
 ## Exercise 5: Logistic regression model (quantitative predictor)
