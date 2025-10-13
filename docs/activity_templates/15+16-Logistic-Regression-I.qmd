@@ -133,27 +133,30 @@ Congratulations! If you've made it to this point, you already intuitively know w
 
 Using formal probability notation, write the probabilities you calculated in parts (b), (d), and (e) as
 
-> b. $P(\text{First Steps})$ = ___
+> b. $P(\text{First Steps})$ = .1612
 
-> d. $P(\text{Preterm} | \text{First Steps})$ = ___
+> d. $P(\text{Preterm} | \text{First Steps})$ = .1488
 
-> e. $P(___ | ___)$ = __
+> e. $P(\text{First Steps} | \text{Preterm})$ = .2158
 
 
 
 Note that the conditional probabilities calculated in parts (d) and (e) are not the same! This is because which event you condition on alters the denominator, and the event you're interested in alters the numerator.
 
-f. To determine if gestational age differed by enrollment in First Steps, we'll want to calculate the conditional probability that a baby is born prematurely given First Steps enrollment (done!), *and* given that a parent is *not* enrolled in First Steps. Use the 2x2 table to calculated this conditional probability.
+f. To determine if gestational age differed by enrollment in First Steps, we'll want to calculate the conditional probability that a baby is born prematurely given First Steps enrollment (.1488), *and* given that a parent is *not* enrolled in First Steps. Use the 2x2 table to calculated this conditional probability.
 
-> $P(\text{Preterm} |\text{Not in First Steps})$ = ___
+> $P(\text{Preterm} | \text{Not in First Steps})$ = 218 / (218 + 1879) = 0.103958
 
 g. A ratio of conditional probabilities, where the conditioning event is the same for both, tells us how many times *more likely* an event is to occur for one group compared to another. Calculate how many times more likely a birth parent enrolled in First Steps is to have a premature baby compared to birth parents not enrolled in First Steps.
 
 $$
-\frac{(\text{Preterm} | \text{First Steps})}{P(\text{Preterm} | \text{Not in First Steps})} = 
+\frac{(\text{Preterm} | \text{First Steps})}{P(\text{Preterm} | \text{Not in First Steps})} = .1488 / 0.103958 = 1.43
 $$
 
 h. Write a two-sentence summary, appropriate for a general audience, summarizing your results in terms of a *ratio of probabilities*. Does gestational age appear to differ greatly by First Steps enrollment? What does this imply about the effectiveness of the First Steps program, if anything?
+
+> Parents in this study in the First Steps program are 1.43 times more likely to have a premature birth than those not enrolled in the First Steps program, indicating that gestational age does differ by First Steps enrollment. This implies that enrollment in the First Steps program may not be associated with better birth outcomes, as measured by gestational age. 
+[ Might not be a fair comparison! Ideally, we would compare birth outcomes from mothers in the First Steps program to the birth outcomes from those same mothers not in the First Steps program, to determine if the program made a positive impact.]
 
 
 i. To go along with your summary, let's make a visualization! There are three basic options for visualization two categorical variables. All are perfectly valid, but some may be more useful to read than others, and display different information.
@@ -201,15 +204,15 @@ firststeps %>%
 
 b. Using the table from part (a), calculate the following conditional probabilities:
 
-> $P(\text{Low birth weight} | \text{First Steps})$ = ___
+> $P(\text{Low birth weight} | \text{First Steps})$ = 25 / (25 + 378) = 0.062
 
-> $P(\text{Normal birth weight} | \text{First Steps})$ = ___
+> $P(\text{Normal birth weight} | \text{First Steps})$ = 378 / (25 + 378) = 0.938
 
 
 
-> $P(\text{Low birth weight} | \text{Not in First Steps})$ = ___
+> $P(\text{Low birth weight} | \text{Not in First Steps})$ = 102 / (102 + 1995) = 0.049
 
-> $P(\text{Normal birth weight} | \text{Not in First Steps})$ = ___
+> $P(\text{Normal birth weight} | \text{Not in First Steps})$ = 1995 / (102 + 1995) = 0.951
 
 
 
@@ -235,15 +238,15 @@ We'll see why odds are especially useful when we have binary outcome variables i
 
 c. Using your answer to part (b), calculate the following *odds* 
 
-> $Odds(\text{Low birth weight} | \text{First Steps})$ = ___
+> $Odds(\text{Low birth weight} | \text{First Steps})$ = 0.062 / (1 - 0.062) = 0.06609808
 
-> $Odds(\text{Normal birth weight} | \text{First Steps})$ = ___
+> $Odds(\text{Normal birth weight} | \text{First Steps})$ = 0.938 / (1 - 0.938) = 15.12903
 
 
 
-> $Odds(\text{Low birth weight} | \text{Not in First Steps})$ = ___
+> $Odds(\text{Low birth weight} | \text{Not in First Steps})$ = 0.049 / (1 - 0.049) = 0.05152471
 
-> $Odds(\text{Normal birth weight} | \text{Not in First Steps})$ = ___
+> $Odds(\text{Normal birth weight} | \text{Not in First Steps})$ = 0.951 / (1 - 0.951) = 19.40816
 
 
 d. A ratio of odds (called an **odds ratio**, unsurprisingly) tells us how many times *higher* or *greater* the odds are that an event occurs, comparing one group to another. This might sound irritatingly circular. The key here is that while odds ratios *do* allow us to compare binary/indicator outcomes from one group to one another, they *do not* tell us how much *more likely* an event is to occur comparing those same groups. This is distinct from ratios of probabilities!
@@ -251,8 +254,15 @@ d. A ratio of odds (called an **odds ratio**, unsurprisingly) tells us how many 
 Calculate the ratio of the odds of having a low-birth-weight baby, comparing those in the First Steps program to those not in the First Steps program (i.e., how many times higher/lower is the odds of having a low-birth-weight baby among those in First Steps as compared to those not in First Steps?)
 
 
+```{r eval = TRUE}
+0.06609808 / 0.05152471
+```
+
+
+
 e. Write a two-sentence summary, appropriate for a general audience, summarizing your results in terms of an *odds ratio*. Does birth weight appear to differ greatly by First Steps enrollment? What does this imply about the effectiveness of the First Steps program, if anything?
 
+> The odds of having a low birth weight baby are 1.28 times higher for those enrollment in First Steps compared to those not in First Steps. Just as in Exercise 1, this implies that the First Steps program may not be associated with improved birth outcomes (with the same caveats as given in the answer to 1 (h)).
 
 f. To go along with your summary, add code below to make one of the three visualization options we tried out in Exercise 1.
 
@@ -346,6 +356,7 @@ library(tidyverse)
 library(ggmosaic)
 
 titanic <- read_csv("https://mac-stat.github.io/data/titanic.csv")
+head(titanic)
 ```
 
 ## Exercise 1: Exploring age
@@ -364,9 +375,17 @@ After inspecting the plots, summarize what you learn.
 # Create a boxplot
 # Note that you'll need to force R to view Survived as a binary categorical variable by using x = factor(Survived) instead of just x = Survived in the aes() part of your plot
 
+ggplot(titanic, aes(x = factor(Survived), y = Age)) +
+    geom_boxplot()
+
+# Can flip the boxplot on its side too
+ggplot(titanic, aes(y = factor(Survived), x = Age)) +
+    geom_boxplot()
+
 
 # Create a density plot (you'll need to use factor(Survived) again)
-
+ggplot(titanic, aes(x = Age, color = factor(Survived))) +
+    geom_density()
 
 # Use the code below to create a plot of the fraction who survived at each age
 titanic_summ <- titanic %>% 
@@ -377,7 +396,7 @@ ggplot(titanic_summ, aes(x = Age, y = frac_survived)) +
     geom_point() +
     geom_smooth(se = FALSE)
 ```
-
+> The boxplot doesn’t clearly indicate a difference in the age distributions across survivors and non-survivors, but we do notice from the density plot that there is a greater density of younger passengers among the survivors. We also see from the last plot that younger passengers tend to have a higher survival chance.
 
 
 ## Exercise 2: Exploring sex and ticket class
@@ -403,7 +422,8 @@ ggplot(data = titanic %>% mutate(Survived = as.factor(Survived))) +
 ggplot(data = titanic %>% mutate(Survived = as.factor(Survived))) +
     geom_mosaic(aes(x = product(PClass), fill = Survived))
 ```
-
+> Females were more likely to survive than males.
+1st class was most likely to survive, followed by 2nd then 3rd class.
 
 
 ## Exercise 3: Linear regression model
@@ -417,21 +437,22 @@ titanic %>%
     count(PClass, Survived)
 ```
 
-a. Use the `count()` output to fill in the following contingency table:
+a. Using the `count()` output, we can fill in the following contingency table:
 
 Class     | Died     | Survived | Total 
 ----------|----------|----------|-------
-1st Class | ___      |  ___     | ___
-2nd Class | ___      |  ___     | ___
-3rd Class | ___      |  ___     | ___
-Total     | ___      |  ___     | ___
+1st Class | 129      |  193     | 322
+2nd Class | 160      |  119     | 279
+3rd Class | 573      |  138     | 711
+Total     | 862      |  450     | 1312
 
-b. Using your table, estimate the following:
-    - the probability of surviving among 1st class passengers
-    - the probability of surviving among 2nd class passengers
-    - the probability of surviving among 3rd class passengers
-    - the difference in the probability of surviving, comparing 2nd class passengers to 1st class passengers (i.e., how much lower is the probability of 2nd class passengers as compared to 1st class passengers?)
-    - the difference in the probability of surviving, comparing 3rd class passengers to 1st class passengers  (i.e., how much lower is the probability of 3rd class passengers as compared to 1st class passengers?)
+b. Using the table, we can estimate the followings:
+    - the probability of surviving among 1st class passengers: 193/322 = 0.599
+    - the probability of surviving among 2nd class passengers: 119/279 = 0.427
+    - the probability of surviving among 3rd class passengers: 138/711 = 0.194
+    - the difference in the probability of surviving, comparing 2nd class passengers to 1st class passengers (i.e., how much lower is the probability of 2nd class passengers as compared to 1st class passengers?): 119/279 - 193/322 = -0.173
+    - the difference in the probability of surviving, comparing 3rd class passengers to 1st class passengers  (i.e., how much lower is the probability of 3rd class passengers as compared to 1st class passengers?): 138/711 - 193/322 = -0.405
+
 
 c. After fitting the linear regression model below, write out the model formula using correct notation. Explain carefully what it means to talk about the expected/average value of a binary variable.
 
@@ -440,8 +461,20 @@ lin_mod <- lm(Survived ~ PClass, data = titanic)
 summary(lin_mod)
 ```
 
+This model can be written as: $E[Survived | PClass] = \beta_0 + \beta_1 PClass2nd + \beta_2 PClass3rd$.
+    - In the context of a binary variable, the expected value/average is the same as the probability that the variable equals one. To see an example of this, calculate the average of this list of 0's and 1's: (0,0,1,1,0,1,0,1). Now calculate the proportion of 1's. What do you notice?
+    - This means that we can also write this model as follows: $P[Survived = 1 | PClass] = \beta_0 + \beta_1 PClass2nd + \beta_2 PClass3rd$
+
+
+
 d. Write an interpretation of each of the coefficients in your linear regression model. How do your coefficient estimates compare to your answers in part b?
 
+The coefficient estimates are the differences in probability from part b!
+    - `(Intercept)`: the estimated probability of survival for passengers in 1st class is 0.599 (59.9%)
+    - `PClass2nd`: the difference in the estimated probability of survival comparing passengers in 1st class to passengers in 2nd class is 0.173 (17.3%), where passengers in 1st class have the higher estimated survival probability
+        - OR... comparing passengers in 1st class to passengers in 2nd class, the difference in the proportion of passengers that survived is 0.173 (17.3%), with 1st class having a higher proportion of passengers that survived
+        - OR... the probability of survival is 17.3% lower among passengers in 2nd class than it is among passengers in 1st class
+    - `PClass3rd`: the difference in the estimated probability of survival comparing passengers in 1st class to passengers in 3rd class is 0.405 (40.5%), where passengers in 1st class have the higher estimated survival probability
 
 
 ## Exercise 4: Logistic regression model (categorical predictor)
@@ -452,15 +485,39 @@ a. Refer back to your contingency table from Exercise 3a. Using your table, esti
     - the odds of surviving among 3rd class passengers
     - the ratio of the odds of surviving, comparing 2nd class passengers to 1st class passengers (i.e., how many times higher/lower is the odds of survival among 2nd class passengers as compared to 1st class passengers?)
     - the ratio of the odds of surviving, comparing 3rd class passengers to 1st class passengers
+    
+Hints: Remember that we can also calculate odds from our 2x2 (or 3x2, 4x2, ...) tables. In colloquial terms, probabilities are "yes"'s over "total"'s, and odds are "yes"'s over "no's". In pseudo-math:
+
+$$
+p = \frac{Yes}{Total}, \quad Odds = \frac{Yes}{No}
+$$
+
+A. 
+    - the odds of surviving among 1st class passengers: 193/129 = 1.496
+    - the odds of surviving among 2nd class passengers: 119/160 = 0.744
+    - the odds of surviving among 3rd class passengers: 138/573 = 0.241
+    - the ratio of the odds of surviving, comparing 2nd class passengers to 1st class passengers (i.e., how many times higher/lower is the odds of survival among 2nd class passengers as compared to 1st class passengers?): (119/160)/(193/129) = 0.497
+    - the ratio of the odds of surviving, comparing 3rd class passengers to 1st class passengers: (138/573)/(193/129) = 0.161
+
 
 b. After fitting the logistic regression model below, write out the model formula using correct notation.
+
 
 ```{r}
 log_mod <- glm(Survived ~ PClass, data = titanic, family = "binomial")
 coef(summary(log_mod))
 ```
 
+$\log(Odds[Survived = 1 | PClass]) = \beta_0 + \beta_1 PClass2nd + \beta_2 PClass3rd$
+
+
 d. Write an interpretation of each of the *exponentiated* coefficients in your logistic regression model. Think carefully about what we are modeling when we fit a logistic regression model. How do these exponentiated coefficient estimates compare to your answers in part a?
+
+>  These exponentiated coefficient estimates compare to your the odds and odds ratios in part a!
+    - exp(Intercept): the estimated odds of survival among passengers in first class is 1.496 (i.e., passengers in first class are 1.496 times more likely to survive than they are to die)
+    - exp(PClass2nd): we estimate that the odds of survival for passengers in 2nd class are only 0.497 times as high as the odds of survival among passengers in 1st class (i.e., the odds of survival are 2 times higher among passengers in 1st class than they are among passengers in 2nd class)
+    - exp(PClass3rd): we estimate that the odds of survival for passengers in 3rd class are only 0.16 times as high as the odds of survival among passengers in 1st class (i.e., the odds of survival are 1/0.16 = 6.21 times higher among passengers in 1st class than they are among passengers in 3rd class)
+
 
 ## Exercise 5: Logistic regression model (quantitative predictor)
 
@@ -473,7 +530,11 @@ log_mod <- glm(Survived ~ Age, data = titanic, family = "binomial")
 coef(summary(log_mod))
 ```
 
+$\log(Odds[Survived = 1 | Age]) = \beta_0 + \beta_1 Age$
+
 b. Write an interpretation of each of the *exponentiated* coefficients in this logistic regression model.
+
+
 
 ## Exercise 6: Linear vs. logistic modeling
 
@@ -489,18 +550,50 @@ coef(summary(log_mod2))
 
 a. Use the linear regression model to predict the probability of survival for Rose (a 17 year old female in 1st class) and Jack (a 20 year old male in 3rd class). Show your work.
 
+```{r eval = TRUE}
+## predict for Rose
+## (by hand)
+1.130523 + (-0.207434)*0 + (-0.393344)*0 + (-0.501326)*0 + (-0.006005)*17 
+
+## (using predict)
+predict(lin_mod2, newdata = data.frame(PClass = "1st", Sex = "female", Age = 17))
+
+## predict for Jack
+## (by hand)
+1.130523 + (-0.207434)*0 + (-0.393344)*1 + (-0.501326)*1 + (-0.006005)*20
+
+## (using predict)
+predict(lin_mod2, newdata = data.frame(PClass = "3rd", Sex = "male", Age = 20))
+```
+
 b. Now use the logistic regression model to predict the survival probability for Rose and Jack. Show your work. (Hint: use the logistic regression model to obtain the predicted log odds, exponentiate to get the odds, and then convert to probability.)
+
+```{r eval = TRUE}
+## predict for Rose
+## (by hand)
+log_odds_rose <- 3.75966210 + (-1.29196240)*0 + (-2.52141915)*0 + (-2.63135683)*0 + (-0.03917681)*17
+odds_rose <- exp(log_odds_rose)
+odds_rose/(1+odds_rose)
+
+## (using predict)
+predict(log_mod2, newdata = data.frame(PClass = "1st", Sex = "female", Age = 17), type = "response")
+
+## predict for Jack
+## (by hand)
+log_odds_jack <- 3.75966210 + (-1.29196240)*0 + (-2.52141915)*1 + (-2.63135683)*1 + (-0.03917681)*20
+odds_jack <- exp(log_odds_jack)
+odds_jack/(1+odds_jack)
+
+## (using predict)
+predict(log_mod2, newdata = data.frame(PClass = "3rd", Sex = "male", Age = 20), type = "response")
+```
 
 c. Comment on differences that you notice in the predictions from parts a and b.
 
+> Our linear model predicted that Rose's probability of survival was over 100% (which doesn't make sense). The predictions for Jack are fairly similar: 10.2% based on our logistic model and 11.6% based on our linear model.
 
 
 
-## Reflection
-
-What binary outcomes might be relevant in your project? What predictor(s) could be relevant in a logistic regression model for that outcome?
-
-> **Response:** Put your response here.
 
 
 
