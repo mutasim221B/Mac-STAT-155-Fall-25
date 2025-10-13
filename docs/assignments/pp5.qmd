@@ -12,7 +12,7 @@ format:
 ---
 
 <center>
-**Due Friday, 10/25 at 5pm on [Moodle](INSERT_LINK_TO_MOODLE_ASSIGNMENT).**
+**Due Saturday, 10/25 at 5pm on Moodle.**
 </center>
 
 # Purpose
@@ -55,76 +55,128 @@ We will be exploring a range of research questions related to this data.
 ## Exercise 1: Descriptive, predictive, and causal questions
 
 Suppose that you are an analyst helping out a local board game convention. Your job is to help convention attendees have a great time.
-
 After exploring the [codebook](https://github.com/Mac-STAT/data/blob/main/boardgamegeeks_codebook.md), consider the following:
 
-- Would investigating descriptive research questions help you do your job? If so, list some relevant descriptive questions that you came up with. If not, explain why descriptive research questions are not useful here.
-- Repeat the above questions for predictive and causal research questions.
+### Part a
+
+Provide a *descriptive* research question that would help you do your job of helping conference attendees have a great time.
+
+### Part b
+
+Provide a *predictive* research question that would help you do your job of helping conference attendees have a great time.
+
+
+### Part c
+
+Provide a *causal* research question that would help you provide advice to a game designer.
 
 
 
 ## Exercise 2: Addressing your questions
 
-Pick two of your research questions from the previous exercise, and create visualizations and models to address those questions. Make sure to:
+Pick one of your research questions from the previous exercise.
 
-- Include helpful labels on your visualizations
-- Explain why your plots and models address your research questions
-- Interpret only the relevant coefficients from your models
-- If relevant, comment on model quality metrics.
+### Part a
+
+Identify what question you'll dig into, and what variables in the dataset you can use to address this question.
+Be sure to clarify which is your Y response variable, and for the purposes of this assignment, don't include more than 3 variables in your analysis (including Y).
+
+### Part b
+
+Create 1-2 visualizations that help address this research question.
+
+### Part c
+
+Build 1 model that addresses your research question and report a model `summary()` table.
+There might be multiple possible models -- pick one that's *reasonable* even if it's not the "best".
+
 
 
 
 ## Exercise 3: Communicating your findings
 
 Write a paragraph addressed to the convention organizers detailing how your findings in the previous exercise can help attendees have more fun at the convention.
+(That is, you should go beyond noting whether a relationship is simply positive / negative, and provide a sense of scale for that relationship.)
 
 
 
 ## Exercise 4: Family and children's categories
 
-**Question:** Does a game being in the family category (`cat_family`) provide meaningfully different information from a game being in the children's category (`cat_childrens`) in terms of explaining average ratings?
-
-Fit 2 models that will allow you to address this question. Report and compare the multiple and adjusted R-squared measures in these 2 models. Use this comparison to answer our question.
-
-
-
-## Exercise 5: Define binary outcome
-
-Use the `mutate()` function from `dplyr` to create a binary outcome variable called `popular` that is TRUE if the `mean_rating` is over 8 AND the `p25_rating` is over 6.5. In R, you can use `&` to combine logical statements. For example, `x1 < 1 & x2 < 2` results in TRUE if both `x1` is less than 1 AND `x2` is less than 2.
-
-
-
-## Exercise 6: Visual explorations
-
-We want to investigate how a game's complexity and whether or not it was kickstarted relate to its popularity.
+**Question:** In terms of explaining average ratings, does a game being in the family category (`cat_family`) provide meaningfully different information from a game being in the children's category (`cat_childrens`)? That is, if we already have *one* of these predictors in a model of average ratings, does adding the other meaningfully improve the model?
 
 ### Part a
 
-Construct and interpret a visualization that shows how popularity is related to a game's complexity (`game_weight`).
+Fit 2 models that will allow you to address this question.
+Show their model `summary()` tables.
 
 ### Part b
 
-Construct and interpret a visualization that shows how popularity is related to whether or not a game was kickstarted (`kickstarted`). (Note: you will want to use `factor(kickstarted)` in your code to ensure that it is treated as a categorical variable.)
+Report and compare the multiple and adjusted R-squared measures for these 2 models. Use this comparison to answer our question.
 
 
+## Exercise 5: Popular or not?
 
-## Exercise 7: Logistic regression modeling
+Let's explore popularity by a different metric.
+Define a game to be `popular` (TRUE or FALSE) if its `mean_rating` is over 8 AND the `p25_rating` is over 6.5:
+
+```{r}
+games <- games %>% 
+  mutate(popular = (mean_rating > 8) & (p25_rating > 6.5))
+```
 
 ### Part a
 
-Fit a simple logistic regression model called that models popularity as a function of complexity (`game_weight`). Display the exponentiated coefficients.
+Construct *and* interpret a visualization that shows how popularity (`popular`) is related to a game's complexity (`game_weight`).
+
 
 ### Part b
 
-Interpret each coefficient from Part a in a contextually meaningful way. Is the intercept meaningful in this context?
+Fit a simple logistic regression model called `log_mod_complexity` that models popularity (`popular`) by complexity (`game_weight`).
+Show the model `summary()` table *and* calculate the exponentiated coefficient estimates (`exp()`).
 
 ### Part c
 
-Fit a simple logistic regression model called that models popularity as a function of whether or not a game was kickstarted (`kickstarted`). Display the exponentiated coefficients.
+Interpret *both* coefficients from Part b in context (on the *odds* not log(odds) scale!).
+Is the intercept meaningful in this context?
+
 
 ### Part d
 
-Interpret each coefficient from Part c in a contextually meaningful way. Is the intercept meaningful in this context?
+Use your model to calculate the *probability* that a game with a complexity rating of "4" is popular.
+You can use `predict()` to *check* your answer but must demonstrate how to obtain this calculation from the model coefficients.
+
+
+
+
+
+
+## Exercise 6: More logistic regression models
+
+
+### Part a
+
+Construct *and* interpret a visualization that shows how popularity (`popular`) is related to whether or not a game was kickstarted (`kickstarted`).
+Note: `kickstarted` is defined as `1` (game was kickstarted) or `0` (game wasn't kickstarted). To ensure that R views `kickstarted` as a categorical not quantitative variable, you will want to use `factor(kickstarted)` in your code.
+
+
+### Part b
+
+Fit a simple logistic regression model called `log_mod_kick` that models popularity (`popular`) by `kickstarted`.
+Show the model `summary()` table *and* calculate the exponentiated coefficient estimates (`exp()`).
+
+
+### Part c
+
+Interpret *both* coefficients from Part b in context (on the *odds* not log(odds) scale!).
+Is the intercept meaningful in this context?
+
+
+### Part d
+
+Use your model to calculate the *probability* that a game that was kickstarted is popular.
+You can use `predict()` to *check* your answer but must demonstrate how to obtain this calculation from the model coefficients.
+
+
 
 
 
