@@ -75,6 +75,7 @@ library(tidyverse)
 library(ggmosaic)
 
 resume <- read_csv("https://mac-stat.github.io/data/resume.csv")
+
 ```
 
 ## Exercise 1: Graphical and numerical summaries
@@ -234,9 +235,11 @@ resume %>%
 
 a. Summarize what you learn about the ability of the 3 models to differentiate those who actually did and did not receive a callback. What model seems best, and why?
 
+> All 3 models show that those who actually received a callback had higher predicted probabilities of a callback. Models 1 and 2 are very similar–although predicted probabilites of callback are high for those who did actually receive a callback, there is substantial overlap in the boxplots. There is more separation between the boxplots in the third model, perhaps model 3 is best in terms of accuracy.
+
 b. If you had to draw a horizontal line across each of the boxplots that vertically separates the left and right boxplots well, where would you place them?
 
-
+> We would want to place the horizontal lines such that as much of the left boxplot was below the line (low predicted probabilities for those with Y = 0) and as much of the right boxplot was above the line (high predicted probabilities for those with Y = 1).
 
 
 
@@ -252,6 +255,20 @@ Let's explore using a probability threshold of 0.08 (8%) to make a binary predic
 We can visualize this threshold on our predicted probability boxplots:
 
 ```{r}
+mod1 <- glm(received_callback ~ gender + race, data = resume, family = "binomial")
+mod2 <- glm(received_callback ~ gender * race, data = resume, family = "binomial")
+mod3 <- glm(received_callback ~ gender*race + years_college + years_experience + resume_quality, data = resume, family = "binomial")
+# Model 1 output
+mod1_output <- resume %>%
+  mutate(.fitted = predict(mod1, newdata = ., type = "response"))
+
+# Model 2 output
+mod2_output <- resume %>%
+  mutate(.fitted = predict(mod2, newdata = ., type = "response"))
+
+# Model 3 output
+mod3_output <- resume %>%
+  mutate(.fitted = predict(mod3, newdata = ., type = "response"))
 ggplot(mod1_output, aes(x = factor(received_callback), y = .fitted)) +
     geom_boxplot() +
     geom_hline(yintercept = 0.08, color = "red")
@@ -302,6 +319,9 @@ Actually got callback      ____               ____                ____
 Actually did not           ____               ____                ____
 Total                      ____               ____                ____
 
+
+> In-class Notes!
+
 b. Now compute the following evaluation metrics for the models:
 
 Models 1 and 2:
@@ -323,7 +343,8 @@ Model 3:
 c. Imagine that we are a career center on a college campus and we want to use this model to help students that are looking for jobs. Consider the consequences of incorrectly predicting whether or not an individual will get a callback. What are the consequences of a false negative? What about a false positive? Which one is worse?
 
 
-
+> False Negatives (predicting no callback, but actually got callback): this would be a lost opportunity if a student decided not to submit their resume, thinking they wouldn’t get a callback, when actually they would have.
+> False Positives (predicting callback, but actually didn’t get callback): this would be a disappointment for the student, thinking they were going to get a callback but they ended up not getting one.
 
 
 
