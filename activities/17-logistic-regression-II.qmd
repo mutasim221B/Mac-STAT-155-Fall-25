@@ -60,7 +60,7 @@ Please go through the following reading or videos **before** class.
 
 # Exercises
 
-**Context:** In this activity, we'll look at data from an experiment conducted in 2001-2002 that investigated the influence of race and gender on job applications. The researchers created realistic-looking resumes and then randomly assigned a name to the resume that "would communicate the applicant's gender and race" (e.g., they they assumed the name Emily would generally be interpreted as a white woman, whereas the name  Jamal would generally be interpreted as a black man).  They then submitted these resumes to job postings in Boston and Chicago and waited to see if the  applicant got a call back from the job posting.
+**Context:** In this activity, we'll look at data from an experiment conducted in 2001-2002 that investigated the influence of race and gender on job applications. The researchers created realistic-looking resumes and then randomly assigned a name to the resume that "would communicate the applicant's gender and race" (e.g., they assumed the name Emily would generally be interpreted as a white woman, whereas the name  Jamal would generally be interpreted as a black man).  They then submitted these resumes to job postings in Boston and Chicago and waited to see if the  applicant got a call back from the job posting.
 
 You can find a full description of the variables in this dataset [here](https://www.openintro.org/data/index.php?data=resume). Today, we'll focus on the following variables:
 
@@ -139,7 +139,7 @@ Fill in the blanks in the code below to fit this logistic regression model.
 
 ```{r logistic-model}
 # fit logistic model and save it as object called "mod1"
-mod1 <- glm(received_callback ~ gender + race, data = ___, family = ___)
+mod1 <- glm(received_callback ~ gender + race, data = resume, family = "binomial")
 ```
 
 Then, run the code chunk below to get the coefficient estimates and exponentiated estimates:
@@ -164,7 +164,7 @@ b. Let's try adding an interaction between gender and race. Update the code belo
 
 ```{r logistic-model-with-interaction}
 # fit logistic model and save it as object called "mod2"
-mod2 <- glm(received_callback ~ ___, data = resume, family = ___)
+mod2 <- glm(received_callback ~ gender * race, data = resume, family = "binomial")
 ```
 
 Then, run the code chunk below to get the coefficient estimates and exponentiated estimates for this interaction model:
@@ -232,6 +232,10 @@ resume %>%
   geom_boxplot()
   
 ```
+
+Y-axis (.fitted): The predicted probability of getting a callback (from logistic model).
+So, each box represents the distribution of the model’s predicted probabilities for cases that actually had outcome 0 vs outcome 1.]
+
 
 a. Summarize what you learn about the ability of the 3 models to differentiate those who actually did and did not receive a callback. What model seems best, and why?
 
