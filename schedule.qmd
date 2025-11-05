@@ -57,4 +57,14 @@ The (tentative) course schedule below will be filled in throughout the semester.
 | **10/20: Bill out of town (Fall break continues!)** <br><br> | **10/22: Multiple Logistic ** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/24: Multiple Logistic + Review ** <br><br> - PP#5 is posted on the [Practice Problems](assignments.qmd) tab (due Saturday, Oct 25 at 11:59pm CT)|
 :::
 
+::: {.callout-note collapse="true" title="Week 9"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **10/27: Review** <br><br> | **10/29: Quiz 02** | **10/31: Project Day**|
+:::
 
+::: {.callout-note collapse="true" title="Week 10"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **11/03: Tools for inference (Sampling-Normal)** <br><br> _Before class:_ <br> - CP Quiz on Moodles| **11/05: Tools for inference (Sampling-Normal) + Sampling Dist+CTL+Bootsrap ** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **11/07: Sampling Dist+CTL+Bootsrap ** <br><br> - Project Milestone 1 due on Friday, Nov 07 at 11:59pm CT|
+:::
