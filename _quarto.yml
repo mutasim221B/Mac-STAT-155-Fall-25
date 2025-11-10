@@ -40,6 +40,7 @@ website:
     - id: activities
       title: "Activities"
       contents:
+          - "activities/21-confidence-intervals.qmd"
           - "activities/19-20-sampling-dist-clt-bootstrap.qmd"
           - "activities/18-sampling-normal.qmd"
           - "activities/17-logistic-regression-II.qmd"
