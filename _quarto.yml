@@ -40,6 +40,7 @@ website:
     - id: activities
       title: "Activities"
       contents:
+          - "activities/22-hypothesis-testing-discovery.qmd"
           - "activities/21-confidence-intervals.qmd"
           - "activities/19-20-sampling-dist-clt-bootstrap.qmd"
           - "activities/18-sampling-normal.qmd"

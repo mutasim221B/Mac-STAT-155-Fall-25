@@ -109,7 +109,8 @@ summary(mod_bikes)
 
 ```{r}
 # By hand using 68-95-99.7 rule
-
+-26.82 - 2*29.56 
+-26.82 + 2*29.56 
 
 # By hand using 1.96, which is closer to the exact normal distribution quantile to use
 
@@ -139,7 +140,8 @@ Let's see if these results agree when looking at adjusted R-squared.
 Fit another regression model that does not have the coefficient of interest from your Part b model. Compare the adjusted R-squared values between this model and the Part b model. Explain your findings.
 
 ```{r}
-mod_bikes_noint <- lm(riders_total ~ windspeed+weekend, data = bikes)
+mod_bikes_noint <- lm(riders_total ~ windspeed +
+                        weekend, data = bikes)
 summary(mod_bikes_noint)
 summary(mod_bikes)
 ```
@@ -211,9 +213,9 @@ Clear confounders from Part a include weather_cat and temp_actual. windspeed mig
 
 The coefficient on holiday is of interest.
 
-mod_bikes_smaller interpretation: Among days that have the same weather category and temperature, holidays have 731 fewer riders on average than non-holidays.
+mod_bikes_smaller interpretation: Among days that have the same weather category and temperature, holidays have 702 fewer riders on average than non-holidays.
 
-mod_bikes_larger interpretation: Among days that have the same weather category, temperature, and wind speed, holidays have 725 fewer riders on average than non-holidays.
+mod_bikes_larger interpretation: Among days that have the same weather category, temperature, and wind speed, holidays have 696 fewer riders on average than non-holidays.
 
 
 ### Part c
