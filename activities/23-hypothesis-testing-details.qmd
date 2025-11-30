@@ -156,7 +156,7 @@ summary(mushroom_mod1)
 
 Now report and interpret the p-values for the coefficients corresponding to `cap_shapeknobbed`, `cap_shapeconical`, and `cap_shapesunken`:
 
-> cap_shapeknobbed: Our null hypothesis is that the odds ratio between flat-capped and knob-capped mushrooms is 1 (i.e., the odds of a knob-capped mushroom being poisonous are equal to the odds of a flat-capped mushroom being poisonous). If we assume the null hypothesis is true, then the probability of seeing a test statistic as or more extreme than |11.60| is 3.91e-31. Because the p-value is far below our significance level of 0.05, we take this as strong evidence that knob-capped mushrooms are much more likely to be poisonous than flat-capped mushrooms.
+> cap_shapeknobbed: Our null hypothesis is that the odds ratio between flat-capped and knob-capped mushrooms is 1 (i.e., the odds of a knob-capped mushroom being poisonous are equal to the odds of a flat-capped mushroom being poisonous). If we assume the null hypothesis is true, then the probability of seeing a test statistic as or more extreme than |11.60| is (<2e-16). Because the p-value is far below our significance level of 0.05, we take this as strong evidence that knob-capped mushrooms are much more likely to be poisonous than flat-capped mushrooms.
 
 > ** Your Response on cap_shapeconical **
 
@@ -231,6 +231,9 @@ fish %>%
 
 Next, fit an appropriate linear regression model with an interaction term to investigate this question.
 
+
+
+
 ```{r}
 mod_fish2 <- lm(Concen ~ Length * River, data=fish)
 summary(mod_fish2)
@@ -245,6 +248,7 @@ Interpret the coefficient estimate, test statistic, and p-value for the `RiverWa
 ### Part e
 
 Interpret the coefficient estimate, test statistic, and p-value for the `RiverWacamaw` coefficient in this revised model (`mod_fish2`). (again, you can assume we've set a significance level of 0.05).
+
 
 ### Part f (CHALLENGE)
 

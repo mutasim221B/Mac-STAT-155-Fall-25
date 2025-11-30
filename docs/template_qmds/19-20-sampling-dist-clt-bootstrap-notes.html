@@ -4012,6 +4012,14 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
         <li>
+    <a class="dropdown-item" href="../activities/25-f-tests.html">
+ <span class="dropdown-text">F-Tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../activities/24-hypothesis-testing-considerations.html">
+ <span class="dropdown-text">Hypothesis Testing- Consideration</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../activities/23-hypothesis-testing-details.html">
  <span class="dropdown-text">Hypothesis Testing- Details</span></a>
   </li>  
@@ -4332,16 +4340,16 @@ E(Concen | Length) = \beta_0 + \beta_1 Length
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 10 × 5</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    River   Station Length Weight Concen</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Lumber        1   41.6    873   1.6 </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Lumber        1   41.6    873   1.6 </span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Wacamaw      10   46     1342   2.2 </span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Wacamaw      12   26.7    252   0.21</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Lumber        2   30      336   0.61</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Wacamaw      10   40.2    796   0.86</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Lumber        3   50.5   2021   1.2 </span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Wacamaw       8   47      586   1.3 </span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Wacamaw      12   57.5   2401   1.4 </span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Wacamaw      12   27.5    283   0.14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Lumber        0   47     1616   1.6 </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Wacamaw      14   37.6    937   2.4 </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Wacamaw      13   36.8    714   1.6 </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Lumber        0   55.7   2855   1.7 </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Wacamaw       7   34.5    496   0.58</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Wacamaw      10   46.2   1365   0.88</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Wacamaw      12   33.9    465   0.39</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Lumber        4   39      879   1.4 </span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Wacamaw      10   36.5    566   2.9 </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Wacamaw      15   49.5   1924   2.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can also take a sample and then use the data to estimate the model:</p>
 <div class="cell" data-layout-align="center">
@@ -4355,7 +4363,7 @@ E(Concen | Length) = \beta_0 + \beta_1 Length
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)       Length  </span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="do">##    -1.11353      0.05408</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="do">##     -2.5232       0.1029</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can also take <em>multiple</em> unique samples and build a sample model from each.</p>
 <p>The code below obtains <em>500</em> separate samples of 10 fish, and stores the model estimates from each:</p>
