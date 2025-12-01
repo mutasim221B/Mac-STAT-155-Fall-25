@@ -206,6 +206,10 @@ MacGrades %>%
 ```
 
 
+> Class Notes!
+
+
+
 c. Note that the `level` variable is currently quantitative. For this activity, we'd like to treat it as categorical. Create a new variable `level_cat` so that we can consider level categorically in the following analysis.
 
 ```{r}
