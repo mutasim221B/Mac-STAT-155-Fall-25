@@ -54,7 +54,7 @@ The (tentative) course schedule below will be filled in throughout the semester.
 ::: {.callout-note collapse="true" title="Week 8"}
 | Monday | Wednesday | Friday | Announcements |
 |:-------|:----------|:-------|:--------------|
-| **10/20: Bill out of town (Fall break continues!)** <br><br> | **10/22: Multiple Logistic ** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/24: Multiple Logistic + Review ** <br><br> - PP#5 is posted on the [Practice Problems](assignments.qmd) tab (due Saturday, Oct 25 at 11:59pm CT)|
+| **10/20: Bill out of town (Fall break continues!)** <br><br> | **10/22: Multiple Logistic ** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **10/24: Multiple Logistic + Review ** | - PP#5 is posted on the [Practice Problems](assignments.qmd) tab (due Saturday, Oct 25 at 11:59pm CT)|
 :::
 
 ::: {.callout-note collapse="true" title="Week 9"}
@@ -66,5 +66,35 @@ The (tentative) course schedule below will be filled in throughout the semester.
 ::: {.callout-note collapse="true" title="Week 10"}
 | Monday | Wednesday | Friday | Announcements |
 |:-------|:----------|:-------|:--------------|
-| **11/03: Tools for inference (Sampling-Normal)** <br><br> _Before class:_ <br> - CP Quiz on Moodles| **11/05: Tools for inference (Sampling-Normal) + Sampling Dist+CTL+Bootsrap ** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **11/07: Sampling Dist+CTL+Bootsrap ** <br><br> - Project Milestone 1 due on Friday, Nov 07 at 11:59pm CT|
+| **11/03: Tools for inference (Sampling-Normal)** <br><br> _Before class:_ <br> - CP Quiz on Moodles| **11/05: Tools for inference (Sampling-Normal) + Sampling Dist+CTL+Bootsrap ** <br><br> _Before class:_ <br> - CP Quiz on Moodles | **11/07: Sampling Dist+CTL+Bootsrap ** | - Project Milestone 1 due on Friday, Nov 07 at 11:59pm CT|
+:::
+
+::: {.callout-note collapse="true" title="Week 11"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **11/10: Confidence intervals** <br><br> _Before class:_ <br> - CP Quiz on Moodles| **11/12: Confidence intervals + Hypothesis testing discovery (single coefficient) ** | **11/14: Hypothesis testing discovery (single coefficient)** | - PP#6 is posted on the [Practice Problems](assignments.qmd) tab (due Friday, Nov 14 at 11:59pm CT)|
+:::
+
+::: {.callout-note collapse="true" title="Week 12"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **11/17: Hypothesis testing details (single coefficient)** <br><br> _Before class:_ <br> - CP Quiz on Moodles| **11/19: Hypothesis testing details (single coefficient) + Hypothesis testing consideration (single coefficient)** | **11/21: Hypothesis testing consideration (single coefficient)** | - PP#7 is posted on the [Practice Problems](assignments.qmd) tab (due Friday, Nov 21 at 11:59pm CT)|
+:::
+
+::: {.callout-note collapse="true" title="Week 13"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **11/24: Project Day** | **11/26: ThanksGiving** | **11/28: ThanksGiving** | - Project milestone 2 is due (on Moodle) Monday, Nov 24 at 11:59pm CT)|
+:::
+
+::: {.callout-note collapse="true" title="Week 14"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **12/01: Hypothesis testing (F-test)** <br><br> _Before class:_ <br> - CP Quiz on Moodles| **12/03: Hypothesis testing (F-test) + P-values** | **12/05: P-values** | - PP#8 is posted on the [Practice Problems](assignments.qmd) tab (due Saturday, Dec 06 at 11:59pm CT)|
+:::
+
+::: {.callout-note collapse="true" title="Week 15"}
+| Monday | Wednesday | Friday | Announcements |
+|:-------|:----------|:-------|:--------------|
+| **12/08: Project Day** | **12/10: Project Day** | Study Day | - Project Final paper (.pdf and .qmd; one from each group) and Project reflection (each student) is due (on Moodle) Wednesday, Dec 10 at 11:59pm CT)|
 :::

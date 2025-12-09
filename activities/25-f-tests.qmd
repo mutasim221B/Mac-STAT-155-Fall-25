@@ -320,6 +320,8 @@ F-tests are useful when the null hypothesis you wish to test is such that *more 
 
 # Additional Practice
 
+> Class Notes
+
 ## Exercise 4
 
 Repeat Exercise 3, supposing we are instead interested in the association between course grade and course level for classes of the same enrollment.
@@ -395,7 +397,7 @@ If we want to test the hypothesis which addresses whether or not the log(odds) /
 
 ```{r}
 mod_small <- glm(poisonous ~ gill_size, data = mushrooms, family = binomial)
-anova(mod_small, mod)
+anova(mod_small, mod, test="LRT")
 ```
 
 
